@@ -11,7 +11,11 @@ void ConsoleUI::run()
 {
     cout << "Please enter one of the following commands: " << endl;
     cout << "listajslkajsdklajsdlkajsdlkajsdlaksjdlaksdjalksjdr" << endl;
+<<<<<<< HEAD
     cout << "Halloooo";
+=======
+    cout << "Er þessi lína núna hjá ykkur?" << endl;
+>>>>>>> origin/master
     string command;
     cin >> command;
 
