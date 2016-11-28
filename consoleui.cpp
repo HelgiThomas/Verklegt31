@@ -15,6 +15,11 @@ void ConsoleUI::run()
     cout << "Halloooo";
 =======
     cout << "Er þessi lína núna hjá ykkur?" << endl;
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+
+    cout << "breyta aftur";
 >>>>>>> origin/master
     string command;
     cin >> command;
