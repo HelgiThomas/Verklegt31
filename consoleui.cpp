@@ -11,6 +11,7 @@ void ConsoleUI::run()
 {
     cout << "Please enter one of the following commands: " << endl;
     cout << "listajslkajsdklajsdlkajsdlkajsdlaksjdlaksdjalksjdr" << endl;
+    cout << "Halloooo";
     string command;
     cin >> command;
 
