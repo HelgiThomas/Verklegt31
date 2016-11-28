@@ -46,6 +46,7 @@ void ConsoleUI::run()
 
         cin >> name;
         cin >> sex;
+        cout << "yes please" << endl;
         cin >> birth;
         cin >> death;
 
