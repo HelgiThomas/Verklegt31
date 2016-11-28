@@ -12,7 +12,6 @@ void ConsoleUI::run()
     cout << "Please enter one of the following commands: " << endl;
     cout << "list - This will list all performers in the system " << endl;
     cout << "add - This will add a new performer" << endl;
-    cout << "this is a sync test please ignore" << endl;
     string command;
     cin >> command;
 
