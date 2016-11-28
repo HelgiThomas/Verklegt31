@@ -15,9 +15,13 @@ void ConsoleUI::run()
     cout << "Halloooo";
 =======
     cout << "Er þessi lína núna hjá ykkur?" << endl;
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 >>>>>>> origin/master
 =======
+=======
+    cout << "Prufa" << endl;
+>>>>>>> Stashed changes
 
     cout << "breyta aftur";
 >>>>>>> origin/master
