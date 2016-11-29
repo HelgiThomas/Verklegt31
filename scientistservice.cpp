@@ -11,8 +11,6 @@ ScientistService::ScientistService()
 
 vector <Scientist> ScientistService::getScientist()
 {
-
-
     return theList;
 }
 

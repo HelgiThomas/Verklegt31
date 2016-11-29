@@ -31,7 +31,7 @@ void ConsoleUI::run()
             cout << Scientists [i].getSex () << endl;
             cout << Scientists [i].getBirth () << endl;
             cout << Scientists [i].getDeath () << endl;
-            cout << "###################";
+            cout << "###################" << endl;
         }
 
     }
