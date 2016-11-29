@@ -2,11 +2,14 @@
 #include <string>
 #include "consoleui.h"
 #include "performer.h"
+
 using namespace std;
+
 ConsoleUI::ConsoleUI()
 {
 
 }
+
 void ConsoleUI::run()
 {
     cout << "Please enter one of the following commands: " << endl;
@@ -46,7 +49,8 @@ void ConsoleUI::run()
 
     }
 }
- void ConsoleUI::displayListOfPerfmers ()
- {
 
- }
+void ConsoleUI::displayListOfPerfmers ()
+{
+
+}
