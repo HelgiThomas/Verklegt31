@@ -5,6 +5,6 @@ using namespace std;
 int main()
 {
     ConsoleUI ui;
-    ConsoleUI.run();
+    ui.run();
     return 0;
 }

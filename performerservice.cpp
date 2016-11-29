@@ -1,4 +1,6 @@
 #include "performerservice.h"
+#include <vector>
+using namespace std;
 
 PerformerService::PerformerService()
 {
@@ -7,8 +9,8 @@ PerformerService::PerformerService()
 vector <Performer> PerformerService::getPerformers()
 {
     vector <Performer> performers;
-    Performer p ("Duran Duran", 56);
-    Performer p2 ("Madonna", 55);
+    Performer p ("Duran","Male",1950,2000);
+    Performer p2 ("Madonna", "Female",1500,1600);
 
     performers.push_back(p);
     performers.push_back(p2);

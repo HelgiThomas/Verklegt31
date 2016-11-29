@@ -10,21 +10,8 @@ ConsoleUI::ConsoleUI()
 void ConsoleUI::run()
 {
     cout << "Please enter one of the following commands: " << endl;
-    cout << "listajslkajsdklajsdlkajsdlkajsdlaksjdlaksdjalksjdr" << endl;
-<<<<<<< HEAD
-    cout << "Halloooo";
-=======
-    cout << "Er þessi lína núna hjá ykkur?" << endl;
-<<<<<<< Updated upstream
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
-=======
-    cout << "Prufa" << endl;
->>>>>>> Stashed changes
+    cout << "a" << endl;
 
-    cout << "breyta aftur";
->>>>>>> origin/master
     string command;
     cin >> command;
 
@@ -34,6 +21,9 @@ void ConsoleUI::run()
         for (unsigned int i = 0 ; i < performers.size();i++)
         {
             cout << performers [i].getName () << endl;
+            cout << performers [i].getSex () << endl;
+            cout << performers [i].getBirth () << endl;
+            cout << performers [i].getDeath () << endl;
         }
 
     }
@@ -44,16 +34,19 @@ void ConsoleUI::run()
         int birth;
         int death;
 
+        cout << "Name: ";
         cin >> name;
+        cout << "Sex: ";
         cin >> sex;
-        cout << "yes please" << endl;
+        cout << "Birth: ";
         cin >> birth;
+        cout << "Death: ";
         cin >> death;
 
 
     }
 }
- void ConsoleUi::displayListOfPerfmers ()
+ void ConsoleUI::displayListOfPerfmers ()
  {
 
  }
