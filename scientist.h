@@ -1,15 +1,15 @@
-#ifndef PERFORMER_H
-#define PERFORMER_H
+#ifndef SCIENTIST_H
+#define SCIENTIST_H
 
 #include <string>
 
 using namespace std;
 
-class Performer
+class Scientist
 {
 public:
-    Performer();
-    Performer (string name, string sex, int birth, int death);
+    Scientist();
+    Scientist(string name, string sex, int birth, int death);
     string getName () const;
     string getSex () const;
     int getBirth () const;

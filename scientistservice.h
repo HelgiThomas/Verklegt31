@@ -2,21 +2,20 @@
 #define PERFORMERSERVICE_H
 
 #include "scientist.h"
-
 #include <vector>
 
 using namespace std;
 
-class PerformerService
+class ScientistService
 {
 public:
-    PerformerService();
+    ScientistService();
 
-    vector <Performer> getPerformers();
-    void addPerformers (const Performer newPerformer);
+    vector<Scientist> getScientist();
+    void addScientist(const Scientist newScientist);
 
 private:
-    vector <Performer> theList;
+    vector<Scientist> theList;
 };
 
 #endif // PERFORMERSERVICE_H

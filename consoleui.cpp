@@ -1,7 +1,8 @@
-#include <iostream>
-#include <string>
 #include "consoleui.h"
 #include "scientist.h"
+
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -23,13 +24,13 @@ void ConsoleUI::run()
 
     if (command == "list")
     {
-        vector <Performer> performers = _service.getPerformers();
-        for (unsigned int i = 0 ; i < performers.size();i++)
+        vector <Scientist> Scientists = _service.getScientist();
+        for (unsigned int i = 0 ; i < Scientists.size();i++)
         {
-            cout << performers [i].getName () << endl;
-            cout << performers [i].getSex () << endl;
-            cout << performers [i].getBirth () << endl;
-            cout << performers [i].getDeath () << endl;
+            cout << Scientists [i].getName () << endl;
+            cout << Scientists [i].getSex () << endl;
+            cout << Scientists [i].getBirth () << endl;
+            cout << Scientists [i].getDeath () << endl;
             cout << "###################";
         }
 
@@ -50,14 +51,14 @@ void ConsoleUI::run()
         cout << "Death: ";
         cin >> death;
 
-        Performer newPerformer (name,sex,birth,death);
-        _service.addPerformers(newPerformer);
+        Scientist newScientist (name,sex,birth,death);
+        _service.addScientist(newScientist);
 
     }
     } while (1 < 2);
 }
 
-void ConsoleUI::displayListOfPerfmers ()
+void ConsoleUI::displayListOfScientists ()
 {
 
 }

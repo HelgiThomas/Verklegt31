@@ -2,11 +2,12 @@
 
 using namespace std;
 
-Performer::Performer()
+Scientist::Scientist()
 {
 
 }
-Performer::Performer (string name,string sex, int birth, int death)
+
+Scientist::Scientist(string name,string sex, int birth, int death)
 {
     _name = name;
     _sex = sex;
@@ -15,19 +16,22 @@ Performer::Performer (string name,string sex, int birth, int death)
 
 }
 
-string Performer::getName () const
+string Scientist::getName () const
 {
     return _name;
 }
-string Performer:: getSex () const
+
+string Scientist::getSex () const
 {
     return _sex;
 }
-int Performer::getBirth () const
+
+int Scientist::getBirth () const
 {
     return _birth;
 }
-int Performer:: getDeath () const
+
+int Scientist:: getDeath () const
 {
     return _death;
 }

@@ -8,13 +8,15 @@ ScientistService::ScientistService()
 {
 
 }
-vector <Scientist> ScientistService::getScientists()
+
+vector <Scientist> ScientistService::getScientist()
 {
 
 
     return theList;
 }
-void ScientistService::addScientists (const Scientist newScientist)
+
+void ScientistService::addScientist(const Scientist newScientist)
 {
    theList.push_back(newScientist);
 }

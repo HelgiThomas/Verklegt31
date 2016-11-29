@@ -10,8 +10,8 @@ public:
     void run ();
 
 private:
-    void displayListOfPerfmers ();
-    PerformerService _service;
+    void displayListOfScientists ();
+    ScientistService _service;
 };
 
 #endif // CONSOLEUI_H

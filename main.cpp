@@ -1,5 +1,6 @@
-#include <iostream>
 #include "consoleui.h"
+
+#include <iostream>
 
 using namespace std;
 
