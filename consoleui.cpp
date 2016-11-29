@@ -25,7 +25,7 @@ void ConsoleUI::run()
     string command;
     cin >> command;
 
-    if (command == "list" || command == "list" || command == "1")
+    if (command == "list" || command == "List" || command == "1")
     {
         list();
     }
