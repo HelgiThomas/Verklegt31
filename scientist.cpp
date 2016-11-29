@@ -7,6 +7,13 @@ Scientist::Scientist()
 
 }
 
+Scientist::Scientist(string name, string sex, int birth)
+{
+    _name = name;
+    _sex = sex;
+    _birth = birth;
+}
+
 Scientist::Scientist(string name,string sex, int birth, int death)
 {
     _name = name;

@@ -18,7 +18,8 @@ public:
 private:
     vector<Scientist> theList;
 
-    vector<Scientist> splitLine(string line);
+    vector<string> splitLine(string line);
+    int convertStringToInt(string s);
 };
 
 #endif // DATAACCESS_H

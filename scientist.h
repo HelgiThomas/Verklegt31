@@ -9,7 +9,9 @@ class Scientist
 {
 public:
     Scientist();
+    Scientist(string name, string sex, int birth);
     Scientist(string name, string sex, int birth, int death);
+
     string getName () const;
     string getSex () const;
     int getBirth () const;
