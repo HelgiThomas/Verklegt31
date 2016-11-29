@@ -1,6 +1,4 @@
 #include "dataaccess.h"
-#include <fstream>
-#include <iostream>
 
 using namespace std;
 
@@ -9,30 +7,63 @@ DataAccess::DataAccess()
 
 }
 
-void DataAccess::readToFile(vector<Scientist> scientist)
+void DataAccess::readToFile(Scientist scientist)
 {
+    ofstream outputfile ("ComputerScientist.txt,ios::app");
 
-    for (int i = 0; i < scientist.size(); i++)
-    {
-
-    }
+    outputfile << scientist.getName() << ",";
+    outputfile << scientist.getSex() << ",";
+    outputfile << scientist.getBirth() << ",";
+    outputfile << scientist.getDeath() << ",";
+    cout << endl;
+    outputfile.close();
 }
 
 vector<Scientist> DataAccess::readFromFile()
 {
     ifstream thefile;
-    vector<Scientist> line;
 
-    if (thefile.fail()){
-        cout << "File can't be opened!" << endl;
-        return 0;
+    thefile.open(filename.c_str());
+
+    vector<Scientist> sci;
+
+    if (thefile.is_open())
+    {
+        string line;
+        while(getline(thefile, line))
+        {
+            vector<string> inTheLine = splitLine(line, ",");
+        }
     }
 
-    while(!thefile.eof()){
-        getline(thefile, line);
+}
 
-        line.
+vector<Scientist> DataAccess::splitLine(string line)
+{
+    vector<string> output;
+
+    string cur = "";
+
+    for (int i = 0; i < line.length(); i++)
+    {
+        char pos = line[i];
+
+        if (pos == ",")
+        {
+            output.push_back(cur);
+            cur = "";
+        }
+        else
+        {
+            if (pos != '\n')
+            {
+                cur = cur + pos;
+            }
+        }
+
+        if (cur.length())
+        {
+
+        }
     }
-
-    thefile.close();
 }
