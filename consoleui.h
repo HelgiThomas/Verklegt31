@@ -8,6 +8,9 @@ class ConsoleUI
 public:
     ConsoleUI();
     void run ();
+    void clearScreen();
+    bool validName(string name);
+    bool validSex(string sex);
 
 private:
     void displayListOfScientists ();
