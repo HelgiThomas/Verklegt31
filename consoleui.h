@@ -14,6 +14,10 @@ public:
 
 private:
     void displayListOfScientists ();
+    void list();
+    void addSci();
+    void sortSci();
+
     ScientistService _service;
 };
 

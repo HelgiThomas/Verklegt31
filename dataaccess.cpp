@@ -1,5 +1,7 @@
 #include "dataaccess.h"
-#include <stdlib.h>
+
+#include <fstream>
+#include <cstdlib>
 
 
 using namespace std;
@@ -9,16 +11,38 @@ DataAccess::DataAccess()
 
 }
 
-void DataAccess::readToFile(Scientist scientist)
+bool DataAccess::readToFile(Scientist scientist)
 {
-    ofstream outputfile ("ComputerScientist.txt,ios::app");
+    ofstream thefile;
 
-    outputfile << scientist.getName() << ",";
-    outputfile << scientist.getSex() << ",";
-    outputfile << scientist.getBirth() << ",";
-    outputfile << scientist.getDeath() << ",";
-    cout << endl;
-    outputfile.close();
+    thefile.open("Scientist.txt");
+
+    if (thefile.is_open())
+    {
+        string name = scientist.getName();
+        string sex = scientist.getSex();
+        int birth = scientist.getBirth();
+        int death = scientist.getDeath();
+
+        thefile << name << ",";
+        thefile << sex << ",";
+        thefile << birth << ",";
+
+        if (death != 9999)
+        {
+            thefile << death << ",";
+        }
+
+        thefile << '\n';
+    }
+    else
+    {
+        return false;
+    }
+
+    thefile.close();
+
+    return true;
 }
 
 vector<Scientist> DataAccess::readFromFile()

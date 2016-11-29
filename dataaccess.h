@@ -1,9 +1,7 @@
 #ifndef DATAACCESS_H
 #define DATAACCESS_H
 
-#include "scientistservice.h"
-#include <iostream>
-#include <fstream>
+#include "scientist.h"
 #include <vector>
 #include <string>
 
@@ -12,7 +10,7 @@ class DataAccess
 public:
     DataAccess();
 
-    void readToFile(Scientist scientist);
+    bool readToFile(Scientist scientist);
     vector<Scientist> readFromFile();
 
 private:

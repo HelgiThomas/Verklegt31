@@ -1,6 +1,4 @@
 #include "scientistservice.h"
-#include "dataaccess.h"
-#include <vector>
 #include <algorithm>
 
 using namespace std;
@@ -9,35 +7,38 @@ ScientistService::ScientistService()
 {
 
 }
+
+vector<Scientist> ScientistService::getScientist()
+{
+    vector<Scientist> scientists = data.readFromFile();
+    return scientists;
+}
+
+bool ScientistService::addScientist(Scientist newScientist)
+{
+    return data.readToFile(newScientist);
+}
+
 struct ScientistCompareName
 {
     bool operator() (Scientist i,Scientist j) { return (i.getName()<j.getName());}
 };
+
 struct ScientistCompareSex
 {
     bool operator() (Scientist i,Scientist j) { return (i.getSex()<j.getSex());}
 };
+
 struct ScientistCompareBirth
 {
     bool operator() (Scientist i,Scientist j) { return (i.getBirth()<j.getBirth());}
 };
+
 struct ScientistCompareDeath
 {
     bool operator() (Scientist i,Scientist j) { return (i.getDeath()<j.getDeath());}
 };
 
-vector <Scientist> ScientistService::getScientist()
-{
-    DataAccess access;
-    listOfScientist = access.readFromFile();
-    return listOfScientist;
-}
-
-void ScientistService::addScientist(Scientist newScientist)
-{
-    DataAccess access;
-    access.readToFile(newScientist);
-}
 vector<Scientist> ScientistService :: sortByName()
 {
     vector<Scientist> scientists = getScientist();
@@ -77,10 +78,3 @@ vector<Scientist> ScientistService :: sortByDeath()
 
     return scientists;
 }
-/*
-void ScientistService::addToVector(string word)
-{
-    listOfScientist.push_back(word.str());
-}
-*/
-
