@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -24,6 +25,7 @@ void ConsoleUI::run()
 
     if (command == "list")
     {
+        clearScreen();
         vector <Scientist> Scientists = _service.getScientist();
         for (unsigned int i = 0 ; i < Scientists.size();i++)
         {
@@ -37,6 +39,7 @@ void ConsoleUI::run()
     }
     else if (command == "add")
     {
+        clearScreen();
         string name;
         string sex;
         int birth;
@@ -44,11 +47,23 @@ void ConsoleUI::run()
 
         cout << "Name: ";
         cin >> name;
+        while(!validName(name))
+        {
+            cout << "Invalid name!" << endl;
+            cout << "Name: " << endl;
+            cin >> name;
+        }
         cout << "Sex: ";
         cin >> sex;
-        cout << "Birth: ";
+        while(!validSex(sex))
+        {
+            cout << "Invalid sex!" << endl;
+            cout << "Sex: ";
+            cin >> sex;
+        }
+        cout << "Date of birth: ";
         cin >> birth;
-        cout << "Death: ";
+        cout << "Date of death: ";
         cin >> death;
 
         Scientist newScientist (name,sex,birth,death);
@@ -61,4 +76,32 @@ void ConsoleUI::run()
 void ConsoleUI::displayListOfScientists ()
 {
 
+}
+
+void ConsoleUI::clearScreen()
+{
+    system("cls");
+    system("clear");
+}
+
+bool ConsoleUI::validName(string name)
+{
+    bool valid = true;
+    for(unsigned int i = 0; i < name.size(); i++)
+    {
+        if(!(name[i] >= 'A' && name[i] < '[' || name[i] > '`' && name[i] <= 'z'))
+        {
+            valid = false;
+        }
+    }
+    return valid;
+}
+
+bool ConsoleUI::validSex(string sex)
+{
+    if(sex == "female" || sex == "male")
+    {
+        return true;
+    }
+    else return false;
 }
