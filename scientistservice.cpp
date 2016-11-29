@@ -4,17 +4,17 @@
 
 using namespace std;
 
-PerformerService::PerformerService()
+ScientistService::ScientistService()
 {
 
 }
-vector <Performer> PerformerService::getPerformers()
+vector <Scientist> ScientistService::getScientists()
 {
 
 
     return theList;
 }
-void PerformerService::addPerformers (const Performer newPerformer)
+void ScientistService::addScientists (const Scientist newScientist)
 {
-   theList.push_back(newPerformer);
+   theList.push_back(newScientist);
 }
