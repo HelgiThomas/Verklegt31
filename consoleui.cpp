@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "consoleui.h"
-#include "performer.h"
+#include "scientist.h"
 
 using namespace std;
 
@@ -14,8 +14,9 @@ void ConsoleUI::run()
 {
     do
     {
-    cout << "Please enter one of the following commands: " << endl;
-    cout << "a" << endl;
+    cout << "Please enter one of the following commands: " << endl << endl;
+    cout << "1. add" << endl;
+    cout << "2. list" << endl;
 
     string command;
     cin >> command;

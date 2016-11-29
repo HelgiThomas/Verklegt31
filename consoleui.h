@@ -1,7 +1,7 @@
 #ifndef CONSOLEUI_H
 #define CONSOLEUI_H
 
-#include "scientstservice.h"
+#include "scientistservice.h"
 
 class ConsoleUI
 {
@@ -11,7 +11,6 @@ public:
 
 private:
     void displayListOfPerfmers ();
-private:
     PerformerService _service;
 };
 
