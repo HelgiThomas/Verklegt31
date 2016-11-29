@@ -1,9 +1,9 @@
 #ifndef PERFORMERSERVICE_H
 #define PERFORMERSERVICE_H
 
+#include "scientist.h"
 
 #include <vector>
-#include "scientist.h"
 
 using namespace std;
 
