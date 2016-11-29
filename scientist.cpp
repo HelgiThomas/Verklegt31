@@ -1,4 +1,4 @@
-#include "performer.h"
+#include "scientist.h"
 
 using namespace std;
 
