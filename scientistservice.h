@@ -12,6 +12,10 @@ public:
     PerformerService();
 
     vector <Performer> getPerformers();
+    void addPerformers (const Performer newPerformer);
+
+private:
+    vector <Performer> theList;
 };
 
 #endif // PERFORMERSERVICE_H

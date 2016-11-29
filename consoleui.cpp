@@ -12,6 +12,8 @@ ConsoleUI::ConsoleUI()
 
 void ConsoleUI::run()
 {
+    do
+    {
     cout << "Please enter one of the following commands: " << endl;
     cout << "a" << endl;
 
@@ -27,6 +29,7 @@ void ConsoleUI::run()
             cout << performers [i].getSex () << endl;
             cout << performers [i].getBirth () << endl;
             cout << performers [i].getDeath () << endl;
+            cout << "###################";
         }
 
     }
@@ -46,8 +49,11 @@ void ConsoleUI::run()
         cout << "Death: ";
         cin >> death;
 
+        Performer newPerformer (name,sex,birth,death);
+        _service.addPerformers(newPerformer);
 
     }
+    } while (1 < 2);
 }
 
 void ConsoleUI::displayListOfPerfmers ()
