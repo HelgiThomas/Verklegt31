@@ -113,7 +113,7 @@ bool ConsoleUI::validName(string name)
     bool valid = true;
     for(unsigned int i = 0; i < name.size(); i++)
     {
-        if(!(name[i] >= 'A' && name[i] < '[' || name[i] > '`' && name[i] <= 'z'))
+        if(!((name[i] >= 'A' && name[i] < '[') || (name[i] > '`' && name[i] <= 'z')))
         {
             valid = false;
         }
