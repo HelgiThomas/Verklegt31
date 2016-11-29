@@ -1,4 +1,5 @@
 #include "scientistservice.h"
+#incldue "dataaccess.h"
 
 #include <vector>
 
@@ -11,12 +12,12 @@ ScientistService::ScientistService()
 
 vector <Scientist> ScientistService::getScientist()
 {
-
-
-    return theList;
+    listOfScientist = access.readFromFile();
+    return listOfScientist;
 }
 
 void ScientistService::addScientist(const Scientist newScientist)
 {
-   theList.push_back(newScientist);
+    access.readToFile(newScientist);
 }
+

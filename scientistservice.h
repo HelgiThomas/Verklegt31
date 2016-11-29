@@ -2,6 +2,7 @@
 #define PERFORMERSERVICE_H
 
 #include "scientist.h"
+#include "dataaccess.h"
 #include <vector>
 
 using namespace std;
@@ -15,7 +16,8 @@ public:
     void addScientist(const Scientist newScientist);
 
 private:
-    vector<Scientist> theList;
+    vector<Scientist> listOfScientist;
+    DataAccess access;
 };
 
 #endif // PERFORMERSERVICE_H
