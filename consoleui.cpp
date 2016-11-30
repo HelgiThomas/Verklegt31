@@ -66,7 +66,7 @@ void ConsoleUI::addSci()
     string strBirth;
     string strDeath;
     int birth;
-    int death = birth;
+    int death;
 
     cout << "Name: ";
     cin >> name;
@@ -105,8 +105,8 @@ void ConsoleUI::addSci()
             cout << "Invalid input!" << endl;
             cout << "Year of death: ";
             cin >> strDeath;
-            death = atoi(strDeath.c_str());
         }
+    death = atoi(strDeath.c_str());
 
     Scientist newScientist (name,sex,birth,death);
     _service.addScientist(newScientist);
