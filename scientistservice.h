@@ -12,14 +12,15 @@ public:
     ScientistService();
 
     vector<Scientist> getScientist();
-    bool addScientist(Scientist newScientist);
+    void addScientist(Scientist newScientist);
     vector<Scientist> sortByName();
     vector<Scientist> sortBySex();
     vector<Scientist> sortByBirth();
     vector<Scientist> sortByDeath();
 
 private:
-    DataAccess data;
+    vector<Scientist> listOfScientist;
+    DataAccess _access;
 };
 
 #endif // PERFORMERSERVICE_H

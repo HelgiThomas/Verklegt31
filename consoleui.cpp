@@ -48,13 +48,13 @@ void ConsoleUI::list()
 {
     clearScreen();
     vector <Scientist> Scientists = _service.getScientist();
-    for (unsigned int i = 0 ; i < Scientists.size();i++)
+    for (unsigned int i = 0 ; i < Scientists.size()-1;i++)
     {
-        cout << Scientists [i].getName () << endl;
-        cout << Scientists [i].getSex () << endl;
-        cout << Scientists [i].getBirth () << endl;
-        cout << Scientists [i].getDeath () << endl;
-        cout << "###################" << endl;
+        cout << Scientists [i].getName () << " ";
+        cout << Scientists [i].getSex () << " ";
+        cout << Scientists [i].getBirth () << " ";
+        cout << Scientists [i].getDeath () << " " << endl;
+        cout << "--------------------" << endl;
     }
 }
 

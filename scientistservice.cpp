@@ -1,5 +1,6 @@
 #include "scientistservice.h"
-#include <algorithm>
+#include "algorithm"
+
 
 using namespace std;
 
@@ -8,16 +9,18 @@ ScientistService::ScientistService()
 
 }
 
-vector<Scientist> ScientistService::getScientist()
+vector <Scientist> ScientistService::getScientist()
 {
-    vector<Scientist> scientists = data.readFromFile();
-    return scientists;
+
+    listOfScientist = _access.readFromFile();
+    return listOfScientist;
 }
 
-bool ScientistService::addScientist(Scientist newScientist)
+void ScientistService::addScientist(Scientist newScientist)
 {
-    return data.readToFile(newScientist);
+    _access.readToFile(newScientist);
 }
+
 
 struct ScientistCompareName
 {
