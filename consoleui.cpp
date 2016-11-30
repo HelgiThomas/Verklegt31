@@ -228,7 +228,7 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
     clearScreen();
     for (unsigned int i = 0 ; i < Scientist.size();i++)
     {
-        cout << setw(lengthOfLongestName(Scientist));
+        cout << setw(lengthOfLongestName(Scientist)) << left;
         cout << Scientist [i].getName () << "\t\t";
         cout << Scientist [i].getSex () << "\t\t";
         cout << Scientist [i].getBirth () << "\t\t";
