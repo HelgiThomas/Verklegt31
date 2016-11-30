@@ -41,6 +41,10 @@ void ConsoleUI::run()
     {
         exit(10);
     }
+    else
+    {
+        cout << "Invalid command!" << endl;
+    }
     } while (1 < 2);
 }
 
