@@ -164,7 +164,7 @@ void ConsoleUI::sortSci()
     {
         vector<Scientist> Scientist = _service.sortByDeath();
 
-        for (unsigned int i = 0 ; i < Scientist.size();i++)
+        for (unsigned int i = 0 ; i < Scientist.size()-1;i++)
         {
             cout << Scientist [i].getName () << "\t\t";
             cout << Scientist [i].getSex () << "\t\t";
