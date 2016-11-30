@@ -74,7 +74,7 @@ void ConsoleUI::addSci()
     {
         cout << "Invalid name!" << endl;
         cout << "Name: " << endl;
-        cin >> name;
+        cin.getline(name);
     }
     cout << "Sex: ";
     cin >> sex;
