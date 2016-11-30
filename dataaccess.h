@@ -14,6 +14,7 @@ public:
     DataAccess();
 
     void readToFile(Scientist scientist);
+    bool checkEntry (Scientist scientist);
     vector<Scientist> readFromFile();
 
 private:
