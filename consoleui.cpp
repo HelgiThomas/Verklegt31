@@ -197,14 +197,27 @@ void ConsoleUI::reversedSortSci()
 void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 {
     clearScreen();
+    cout << setw(lengthOfLongestName(Scientist)) << left;
+    cout << "Name" << "\t\t";
+    cout << "Sex" << " \t\t";
+    cout << "Birth" << "\t\t";
+    cout << "Death" << "\t\t" << endl;
+
+    for(int i = 0; i < (lengthOfLongestName(Scientist) + 50); i++)
+    {
+        cout << "-";
+    }
+    cout << endl;
     for (unsigned int i = 0 ; i < Scientist.size();i++)
     {
+
         cout << setw(lengthOfLongestName(Scientist)) << left;
-        cout << Scientist [i].getName () << "\t\t";
-        cout << Scientist [i].getSex () << "\t\t";
-        cout << Scientist [i].getBirth () << "\t\t";
+        cout << Scientist [i].getName () << "\t | \t";
+        cout << Scientist [i].getSex () << "\t | \t";
+        cout << Scientist [i].getBirth () << "\t | \t";
         cout << Scientist [i].getDeath () << "\t\t" << endl;
     }
+    cout << endl;
 }
 
 void ConsoleUI::clearScreen()
