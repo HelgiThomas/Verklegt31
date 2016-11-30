@@ -216,11 +216,12 @@ bool ConsoleUI::validSex(string sex)
     else return false;
 }
 
-bool ConsoleUI::validYear(string year)
+bool ConsoleUI::validYear(string strYear)
 {
-    for(int i = 0; i < year.size(); i++)
+    int year = atoi(strYear.c_str());
+    for(int i = 0; i < strYear.size(); i++)
         {
-            if(isalpha(year.at(i)))
+            if(isalpha(strYear.at(i)) || year > 2016)
             {
                 return false;
             }
