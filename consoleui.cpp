@@ -52,7 +52,7 @@ void ConsoleUI::list()
 {
     clearScreen();
     vector <Scientist> Scientists = _service.getScientist();
-    for (unsigned int i = 0 ; i < Scientists.size()-1;i++)
+    for (unsigned int i = 0 ; i < Scientists.size();i++)
     {
         cout << Scientists [i].getName () << "\t\t";
         cout << Scientists [i].getSex () << "\t\t";
@@ -132,7 +132,7 @@ void ConsoleUI::sortSci()
     {
         vector<Scientist> Scientist = _service.sortByName();
 
-        for (unsigned int i = 1 ; i < Scientist.size();i++)
+        for (unsigned int i = 0 ; i < Scientist.size();i++)
         {
             cout << Scientist [i].getName () << "\t\t";
             cout << Scientist [i].getSex () << "\t\t";
@@ -144,7 +144,7 @@ void ConsoleUI::sortSci()
     {
         vector<Scientist> Scientist = _service.sortBySex();
 
-        for (unsigned int i = 1 ; i < Scientist.size();i++)
+        for (unsigned int i = 0 ; i < Scientist.size();i++)
         {
             cout << Scientist [i].getName () << "\t\t";
             cout << Scientist [i].getSex () << "\t\t";
@@ -168,7 +168,7 @@ void ConsoleUI::sortSci()
     {
         vector<Scientist> Scientist = _service.sortByDeath();
 
-        for (unsigned int i = 0 ; i < Scientist.size()-1;i++)
+        for (unsigned int i = 0 ; i < Scientist.size();i++)
         {
             cout << Scientist [i].getName () << "\t\t";
             cout << Scientist [i].getSex () << "\t\t";

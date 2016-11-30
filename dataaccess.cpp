@@ -9,19 +9,27 @@ DataAccess::DataAccess()
 
 void DataAccess::readToFile(Scientist scientist)
 {
+    int temp = 0;
     if (checkEntry (scientist))
      {
         cout << "An entry like that already exists!" << endl;
      }
     else
+    { if (temp > 0)
+        {
+            ofstream outputfile ("ComputerScientist.txt",ios::app);
+            outputfile << endl;
+            outputfile.close();
+        }
      {
         ofstream outputfile ("ComputerScientist.txt",ios::app);
         outputfile << scientist.getName() << endl;
         outputfile << scientist.getSex() << endl;
         outputfile << scientist.getBirth() << endl;
-        outputfile << scientist.getDeath() << endl;
+        outputfile << scientist.getDeath();
         outputfile.close();
      }
+      }
 
 }
 
