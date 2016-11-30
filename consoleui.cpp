@@ -296,7 +296,7 @@ bool ConsoleUI::validSex(string sex)
 bool ConsoleUI::validYear(string strYear)
 {
     int year = atoi(strYear.c_str());
-    for(int i = 0; i < strYear.size(); i++)
+    for(unsigned int i = 0; i < strYear.size(); i++)
         {
             if(isalpha(strYear.at(i)) || year > 2016)
             {
@@ -321,7 +321,7 @@ bool ConsoleUI::validDeath(int birth, string strDeath)
 int ConsoleUI::lengthOfLongestName(vector<Scientist> scientists)
 {
     Scientist temp;
-    for(int i = 0; i < scientists.size(); i++)
+    for(unsigned int i = 0; i < scientists.size(); i++)
     {
         if(temp.getName().size() < scientists[i].getName().size())
         {
