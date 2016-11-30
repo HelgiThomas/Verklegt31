@@ -13,6 +13,7 @@ public:
     bool validSex(string sex);
     bool validYear(string year);
     bool validDeath(int birth, string strDeath);
+    int lengthOfLongestName(vector<Scientist> scientists);
 
 private:
     void displayListOfScientists ();

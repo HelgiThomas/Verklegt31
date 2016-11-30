@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -54,6 +55,7 @@ void ConsoleUI::list()
     vector <Scientist> Scientists = _service.getScientist();
     for (unsigned int i = 0 ; i < Scientists.size();i++)
     {
+        cout << setw(lengthOfLongestName(Scientists));
         cout << Scientists [i].getName () << "\t\t";
         cout << Scientists [i].getSex () << "\t\t";
         cout << Scientists [i].getBirth () << "\t\t";
@@ -119,6 +121,7 @@ void ConsoleUI::addSci()
 
 void ConsoleUI::sortSci()
 {
+    clearScreen();
     cout << "What would you like to sort it by?" << endl;
     cout << "1. Name" << endl;
     cout << "2. Sex" << endl;
@@ -170,6 +173,7 @@ void ConsoleUI::sortSci()
 
         for (unsigned int i = 0 ; i < Scientist.size();i++)
         {
+            cout << setw(10);
             cout << Scientist [i].getName () << "\t\t";
             cout << Scientist [i].getSex () << "\t\t";
             cout << Scientist [i].getBirth () << "\t\t";
@@ -239,4 +243,17 @@ bool ConsoleUI::validDeath(int birth, string strDeath)
         return false;
     }
     else return true;
+}
+
+int ConsoleUI::lengthOfLongestName(vector<Scientist> scientists)
+{
+    Scientist temp;
+    for(int i = 0; i < scientists.size(); i++)
+    {
+        if(temp.getName().size() < scientists[i].getName().size())
+        {
+            temp = scientists[i];
+        }
+    }
+    return temp.getName().size();
 }
