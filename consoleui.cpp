@@ -56,16 +56,8 @@ void ConsoleUI::run()
 
 void ConsoleUI::list()
 {
-    clearScreen();
-    vector <Scientist> Scientists = _service.getScientist();
-    for (unsigned int i = 0 ; i < Scientists.size();i++)
-    {
-        cout << setw(lengthOfLongestName(Scientists));
-        cout << Scientists [i].getName () << "\t\t";
-        cout << Scientists [i].getSex () << "\t\t";
-        cout << Scientists [i].getBirth () << "\t\t";
-        cout << Scientists [i].getDeath () << "\t\t" << endl;
-    }
+    vector <Scientist> Scientist = _service.getScientist();
+    displayListOfScientists(Scientist);
     cout << endl;
 }
 
@@ -139,51 +131,22 @@ void ConsoleUI::sortSci()
     if(command == "name" || command == "Name" || command == "1")
     {
         vector<Scientist> Scientist = _service.sortByName();
-
-        for (unsigned int i = 0 ; i < Scientist.size();i++)
-        {
-            cout << Scientist [i].getName () << "\t\t";
-            cout << Scientist [i].getSex () << "\t\t";
-            cout << Scientist [i].getBirth () << "\t\t";
-            cout << Scientist [i].getDeath () << "\t\t" << endl;
-        }
+        displayListOfScientists(Scientist);
     }
     else if(command == "sex" || command == "Sex" || command == "2")
     {
         vector<Scientist> Scientist = _service.sortBySex();
-
-        for (unsigned int i = 0 ; i < Scientist.size();i++)
-        {
-            cout << Scientist [i].getName () << "\t\t";
-            cout << Scientist [i].getSex () << "\t\t";
-            cout << Scientist [i].getBirth () << "\t\t";
-            cout << Scientist [i].getDeath () << "\t\t" << endl;
-        }
+        displayListOfScientists(Scientist);
     }
     else if(command == "birth" || command == "Birth" || command == "3")
     {
         vector<Scientist> Scientist = _service.sortByBirth();
-
-        for (unsigned int i = 0 ; i < Scientist.size();i++)
-        {
-            cout << Scientist [i].getName () << "\t\t";
-            cout << Scientist [i].getSex () << "\t\t";
-            cout << Scientist [i].getBirth () << "\t\t";
-            cout << Scientist [i].getDeath () << "\t\t" << endl;
-        }
+        displayListOfScientists(Scientist);
     }
     else if(command == "death" || command == "Death" || command == "4")
     {
         vector<Scientist> Scientist = _service.sortByDeath();
-
-        for (unsigned int i = 0 ; i < Scientist.size();i++)
-        {
-            cout << setw(10);
-            cout << Scientist [i].getName () << "\t\t";
-            cout << Scientist [i].getSex () << "\t\t";
-            cout << Scientist [i].getBirth () << "\t\t";
-            cout << Scientist [i].getDeath () << "\t\t" << endl;
-        }
+        displayListOfScientists(Scientist);
     }
     else
     {
@@ -260,9 +223,17 @@ void ConsoleUI::reversedSortSci()
     }
 }
 
-void ConsoleUI::displayListOfScientists ()
+void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 {
-
+    clearScreen();
+    for (unsigned int i = 0 ; i < Scientist.size();i++)
+    {
+        cout << setw(lengthOfLongestName(Scientist));
+        cout << Scientist [i].getName () << "\t\t";
+        cout << Scientist [i].getSex () << "\t\t";
+        cout << Scientist [i].getBirth () << "\t\t";
+        cout << Scientist [i].getDeath () << "\t\t" << endl;
+    }
 }
 
 void ConsoleUI::clearScreen()
