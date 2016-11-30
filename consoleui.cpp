@@ -41,10 +41,6 @@ void ConsoleUI::run()
     {
         exit(10);
     }
-    else
-    {
-        cout << "Invalid command!" << endl;
-    }
     } while (1 < 2);
 }
 
@@ -114,6 +110,7 @@ void ConsoleUI::addSci()
 
     Scientist newScientist (name,sex,birth,death);
     _service.addScientist(newScientist);
+
 }
 
 void ConsoleUI::sortSci()
