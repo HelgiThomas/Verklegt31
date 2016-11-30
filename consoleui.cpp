@@ -122,6 +122,7 @@ void ConsoleUI::addSci()
      death = 0;
     Scientist newScientist (name,sex,birth,death);
     _service.addScientist(newScientist);
+    cout << "Scientist added." << endl << endl;
 
 }
 
