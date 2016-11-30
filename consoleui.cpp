@@ -66,7 +66,7 @@ void ConsoleUI::addSci()
     string strBirth;
     string strDeath;
     int birth;
-    int death;
+    int death = birth;
 
     cout << "Name: ";
     cin >> name;
@@ -100,7 +100,7 @@ void ConsoleUI::addSci()
     cout << "Year of death: ";
     cin >> strDeath;
 
-    while(validYear(strDeath) == false || death < birth)
+    while(validYear(strDeath) == false || validDeath(birth, strDeath) == false)
         {
             cout << "Invalid input!" << endl;
             cout << "Year of death: ";
@@ -162,4 +162,15 @@ bool ConsoleUI::validYear(string year)
 
         }
     return true;
+}
+
+bool ConsoleUI::validDeath(int birth, string strDeath)
+{
+    int death;
+    death = atoi(strDeath.c_str());
+    if(birth > death)
+    {
+        return false;
+    }
+    else return true;
 }

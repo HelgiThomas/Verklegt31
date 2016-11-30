@@ -12,6 +12,7 @@ public:
     bool validName(string name);
     bool validSex(string sex);
     bool validYear(string year);
+    bool validDeath(int birth, string strDeath);
 
 private:
     void displayListOfScientists ();
