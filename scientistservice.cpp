@@ -42,6 +42,26 @@ struct ScientistCompareDeath
     bool operator() (Scientist i,Scientist j) { return (i.getDeath()<j.getDeath());}
 };
 
+struct ScientistCompareNameReverse
+{
+    bool operator() (Scientist i,Scientist j) { return (i.getName()>j.getName());}
+};
+
+struct ScientistCompareSexReverse
+{
+    bool operator() (Scientist i,Scientist j) { return (i.getSex()>j.getSex());}
+};
+
+struct ScientistCompareBirthReverse
+{
+    bool operator() (Scientist i,Scientist j) { return (i.getBirth()>j.getBirth());}
+};
+
+struct ScientistCompareDeathReverse
+{
+    bool operator() (Scientist i,Scientist j) { return (i.getDeath()>j.getDeath());}
+};
+
 vector<Scientist> ScientistService::sortByName()
 {
     vector<Scientist> scientists = getScientist();
@@ -77,6 +97,46 @@ vector<Scientist> ScientistService::sortByDeath()
     vector<Scientist> scientists = getScientist();
 
     ScientistCompareDeath cmp;
+    std::sort(scientists.begin(), scientists.end(), cmp);
+
+    return scientists;
+}
+
+vector<Scientist> ScientistService::sortByNameReverse()
+{
+    vector<Scientist> scientists = getScientist();
+
+    ScientistCompareNameReverse cmp;
+    std::sort(scientists.begin(), scientists.end(), cmp);
+
+    return scientists;
+}
+
+vector<Scientist> ScientistService::sortBySexReverse()
+{
+    vector<Scientist> scientists = getScientist();
+
+    ScientistCompareSexReverse cmp;
+    std::sort(scientists.begin(), scientists.end(), cmp);
+
+    return scientists;
+}
+
+vector<Scientist> ScientistService::sortByBirthReverse()
+{
+    vector<Scientist> scientists = getScientist();
+
+    ScientistCompareBirthReverse cmp;
+    std::sort(scientists.begin(), scientists.end(), cmp);
+
+    return scientists;
+}
+
+vector<Scientist> ScientistService::sortByDeathReverse()
+{
+    vector<Scientist> scientists = getScientist();
+
+    ScientistCompareDeathReverse cmp;
     std::sort(scientists.begin(), scientists.end(), cmp);
 
     return scientists;

@@ -20,6 +20,7 @@ private:
     void list();
     void addSci();
     void sortSci();
+    void reversedSortSci();
 
     ScientistService _service;
 };

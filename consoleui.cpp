@@ -20,8 +20,9 @@ void ConsoleUI::run()
     cout << "Please enter one of the following commands: " << endl << endl;
     cout << "1. Add" << endl;
     cout << "2. List" << endl;
-    cout << "3. Sort" << endl;
-    cout << "4. Quit" << endl << endl;
+    cout << "3. Reversed sort" << endl;
+    cout << "4. Sort" << endl;
+    cout << "5. Quit" << endl << endl;
 
     string command;
     cin >> command;
@@ -34,11 +35,15 @@ void ConsoleUI::run()
     {
         list();
     }
-    else if (command == "sort" || command == "Sort" || command == "3")
+    else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "3")
+    {
+        reversedSortSci();
+    }
+    else if (command == "sort" || command == "Sort" || command == "4")
     {
         sortSci();
     }
-    else if (command == "quit" || command == "Quit" || command == "4")
+    else if (command == "quit" || command == "Quit" || command == "5")
     {
         exit(10);
     }
@@ -184,6 +189,74 @@ void ConsoleUI::sortSci()
     {
         cout << "Invalid sort!" << endl;
         sortSci();
+    }
+}
+
+void ConsoleUI::reversedSortSci()
+{
+    clearScreen();
+    cout << "What would you like to reverse sort it by?" << endl;
+    cout << "1. Name" << endl;
+    cout << "2. Sex" << endl;
+    cout << "3. Birth" << endl;
+    cout << "4. Death" << endl << endl;
+
+    string command;
+    cin >> command;
+
+    if(command == "name" || command == "Name" || command == "1")
+    {
+        vector<Scientist> Scientist = _service.sortByNameReverse();
+
+        for (unsigned int i = 0 ; i < Scientist.size();i++)
+        {
+            cout << Scientist [i].getName () << "\t\t";
+            cout << Scientist [i].getSex () << "\t\t";
+            cout << Scientist [i].getBirth () << "\t\t";
+            cout << Scientist [i].getDeath () << "\t\t" << endl;
+        }
+    }
+    else if(command == "sex" || command == "Sex" || command == "2")
+    {
+        vector<Scientist> Scientist = _service.sortBySexReverse();
+
+        for (unsigned int i = 0 ; i < Scientist.size();i++)
+        {
+            cout << Scientist [i].getName () << "\t\t";
+            cout << Scientist [i].getSex () << "\t\t";
+            cout << Scientist [i].getBirth () << "\t\t";
+            cout << Scientist [i].getDeath () << "\t\t" << endl;
+        }
+    }
+    else if(command == "birth" || command == "Birth" || command == "3")
+    {
+        vector<Scientist> Scientist = _service.sortByBirthReverse();
+
+        for (unsigned int i = 0 ; i < Scientist.size();i++)
+        {
+            cout << Scientist [i].getName () << "\t\t";
+            cout << Scientist [i].getSex () << "\t\t";
+            cout << Scientist [i].getBirth () << "\t\t";
+            cout << Scientist [i].getDeath () << "\t\t" << endl;
+        }
+    }
+    else if(command == "death" || command == "Death" || command == "4")
+    {
+        vector<Scientist> Scientist = _service.sortByDeathReverse();
+
+        for (unsigned int i = 0 ; i < Scientist.size();i++)
+        {
+            cout << setw(10);
+            cout << Scientist [i].getName () << "\t\t";
+            cout << Scientist [i].getSex () << "\t\t";
+            cout << Scientist [i].getBirth () << "\t\t";
+            cout << Scientist [i].getDeath () << "\t\t" << endl;
+        }
+    }
+    else
+    {
+        cout << "Invalid sort!" << endl;
+        reversedSortSci();
     }
 }
 

@@ -17,6 +17,10 @@ public:
     vector<Scientist> sortBySex();
     vector<Scientist> sortByBirth();
     vector<Scientist> sortByDeath();
+    vector<Scientist> sortByNameReverse();
+    vector<Scientist> sortBySexReverse();
+    vector<Scientist> sortByBirthReverse();
+    vector<Scientist> sortByDeathReverse();
 
 private:
     vector<Scientist> listOfScientist;
