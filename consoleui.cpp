@@ -25,13 +25,13 @@ void ConsoleUI::run()
     string command;
     cin >> command;
 
-    if (command == "list" || command == "List" || command == "1")
-    {
-        list();
-    }
-    else if (command == "add" || command == "Add" || command == "2")
+    if (command == "add" || command == "Add" || command == "1")
     {
         addSci();
+    }
+    else if (command == "list" || command == "List" || command == "2")
+    {
+        list();
     }
     else if (command == "sort" || command == "Sort" || command == "3")
     {
