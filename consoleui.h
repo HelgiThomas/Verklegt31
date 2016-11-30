@@ -11,6 +11,7 @@ public:
     void clearScreen();
     bool validName(string name);
     bool validSex(string sex);
+    bool validYear(string year);
 
 private:
     void displayListOfScientists ();

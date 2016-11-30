@@ -63,6 +63,8 @@ void ConsoleUI::addSci()
     clearScreen();
     string name;
     string sex;
+    string strBirth;
+    string strDeath;
     int birth;
     int death;
 
@@ -82,10 +84,29 @@ void ConsoleUI::addSci()
         cout << "Sex: ";
         cin >> sex;
     }
-    cout << "Date of birth: ";
-    cin >> birth;
-    cout << "Date of death: ";
-    cin >> death;
+
+    cout << "Year of birth: ";
+    cin >> strBirth;
+
+    while(validYear(strBirth) == false)
+        {
+            cout << "Invalid input!" << endl;
+            cout << "Year of birth: ";
+            cin >> strBirth;
+        }
+
+    birth = atoi(strBirth.c_str());
+
+    cout << "Year of death: ";
+    cin >> strDeath;
+
+    while(validYear(strDeath) == false || death < birth)
+        {
+            cout << "Invalid input!" << endl;
+            cout << "Year of death: ";
+            cin >> strDeath;
+            death = atoi(strDeath.c_str());
+        }
 
     Scientist newScientist (name,sex,birth,death);
     _service.addScientist(newScientist);
@@ -128,4 +149,17 @@ bool ConsoleUI::validSex(string sex)
         return true;
     }
     else return false;
+}
+
+bool ConsoleUI::validYear(string year)
+{
+    for(int i = 0; i < year.size(); i++)
+        {
+            if(isalpha(year.at(i)))
+            {
+                return false;
+            }
+
+        }
+    return true;
 }
