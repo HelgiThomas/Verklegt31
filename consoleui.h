@@ -16,7 +16,7 @@ public:
     int lengthOfLongestName(vector<Scientist> scientists);
 
 private:
-    void displayListOfScientists ();
+    void displayListOfScientists(vector<Scientist> Scientist);
     void list();
     void addSci();
     void sortSci();
