@@ -50,12 +50,12 @@ void ConsoleUI::list()
     vector <Scientist> Scientists = _service.getScientist();
     for (unsigned int i = 0 ; i < Scientists.size()-1;i++)
     {
-        cout << Scientists [i].getName () << " ";
-        cout << Scientists [i].getSex () << " ";
-        cout << Scientists [i].getBirth () << " ";
-        cout << Scientists [i].getDeath () << " " << endl;
-        cout << "--------------------" << endl;
+        cout << Scientists [i].getName () << "\t\t";
+        cout << Scientists [i].getSex () << "\t\t";
+        cout << Scientists [i].getBirth () << "\t\t";
+        cout << Scientists [i].getDeath () << "\t\t" << endl;
     }
+    cout << endl;
 }
 
 void ConsoleUI::addSci()
@@ -115,7 +115,68 @@ void ConsoleUI::addSci()
 
 void ConsoleUI::sortSci()
 {
+    cout << "What would you like to sort it by?" << endl;
+    cout << "1. Name" << endl;
+    cout << "2. Sex" << endl;
+    cout << "3. Birth" << endl;
+    cout << "4. Death" << endl << endl;
 
+    string command;
+    cin >> command;
+
+    if(command == "name" || command == "Name" || command == "1")
+    {
+        vector<Scientist> Scientist = _service.sortByName();
+
+        for (unsigned int i = 1 ; i < Scientist.size();i++)
+        {
+            cout << Scientist [i].getName () << "\t\t";
+            cout << Scientist [i].getSex () << "\t\t";
+            cout << Scientist [i].getBirth () << "\t\t";
+            cout << Scientist [i].getDeath () << "\t\t" << endl;
+        }
+    }
+    else if(command == "sex" || command == "Sex" || command == "2")
+    {
+        vector<Scientist> Scientist = _service.sortBySex();
+
+        for (unsigned int i = 1 ; i < Scientist.size();i++)
+        {
+            cout << Scientist [i].getName () << "\t\t";
+            cout << Scientist [i].getSex () << "\t\t";
+            cout << Scientist [i].getBirth () << "\t\t";
+            cout << Scientist [i].getDeath () << "\t\t" << endl;
+        }
+    }
+    else if(command == "birth" || command == "Birth" || command == "3")
+    {
+        vector<Scientist> Scientist = _service.sortByBirth();
+
+        for (unsigned int i = 0 ; i < Scientist.size();i++)
+        {
+            cout << Scientist [i].getName () << "\t\t";
+            cout << Scientist [i].getSex () << "\t\t";
+            cout << Scientist [i].getBirth () << "\t\t";
+            cout << Scientist [i].getDeath () << "\t\t" << endl;
+        }
+    }
+    else if(command == "death" || command == "Death" || command == "4")
+    {
+        vector<Scientist> Scientist = _service.sortByDeath();
+
+        for (unsigned int i = 0 ; i < Scientist.size();i++)
+        {
+            cout << Scientist [i].getName () << "\t\t";
+            cout << Scientist [i].getSex () << "\t\t";
+            cout << Scientist [i].getBirth () << "\t\t";
+            cout << Scientist [i].getDeath () << "\t\t" << endl;
+        }
+    }
+    else
+    {
+        cout << "Invalid sort!" << endl;
+        sortSci();
+    }
 }
 
 void ConsoleUI::displayListOfScientists ()

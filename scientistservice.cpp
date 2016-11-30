@@ -42,7 +42,7 @@ struct ScientistCompareDeath
     bool operator() (Scientist i,Scientist j) { return (i.getDeath()<j.getDeath());}
 };
 
-vector<Scientist> ScientistService :: sortByName()
+vector<Scientist> ScientistService::sortByName()
 {
     vector<Scientist> scientists = getScientist();
 
@@ -52,7 +52,7 @@ vector<Scientist> ScientistService :: sortByName()
     return scientists;
 }
 
-vector<Scientist> ScientistService :: sortBySex()
+vector<Scientist> ScientistService::sortBySex()
 {
     vector<Scientist> scientists = getScientist();
 
@@ -62,7 +62,7 @@ vector<Scientist> ScientistService :: sortBySex()
     return scientists;
 }
 
-vector<Scientist> ScientistService :: sortByBirth()
+vector<Scientist> ScientistService::sortByBirth()
 {
     vector<Scientist> scientists = getScientist();
 
@@ -72,7 +72,7 @@ vector<Scientist> ScientistService :: sortByBirth()
     return scientists;
 }
 
-vector<Scientist> ScientistService :: sortByDeath()
+vector<Scientist> ScientistService::sortByDeath()
 {
     vector<Scientist> scientists = getScientist();
 
