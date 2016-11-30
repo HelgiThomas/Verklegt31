@@ -170,51 +170,22 @@ void ConsoleUI::reversedSortSci()
     if(command == "name" || command == "Name" || command == "1")
     {
         vector<Scientist> Scientist = _service.sortByNameReverse();
-
-        for (unsigned int i = 0 ; i < Scientist.size();i++)
-        {
-            cout << Scientist [i].getName () << "\t\t";
-            cout << Scientist [i].getSex () << "\t\t";
-            cout << Scientist [i].getBirth () << "\t\t";
-            cout << Scientist [i].getDeath () << "\t\t" << endl;
-        }
+        displayListOfScientists(Scientist);
     }
     else if(command == "sex" || command == "Sex" || command == "2")
     {
         vector<Scientist> Scientist = _service.sortBySexReverse();
-
-        for (unsigned int i = 0 ; i < Scientist.size();i++)
-        {
-            cout << Scientist [i].getName () << "\t\t";
-            cout << Scientist [i].getSex () << "\t\t";
-            cout << Scientist [i].getBirth () << "\t\t";
-            cout << Scientist [i].getDeath () << "\t\t" << endl;
-        }
+        displayListOfScientists(Scientist);
     }
     else if(command == "birth" || command == "Birth" || command == "3")
     {
         vector<Scientist> Scientist = _service.sortByBirthReverse();
-
-        for (unsigned int i = 0 ; i < Scientist.size();i++)
-        {
-            cout << Scientist [i].getName () << "\t\t";
-            cout << Scientist [i].getSex () << "\t\t";
-            cout << Scientist [i].getBirth () << "\t\t";
-            cout << Scientist [i].getDeath () << "\t\t" << endl;
-        }
+        displayListOfScientists(Scientist);
     }
     else if(command == "death" || command == "Death" || command == "4")
     {
         vector<Scientist> Scientist = _service.sortByDeathReverse();
-
-        for (unsigned int i = 0 ; i < Scientist.size();i++)
-        {
-            cout << setw(10);
-            cout << Scientist [i].getName () << "\t\t";
-            cout << Scientist [i].getSex () << "\t\t";
-            cout << Scientist [i].getBirth () << "\t\t";
-            cout << Scientist [i].getDeath () << "\t\t" << endl;
-        }
+        displayListOfScientists(Scientist);
     }
     else
     {
