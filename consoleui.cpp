@@ -27,6 +27,7 @@ void ConsoleUI::run()
     string command;
     cin >> command;
 
+
     if (command == "add" || command == "Add" || command == "1")
     {
         addSci();
@@ -72,12 +73,17 @@ void ConsoleUI::addSci()
     int death;
 
     cout << "Name: ";
-    cin >> name;
+    std::getline(cin, name);
+    std::getline(cin, name);
+
+
     while(!validName(name))
     {
         cout << "Invalid name!" << endl;
         cout << "Name: " << endl;
-        cin >> name;
+        std::getline(cin, name);
+        std::getline(cin, name);
+
     }
     cout << "Sex: ";
     cin >> sex;
@@ -99,18 +105,21 @@ void ConsoleUI::addSci()
         }
 
     birth = atoi(strBirth.c_str());
+    if(!isPersonAlive())
+    {
+        cout << "Year of death: ";
+        cin >> strDeath;
 
-    cout << "Year of death: ";
-    cin >> strDeath;
-
-    while(validYear(strDeath) == false || validDeath(birth, strDeath) == false)
-        {
-            cout << "Invalid input!" << endl;
-            cout << "Year of death: ";
-            cin >> strDeath;
-        }
-    death = atoi(strDeath.c_str());
-
+        while(validYear(strDeath) == false || validDeath(birth, strDeath) == false)
+            {
+                cout << "Invalid input!" << endl;
+                cout << "Year of death: ";
+                cin >> strDeath;
+            }
+        death = atoi(strDeath.c_str());
+     }
+     else
+     death = 0;
     Scientist newScientist (name,sex,birth,death);
     _service.addScientist(newScientist);
 
@@ -284,4 +293,26 @@ int ConsoleUI::lengthOfLongestName(vector<Scientist> scientists)
         }
     }
     return temp.getName().size();
+}
+
+bool ConsoleUI::isPersonAlive()
+{
+    char input;
+    cout << "Is this person alive? Press Y for \"Yes\" and N for \"No\": ";
+    cin >> input;
+
+    if(input == 'Y' || input == 'y')
+    {
+        return true;
+    }
+    else if(input == 'N' || input == 'n')
+    {
+        return false;
+    }
+    else
+    {
+        cout << "Invalid input!" << endl;
+        return isPersonAlive();
+    }
+
 }
