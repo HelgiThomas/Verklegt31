@@ -3,11 +3,11 @@ Verklegt námskeið 1
 
 
 # Autors:
-Benedikt Þorri Þórarinsson
-Emil Hjaltason
-Helgi Hallgrimsson
-Kolbrún Hafdísardóttir
-Sigrún Elva Reynisdóttir
-Þorsteinn Sæmundsson
+Benedikt Þorri Þórarinsson </br>
+Emil Hjaltason </br>
+Helgi Hallgrimsson </br>
+Kolbrún Hafdísardóttir </br>
+Sigrún Elva Reynisdóttir </br>
+Þorsteinn Sæmundsson </br>
 
 # Instructions:
