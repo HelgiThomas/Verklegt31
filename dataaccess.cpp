@@ -50,9 +50,11 @@ vector<Scientist> DataAccess::readFromFile()
             while (!(thefile.eof()))
             {
                 Scientist pl;
+
                 std::getline(thefile, pl._name);
                 thefile >> pl._sex >> pl._birth >> pl._death;
                 sci.push_back(pl);
+                thefile.ignore();
             }
         }
     else
