@@ -1,7 +1,7 @@
 #ifndef DATAACCESS_H
 #define DATAACCESS_H
 
-#include "scientist.h"
+#include "model/scientist.h"
 
 #include <iostream>
 #include <fstream>

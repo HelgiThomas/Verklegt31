@@ -10,13 +10,13 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    consoleui.cpp \
-    scientistservice.cpp \
-    scientist.cpp \
-    dataaccess.cpp
+    ui/consoleui.cpp \
+    service/scientistservice.cpp \
+    model/scientist.cpp \
+    data/dataaccess.cpp
 
 HEADERS += \
-    consoleui.h \
-    scientistservice.h \
-    scientist.h \
-    dataaccess.h
+    ui/consoleui.h \
+    service/scientistservice.h \
+    model/scientist.h \
+    data/dataaccess.h
