@@ -61,18 +61,15 @@ vector<Scientist> DataAccess::readFromFile()
             pl.setCitation(citation);
 
             sci.push_back(pl);
-#ifdef _WIN32
-thefile.ignore();
-#endif
 
-
-
-
+            #ifdef _WIN32
+                thefile.ignore();
+            #endif
         }
     }
     else
     {
-        cout << "Error opening file!";
+        cout << "Error opening file!" << endl;
     }
 
     thefile.close ();

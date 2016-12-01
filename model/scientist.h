@@ -10,6 +10,7 @@ class Scientist
 public:
     Scientist();
     Scientist(string name, string sex, int birth, int death, string citation);
+
     string getName () const;
     string getSex () const;
     string getCitation () const;
