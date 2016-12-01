@@ -32,17 +32,12 @@ void DataAccess::readToFile(Scientist scientist)
 
             }
          #endif
-    _temp++;
+        _temp++;
         outputfile << scientist.getName() << endl;
         outputfile << scientist.getSex() << endl;
         outputfile << scientist.getBirth() << endl;
         outputfile << scientist.getDeath() << endl;
-     //   #ifdef _WIN32
         outputfile << scientist.getCitation();
-       // #endif
-   //     #ifdef __APPLE__
-     //   outputfile << scientist.getCitation() << endl;
-       // #endif
         outputfile.close();
       }
 
