@@ -24,7 +24,7 @@ void ConsoleUI::run()
     cout << "3. Reversed sort" << endl;
     cout << "4. Sort" << endl;
     cout << "5. Search " << endl;
-    cout << "6. Quit" << endl << endl;
+    cout << "6. Quit" << endl << endl << "=> ";
 
     string command;
     cin >> command;
@@ -135,7 +135,7 @@ void ConsoleUI::addSci()
         death = atoi(strDeath.c_str());
      }
      else
-     death = 0;
+     death = 0000;
     Scientist newScientist (name,sex,birth,death);
     _service.addScientist(newScientist);
     cout << "Scientist added." << endl << endl;
@@ -149,7 +149,7 @@ void ConsoleUI::sortSci()
     cout << "1. Name" << endl;
     cout << "2. Sex" << endl;
     cout << "3. Birth" << endl;
-    cout << "4. Death" << endl << endl;
+    cout << "4. Death" << endl << endl << "=> ";
 
     string command;
     cin >> command;
@@ -188,7 +188,7 @@ void ConsoleUI::reversedSortSci()
     cout << "1. Name" << endl;
     cout << "2. Sex" << endl;
     cout << "3. Birth" << endl;
-    cout << "4. Death" << endl << endl;
+    cout << "4. Death" << endl << endl << "=> ";
 
     string command;
     cin >> command;
@@ -229,6 +229,7 @@ void ConsoleUI::searchList ()
     cout << "2. Sex" << endl;
     cout << "3. Birth" << endl;
     cout << "4. Death" << endl << endl;
+    cout << "=> ";
     cin >> command;
 
 
@@ -236,8 +237,9 @@ void ConsoleUI::searchList ()
     {
         clearScreen();
         string nameOf;
-        cout << "What name would youl like to search for? " << endl;
-        cin >> nameOf;
+        cout << "Which name would you like to search for? " << endl << endl << "=> ";
+        std::getline(cin, nameOf);
+        std::getline(cin, nameOf);
         vector<Scientist>names = _service.searchName (nameOf);
         validateSearch(names);
     }
@@ -245,7 +247,7 @@ void ConsoleUI::searchList ()
     {
         clearScreen();
         string sexOf;
-        cout << "Which sex would you like to search for? " << endl;
+        cout << "Which sex would you like to search for? " << endl << endl << "=> ";
         cin >> sexOf;
         vector<Scientist>names = _service.searchSex (sexOf);
         validateSearch(names);
@@ -255,7 +257,7 @@ void ConsoleUI::searchList ()
     {
         clearScreen();
         int birthOf;
-        cout << "Which date of birth would you like to serach for? " << endl;
+        cout << "Which year of birth would you like to search for? " << endl << endl; "=> ";
         cin >> birthOf;
         vector<Scientist>names = _service.searchBirth (birthOf);
         validateSearch(names);
@@ -264,7 +266,7 @@ void ConsoleUI::searchList ()
     {
         clearScreen();
         int deathOf;
-        cout << "Which date of death would you like to serach for? " << endl;
+        cout << "Which date of death would you like to serach for? " << endl << endl << "=> ";
         cin >> deathOf;
         vector<Scientist>names =_service.searchDeath (deathOf);
         validateSearch(names);
@@ -302,7 +304,7 @@ void ConsoleUI::clearScreen()
     #ifdef _WIN32
     system ("cls");
     #endif
-    #ifdef _APPLE_
+    #ifdef __APPLE__
     system("clear");
     #endif
 
