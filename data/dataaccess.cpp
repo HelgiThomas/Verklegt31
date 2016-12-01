@@ -54,6 +54,7 @@ vector<Scientist> DataAccess::readFromFile()
             std::getline(thefile, citation);
             std::getline(thefile, citation);
 
+
             pl.setName(name);
             pl.setSex(sex);
             pl.setBirth(birth);
