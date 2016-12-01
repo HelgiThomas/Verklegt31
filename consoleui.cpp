@@ -18,6 +18,7 @@ void ConsoleUI::run()
     do
     {
     cout << "Please enter one of the following commands: " << endl << endl;
+    cout << "0. Instructions" << endl;
     cout << "1. Add" << endl;
     cout << "2. List" << endl;
     cout << "3. Reversed sort" << endl;
