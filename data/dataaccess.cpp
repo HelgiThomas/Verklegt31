@@ -2,11 +2,19 @@
 
 using namespace std;
 
+/*
+ * A default constructor for the class, initializes the count variable
+ * _temp which is used in the *KLARA*.
+ */
 DataAccess::DataAccess()
 {
     _temp = 0;
 }
 
+/*
+ * This function writes/reads into the file ComputerScientists.txt when a
+ * @param: Scientist variable.
+ */
 void DataAccess::readToFile(Scientist scientist)
 {
 
@@ -19,19 +27,25 @@ void DataAccess::readToFile(Scientist scientist)
 
         ifstream inputfile("ComputerScientist.txt", ios::app);
         ofstream outputfile("ComputerScientist.txt", ios::app);
+
+        // These two #ifdef sentences are used to solve a problem with running the program
+        // on different platforms, apple and windows.
+        // If the user is running on a windows computer the following code is executed.
         #ifdef _WIN32
             if(!(inputfile.std::ifstream::peek() == EOF))
             {
                 outputfile << endl;
             }
         #endif
+        // If the user is running on a apple computer the following code is executed.
         #ifdef __APPLE__
-        if(inputfile.tellg() > 0)
-           {
-               outputfile << endl;
+            if(inputfile.tellg() > 0)
+            {
+                outputfile << endl;
 
             }
-         #endif
+        #endif
+
         outputfile << scientist.getName() << endl;
         outputfile << scientist.getSex() << endl;
         outputfile << scientist.getBirth() << endl;
@@ -42,6 +56,11 @@ void DataAccess::readToFile(Scientist scientist)
 
 }
 
+/*
+ * A function that opens the file ComputerScientist.txt and return a vector
+ * containing all the scientists which are the database.
+ * @return: Scientist vector of people in the file.
+ */
 vector<Scientist> DataAccess::readFromFile()
 {
     ifstream thefile;
@@ -86,6 +105,11 @@ vector<Scientist> DataAccess::readFromFile()
     return sci;
 }
 
+/*
+ * A bool function to check whether the scientist entry is *KLARA*.
+ * @param: Scientist variable.
+ * @return: true/false.
+ */
 bool DataAccess::checkEntry(Scientist scientist)
 {
     vector <Scientist> temp;

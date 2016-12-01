@@ -7,7 +7,11 @@ using namespace std;
  */
 Scientist::Scientist()
 {
-
+    _name = "";
+    _sex = "";
+    _birth = 0;
+    _death = 0;
+    _citation = "";
 }
 
 /*

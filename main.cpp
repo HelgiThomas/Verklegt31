@@ -4,6 +4,9 @@
 
 using namespace std;
 
+/*
+ * The main function of the program which only calles the first menu function.
+ */
 int main()
 {
     ConsoleUI ui;

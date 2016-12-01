@@ -8,11 +8,18 @@
 
 using namespace std;
 
+/*
+ * A default consructor, no need to initialize any variables.
+ */
 ConsoleUI::ConsoleUI()
 {
 
 }
 
+/*
+ * This is the first menu function, which the user chooses a command
+ * to select between the various functions we've got in our program.
+ */
 void ConsoleUI::run()
 {
     do
@@ -61,6 +68,10 @@ void ConsoleUI::run()
     } while (1 < 2);
 }
 
+/*
+ * This function is called when the list command is selected by the user.
+ * It lists out all the users in the order they were put into the program.
+ */
 void ConsoleUI::list()
 {
     vector <Scientist> Scientist = _service.getScientist();
@@ -68,6 +79,11 @@ void ConsoleUI::list()
     cout << endl;
 }
 
+/*
+ * This function is called when the user chooses the add command.
+ * It asks the user to put in the correct information to add an new scientist.
+ * Also handles errors if the user puts the wrong information into a certain field.
+ */
 void ConsoleUI::addSci()
 {
     clearScreen();
@@ -149,6 +165,11 @@ void ConsoleUI::addSci()
 
 }
 
+/*
+ * This is the function that's called when the user selects the sort command.
+ * It sorts the list of scientists by either Name, Sex, Birth or Death. Depending
+ * the the command the user selects.
+ */
 void ConsoleUI::sortSci()
 {
     clearScreen();
@@ -188,6 +209,10 @@ void ConsoleUI::sortSci()
     }
 }
 
+/*
+ * This function works exactly the same as the function the sortSci() function but
+ * reverses the sorting. It can sort by either Name, Sex, Birth and Death.
+ */
 void ConsoleUI::reversedSortSci()
 {
     clearScreen();
@@ -226,6 +251,11 @@ void ConsoleUI::reversedSortSci()
         reversedSortSci();
     }
 }
+
+/*
+ * This function search the list of scientists and you can choose to sort by either
+ * Name, Sex, Birth and Death. GÆTUM KANNSKI LÍKA LEITAÐ Í ÖLLU SHITTINU??
+ */
 void ConsoleUI::searchList ()
 {
     clearScreen();
@@ -280,6 +310,12 @@ void ConsoleUI::searchList ()
 
     }
 }
+
+/*
+ * This function displays the list of scientists and is called when the user
+ * calls for the list option the menu.
+ * @param: vector Scientists.
+ */
 void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 {
     clearScreen();
@@ -314,17 +350,26 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
     cout << endl;
 }
 
+/*
+ * This function clears the screen to make the menu look clean and beautiful.
+ * calls for the system command "cls" for windows and "clear" for apple systems.
+ */
 void ConsoleUI::clearScreen()
 {
     #ifdef _WIN32
-    system ("cls");
+        system ("cls");
     #endif
     #ifdef __APPLE__
-    system("clear");
+        system("clear");
     #endif
 
 }
 
+/*
+ * A function that validates if the name which the user asks to input is valid.
+ * @param: string name of the scientist.
+ * @return: true/false.
+ */
 bool ConsoleUI::validName(string name)
 {
     bool valid = true;
@@ -338,6 +383,11 @@ bool ConsoleUI::validName(string name)
     return valid;
 }
 
+/*
+ * A function to validate if the input sex from the users is valid.
+ * @param: string containing scientists gender.
+ * @return: true/false.
+ */
 bool ConsoleUI::validSex(string sex)
 {
     if(sex == "female" || sex == "Female" || sex == "f" || sex == "F" || sex == "male" || sex == "Male" || sex == "m" || sex == "M")
@@ -347,6 +397,11 @@ bool ConsoleUI::validSex(string sex)
     else return false;
 }
 
+/*
+ * A function to check if the year which the user inputs into the program is valid.
+ * @param: string contianing year.
+ * @return: true/false.
+ */
 bool ConsoleUI::validYear(string strYear)
 {
     int year = atoi(strYear.c_str());
@@ -361,6 +416,13 @@ bool ConsoleUI::validYear(string strYear)
     return true;
 }
 
+/*
+ * A function which validates the death of the scientist when the user inputs it
+ * into the program.
+ * @param: int birth year.
+ * @param: string death year.
+ * @return: true/false.
+ */
 bool ConsoleUI::validDeath(int birth, string strDeath)
 {
     int death;
@@ -372,6 +434,11 @@ bool ConsoleUI::validDeath(int birth, string strDeath)
     else return true;
 }
 
+/*
+ * A function which returns the length of the longest name in the database.
+ * @param: vector of Scientist variables.
+ * @return: int variable.
+ */
 int ConsoleUI::lengthOfLongestName(vector<Scientist> scientists)
 {
     Scientist temp;
@@ -384,6 +451,12 @@ int ConsoleUI::lengthOfLongestName(vector<Scientist> scientists)
     }
     return temp.getName().size();
 }
+
+/*
+ * A function which returns the length of the longest citation the database.
+ * @param: A vector of Scientists.
+ * @return: int variable.
+ */
 int ConsoleUI::lengthOfLongestCitation(vector<Scientist> scientists)
 {
     Scientist temp;
@@ -397,6 +470,11 @@ int ConsoleUI::lengthOfLongestCitation(vector<Scientist> scientists)
     return temp.getCitation().size();
 }
 
+/*
+ * A function which returns true if the scientist is alive or false if the scientist
+ * is dead.
+ * @return: true/false.
+ */
 bool ConsoleUI::isPersonAlive()
 {
     string input;
@@ -419,6 +497,12 @@ bool ConsoleUI::isPersonAlive()
 
 }
 
+/*
+ * A function which allows the user to input various form of inputs to
+ * make it easier to input the scientists gender.
+ * @param: string containing the users input.
+ * @return: string sex (changed to the correct format).
+ */
 string ConsoleUI::MorF(string sex)
 {
     if(sex == "female" || sex == "f" || sex == "F")
@@ -432,6 +516,11 @@ string ConsoleUI::MorF(string sex)
     return sex;
 }
 
+/*
+ * A function to make the first letter of all names a capital letter.
+ * @param: string name(input from user).
+ * @return: string Scientist name.
+ */
 string ConsoleUI::makeFirstLetterBig(string name)
 {
     if(name[0] >= 97)
@@ -448,6 +537,10 @@ string ConsoleUI::makeFirstLetterBig(string name)
     return name;
 }
 
+/*
+ * A function to validate if the list of scientists contains any names to display.
+ * @param: Vector of Scientists.
+ */
 void ConsoleUI::validateSearch(vector<Scientist>names)
 {
     if (names.size() > 0)
