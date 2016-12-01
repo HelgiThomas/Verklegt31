@@ -290,7 +290,12 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
     cout << "Death" << "\t\t";
     cout << "Citation" << "\t\t" << endl;
 
-    for(int i = 0; i < (lengthOfLongestName(Scientist) + 100); i++)
+    for(int i = 0; i < (lengthOfLongestName(Scientist) + 50); i++)
+    {
+        cout << "-";
+    }
+
+    for(int i = 0; i < (lengthOfLongestCitation(Scientist) + 20); i++)
     {
         cout << "-";
     }
@@ -378,6 +383,18 @@ int ConsoleUI::lengthOfLongestName(vector<Scientist> scientists)
         }
     }
     return temp.getName().size();
+}
+int ConsoleUI::lengthOfLongestCitation(vector<Scientist> scientists)
+{
+    Scientist temp;
+    for(unsigned int i = 0; i < scientists.size(); i++)
+    {
+        if(temp.getName().size() < scientists[i].getCitation().size())
+        {
+            temp = scientists[i];
+        }
+    }
+    return temp.getCitation().size();
 }
 
 bool ConsoleUI::isPersonAlive()
