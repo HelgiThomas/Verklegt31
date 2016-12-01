@@ -10,20 +10,11 @@ DataAccess::DataAccess()
 void DataAccess::readToFile(Scientist scientist)
 {
     if (checkEntry (scientist))
-     {
+    {
         cout << "An entry like that already exists!" << endl;
-     }
+    }
     else
     {
-      /* if (temp > 0)
-        {
-            ofstream outputfile ("ComputerScientist.txt",ios::app);
-            outputfile << endl;
-            outputfile.close();
-        }
-        */
-        //if (outputfile.is_open)
-
         ifstream inputfile ("ComputerScientist.txt",ios::app);
         ofstream outputfile ("ComputerScientist.txt",ios::app);
         if(!(inputfile.std::istream::peek() == EOF))
@@ -46,20 +37,20 @@ vector<Scientist> DataAccess::readFromFile()
     thefile.open("ComputerScientist.txt");
 
     if (thefile.is_open())
+    {
+        while (!(thefile.eof()))
         {
-            while (!(thefile.eof()))
-            {
-                Scientist pl;
+            Scientist pl;
 
-                std::getline(thefile, pl._name);
-                thefile >> pl._sex >> pl._birth >> pl._death;
-                sci.push_back(pl);
+            std::getline(thefile, pl._name);
+            thefile >> pl._sex >> pl._birth >> pl._death;
+            sci.push_back(pl);
 
-                #ifdef _WIN32
-                thefile.ignore();
-                #endif
-            }
+            #ifdef _WIN32
+            thefile.ignore();
+            #endif
         }
+    }
     else
     {
         cout << "Error opening file!";
@@ -69,11 +60,6 @@ vector<Scientist> DataAccess::readFromFile()
     return sci;
 }
 
-
-/*
- *
- *
- */
 bool DataAccess::checkEntry(Scientist scientist)
 {
     vector <Scientist> temp;
