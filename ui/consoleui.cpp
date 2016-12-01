@@ -257,7 +257,7 @@ void ConsoleUI::searchList ()
     {
         clearScreen();
         int birthOf;
-        cout << "Which year of birth would you like to search for? " << endl << endl; "=> ";
+        cout << "Which year of birth would you like to search for? " << endl << endl << "=> ";
         cin >> birthOf;
         vector<Scientist>names = _service.searchBirth (birthOf);
         validateSearch(names);
