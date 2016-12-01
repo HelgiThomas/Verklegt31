@@ -13,6 +13,10 @@ public:
 
     vector<Scientist> getScientist();
     void addScientist(Scientist newScientist);
+    vector <Scientist> searchName (string command);
+    vector <Scientist> searchSex (string command);
+    vector <Scientist> searchBirth (int command);
+    vector <Scientist> searchDeath (int command);
     vector<Scientist> sortByName();
     vector<Scientist> sortBySex();
     vector<Scientist> sortByBirth();

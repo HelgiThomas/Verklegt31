@@ -22,36 +22,41 @@ void ConsoleUI::run()
     cout << "2. List" << endl;
     cout << "3. Reversed sort" << endl;
     cout << "4. Sort" << endl;
-    cout << "5. Quit" << endl << endl;
+    cout << "5. Search " << endl;
+    cout << "6. Quit" << endl << endl;
 
     string command;
     cin >> command;
 
 
     if (command == "add" || command == "Add" || command == "1")
-    {
-        addSci();
-    }
-    else if (command == "list" || command == "List" || command == "2")
-    {
-        list();
-    }
-    else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "3")
-    {
-        reversedSortSci();
-    }
-    else if (command == "sort" || command == "Sort" || command == "4")
-    {
-        sortSci();
-    }
-    else if (command == "quit" || command == "Quit" || command == "5")
-    {
-        exit(10);
-    }
-    else
-    {
-        cout << "Invalid command!" << endl;
-    }
+      {
+          addSci();
+      }
+      else if (command == "list" || command == "List" || command == "2")
+      {
+          list();
+      }
+      else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "3")
+      {
+          reversedSortSci();
+      }
+      else if (command == "sort" || command == "Sort" || command == "4")
+      {
+          sortSci();
+      }
+      else if (command == "search" || command == "Search" || command == "5")
+      {
+          searchList();
+      }
+      else if (command == "quit" || command == "Quit" || command == "6")
+      {
+          exit(10);
+      }
+      else
+      {
+          cout << "Invalid command!" << endl;
+      }
     } while (1 < 2);
 }
 
@@ -213,7 +218,57 @@ void ConsoleUI::reversedSortSci()
         reversedSortSci();
     }
 }
+void ConsoleUI::searchList ()
+{
+    clearScreen();
 
+    string command;
+    cout << "By what would you like to search for? " << endl;
+    cout << "1. Name" << endl;
+    cout << "2. Sex" << endl;
+    cout << "3. Birth" << endl;
+    cout << "4. Death" << endl;
+    cin >> command;
+
+    if(command == "name" || command == "Name" || command == "1")
+    {
+        string nameOf;
+        cout << "What name would youl like to search for? " << endl;
+        cin >> nameOf;
+        vector<Scientist>names = _service.searchName (nameOf);
+        displayListOfScientists(names);
+        cout << endl;
+    }
+    else if(command == "sex" || command == "Sex" || command == "2")
+    {
+        string sexOf;
+        cout << "Which sex would you like to search for? " << endl;
+        cin >> sexOf;
+        vector<Scientist>names = _service.searchSex (sexOf);
+        displayListOfScientists(names);
+        cout << endl;
+
+    }
+    else if(command == "birth" || command == "Birth" || command == "3")
+    {
+        int birthOf;
+        cout << "Which date of birth would you like to serach for? " << endl;
+        cin >> birthOf;
+        vector<Scientist>names = _service.searchBirth (birthOf);
+        displayListOfScientists(names);
+        cout << endl;
+    }
+    else if(command == "death" || command == "Death" || command == "4")
+    {
+        int deathOf;
+        cout << "Which date of death would you like to serach for? " << endl;
+        cin >> deathOf;
+        vector<Scientist>names =_service.searchDeath (deathOf);
+        displayListOfScientists(names);
+        cout << endl;
+
+    }
+}
 void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 {
     clearScreen();

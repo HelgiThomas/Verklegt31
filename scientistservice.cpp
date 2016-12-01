@@ -141,3 +141,55 @@ vector<Scientist> ScientistService::sortByDeathReverse()
 
     return scientists;
 }
+vector <Scientist> ScientistService::searchName (string command)
+{
+    vector<Scientist> allNames;
+    vector<Scientist> allScientists = _access.readFromFile();
+    for (unsigned int i = 0 ; i < allScientists.size();i++)
+    {
+        if ((command == allScientists[i].getName()))
+        {
+           allNames.push_back(allScientists[i]);
+        }
+    }
+    return allNames;
+}
+vector <Scientist> ScientistService::searchSex (string command)
+{
+    vector<Scientist> allSex;
+    vector<Scientist> allScientists = _access.readFromFile();
+    for (unsigned int i = 0 ; i < allScientists.size();i++)
+    {
+        if ((command == allScientists[i].getSex()))
+        {
+           allSex.push_back(allScientists[i]);
+        }
+    }
+    return allSex;
+}
+vector <Scientist> ScientistService::searchBirth (int command)
+{
+    vector<Scientist> allBirth;
+    vector<Scientist> allScientists = _access.readFromFile();
+    for (unsigned int i = 0 ; i < allScientists.size();i++)
+    {
+        if ((command == allScientists[i].getBirth()))
+        {
+           allBirth.push_back(allScientists[i]);
+        }
+    }
+    return allBirth;
+}
+vector <Scientist> ScientistService::searchDeath (int command)
+{
+    vector<Scientist> allDeath;
+    vector<Scientist> allScientists = _access.readFromFile();
+    for (unsigned int i = 0 ; i < allScientists.size();i++)
+    {
+        if ((command == allScientists[i].getDeath()))
+        {
+           allDeath.push_back(allScientists[i]);
+        }
+    }
+    return allDeath;
+}
