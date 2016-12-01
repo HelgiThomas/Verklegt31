@@ -20,10 +20,10 @@ void DataAccess::readToFile(Scientist scientist)
         ifstream inputfile("ComputerScientist.txt", ios::app);
         ofstream outputfile("ComputerScientist.txt", ios::app);
         #ifdef _WIN32
-        if(!(inputfile.std::istream::peek() == EOF))
-        {
-            outputfile << endl;
-        }
+            if(!(inputfile.std::ifstream::peek() == EOF))
+            {
+                outputfile << endl;
+            }
         #endif
         #ifdef __APPLE__
            if (_temp > 0)
