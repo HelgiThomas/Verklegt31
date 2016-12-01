@@ -173,7 +173,7 @@ vector <Scientist> ScientistService::searchBirth (int command)
     vector<Scientist> allScientists = _access.readFromFile();
     for (unsigned int i = 0 ; i < allScientists.size();i++)
     {
-        if ((command == allScientists[i].getBirth()))
+        if ((command) == (allScientists[i].getBirth()))
         {
            allBirth.push_back(allScientists[i]);
         }
@@ -186,7 +186,7 @@ vector <Scientist> ScientistService::searchDeath (int command)
     vector<Scientist> allScientists = _access.readFromFile();
     for (unsigned int i = 0 ; i < allScientists.size();i++)
     {
-        if ((command == allScientists[i].getDeath()))
+        if ((command) == (allScientists[i].getDeath()))
         {
            allDeath.push_back(allScientists[i]);
         }

@@ -25,6 +25,7 @@ private:
     void sortSci();
     void reversedSortSci();
     void searchList ();
+    void validateSearch(vector<Scientist>names);
 
     ScientistService _service;
 };

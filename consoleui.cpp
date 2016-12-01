@@ -237,8 +237,7 @@ void ConsoleUI::searchList ()
         cout << "What name would youl like to search for? " << endl;
         cin >> nameOf;
         vector<Scientist>names = _service.searchName (nameOf);
-        displayListOfScientists(names);
-        cout << endl;
+        validateSearch(names);
     }
     else if(command == "sex" || command == "Sex" || command == "2")
     {
@@ -246,8 +245,7 @@ void ConsoleUI::searchList ()
         cout << "Which sex would you like to search for? " << endl;
         cin >> sexOf;
         vector<Scientist>names = _service.searchSex (sexOf);
-        displayListOfScientists(names);
-        cout << endl;
+        validateSearch(names);
 
     }
     else if(command == "birth" || command == "Birth" || command == "3")
@@ -256,8 +254,7 @@ void ConsoleUI::searchList ()
         cout << "Which date of birth would you like to serach for? " << endl;
         cin >> birthOf;
         vector<Scientist>names = _service.searchBirth (birthOf);
-        displayListOfScientists(names);
-        cout << endl;
+        validateSearch(names);
     }
     else if(command == "death" || command == "Death" || command == "4")
     {
@@ -265,8 +262,7 @@ void ConsoleUI::searchList ()
         cout << "Which date of death would you like to serach for? " << endl;
         cin >> deathOf;
         vector<Scientist>names =_service.searchDeath (deathOf);
-        displayListOfScientists(names);
-        cout << endl;
+        validateSearch(names);
 
     }
 }
@@ -413,3 +409,15 @@ string ConsoleUI::makeFirstLetterBig(string name)
     return name;
 }
 
+void ConsoleUI::validateSearch(vector<Scientist>names)
+{
+    if (names.size() > 0)
+    {
+     displayListOfScientists(names);
+    }
+    else
+    {
+     cout << "Nothing found in the list." << endl;
+    }
+    cout << endl;
+}
