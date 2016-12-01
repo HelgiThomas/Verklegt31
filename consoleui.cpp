@@ -1,5 +1,5 @@
-#include "consoleui.h"
-#include "scientist.h"
+#include "ui/consoleui.h"
+#include "model/scientist.h"
 
 #include <iostream>
 #include <string>
@@ -73,6 +73,7 @@ void ConsoleUI::addSci()
     clearScreen();
     string name;
     string sex;
+    string citation;
     string strBirth;
     string strDeath;
     int birth;
@@ -135,9 +136,15 @@ void ConsoleUI::addSci()
         death = atoi(strDeath.c_str());
      }
      else
-     death = 0000;
-    Scientist newScientist (name,sex,birth,death);
-    _service.addScientist(newScientist);
+     {
+        death = 0000;
+      }
+   cout << "Citation: " ;
+   std::getline(cin, citation);
+   std::getline(cin, citation);
+
+   Scientist newScientist (name,sex,birth,death,citation);
+   _service.addScientist(newScientist);
     cout << "Scientist added." << endl << endl;
 
 }
@@ -280,13 +287,15 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
     cout << "Name" << "\t\t";
     cout << "Sex" << " \t\t";
     cout << "Birth" << "\t\t";
-    cout << "Death" << "\t\t" << endl;
+    cout << "Death" << "\t\t";
+    cout << "Citation" << "\t\t" << endl;
 
-    for(int i = 0; i < (lengthOfLongestName(Scientist) + 50); i++)
+    for(int i = 0; i < (lengthOfLongestName(Scientist) + 100); i++)
     {
         cout << "-";
     }
     cout << endl;
+
     for (unsigned int i = 0 ; i < Scientist.size();i++)
     {
 
@@ -294,7 +303,8 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
         cout << Scientist [i].getName () << "\t | \t";
         cout << Scientist [i].getSex () << "\t | \t";
         cout << Scientist [i].getBirth () << "\t | \t";
-        cout << Scientist [i].getDeath () << "\t\t" << endl;
+        cout << Scientist [i].getDeath () << "\t | \t";
+        cout << Scientist [i].getCitation () << "\t\t" << endl;
     }
     cout << endl;
 }

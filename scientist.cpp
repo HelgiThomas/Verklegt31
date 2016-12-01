@@ -1,4 +1,4 @@
-#include "scientist.h"
+#include "model/scientist.h"
 
 using namespace std;
 
@@ -18,12 +18,13 @@ Scientist::Scientist()
  * @param: int birth, sets the birth year.
  * @param: int death, sets the death year.
  */
-Scientist::Scientist(string name,string sex, int birth, int death)
+Scientist::Scientist(string name,string sex, int birth, int death , string citation)
 {
     _name = name;
     _sex = sex;
     _birth = birth;
     _death = death;
+    _citation = citation;
 
 }
 
@@ -61,4 +62,32 @@ int Scientist::getBirth () const
 int Scientist:: getDeath () const
 {
     return _death;
+}
+string Scientist:: getCitation() const
+{
+    return _citation;
+}
+void Scientist::setName (string name)
+{
+    _name = name;
+}
+
+void Scientist::setSex (string sex)
+{
+    _sex = sex;
+}
+
+void Scientist::setCitation(string citation)
+{
+    _citation = citation;
+}
+
+void Scientist::setBirth (int birth)
+{
+    _birth = birth;
+}
+
+void Scientist::setDeath (int death)
+{
+    _death = death;
 }

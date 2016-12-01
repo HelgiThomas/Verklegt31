@@ -1,4 +1,4 @@
-#include "dataaccess.h"
+#include "data/dataaccess.h"
 
 using namespace std;
 
@@ -24,7 +24,8 @@ void DataAccess::readToFile(Scientist scientist)
         outputfile << scientist.getName() << endl;
         outputfile << scientist.getSex() << endl;
         outputfile << scientist.getBirth() << endl;
-        outputfile << scientist.getDeath();
+        outputfile << scientist.getDeath() << endl;
+        outputfile << scientist.getCitation();
         outputfile.close();
       }
 
@@ -41,14 +42,32 @@ vector<Scientist> DataAccess::readFromFile()
         while (!(thefile.eof()))
         {
             Scientist pl;
+            string name;
+            string sex;
+            string citation;
+            int birth;
+            int death;
 
-            std::getline(thefile, pl._name);
-            thefile >> pl._sex >> pl._birth >> pl._death;
+
+            std::getline(thefile, name);
+            thefile >> sex >> birth >> death;
+            std::getline(thefile, citation);
+            std::getline(thefile, citation);
+
+            pl.setName(name);
+            pl.setSex(sex);
+            pl.setBirth(birth);
+            pl.setDeath(death);
+            pl.setCitation(citation);
+
             sci.push_back(pl);
+#ifdef _WIN32
+thefile.ignore();
+#endif
 
-            #ifdef _WIN32
-            thefile.ignore();
-            #endif
+
+
+
         }
     }
     else
