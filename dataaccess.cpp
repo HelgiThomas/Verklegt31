@@ -54,7 +54,10 @@ vector<Scientist> DataAccess::readFromFile()
                 std::getline(thefile, pl._name);
                 thefile >> pl._sex >> pl._birth >> pl._death;
                 sci.push_back(pl);
+
+                #ifdef _WIN32
                 thefile.ignore();
+                #endif
             }
         }
     else
@@ -65,6 +68,12 @@ vector<Scientist> DataAccess::readFromFile()
     thefile.close ();
     return sci;
 }
+
+
+/*
+ *
+ *
+ */
 bool DataAccess::checkEntry(Scientist scientist)
 {
     vector <Scientist> temp;
