@@ -404,7 +404,7 @@ string ConsoleUI::makeFirstLetterBig(string name)
     }
     for(unsigned int i = 0; i < name.size(); i++)
     {
-        if(name[i] == 32)
+        if(name[i] == 32 && name[i+1] >= 97)
         {
             name[i+1] -= 32;
         }
