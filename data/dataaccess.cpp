@@ -20,8 +20,6 @@ void DataAccess::readToFile(Scientist scientist)
         ifstream inputfile("ComputerScientist.txt", ios::app);
         ofstream outputfile("ComputerScientist.txt", ios::app);
         #ifdef _WIN32
-        ifstream inputfile ("ComputerScientist.txt",ios::app);
-        ofstream outputfile ("ComputerScientist.txt",ios::app);
         if(!(inputfile.std::istream::peek() == EOF))
         {
             outputfile << endl;
@@ -49,9 +47,7 @@ void DataAccess::readToFile(Scientist scientist)
       }
 
 }
-//            #ifdef _WIN32
-//thefile.ignore();
-//#endif
+
 vector<Scientist> DataAccess::readFromFile()
 {
     ifstream thefile;
@@ -84,9 +80,7 @@ vector<Scientist> DataAccess::readFromFile()
 
             sci.push_back(pl);
 
-            #ifdef _WIN32
-                thefile.ignore();
-            #endif
+
         }
     }
     else
