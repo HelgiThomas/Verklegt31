@@ -19,6 +19,7 @@ public:
 
 private:
     vector<Scientist> theList;
+    int _temp;
 
 };
 

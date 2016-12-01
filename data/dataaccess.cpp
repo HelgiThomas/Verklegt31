@@ -4,11 +4,12 @@ using namespace std;
 
 DataAccess::DataAccess()
 {
-
+    _temp = 0;
 }
 
 void DataAccess::readToFile(Scientist scientist)
 {
+
     if (checkEntry (scientist))
     {
         cout << "An entry like that already exists!" << endl;
@@ -17,20 +18,36 @@ void DataAccess::readToFile(Scientist scientist)
     {
         ifstream inputfile("ComputerScientist.txt", ios::app);
         ofstream outputfile("ComputerScientist.txt", ios::app);
-
+        #ifdef _WIN32
         if(!(inputfile.std::istream::peek() == EOF))
         {
             outputfile << endl;
         }
+        #endif
+        #ifdef __APPLE__
+           if (_temp > 0)
+           {
+               outputfile << endl;
+
+            }
+         #endif
+    _temp++;
         outputfile << scientist.getName() << endl;
         outputfile << scientist.getSex() << endl;
         outputfile << scientist.getBirth() << endl;
         outputfile << scientist.getDeath() << endl;
+     //   #ifdef _WIN32
         outputfile << scientist.getCitation();
+       // #endif
+   //     #ifdef __APPLE__
+     //   outputfile << scientist.getCitation() << endl;
+       // #endif
         outputfile.close();
       }
 }
-
+//            #ifdef _WIN32
+//thefile.ignore();
+//#endif
 vector<Scientist> DataAccess::readFromFile()
 {
     ifstream thefile;
