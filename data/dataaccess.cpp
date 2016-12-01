@@ -26,13 +26,12 @@ void DataAccess::readToFile(Scientist scientist)
             }
         #endif
         #ifdef __APPLE__
-           if (_temp > 0)
+        if(inputfile.tellg() > 0)
            {
                outputfile << endl;
 
             }
          #endif
-        _temp++;
         outputfile << scientist.getName() << endl;
         outputfile << scientist.getSex() << endl;
         outputfile << scientist.getBirth() << endl;
