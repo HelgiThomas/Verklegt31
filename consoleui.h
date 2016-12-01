@@ -15,7 +15,8 @@ public:
     bool validDeath(int birth, string strDeath);
     bool isPersonAlive();
     int lengthOfLongestName(vector<Scientist> scientists);
-    string makeFirstLetterBig(string sex);
+    string MorF(string sex);
+    string makeFirstLetterBig(string name);
 
 private:
     void displayListOfScientists(vector<Scientist> Scientist);

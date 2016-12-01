@@ -81,7 +81,6 @@ void ConsoleUI::addSci()
     std::getline(cin, name);
     std::getline(cin, name);
 
-
     while(!validName(name))
     {
         cout << "Invalid name!" << endl;
@@ -90,6 +89,7 @@ void ConsoleUI::addSci()
         std::getline(cin, name);
 
     }
+    name = makeFirstLetterBig(name);
     cout << "Sex: ";
     cin >> sex;
     while(!validSex(sex))
@@ -107,7 +107,7 @@ void ConsoleUI::addSci()
             cin >> sex;
         }
     }
-    sex = makeFirstLetterBig(sex);
+    sex = MorF(sex);
 
     cout << "Year of birth: ";
     cin >> strBirth;
@@ -383,7 +383,7 @@ bool ConsoleUI::isPersonAlive()
 
 }
 
-string ConsoleUI::makeFirstLetterBig(string sex)
+string ConsoleUI::MorF(string sex)
 {
     if(sex == "female" || sex == "f" || sex == "F")
     {
@@ -394,5 +394,21 @@ string ConsoleUI::makeFirstLetterBig(string sex)
         sex = "Male";
     }
     return sex;
+}
+
+string ConsoleUI::makeFirstLetterBig(string name)
+{
+    if(name[0] >= 97)
+    {
+        name[0] -= 32;
+    }
+    for(unsigned int i = 0; i < name.size(); i++)
+    {
+        if(name[i] == 32)
+        {
+            name[i+1] -= 32;
+        }
+    }
+    return name;
 }
 
