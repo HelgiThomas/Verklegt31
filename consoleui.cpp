@@ -89,10 +89,20 @@ void ConsoleUI::addSci()
     cin >> sex;
     while(!validSex(sex))
     {
-        cout << "Invalid sex!" << endl;
-        cout << "Sex: ";
-        cin >> sex;
+        if(sex == "yes")
+        {
+            cout << "A prostitute has been sent to your location" << endl;
+            cout << "Sex: ";
+            cin >> sex;
+        }
+        else
+        {
+            cout << "Invalid sex!" << endl;
+            cout << "Sex: ";
+            cin >> sex;
+        }
     }
+    sex = makeFirstLetterBig(sex);
 
     cout << "Year of birth: ";
     cin >> strBirth;
@@ -251,7 +261,7 @@ bool ConsoleUI::validName(string name)
 
 bool ConsoleUI::validSex(string sex)
 {
-    if(sex == "female" || sex == "male")
+    if(sex == "female" || sex == "Female" || sex == "f" || sex == "F" || sex == "male" || sex == "Male" || sex == "m" || sex == "M")
     {
         return true;
     }
@@ -298,15 +308,15 @@ int ConsoleUI::lengthOfLongestName(vector<Scientist> scientists)
 
 bool ConsoleUI::isPersonAlive()
 {
-    char input;
+    string input;
     cout << "Is this person alive? Press Y for \"Yes\" and N for \"No\": ";
     cin >> input;
 
-    if(input == 'Y' || input == 'y')
+    if(input == "Y" || input == "y")
     {
         return true;
     }
-    else if(input == 'N' || input == 'n')
+    else if(input == "N" || input == "n")
     {
         return false;
     }
@@ -317,3 +327,17 @@ bool ConsoleUI::isPersonAlive()
     }
 
 }
+
+string ConsoleUI::makeFirstLetterBig(string sex)
+{
+    if(sex == "female" || sex == "f" || sex == "F")
+    {
+        sex = "Female";
+    }
+    if(sex == "male" || sex == "m" || sex == "M")
+    {
+        sex = "Male";
+    }
+    return sex;
+}
+
