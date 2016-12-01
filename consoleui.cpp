@@ -228,11 +228,13 @@ void ConsoleUI::searchList ()
     cout << "1. Name" << endl;
     cout << "2. Sex" << endl;
     cout << "3. Birth" << endl;
-    cout << "4. Death" << endl;
+    cout << "4. Death" << endl << endl;
     cin >> command;
+
 
     if(command == "name" || command == "Name" || command == "1")
     {
+        clearScreen();
         string nameOf;
         cout << "What name would youl like to search for? " << endl;
         cin >> nameOf;
@@ -241,6 +243,7 @@ void ConsoleUI::searchList ()
     }
     else if(command == "sex" || command == "Sex" || command == "2")
     {
+        clearScreen();
         string sexOf;
         cout << "Which sex would you like to search for? " << endl;
         cin >> sexOf;
@@ -250,6 +253,7 @@ void ConsoleUI::searchList ()
     }
     else if(command == "birth" || command == "Birth" || command == "3")
     {
+        clearScreen();
         int birthOf;
         cout << "Which date of birth would you like to serach for? " << endl;
         cin >> birthOf;
@@ -258,6 +262,7 @@ void ConsoleUI::searchList ()
     }
     else if(command == "death" || command == "Death" || command == "4")
     {
+        clearScreen();
         int deathOf;
         cout << "Which date of death would you like to serach for? " << endl;
         cin >> deathOf;
@@ -294,8 +299,13 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 
 void ConsoleUI::clearScreen()
 {
-    system("cls");
+    #ifdef _WIN32
+    system ("cls");
+    #endif
+    #ifdef _APPLE_
     system("clear");
+    #endif
+
 }
 
 bool ConsoleUI::validName(string name)
