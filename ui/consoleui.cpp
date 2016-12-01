@@ -139,12 +139,12 @@ void ConsoleUI::addSci()
      {
         death = 0000;
       }
-   cout << "Citation: " ;
-   std::getline(cin, citation);
-   std::getline(cin, citation);
+    cout << "Citation: " ;
+    std::getline(cin, citation);
+    std::getline(cin, citation);
 
-   Scientist newScientist (name,sex,birth,death,citation);
-   _service.addScientist(newScientist);
+    Scientist newScientist (name,sex,birth,death,citation);
+    _service.addScientist(newScientist);
     cout << "Scientist added." << endl << endl;
 
 }
@@ -384,6 +384,7 @@ int ConsoleUI::lengthOfLongestName(vector<Scientist> scientists)
     }
     return temp.getName().size();
 }
+
 int ConsoleUI::lengthOfLongestCitation(vector<Scientist> scientists)
 {
     Scientist temp;
