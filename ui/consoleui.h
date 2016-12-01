@@ -1,7 +1,7 @@
 #ifndef CONSOLEUI_H
 #define CONSOLEUI_H
 
-#include "scientistservice.h"
+#include "service/scientistservice.h"
 
 class ConsoleUI
 {

@@ -1,5 +1,5 @@
-#include "consoleui.h"
-#include "scientist.h"
+#include "ui/consoleui.h"
+#include "model/scientist.h"
 
 #include <iostream>
 #include <string>

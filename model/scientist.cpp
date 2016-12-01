@@ -1,4 +1,4 @@
-#include "scientist.h"
+#include "model/scientist.h"
 
 using namespace std;
 
