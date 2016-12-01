@@ -16,14 +16,12 @@ void DataAccess::readToFile(Scientist scientist)
     }
     else
     {
-<<<<<<< HEAD
+
         ifstream inputfile("ComputerScientist.txt", ios::app);
         ofstream outputfile("ComputerScientist.txt", ios::app);
         #ifdef _WIN32
-=======
         ifstream inputfile ("ComputerScientist.txt",ios::app);
         ofstream outputfile ("ComputerScientist.txt",ios::app);
->>>>>>> 333519b73ac246f1b1093551a1f88a949a4e2205
         if(!(inputfile.std::istream::peek() == EOF))
         {
             outputfile << endl;
