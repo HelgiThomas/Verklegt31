@@ -8,78 +8,78 @@
 
 using namespace std;
 
-/*
- * A default consructor, no need to initialize any variables.
+/**
+ * @brief A default consructor, no need to initialize any variables.
  */
 ConsoleUI::ConsoleUI()
 {
     score = 0;
 }
 
-/*
- * This is the first menu function, which the user chooses a command
+/**
+ * @brief This is the first menu function, which the user chooses a command
  * to select between the various functions we've got in our program.
  */
 void ConsoleUI::run()
 {
     do
     {
-    cout << "Please enter the name or number of one of the commands below:" << endl << endl;
-    cout << "1. Add" << endl;
-    cout << "2. Remove" << endl;
-    cout << "3. List" << endl;
-    cout << "4. Sort" << endl;
-    cout << "5. Reversed sort" << endl;
-    cout << "6. Search " << endl;
-    cout << "7. Play a game ;)" << endl;
-    cout << "8. Quit" << endl << endl << "=> ";
+        cout << "Please enter the name or number of one of the commands below:" << endl << endl;
+        cout << "1. Add" << endl;
+        cout << "2. Remove" << endl;
+        cout << "3. List" << endl;
+        cout << "4. Sort" << endl;
+        cout << "5. Reversed sort" << endl;
+        cout << "6. Search " << endl;
+        cout << "7. Play a game ;)" << endl;
+        cout << "8. Quit" << endl << endl << "=> ";
 
-    string command;
-    cin >> command;
-    cout << endl;
+        string command;
+        cin >> command;
+        cout << endl;
 
-    if (command == "add" || command == "Add" || command == "1")
-      {
-          addSci();
-      }
-      else if (command == "Remove" || command == "remove" || command == "2")
-      {
-         removeSci ();
-      }
-      else if (command == "list" || command == "List" || command == "3")
-      {
-          list();
-      }
-      else if (command == "sort" || command == "Sort" || command == "4")
-      {
-          sortSci();
-      }
-      else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "5")
-      {
-          reversedSortSci();
-      }
-      else if (command == "search" || command == "Search" || command == "6")
-      {
-          searchList();
-      }
-      else if(command == "Play" || command == "play" || command == "7")
-      {
-          playGame();
-      }
-      else if (command == "quit" || command == "Quit" || command == "8")
-      {
-          exit(10);
-      }
-      else
-      {
-          clearScreen();
-          cout << "Invalid command!" << endl << endl;
-      }
+        if (command == "add" || command == "Add" || command == "1")
+        {
+            addSci();
+        }
+        else if (command == "Remove" || command == "remove" || command == "2")
+        {
+            removeSci ();
+        }
+        else if (command == "list" || command == "List" || command == "3")
+        {
+            list();
+        }
+        else if (command == "sort" || command == "Sort" || command == "4")
+        {
+            sortSci();
+        }
+        else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "5")
+        {
+            reversedSortSci();
+        }
+        else if (command == "search" || command == "Search" || command == "6")
+        {
+            searchList();
+        }
+        else if(command == "Play" || command == "play" || command == "7")
+        {
+            playGame();
+        }
+        else if (command == "quit" || command == "Quit" || command == "8")
+        {
+            exit(10);
+        }
+        else
+        {
+            clearScreen();
+            cout << "Invalid command!" << endl << endl;
+        }
     } while (1 < 2);
 }
 
-/*
- * This function is called when the list command is selected by the user.
+/**
+ * @brief This function is called when the list command is selected by the user.
  * It lists out all the users in the order they were put into the program.
  */
 void ConsoleUI::list()
@@ -89,8 +89,8 @@ void ConsoleUI::list()
     cout << endl;
 }
 
-/*
- * This function is called when the user chooses the add command.
+/**
+ * @brief This function is called when the user chooses the add command.
  * It asks the user to put in the correct information to add an new scientist.
  * Also handles errors if the user puts the wrong information into a certain field.
  */
@@ -140,11 +140,11 @@ void ConsoleUI::addSci()
     cin >> strBirth;
 
     while(_service.validYear(strBirth) == false)
-        {
-            cout << "Invalid input!" << endl;
-            cout << "Year of birth: ";
-            cin >> strBirth;
-        }
+    {
+        cout << "Invalid input!" << endl;
+        cout << "Year of birth: ";
+        cin >> strBirth;
+    }
 
     birth = atoi(strBirth.c_str());
     if(!isPersonAlive())
@@ -153,37 +153,41 @@ void ConsoleUI::addSci()
         cin >> strDeath;
 
         while(_service.validYear(strDeath) == false || _service.validDeath(birth, strDeath) == false)
-            {
-                cout << "Invalid input!" << endl;
-                cout << "Year of death: ";
-                cin >> strDeath;
-            }
+        {
+            cout << "Invalid input!" << endl;
+            cout << "Year of death: ";
+            cin >> strDeath;
+        }
         death = atoi(strDeath.c_str());
-     }
-     else
-     {
+    }
+    else
+    {
         death = 0000;
-      }
-   if(askIfCitation())
-   {
+    }
+    if(askIfCitation())
+    {
         cout << "Citation: " ;
         std::getline(cin, citation);
-   }
-   else
-   {
-       citation = "No citation to be displayed.";
-   }
-   Scientist newScientist (name,sex,birth,death,citation);
-   _service.addScientist(newScientist);
+    }
+    else
+    {
+        citation = "No citation to be displayed.";
+    }
+    Scientist newScientist (name,sex,birth,death,citation);
+    _service.addScientist(newScientist);
     cout << "Scientist added." << endl << endl;
     string input;
     cout << endl << "Press any key to continue, and then press Enter...";
     cin >> input;
 
-        clearScreen();
+    clearScreen();
 
 
 }
+
+/**
+ * @brief Removes a scientist from the list
+ */
 void ConsoleUI::removeSci ()
 {
     bool exist = false;
@@ -191,9 +195,12 @@ void ConsoleUI::removeSci ()
     string removePerson;
     string insert;
     string nameOf;
+
     cout << "Which scientist would you like to remove? " << endl << endl << "=> ";;
+
     std::getline(cin, insert);
     std::getline(cin,insert);
+
     nameOf = _service.makeFirstLetterBig(insert);
 
     vector <Scientist> checkIfreal = _service.getScientist();
@@ -205,10 +212,12 @@ void ConsoleUI::removeSci ()
             temp = i;
         }
     }
+
     if (exist == false)
     {
         cout << "There is no such scientist in the list! " << endl << endl;
     }
+
     else
     {
         cout << endl << "Reomve: " << checkIfreal [temp].getName () << " " <<  checkIfreal [temp].getSex() << " " <<  checkIfreal [temp].getBirth() << " " << checkIfreal [temp].getDeath() << " ?" << endl;
@@ -230,15 +239,11 @@ void ConsoleUI::removeSci ()
         {
             cout << "Scientist not removed " << endl;
         }
-
-
     }
-
-
 }
 
-/*
- * This is the function that's called when the user selects the sort command.
+/**
+ * @brief This is the function that's called when the user selects the sort command.
  * It sorts the list of scientists by either Name, Sex, Birth or Death. Depending
  * the the command the user selects.
  */
@@ -284,8 +289,8 @@ void ConsoleUI::sortSci()
     }
 }
 
-/*
- * This function works exactly the same as the function the sortSci() function but
+/**
+ * @brief This function works exactly the same as the function the sortSci() function but
  * reverses the sorting. It can sort by either Name, Sex, Birth and Death.
  */
 void ConsoleUI::reversedSortSci()
@@ -329,9 +334,9 @@ void ConsoleUI::reversedSortSci()
     }
 }
 
-/*
- * This function search the list of scientists and you can choose to sort by either
- * Name, Sex, Birth and Death. GÆTUM KANNSKI LÍKA LEITAÐ Í ÖLLU SHITTINU??
+/**
+ * @brief This function search the list of scientists and you can choose to sort by either
+ * Name, Sex, Birth and Death.
  */
 void ConsoleUI::searchList ()
 {
@@ -394,10 +399,10 @@ void ConsoleUI::searchList ()
     }
 }
 
-/*
- * This function displays the list of scientists and is called when the user
+/**
+ * @brief This function displays the list of scientists and is called when the user
  * calls for the list option the menu.
- * @param: vector Scientists.
+ * @param vector Scientists.
  */
 void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 {
@@ -434,7 +439,7 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 }
 
 /**
- * @brief ConsoleUI::playGame -> plays a game with the user, guessing who owns the citation.
+ * @brief plays a game with the user, guessing who owns the citation.
  */
 void ConsoleUI::playGame(){
 
@@ -448,7 +453,7 @@ void ConsoleUI::playGame(){
     string quote = Scientist[r].getCitation();
 
     cout << "-------------------------------------------------------------" << endl;
-    cout << "Let's play a little game, guess who owns the following citation!" << endl;
+    cout << "Let's play a little game, guess who owns the following quote!" << endl;
     cout << "-------------------------------------------------------------" << endl;
     cout << quote << endl;
     cout << "Answer: ";
@@ -472,7 +477,7 @@ void ConsoleUI::playGame(){
 }
 
 /**
- * @brief ConsoleUI::clearScreen -> clears the screen to make the menu look clean and beautiful.
+ * @brief clears the screen to make the menu look clean and beautiful.
  * calls for the system command "cls" for windows and "clear" for apple systems.
  */
 void ConsoleUI::clearScreen()
@@ -483,7 +488,6 @@ void ConsoleUI::clearScreen()
     #ifdef __APPLE__
         system("clear");
     #endif
-
 }
 
 /*
@@ -510,30 +514,34 @@ bool ConsoleUI::isPersonAlive()
         cout << "Invalid input!" << endl;
         return isPersonAlive();
     }
-
 }
 
-/*
- * A function to validate if the list of scientists contains any names to display.
- * @param: Vector of Scientists.
+/**
+ * @brief A function to validate if the list of scientists contains any names to display.
+ * Vector of Scientists.
  */
 void ConsoleUI::validateSearch(vector<Scientist>names)
 {
     if (names.size() > 0)
     {
-     displayListOfScientists(names);
+        displayListOfScientists(names);
     }
     else
     {
-     cout << "Nothing found in the list." << endl;
+        cout << "Nothing found in the list." << endl;
     }
     cout << endl;
 }
 
+/**
+ * @brief A function to ask the user if he wants to write a citation for his new scientist
+ * @return true/false
+ */
 bool ConsoleUI::askIfCitation()
 {
     string input;
     cout << "Would you like to write a citation on the scientist? (Y/N) ";
+
     getline(cin, input);
     getline(cin, input);
 
@@ -543,11 +551,13 @@ bool ConsoleUI::askIfCitation()
         cout << "Type either Y or N: ";
         getline(cin, input);
     }
+
     if(input == "y" || input == "Y")
     {
         return true;
     }
-    else return false;
-
-
+    else
+    {
+        return false;
+    }
 }

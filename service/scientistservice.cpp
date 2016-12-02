@@ -274,7 +274,7 @@ vector <Scientist> ScientistService::searchName (string command)
     {
         if ((command == allScientists[i].getName()))
         {
-           allNames.push_back(allScientists[i]);
+            allNames.push_back(allScientists[i]);
         }
     }
     return allNames;
@@ -294,7 +294,7 @@ vector <Scientist> ScientistService::searchSex (string command)
     {
         if ((command == allScientists[i].getSex()))
         {
-           allSex.push_back(allScientists[i]);
+            allSex.push_back(allScientists[i]);
         }
     }
     return allSex;
@@ -314,7 +314,7 @@ vector <Scientist> ScientistService::searchBirth (int command)
     {
         if ((command) == (allScientists[i].getBirth()))
         {
-           allBirth.push_back(allScientists[i]);
+            allBirth.push_back(allScientists[i]);
         }
     }
     return allBirth;
@@ -334,7 +334,7 @@ vector <Scientist> ScientistService::searchDeath (int command)
     {
         if ((command) == (allScientists[i].getDeath()))
         {
-           allDeath.push_back(allScientists[i]);
+            allDeath.push_back(allScientists[i]);
         }
     }
     return allDeath;
@@ -385,13 +385,13 @@ bool ScientistService::validYear(string strYear)
 {
     int year = atoi(strYear.c_str());
     for(unsigned int i = 0; i < strYear.size(); i++)
+    {
+        if(!(isdigit(strYear.at(i))) || year > 2016)
         {
-            if(!(isdigit(strYear.at(i))) || year > 2016)
-            {
-                return false;
-            }
-
+            return false;
         }
+
+    }
     return true;
 }
 
@@ -499,5 +499,6 @@ bool ScientistService::validCommand(string command)
 {
     if(command == "1" || command == "2" || command == "3" || command == "4" || command == "name" || command == "Name" || command == "sex" || command == "Sex" || command == "birth" || command == "Birth" || command == "death" || command == "Death")
         return true;
-    else return false;
+    else
+        return false;
 }

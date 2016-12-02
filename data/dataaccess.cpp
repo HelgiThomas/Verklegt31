@@ -133,15 +133,15 @@ void DataAccess::removeScientistlist (string name)
         {
             if (_temp == 0)
             {
-               firstEntry (temp[i]);
+                firstEntry (temp[i]);
             }
             else if (_temp > 0)
             {
-               secondEntry (temp[i]);
+                secondEntry (temp[i]);
             }
-             _temp++;
+            _temp++;
 
-          }
+        }
         _temp = 0;
     }
 
