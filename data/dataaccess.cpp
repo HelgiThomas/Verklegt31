@@ -2,18 +2,18 @@
 
 using namespace std;
 
-/*
- * This is the default constructor.
+/**
+ * @brief This is the default constructor.
  */
 DataAccess::DataAccess()
 {
 
 }
 
-/*
- * This function writes/reads into the file ComputerScientists.txt when a new scientist
+/**
+ * @brief This function writes/reads into the file ComputerScientists.txt when a new scientist
  * is added.
- * @param: Scientist variable.
+ * @param Scientist variable.
  */
 void DataAccess::readToFile(Scientist scientist)
 {
@@ -29,10 +29,10 @@ void DataAccess::readToFile(Scientist scientist)
 
 }
 
-/*
- * A function that opens the file ComputerScientist.txt and returns a vector
+/**
+ * @brief A function that opens the file ComputerScientist.txt and returns a vector
  * containing all the scientists which are in the database.
- * @return: Scientist vector of people in the file.
+ * @return Scientist vector of people in the file.
  */
 vector<Scientist> DataAccess::readFromFile()
 {
@@ -78,10 +78,10 @@ vector<Scientist> DataAccess::readFromFile()
     return sci;
 }
 
-/*
- * A bool function to check whether the scientist entry already exists.
- * @param: Scientist variable.
- * @return: true/false.
+/**
+ * @brief A bool function to check whether the scientist entry already exists.
+ * @param Scientist variable.
+ * @return true/false.
  */
 bool DataAccess::checkEntry(Scientist scientist)
 {
@@ -103,10 +103,9 @@ bool DataAccess::checkEntry(Scientist scientist)
     return false;
 }
 
-
-/*
- * This function removes selected scientist from list.
- * @param: string name.
+/**
+ * @brief This function removes selected scientist from list.
+ * @param string name.
  */
 void DataAccess::removeScientistlist (string name)
 {
@@ -149,11 +148,9 @@ void DataAccess::removeScientistlist (string name)
 
 }
 
-
-
-/*
- * This functions erases everything that is in the file and adds the first entry.
- * @param: string name.
+/**
+ * @brief This functions erases everything that is in the file and adds the first entry.
+ * @param string name.
  */
 void DataAccess::firstEntry (Scientist scientist)
 {
@@ -186,10 +183,9 @@ void DataAccess::firstEntry (Scientist scientist)
     outputfile.close();
 }
 
-/*
- *
- * This functions adds the rest of the entries to the file
- * @param: string name.
+/**
+ * @brief This functions adds the rest of the entries to the file
+ * @param string name.
  */
 void DataAccess::secondEntry (Scientist scientist)
 {
@@ -198,6 +194,11 @@ void DataAccess::secondEntry (Scientist scientist)
 
     fileWork(scientist);
 }
+
+/**
+ * @brief This is a helper function that writes people in the file.
+ * @param string name.
+ */
 void DataAccess::fileWork (Scientist scientist)
 {
     ifstream inputfile("ComputerScientist.txt", ios::app);
