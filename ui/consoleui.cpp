@@ -102,8 +102,7 @@ void ConsoleUI::addSci()
     while(!validName(name))
     {
         cout << "Invalid name!" << endl;
-        cout << "Name: " << endl;
-        std::getline(cin, name);
+        cout << "Name: ";
         std::getline(cin, name);
 
     }
@@ -377,13 +376,16 @@ void ConsoleUI::clearScreen()
  */
 bool ConsoleUI::validName(string name)
 {
-    bool valid = true;
+    bool valid = false;
     for(unsigned int i = 0; i < name.size(); i++)
     {
-        if(!((name[i] >= 'A' && name[i] < '[') || (name[i] > '`' && name[i] <= 'z') || name[i] == ' '))
+
+        if(isalpha(name.at(i)))
         {
-            valid = false;
+            valid = true;
         }
+
+
     }
     return valid;
 }
