@@ -199,39 +199,42 @@ void ConsoleUI::removeSci ()
 void ConsoleUI::sortSci()
 {
     clearScreen();
-    cout << "What would you like to sort it by?" << endl;
-    cout << "1. Name" << endl;
-    cout << "2. Sex" << endl;
-    cout << "3. Birth" << endl;
-    cout << "4. Death" << endl << endl << "=> ";
-
     string command;
-    cin >> command;
+    while(!validCommand(command))
+    {
+        cout << "What would you like to sort it by?" << endl;
+        cout << "1. Name" << endl;
+        cout << "2. Sex" << endl;
+        cout << "3. Birth" << endl;
+        cout << "4. Death" << endl << endl << "=> ";
 
-    if(command == "name" || command == "Name" || command == "1")
-    {
-        vector<Scientist> Scientist = _service.sortByName();
-        displayListOfScientists(Scientist);
-    }
-    else if(command == "sex" || command == "Sex" || command == "2")
-    {
-        vector<Scientist> Scientist = _service.sortBySex();
-        displayListOfScientists(Scientist);
-    }
-    else if(command == "birth" || command == "Birth" || command == "3")
-    {
-        vector<Scientist> Scientist = _service.sortByBirth();
-        displayListOfScientists(Scientist);
-    }
-    else if(command == "death" || command == "Death" || command == "4")
-    {
-        vector<Scientist> Scientist = _service.sortByDeath();
-        displayListOfScientists(Scientist);
-    }
-    else
-    {
-        cout << "Invalid sort!" << endl;
-        sortSci();
+        cin >> command;
+
+        if(command == "name" || command == "Name" || command == "1")
+        {
+            vector<Scientist> Scientist = _service.sortByName();
+            displayListOfScientists(Scientist);
+        }
+        else if(command == "sex" || command == "Sex" || command == "2")
+        {
+            vector<Scientist> Scientist = _service.sortBySex();
+            displayListOfScientists(Scientist);
+        }
+        else if(command == "birth" || command == "Birth" || command == "3")
+        {
+            vector<Scientist> Scientist = _service.sortByBirth();
+            displayListOfScientists(Scientist);
+        }
+        else if(command == "death" || command == "Death" || command == "4")
+        {
+            vector<Scientist> Scientist = _service.sortByDeath();
+            displayListOfScientists(Scientist);
+        }
+        else
+        {
+            clearScreen();
+            cout << "Invalid sort!" << endl << endl;
+        }
     }
 }
 
@@ -242,39 +245,41 @@ void ConsoleUI::sortSci()
 void ConsoleUI::reversedSortSci()
 {
     clearScreen();
-    cout << "What would you like to reverse sort it by?" << endl;
-    cout << "1. Name" << endl;
-    cout << "2. Sex" << endl;
-    cout << "3. Birth" << endl;
-    cout << "4. Death" << endl << endl << "=> ";
-
     string command;
-    cin >> command;
+    while(!validCommand(command))
+    {
+        cout << "What would you like to reverse sort it by?" << endl;
+        cout << "1. Name" << endl;
+        cout << "2. Sex" << endl;
+        cout << "3. Birth" << endl;
+        cout << "4. Death" << endl << endl << "=> ";
+        cin >> command;
 
-    if(command == "name" || command == "Name" || command == "1")
-    {
-        vector<Scientist> Scientist = _service.sortByNameReverse();
-        displayListOfScientists(Scientist);
-    }
-    else if(command == "sex" || command == "Sex" || command == "2")
-    {
-        vector<Scientist> Scientist = _service.sortBySexReverse();
-        displayListOfScientists(Scientist);
-    }
-    else if(command == "birth" || command == "Birth" || command == "3")
-    {
-        vector<Scientist> Scientist = _service.sortByBirthReverse();
-        displayListOfScientists(Scientist);
-    }
-    else if(command == "death" || command == "Death" || command == "4")
-    {
-        vector<Scientist> Scientist = _service.sortByDeathReverse();
-        displayListOfScientists(Scientist);
-    }
-    else
-    {
-        cout << "Invalid sort!" << endl;
-        reversedSortSci();
+        if(command == "name" || command == "Name" || command == "1")
+        {
+            vector<Scientist> Scientist = _service.sortByNameReverse();
+            displayListOfScientists(Scientist);
+        }
+        else if(command == "sex" || command == "Sex" || command == "2")
+        {
+            vector<Scientist> Scientist = _service.sortBySexReverse();
+            displayListOfScientists(Scientist);
+        }
+        else if(command == "birth" || command == "Birth" || command == "3")
+        {
+            vector<Scientist> Scientist = _service.sortByBirthReverse();
+            displayListOfScientists(Scientist);
+        }
+        else if(command == "death" || command == "Death" || command == "4")
+        {
+            vector<Scientist> Scientist = _service.sortByDeathReverse();
+            displayListOfScientists(Scientist);
+        }
+        else
+        {
+            clearScreen();
+            cout << "Invalid sort!" << endl << endl;
+        }
     }
 }
 
@@ -285,55 +290,61 @@ void ConsoleUI::reversedSortSci()
 void ConsoleUI::searchList ()
 {
     clearScreen();
-
     string command;
-    cout << "By what would you like to search for? " << endl;
-    cout << "1. Name" << endl;
-    cout << "2. Sex" << endl;
-    cout << "3. Birth" << endl;
-    cout << "4. Death" << endl << endl;
-    cout << "=> ";
-    cin >> command;
+    while(!validCommand(command))
+    {
+        cout << "By what would you like to search for? " << endl;
+        cout << "1. Name" << endl;
+        cout << "2. Sex" << endl;
+        cout << "3. Birth" << endl;
+        cout << "4. Death" << endl << endl;
+        cout << "=> ";
+        cin >> command;
 
 
-    if(command == "name" || command == "Name" || command == "1")
-    {
-        clearScreen();
-        string nameOf;
-        cout << "Which name would you like to search for? " << endl << endl << "=> ";
-        std::getline(cin, nameOf);
-        std::getline(cin, nameOf);
-        vector<Scientist>names = _service.searchName (nameOf);
-        validateSearch(names);
-    }
-    else if(command == "sex" || command == "Sex" || command == "2")
-    {
-        clearScreen();
-        string sexOf;
-        cout << "Which sex would you like to search for? " << endl << endl << "=> ";
-        cin >> sexOf;
-        vector<Scientist>names = _service.searchSex (sexOf);
-        validateSearch(names);
+        if(command == "name" || command == "Name" || command == "1")
+        {
+            clearScreen();
+            string nameOf;
+            cout << "Which name would you like to search for? " << endl << endl << "=> ";
+            std::getline(cin, nameOf);
+            std::getline(cin, nameOf);
+            vector<Scientist>names = _service.searchName (nameOf);
+            validateSearch(names);
+        }
+        else if(command == "sex" || command == "Sex" || command == "2")
+        {
+            clearScreen();
+            string sexOf;
+            cout << "Which sex would you like to search for? " << endl << endl << "=> ";
+            cin >> sexOf;
+            vector<Scientist>names = _service.searchSex (sexOf);
+            validateSearch(names);
 
-    }
-    else if(command == "birth" || command == "Birth" || command == "3")
-    {
-        clearScreen();
-        int birthOf;
-        cout << "Which year of birth would you like to search for? " << endl << endl << "=> ";
-        cin >> birthOf;
-        vector<Scientist>names = _service.searchBirth (birthOf);
-        validateSearch(names);
-    }
-    else if(command == "death" || command == "Death" || command == "4")
-    {
-        clearScreen();
-        int deathOf;
-        cout << "Which date of death would you like to serach for? " << endl << endl << "=> ";
-        cin >> deathOf;
-        vector<Scientist>names =_service.searchDeath (deathOf);
-        validateSearch(names);
-
+        }
+        else if(command == "birth" || command == "Birth" || command == "3")
+        {
+            clearScreen();
+            int birthOf;
+            cout << "Which year of birth would you like to search for? " << endl << endl << "=> ";
+            cin >> birthOf;
+            vector<Scientist>names = _service.searchBirth (birthOf);
+            validateSearch(names);
+        }
+        else if(command == "death" || command == "Death" || command == "4")
+        {
+            clearScreen();
+            int deathOf;
+            cout << "Which date of death would you like to serach for? " << endl << endl << "=> ";
+            cin >> deathOf;
+            vector<Scientist>names =_service.searchDeath (deathOf);
+            validateSearch(names);
+        }
+        else
+        {
+            clearScreen();
+            cout << "Invalid command!" << endl << endl;
+        }
     }
 }
 
@@ -604,4 +615,11 @@ bool ConsoleUI::askIfCitation()
         return askIfCitation();
     }
 
+}
+
+bool ConsoleUI::validCommand(string command)
+{
+    if(command == "1" || command == "2" || command == "3" || command == "4" || command == "name" || command == "Name" || command == "sex" || command == "Sex" || command == "birth" || command == "Birth" || command == "death" || command == "Death")
+        return true;
+    else return false;
 }

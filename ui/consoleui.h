@@ -21,6 +21,7 @@ public:
     int lengthOfLongestCitation (vector<Scientist> scientists);
     string MorF(string sex);
     string makeFirstLetterBig(string name);
+    bool validCommand(string command);
 
 private:
     void displayListOfScientists(vector<Scientist> Scientist);
