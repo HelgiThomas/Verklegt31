@@ -30,8 +30,10 @@ private:
     void reversedSortSci();
     void searchList ();
     void validateSearch(vector<Scientist>names);
+    bool askIfCitation();
 
     ScientistService _service;
 };
+
 
 #endif // CONSOLEUI_H

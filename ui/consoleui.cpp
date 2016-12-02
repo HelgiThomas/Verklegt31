@@ -155,10 +155,15 @@ void ConsoleUI::addSci()
      {
         death = 0000;
       }
-   cout << "Citation: " ;
-   std::getline(cin, citation);
-   std::getline(cin, citation);
-
+   if(askIfCitation())
+   {
+        cout << "Citation: " ;
+        std::getline(cin, citation);
+   }
+   else
+   {
+       citation = "No citation to be displayed.";
+   }
    Scientist newScientist (name,sex,birth,death,citation);
    _service.addScientist(newScientist);
     cout << "Scientist added." << endl << endl;
@@ -478,7 +483,7 @@ int ConsoleUI::lengthOfLongestCitation(vector<Scientist> scientists)
 bool ConsoleUI::isPersonAlive()
 {
     string input;
-    cout << "Is this person alive? Press Y for \"Yes\" and N for \"No\": ";
+    cout << "Is this person alive? (Y/N): ";
     cin >> input;
 
     if(input == "Y" || input == "y")
@@ -552,4 +557,27 @@ void ConsoleUI::validateSearch(vector<Scientist>names)
      cout << "Nothing found in the list." << endl;
     }
     cout << endl;
+}
+
+bool ConsoleUI::askIfCitation()
+{
+    string input;
+    cout << "Would you like to write a citation on the scientist?(Y/N) ";
+    std::getline(cin, input);
+    std::getline(cin, input);
+
+    if(input == "Y" || input == "y")
+    {
+        return true;
+    }
+    else if(input == "N" || input == "n")
+    {
+        return false;
+    }
+    else
+    {
+        cout << endl << "Invalid input!";
+        return askIfCitation();
+    }
+
 }
