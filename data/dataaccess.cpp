@@ -26,7 +26,8 @@ void DataAccess::readToFile(Scientist scientist)
     {
 
         ifstream inputfile("ComputerScientist.txt", ios::app);
-        ofstream outputfile("ComputerScientist.txt", ios::app);
+        ofstream outputfile;
+        outputfile.open("ComputerScientist.txt", ios::app);
 
         // These two #ifdef sentences are used to solve a problem with running the program
         // on different platforms, Apple and Windows.
@@ -142,21 +143,30 @@ void DataAccess::removeScientistlist (string name)
             temp.push_back(remove[i]);
         }
     }
-    for (int i = 0; i < temp.size();i++)
+    if (temp.size() == 0)
     {
-        if (_temp == 0)
+        ifstream inputfile("ComputerScientist.txt");
+        ofstream outputfile("ComputerScientist.txt");
+    }
+    else
+    {
+        for (int i = 0; i < temp.size();i++)
         {
-            cout << "Hello";
-           firstEntry (temp[i]);
-        }
-        else if (_temp > 0)
-        {
-           secondEntry (temp[i]);
-        }
-         _temp++;
+            if (_temp == 0)
+            {
+               firstEntry (temp[i]);
+            }
+            else if (_temp > 0)
+            {
+               secondEntry (temp[i]);
+            }
+             _temp++;
 
-      }
-    _temp = 0;
+          }
+        _temp = 0;
+    }
+
+
 }
 void DataAccess::firstEntry (Scientist scientist)
 {
