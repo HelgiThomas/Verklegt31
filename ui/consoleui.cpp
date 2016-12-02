@@ -22,8 +22,6 @@ ConsoleUI::ConsoleUI()
  */
 void ConsoleUI::run()
 {
-    _service.addDatabase();
-
     do
     {
     cout << "Please enter the name or number of one of the commands below:" << endl << endl;

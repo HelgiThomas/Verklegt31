@@ -8,9 +8,6 @@
 #include <vector>
 #include <string>
 
-/*
- *
- */
 class DataAccess
 {
 public:

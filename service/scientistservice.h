@@ -6,9 +6,7 @@
 
 using namespace std;
 
-/*
- *
- */
+
 class ScientistService
 {
 public:
@@ -45,8 +43,6 @@ public:
 
     string MorF(string sex);
     string makeFirstLetterBig(string name);
-
-    void addDatabase();
 
 private:
     vector<Scientist> listOfScientist;
