@@ -175,12 +175,12 @@ void ConsoleUI::addSci()
     }
     Scientist newScientist (name,sex,birth,death,citation);
     _service.addScientist(newScientist);
-    cout << "Scientist added." << endl << endl;
-    string input;
-    cout << endl << "Press any key to continue, and then press Enter...";
-    cin >> input;
+     cout << "Scientist added." << endl << endl;
+     string input;
+     cout << "Press Enter to continue...";
+     getline(cin, input);
 
-    clearScreen();
+         clearScreen();
 
 
 }
