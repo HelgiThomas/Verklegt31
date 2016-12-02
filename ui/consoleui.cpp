@@ -24,8 +24,7 @@ void ConsoleUI::run()
 {
     do
     {
-    cout << "Please enter one of the following commands: " << endl << endl;
-    cout << "0. Instructions" << endl;
+    cout << "Please enter the name or number of one of the commands below:" << endl << endl;
     cout << "1. Add" << endl;
     cout << "2. List" << endl;
     cout << "3. Sort" << endl;
@@ -35,7 +34,7 @@ void ConsoleUI::run()
 
     string command;
     cin >> command;
-
+    cout << endl;
 
     if (command == "add" || command == "Add" || command == "1")
       {
@@ -63,7 +62,8 @@ void ConsoleUI::run()
       }
       else
       {
-          cout << "Invalid command!" << endl;
+          clearScreen();
+          cout << "Invalid command!" << endl << endl;
       }
     } while (1 < 2);
 }
@@ -113,7 +113,7 @@ void ConsoleUI::addSci()
     {
         if(sex == "yes")
         {
-            cout << "A prostitute has been sent to your location" << endl;
+            cout << "A prostitute has been sent to your location." << endl;
             cout << "Sex: ";
             cin >> sex;
         }
@@ -166,6 +166,12 @@ void ConsoleUI::addSci()
    Scientist newScientist (name,sex,birth,death,citation);
    _service.addScientist(newScientist);
     cout << "Scientist added." << endl << endl;
+    string input;
+    cout << endl << "Press any key to continue, and then press Enter...";
+    cin >> input;
+
+        clearScreen();
+
 
 }
 
