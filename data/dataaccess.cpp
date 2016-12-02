@@ -3,16 +3,16 @@
 using namespace std;
 
 /*
- * A default constructor for the class, initializes the count variable
- * _temp which is used in the *KLARA*.
+ * This is the default constructor.
  */
 DataAccess::DataAccess()
 {
-    _temp = 0;
+
 }
 
 /*
- * This function writes/reads into the file ComputerScientists.txt when a
+ * This function writes/reads into the file ComputerScientists.txt when a new scientist
+ * is added.
  * @param: Scientist variable.
  */
 void DataAccess::readToFile(Scientist scientist)
@@ -29,15 +29,15 @@ void DataAccess::readToFile(Scientist scientist)
         ofstream outputfile("ComputerScientist.txt", ios::app);
 
         // These two #ifdef sentences are used to solve a problem with running the program
-        // on different platforms, apple and windows.
-        // If the user is running on a windows computer the following code is executed.
+        // on different platforms, Apple and Windows.
+        // If the user is running on a Windows computer the following code is executed.
         #ifdef _WIN32
             if(!(inputfile.std::ifstream::peek() == EOF))
             {
                 outputfile << endl;
             }
         #endif
-        // If the user is running on a apple computer the following code is executed.
+        // If the user is running on a Apple computer the following code is executed.
         #ifdef __APPLE__
             if(inputfile.tellg() > 0)
             {
@@ -57,8 +57,8 @@ void DataAccess::readToFile(Scientist scientist)
 }
 
 /*
- * A function that opens the file ComputerScientist.txt and return a vector
- * containing all the scientists which are the database.
+ * A function that opens the file ComputerScientist.txt and returns a vector
+ * containing all the scientists which are in the database.
  * @return: Scientist vector of people in the file.
  */
 vector<Scientist> DataAccess::readFromFile()
@@ -106,7 +106,7 @@ vector<Scientist> DataAccess::readFromFile()
 }
 
 /*
- * A bool function to check whether the scientist entry is *KLARA*.
+ * A bool function to check whether the scientist entry already exists.
  * @param: Scientist variable.
  * @return: true/false.
  */

@@ -78,7 +78,7 @@ string Scientist:: getCitation() const
 }
 
 /*
- * This function set the name.
+ * This function sets the name.
  * @param: string name.
  */
 void Scientist::setName (string name)
@@ -87,7 +87,7 @@ void Scientist::setName (string name)
 }
 
 /*
- * This function set the sex.
+ * This function sets the sex.
  * @param: string sex.
  */
 void Scientist::setSex (string sex)
@@ -96,7 +96,7 @@ void Scientist::setSex (string sex)
 }
 
 /*
- * This function set the citation.
+ * This function sets the citation.
  * @param: string citation.
  */
 void Scientist::setCitation(string citation)
@@ -105,7 +105,7 @@ void Scientist::setCitation(string citation)
 }
 
 /*
- * This function set the birth year.
+ * This function sets the birth year.
  * @param: int birth.
  */
 void Scientist::setBirth (int birth)
@@ -114,7 +114,7 @@ void Scientist::setBirth (int birth)
 }
 
 /*
- * This function set the death year.
+ * This function sets the death year.
  * @param: int death.
  */
 void Scientist::setDeath (int death)
