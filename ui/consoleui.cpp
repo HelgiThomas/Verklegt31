@@ -470,8 +470,8 @@ void ConsoleUI::playGame(){
     }
     else
     {
-        cout << "Wrong answer!! The correct answer is: " << endl;
-        cout << Scientist[r].getName() << endl;
+        cout << "Wrong answer!" << endl;
+        cout << "The correct answer is: " << Scientist[r].getName() << endl;
         cout << endl;
     }
 }
