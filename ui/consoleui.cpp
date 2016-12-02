@@ -28,8 +28,8 @@ void ConsoleUI::run()
     cout << "0. Instructions" << endl;
     cout << "1. Add" << endl;
     cout << "2. List" << endl;
-    cout << "3. Reversed sort" << endl;
-    cout << "4. Sort" << endl;
+    cout << "3. Sort" << endl;
+    cout << "4. Reversed sort" << endl;
     cout << "5. Search " << endl;
     cout << "6. Quit" << endl << endl << "=> ";
 
@@ -45,13 +45,13 @@ void ConsoleUI::run()
       {
           list();
       }
-      else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "3")
-      {
-          reversedSortSci();
-      }
-      else if (command == "sort" || command == "Sort" || command == "4")
+      else if (command == "sort" || command == "Sort" || command == "3")
       {
           sortSci();
+      }
+      else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "4")
+      {
+          reversedSortSci();
       }
       else if (command == "search" || command == "Search" || command == "5")
       {
