@@ -32,6 +32,11 @@ void ScientistService::addScientist(Scientist newScientist)
     _access.readToFile(newScientist);
 }
 
+void ScientistService::removeScientist (string nameOf)
+{
+    _access.removeScientistlist(nameOf);
+}
+
 /*
  * Compares the name and returns true if the first parameter is higher.
  * @param: Scientist variable.

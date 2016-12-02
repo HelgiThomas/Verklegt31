@@ -32,6 +32,8 @@ public:
     vector<Scientist> sortByBirthReverse();
     vector<Scientist> sortByDeathReverse();
 
+    void removeScientist (string name);
+
 private:
     vector<Scientist> listOfScientist;
     DataAccess _access;

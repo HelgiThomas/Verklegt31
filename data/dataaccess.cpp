@@ -129,3 +129,92 @@ bool DataAccess::checkEntry(Scientist scientist)
 
     return false;
 }
+void DataAccess::removeScientistlist (string name)
+{
+    vector <Scientist> remove;
+    vector <Scientist> temp;
+    remove = readFromFile();
+
+    for (int i = 0; i < remove.size();i++)
+    {
+        if (!(name == remove[i].getName()))
+        {
+            temp.push_back(remove[i]);
+        }
+    }
+    for (int i = 0; i < temp.size();i++)
+    {
+        if (_temp == 0)
+        {
+            cout << "Hello";
+           firstEntry (temp[i]);
+        }
+        else if (_temp > 0)
+        {
+           secondEntry (temp[i]);
+        }
+         _temp++;
+
+      }
+    _temp = 0;
+}
+void DataAccess::firstEntry (Scientist scientist)
+{
+    ifstream inputfile("ComputerScientist.txt");
+    ofstream outputfile("ComputerScientist.txt");
+
+    // These two #ifdef sentences are used to solve a problem with running the program
+    // on different platforms, apple and windows.
+    // If the user is running on a windows computer the following code is executed.
+    #ifdef _WIN32
+        if(!(inputfile.std::ifstream::peek() == EOF))
+        {
+            outputfile << endl;
+        }
+    #endif
+    // If the user is running on a apple computer the following code is executed.
+    #ifdef __APPLE__
+        if(inputfile.tellg() > 0)
+        {
+            outputfile << endl;
+
+        }
+    #endif
+
+    outputfile << scientist.getName() << endl;
+    outputfile << scientist.getSex() << endl;
+    outputfile << scientist.getBirth() << endl;
+    outputfile << scientist.getDeath() << endl;
+    outputfile << scientist.getCitation();
+    outputfile.close();
+}
+void DataAccess::secondEntry (Scientist scientist)
+{
+    ifstream inputfile("ComputerScientist.txt", ios::app);
+    ofstream outputfile("ComputerScientist.txt", ios::app);
+
+    // These two #ifdef sentences are used to solve a problem with running the program
+    // on different platforms, apple and windows.
+    // If the user is running on a windows computer the following code is executed.
+    #ifdef _WIN32
+        if(!(inputfile.std::ifstream::peek() == EOF))
+        {
+            outputfile << endl;
+        }
+    #endif
+    // If the user is running on a apple computer the following code is executed.
+    #ifdef __APPLE__
+        if(inputfile.tellg() > 0)
+        {
+            outputfile << endl;
+
+        }
+    #endif
+
+    outputfile << scientist.getName() << endl;
+    outputfile << scientist.getSex() << endl;
+    outputfile << scientist.getBirth() << endl;
+    outputfile << scientist.getDeath() << endl;
+    outputfile << scientist.getCitation();
+    outputfile.close();
+}

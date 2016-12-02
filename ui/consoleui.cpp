@@ -26,11 +26,12 @@ void ConsoleUI::run()
     {
     cout << "Please enter the name or number of one of the commands below:" << endl << endl;
     cout << "1. Add" << endl;
-    cout << "2. List" << endl;
-    cout << "3. Sort" << endl;
-    cout << "4. Reversed sort" << endl;
-    cout << "5. Search " << endl;
-    cout << "6. Quit" << endl << endl << "=> ";
+    cout << "2. Remove" << endl;
+    cout << "3. List" << endl;
+    cout << "4. Sort" << endl;
+    cout << "5. Reversed sort" << endl;
+    cout << "6. Search " << endl;
+    cout << "7. Quit" << endl << endl << "=> ";
 
     string command;
     cin >> command;
@@ -40,23 +41,27 @@ void ConsoleUI::run()
       {
           addSci();
       }
-      else if (command == "list" || command == "List" || command == "2")
+      else if (command == "Remove" || command == "remove" || command == "2")
+      {
+         removeSci ();
+      }
+      else if (command == "list" || command == "List" || command == "3")
       {
           list();
       }
-      else if (command == "sort" || command == "Sort" || command == "3")
+      else if (command == "sort" || command == "Sort" || command == "4")
       {
           sortSci();
       }
-      else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "4")
+      else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "5")
       {
           reversedSortSci();
       }
-      else if (command == "search" || command == "Search" || command == "5")
+      else if (command == "search" || command == "Search" || command == "6")
       {
           searchList();
       }
-      else if (command == "quit" || command == "Quit" || command == "6")
+      else if (command == "quit" || command == "Quit" || command == "7")
       {
           exit(10);
       }
@@ -172,6 +177,17 @@ void ConsoleUI::addSci()
 
         clearScreen();
 
+
+}
+void ConsoleUI::removeSci ()
+{
+    string nameOf;
+    cout << "Which scientist would you like to remove? " << endl << endl << "=> ";;
+    std::getline(cin, nameOf);
+    std::getline(cin, nameOf);
+
+    _service.removeScientist (nameOf);
+    cout << endl << "Scientist removed " << endl << endl;
 
 }
 

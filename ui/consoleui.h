@@ -31,6 +31,7 @@ private:
     void searchList ();
     void validateSearch(vector<Scientist>names);
     bool askIfCitation();
+    void removeSci ();
 
     ScientistService _service;
 };
