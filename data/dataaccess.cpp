@@ -102,15 +102,11 @@ bool DataAccess::checkEntry(Scientist scientist)
 
     return false;
 }
-<<<<<<< HEAD
 
-/*
- *
-=======
+
 /*
  * This function removes selected scientist from list.
  * @param: string name.
->>>>>>> e387eb70126c4cbaae05dd931433e720977abd2d
  */
 void DataAccess::removeScientistlist (string name)
 {
@@ -152,15 +148,12 @@ void DataAccess::removeScientistlist (string name)
 
 
 }
-<<<<<<< HEAD
 
-/*
- *
-=======
+
+
 /*
  * This functions erases everything that is in the file and adds the first entry.
  * @param: string name.
->>>>>>> e387eb70126c4cbaae05dd931433e720977abd2d
  */
 void DataAccess::firstEntry (Scientist scientist)
 {
@@ -192,15 +185,11 @@ void DataAccess::firstEntry (Scientist scientist)
     outputfile << scientist.getCitation();
     outputfile.close();
 }
-<<<<<<< HEAD
 
 /*
  *
-=======
-/*
  * This functions adds the rest of the entries to the file
  * @param: string name.
->>>>>>> e387eb70126c4cbaae05dd931433e720977abd2d
  */
 void DataAccess::secondEntry (Scientist scientist)
 {

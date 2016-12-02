@@ -64,11 +64,11 @@ void ConsoleUI::run()
       {
           searchList();
       }
-      else if(command == "Play" || command == "play" || command == "6")
+      else if(command == "Play" || command == "play" || command == "7")
       {
           playGame();
       }
-      else if (command == "quit" || command == "Quit" || command == "7")
+      else if (command == "quit" || command == "Quit" || command == "8")
       {
           exit(10);
       }
