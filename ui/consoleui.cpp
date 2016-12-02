@@ -448,7 +448,7 @@ void ConsoleUI::playGame(){
     string quote = Scientist[r].getCitation();
 
     cout << "-------------------------------------------------------------" << endl;
-    cout << "Let's play a little game, guess who owns the following quote!" << endl;
+    cout << "Let's play a little game, guess who owns the following citation!" << endl;
     cout << "-------------------------------------------------------------" << endl;
     cout << quote << endl;
     cout << "Answer: ";
