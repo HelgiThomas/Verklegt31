@@ -34,6 +34,16 @@ public:
 
     void removeScientist (string name);
 
+    bool validName(string name);
+    bool validSex(string sex);
+    bool validYear(string year);
+    bool validDeath(int birth, string strDeath);
+    int lengthOfLongestName(vector<Scientist> scientists);
+    int lengthOfLongestCitation (vector<Scientist> scientists);
+    string MorF(string sex);
+    string makeFirstLetterBig(string name);
+    bool validCommand(string command);
+
 private:
     vector<Scientist> listOfScientist;
     DataAccess _access;

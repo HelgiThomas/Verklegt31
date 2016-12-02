@@ -247,6 +247,7 @@ vector<Scientist> ScientistService::sortByDeathReverse()
  */
 vector <Scientist> ScientistService::searchName (string command)
 {
+    command = makeFirstLetterBig(command);
     vector<Scientist> allNames;
     vector<Scientist> allScientists = _access.readFromFile();
     for (unsigned int i = 0 ; i < allScientists.size();i++)
@@ -317,4 +318,161 @@ vector <Scientist> ScientistService::searchDeath (int command)
         }
     }
     return allDeath;
+}
+
+/*
+ * A function that validates if the name which the user asks to input is valid.
+ * @param: string name of the scientist.
+ * @return: true/false.
+ */
+bool ScientistService::validName(string name)
+{
+    bool valid = false;
+    for(unsigned int i = 0; i < name.size(); i++)
+    {
+
+        if(isalpha(name.at(i)))
+        {
+            valid = true;
+        }
+
+
+    }
+    return valid;
+}
+
+
+/*
+ * A function to validate if the input sex from the users is valid.
+ * @param: string containing scientists gender.
+ * @return: true/false.
+ */
+bool ScientistService::validSex(string sex)
+{
+    if(sex == "female" || sex == "Female" || sex == "f" || sex == "F" || sex == "male" || sex == "Male" || sex == "m" || sex == "M")
+    {
+        return true;
+    }
+    else return false;
+}
+
+/*
+ * A function to check if the year which the user inputs into the program is valid.
+ * @param: string contianing year.
+ * @return: true/false.
+ */
+bool ScientistService::validYear(string strYear)
+{
+    int year = atoi(strYear.c_str());
+    for(unsigned int i = 0; i < strYear.size(); i++)
+        {
+            if(!(isdigit(strYear.at(i))) || year > 2016)
+            {
+                return false;
+            }
+
+        }
+    return true;
+}
+
+/*
+ * A function which validates the death of the scientist when the user inputs it
+ * into the program.
+ * @param: int birth year.
+ * @param: string death year.
+ * @return: true/false.
+ */
+bool ScientistService::validDeath(int birth, string strDeath)
+{
+    int death;
+    death = atoi(strDeath.c_str());
+    if(birth > death)
+    {
+        return false;
+    }
+    else return true;
+}
+
+
+/*
+ * A function which returns the length of the longest name in the database.
+ * @param: vector of Scientist variables.
+ * @return: int variable.
+ */
+int ScientistService::lengthOfLongestName(vector<Scientist> scientists)
+{
+    Scientist temp;
+    for(unsigned int i = 0; i < scientists.size(); i++)
+    {
+        if(temp.getName().size() < scientists[i].getName().size())
+        {
+            temp = scientists[i];
+        }
+    }
+    return temp.getName().size();
+}
+
+/*
+ * A function which returns the length of the longest citation the database.
+ * @param: A vector of Scientists.
+ * @return: int variable.
+ */
+int ScientistService::lengthOfLongestCitation(vector<Scientist> scientists)
+{
+    Scientist temp;
+    for(unsigned int i = 0; i < scientists.size(); i++)
+    {
+        if(temp.getName().size() < scientists[i].getCitation().size())
+        {
+            temp = scientists[i];
+        }
+    }
+    return temp.getCitation().size();
+}
+
+/*
+ * A function which allows the user to input various form of inputs to
+ * make it easier to input the scientists gender.
+ * @param: string containing the users input.
+ * @return: string sex (changed to the correct format).
+ */
+string ScientistService::MorF(string sex)
+{
+    if(sex == "female" || sex == "f" || sex == "F")
+    {
+        sex = "Female";
+    }
+    if(sex == "male" || sex == "m" || sex == "M")
+    {
+        sex = "Male";
+    }
+    return sex;
+}
+
+/*
+ * A function to make the first letter of all names a capital letter.
+ * @param: string name(input from user).
+ * @return: string Scientist name.
+ */
+string ScientistService::makeFirstLetterBig(string name)
+{
+    if(name[0] >= 97)
+    {
+        name[0] -= 32;
+    }
+    for(unsigned int i = 0; i < name.size(); i++)
+    {
+        if(name[i] == 32 && name[i+1] >= 97)
+        {
+            name[i+1] -= 32;
+        }
+    }
+    return name;
+}
+
+bool ScientistService::validCommand(string command)
+{
+    if(command == "1" || command == "2" || command == "3" || command == "4" || command == "name" || command == "Name" || command == "sex" || command == "Sex" || command == "birth" || command == "Birth" || command == "death" || command == "Death")
+        return true;
+    else return false;
 }

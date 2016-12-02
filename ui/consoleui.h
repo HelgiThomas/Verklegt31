@@ -12,16 +12,7 @@ public:
     ConsoleUI();
     void run ();
     void clearScreen();
-    bool validName(string name);
-    bool validSex(string sex);
-    bool validYear(string year);
-    bool validDeath(int birth, string strDeath);
     bool isPersonAlive();
-    int lengthOfLongestName(vector<Scientist> scientists);
-    int lengthOfLongestCitation (vector<Scientist> scientists);
-    string MorF(string sex);
-    string makeFirstLetterBig(string name);
-    bool validCommand(string command);
 
 private:
     void displayListOfScientists(vector<Scientist> Scientist);
