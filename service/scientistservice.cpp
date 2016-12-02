@@ -1,7 +1,6 @@
 #include "service/scientistservice.h"
 #include "algorithm"
 
-
 using namespace std;
 
 /**
@@ -13,7 +12,7 @@ ScientistService::ScientistService()
 }
 
 /**
- * @brief This function returns the list of all the scientist in the .txt file.
+ * @brief This function returns the list of all the scientists in the .txt file.
  * @return vector of scientists.
  */
 vector <Scientist> ScientistService::getScientist()
@@ -42,7 +41,7 @@ void ScientistService::removeScientist (string nameOf)
 }
 
 /**
- * @brief Compares the name and returns true if the first parameter is higher.
+ * @brief Compares the name and returns true if the second parameter is higher.
  * @param Scientist variable.
  * @param Scientist variable.
  * @return true/false
@@ -53,7 +52,7 @@ struct ScientistCompareName
 };
 
 /**
- * @brief Compares the sex and returns true if the first parameter is higher.
+ * @brief Compares the sex and returns true if the second parameter is higher.
  * @param Scientist variable.
  * @param Scientist variable.
  * @return true/false
@@ -64,7 +63,7 @@ struct ScientistCompareSex
 };
 
 /**
- * @brief Compares the birth years and returns true if the first parameter is higher.
+ * @brief Compares the birth years and returns true if the second parameter is higher.
  * @param Scientist variable.
  * @param Scientist variable.
  * @return true/false
@@ -75,7 +74,7 @@ struct ScientistCompareBirth
 };
 
 /**
- * @brief Compared the death years and returns true if the first parameter is higher.
+ * @brief Compares the death years and returns true if the second parameter is higher.
  * @param Scientist variable.
  * @param Scientist variable.
  * @return true/false

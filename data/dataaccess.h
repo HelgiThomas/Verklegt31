@@ -1,8 +1,6 @@
 #ifndef DATAACCESS_H
 #define DATAACCESS_H
-
 #include "model/scientist.h"
-
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -20,7 +18,7 @@ public:
     DataAccess();
 
     /**
-     * @brief Function to read information about scientists to the file ComputerScientist.txt
+     * @brief Function to read information about scientists to the .txt file.
      * @param Scientists scientist
      */
     void readToFile(Scientist scientist);
@@ -32,8 +30,8 @@ public:
     vector<Scientist> readFromFile();
 
     /**
-     * @brief Funciton to remove a Scientist from the list of Scientists.
-     * @param String name
+     * @brief Function to remove a Scientist from the list of Scientists.
+     * @param string name
      */
     void removeScientistlist(string name);
 
@@ -46,7 +44,7 @@ private:
     void fileWork(Scientist scientist);
 
     /**
-     * @brief functions to check if the entries are valid and correct.
+     * @brief Functions to check if the entries are valid and correct.
      * @param Scientist scientist
      */
     void firstEntry(Scientist scientist);

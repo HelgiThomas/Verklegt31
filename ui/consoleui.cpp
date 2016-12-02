@@ -1,6 +1,5 @@
 #include "ui/consoleui.h"
 #include "model/scientist.h"
-
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -31,7 +30,7 @@ void ConsoleUI::run()
         cout << "4. Sort" << endl;
         cout << "5. Reversed sort" << endl;
         cout << "6. Search " << endl;
-        cout << "7. Play a game ;)" << endl;
+        cout << "7. Game" << endl;
         cout << "8. Quit" << endl << endl << "=> ";
 
         string command;
@@ -62,7 +61,7 @@ void ConsoleUI::run()
         {
             searchList();
         }
-        else if(command == "Play" || command == "play" || command == "7")
+        else if(command == "Game" || command == "game" || command == "7")
         {
             playGame();
         }
@@ -175,12 +174,12 @@ void ConsoleUI::addSci()
     }
     Scientist newScientist (name,sex,birth,death,citation);
     _service.addScientist(newScientist);
-     cout << "Scientist added." << endl << endl;
-     string input;
-     cout << "Press Enter to continue...";
-     getline(cin, input);
+    cout << "Scientist added." << endl << endl;
+    string input;
+    cout << "Press Enter to continue...";
+    getline(cin, input);
 
-         clearScreen();
+    clearScreen();
 
 
 }
@@ -369,6 +368,7 @@ void ConsoleUI::searchList ()
             string sexOf;
             cout << "Which sex would you like to search for? " << endl << endl << "=> ";
             cin >> sexOf;
+            sexOf = _service.MorF(sexOf);
             vector<Scientist>names = _service.searchSex (sexOf);
             validateSearch(names);
 
@@ -452,9 +452,9 @@ void ConsoleUI::playGame(){
     string guess;
     string quote = Scientist[r].getCitation();
 
-    cout << "-------------------------------------------------------------" << endl;
-    cout << "Let's play a little game, guess who owns the following quote!" << endl;
-    cout << "-------------------------------------------------------------" << endl;
+    cout << "----------------------------------------------------------------" << endl;
+    cout << "Let's play a little game, guess who owns the following citation!" << endl;
+    cout << "----------------------------------------------------------------" << endl;
     cout << quote << endl;
     cout << "Answer: ";
     getline (cin,guess);

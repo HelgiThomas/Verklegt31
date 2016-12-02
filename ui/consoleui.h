@@ -1,6 +1,5 @@
 #ifndef CONSOLEUI_H
 #define CONSOLEUI_H
-
 #include "service/scientistservice.h"
 
 /**
@@ -15,7 +14,7 @@ public:
     ConsoleUI();
 
     /**
-     * @brief First function which calls the various other menu functions
+     * @brief First function which calls the various other menu functions.
      */
     void run();
 

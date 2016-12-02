@@ -1,11 +1,9 @@
 #ifndef PERFORMERSERVICE_H
 #define PERFORMERSERVICE_H
-
 #include "data/dataaccess.h"
 #include <vector>
 
 using namespace std;
-
 
 class ScientistService
 {
@@ -63,7 +61,7 @@ public:
 
     /**
      * @brief Functions to validate if the entries when input by the user.
-     * @param name, sex, year, (birth, str Death), command.
+     * @param name, sex, year, (birth, str death), command.
      * @return true/false.
      */
     bool validName(string name);
@@ -73,7 +71,7 @@ public:
     bool validCommand(string command);
 
     /**
-     * @brief Functions to return the longest Name/Citaton to make the UI look nice.
+     * @brief Functions to return the longest name/citaton to make the UI look nice.
      * @param vector<Scientist> scientists
      * @return integer
      */
@@ -81,7 +79,7 @@ public:
     int lengthOfLongestCitation (vector<Scientist> scientists);
 
     /**
-     * @brief Functions to check and verify inputs by the user, Male_or_Female() and
+     * @brief Functions to check and verify inputs by the user, male_or_female() and
      * make the first letter of each name a capital letter.
      * @param sex, name
      * @return string

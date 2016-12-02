@@ -171,9 +171,8 @@ void DataAccess::firstEntry (Scientist scientist)
         if(inputfile.tellg() > 0)
         {
             outputfile << endl;
-
         }
-    #endif
+     #endif
 
     outputfile << scientist.getName() << endl;
     outputfile << scientist.getSex() << endl;
