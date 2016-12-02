@@ -22,7 +22,7 @@ The brackets behind each command below contain possible input to enter each comm
      Name: -User can enter name that contains alphabetical characters. First letter of each name (first, middle and last) will      become capital automatically. A blank, a space or any other characters that are not alphabetical will result in an error      message (Icelandic letters are allowed). </br></br>
      Sex: -User can input "m", "M", "male" or "Male" if the scientist is a male and "f", "F", "female" or "Female" if the          scientist is a female. User can also type "yes". User will have to see for him/herself what happens.</br></br>
      Birth:/Death: -User can type an integer that's below 2016(current year) for both input lines. For death the user can only      input an integer that's greater or equal than the year of birth. Any other characters as input will result in an error.
-     (Sidenote: the user is prompted for whether the scientist being entered is dead before prompted for year of death).
+     (Sidenote: the user is prompted for whether the scientist being entered is dead before prompted for year of death).</br></br>
      Citation: -User is first prompted for whether desired to enter citation. The input for the citation can be of any kind        and any length.</br></br>
      
 2. Remove ("remove", "Remove", "2")</br>
@@ -65,7 +65,7 @@ The brackets behind each command below contain possible input to enter each comm
 
 # The Program:
 The program is divided into four classes to do its purpose.</br>
-The classes are as follows:</br></br>
+The classes are as follows:</br>
   
 Class:</br>
   ConsoleUI -> Handles the user interface and prints requested data onto the console.</br>
@@ -76,7 +76,7 @@ Class:</br>
 
 # Work
 The authors divded themself into three teams and worked together on seperate classes to achieve maximum functionality in the program and to learn how to divide tasks into subtasks, divide them between the team and them link them alltogether.
-The following authors worked on the following classes:</br> </br>
+The following authors worked on the following classes:</br>
 
   Consoleui (Benedikt Þorri Þórarinsson, Þorsteinn Sæmundsson)</br>
   Scientist (All Authors)</br>
