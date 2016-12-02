@@ -412,7 +412,7 @@ bool ConsoleUI::validYear(string strYear)
     int year = atoi(strYear.c_str());
     for(unsigned int i = 0; i < strYear.size(); i++)
         {
-            if(isalpha(strYear.at(i)) || year > 2016)
+            if(!(isdigit(strYear.at(i))) || year > 2016)
             {
                 return false;
             }
@@ -562,7 +562,7 @@ void ConsoleUI::validateSearch(vector<Scientist>names)
 bool ConsoleUI::askIfCitation()
 {
     string input;
-    cout << "Would you like to write a citation on the scientist?(Y/N) ";
+    cout << "Would you like to write a citation on the scientist? (Y/N) ";
     std::getline(cin, input);
     std::getline(cin, input);
 
