@@ -491,7 +491,7 @@ string ScientistService::makeFirstLetterBig(string name)
 }
 
 /**
- * @brief ScientistService::validCommand
+ * @brief ScientistService::validCommand -> checks if the input from user is valid.
  * @param string command.
  * @return true/false.
  */
@@ -500,19 +500,4 @@ bool ScientistService::validCommand(string command)
     if(command == "1" || command == "2" || command == "3" || command == "4" || command == "name" || command == "Name" || command == "sex" || command == "Sex" || command == "birth" || command == "Birth" || command == "death" || command == "Death")
         return true;
     else return false;
-}
-
-void ScientistService::addDatabase(){
-
-    Scientist nr1("Edsger W. Dijkstra", "m", 1930, 2002, "“The question of whether computers can think is like the question of whether submarines can swim.”");
-    Scientist nr2("C3PO", "m", 1999, 0, "“The city’s central computer told you?  R2D2, you know better than to trust a strange computer!”");
-    Scientist nr3("Brian Kernigan", "m", 1942, 0, "“Controlling complexity is the essence of computer programming.”");
-    Scientist nr4("Grady Booch", "m", 1955, 0, "“The function of good software is to make the complex appear to be simple.”");
-    Scientist nr5("Bill Gates", "m", 1955, 0, "“Measuring programming progress by lines of code is like measuring aircraft building progress by weight.”");
-
-    addScientist(nr1);
-    addScientist(nr2);
-    addScientist(nr3);
-    addScientist(nr4);
-    addScientist(nr5);
 }
