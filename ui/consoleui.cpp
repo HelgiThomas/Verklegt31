@@ -432,7 +432,8 @@ void ConsoleUI::playGame(){
     cout << "-------------------------------------------------------------" << endl;
     cout << quote << endl;
     cout << "Answer: ";
-    cin >> guess;
+    getline (cin,guess);
+    getline (cin,guess);
     cout << endl;
 
     if (guess == Scientist[r].getName())
