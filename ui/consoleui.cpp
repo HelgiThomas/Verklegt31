@@ -189,6 +189,8 @@ void ConsoleUI::addSci()
 void ConsoleUI::removeSci ()
 {
     bool exist = false;
+    int temp;
+    string removePerson;
     string insert;
     string nameOf;
     cout << "Which scientist would you like to remove? " << endl << endl << "=> ";;
@@ -202,16 +204,36 @@ void ConsoleUI::removeSci ()
         if ((nameOf == checkIfreal[i].getName()))
         {
             exist = true;
+            temp = i;
         }
     }
-    if (exist == true)
+    if (exist == false)
     {
-        _service.removeScientist (nameOf);
-        cout << endl << "Scientist removed " << endl << endl;
+        cout << "There is no such scientist in the list! " << endl << endl;
     }
     else
     {
-        cout << "There is no such scientist in the list! " << endl << endl;
+        cout << endl << "Reomve: " << checkIfreal [temp].getName () << " " <<  checkIfreal [temp].getSex() << " " <<  checkIfreal [temp].getBirth() << " " << checkIfreal [temp].getDeath() << " ?" << endl;
+        cout << "(Y/N) ";
+        cin >> removePerson;
+
+        while(removePerson != "Y" && removePerson != "y" && removePerson != "n" && removePerson != "N")
+        {
+            cout << "Invalid input!" << endl;
+            cout << "Type either Y or N: ";
+            cin >> removePerson;
+        }
+        if(removePerson == "y" || removePerson == "Y")
+        {
+            _service.removeScientist (nameOf);
+            cout << endl << "Scientist removed " << endl << endl;
+        }
+        else if (removePerson == "n" || removePerson == "N")
+        {
+            cout << "Scientist not removed " << endl;
+        }
+
+
     }
 
 
