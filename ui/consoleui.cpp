@@ -181,13 +181,32 @@ void ConsoleUI::addSci()
 }
 void ConsoleUI::removeSci ()
 {
+    bool exist = false;
+    string insert;
     string nameOf;
     cout << "Which scientist would you like to remove? " << endl << endl << "=> ";;
-    std::getline(cin, nameOf);
-    std::getline(cin, nameOf);
+    std::getline(cin, insert);
+    std::getline(cin,insert);
+    nameOf = makeFirstLetterBig(insert);
 
-    _service.removeScientist (nameOf);
-    cout << endl << "Scientist removed " << endl << endl;
+    vector <Scientist> checkIfreal = _service.getScientist();
+    for (unsigned int i = 0; i < checkIfreal.size(); i++)
+    {
+        if ((nameOf == checkIfreal[i].getName()))
+        {
+            exist = true;
+        }
+    }
+    if (exist == true)
+    {
+        _service.removeScientist (nameOf);
+        cout << endl << "Scientist removed " << endl << endl;
+    }
+    else
+    {
+        cout << "There is no such scientist in the list! " << endl << endl;
+    }
+
 
 }
 
