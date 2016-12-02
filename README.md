@@ -35,14 +35,14 @@ The brackets behind each command below contain possible input to enter each comm
 4. Sort ("sort", "Sort", "4")</br>
       Displays a table containing sorted information about the scientists.</br>
       
-          1. Name ("name", "Name", "1")</br>
-               List is displayed in an alphabetical order.</br>
-          2. Sex ("sex", "Sex", "2")</br>
-               List is displayed by sex. Females first, males second.</br>
-          3. Birth ("birth", "Birth", "3")</br>
-               List is displayed by year of birth. Youngest first, oldest last.</br>
-          4. Death ("death", "Death", "4")</br>
-               List is displayed by year of death. Those who died first, first and those who died last, last.</br></br>
+          1. Name ("name", "Name", "1")
+               List is displayed in an alphabetical order.
+          2. Sex ("sex", "Sex", "2")
+               List is displayed by sex. Females first, males second.
+          3. Birth ("birth", "Birth", "3")
+               List is displayed by year of birth. Youngest first, oldest last.
+          4. Death ("death", "Death", "4")
+               List is displayed by year of death. Those who died first, first and those who died last, last.
                
 5. Reversed Sort</br>
       Displays the list in the opposite order of what the Sort command does.</br></br>
@@ -50,14 +50,14 @@ The brackets behind each command below contain possible input to enter each comm
 6. Search</br>
       User can search for scientist on the list by name, sex, birth, death.</br>
           
-          1. Name ("name", "Name", "1")</br>
-                User inputes correct, full name of the scientist in order for him/her to be located.</br>
-           2. Sex ("sex", "Sex", "2")</br>
-                User inputs "f", "F", "female" or "Female" to locate all females and "m", "M", "male" or "Male" to locate all                  males.</br>
-           3. Birth ("birth", "Birth", "3")</br>
-                User inputs year to locate all scientists born in that particular year.</br>
-           4. Death ("death", "Death", "4")</br>
-                User inputs year to locate all scientists that died in that particular year.</br></br>
+          1. Name ("name", "Name", "1")
+                User inputes correct, full name of the scientist in order for him/her to be located.
+           2. Sex ("sex", "Sex", "2")
+                User inputs "f", "F", "female" or "Female" to locate all females and "m", "M", "male" or "Male" to locate all                  males.
+           3. Birth ("birth", "Birth", "3")
+                User inputs year to locate all scientists born in that particular year.
+           4. Death ("death", "Death", "4")
+                User inputs year to locate all scientists that died in that particular year.
                 
 7. Game ("game", "Game", "7")</br>
       User is presented with a game, or more accurately, a quiz. The quiz presents a citation to which the user must name the       scientist to whom the citation matches. For a single question answered correctly, the user gets 1 point. For as long as       the program is running the score will be saved.</br></br>
@@ -73,21 +73,21 @@ The brackets behind each command below contain possible input to enter each comm
 The program is divided into four classes to do its purpose.</br>
 The classes are as follows:</br>
   
-     Class:</br>
-       ConsoleUI -> Handles the user interface and prints requested data onto the console.</br>
-       Scientist -> Handles the different variables stored withing the program, i.e. name, sex, year of birth etc.</br>
-       ScientistService -> Handles the logic which the ConsoleUI function uses for its various functions.</br>
-       DataAccess - > Handles writing and reading of information from and to a .txt file.</br>
-       Main -> Runs the program</br></br>
+     Class:
+       ConsoleUI -> Handles the user interface and prints requested data onto the console.
+       Scientist -> Handles the different variables stored withing the program, i.e. name, sex, year of birth etc.
+       ScientistService -> Handles the logic which the ConsoleUI function uses for its various functions.
+       DataAccess - > Handles writing and reading of information from and to a .txt file.
+       Main -> Runs the program
 
 # Work
 The authors divded themself into three teams and worked together on seperate classes to achieve maximum functionality in the program and to learn how to divide tasks into subtasks, divide them between the team and them link them alltogether.
-The following authors worked on the following classes:</br>
+The following authors worked on the following classes (atleast in the start, we changed it up when the project went along):</br>
 
-       Consoleui (Benedikt Þorri Þórarinsson, Þorsteinn Sæmundsson)</br>
-       Scientist (All Authors)</br>
-       ScientisService (Kolbrún Hafdísardóttir, Sigrún Elva Reynisdóttir)</br>
-       Dataacess (Emil Hjaltason, Helgi Hallgrimsson)</br></br>
+       Consoleui (Benedikt Þorri Þórarinsson, Þorsteinn Sæmundsson)
+       Scientist (All Authors)
+       ScientisService (Kolbrún Hafdísardóttir, Sigrún Elva Reynisdóttir)
+       Dataacess (Emil Hjaltason, Helgi Hallgrimsson)
 
 The team succesfully worked together and members contributed equally.
 
