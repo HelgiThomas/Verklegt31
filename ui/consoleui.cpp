@@ -187,7 +187,7 @@ void ConsoleUI::removeSci ()
     cout << "Which scientist would you like to remove? " << endl << endl << "=> ";;
     std::getline(cin, insert);
     std::getline(cin,insert);
-    nameOf = makeFirstLetterBig(insert);
+    nameOf = _service.makeFirstLetterBig(insert);
 
     vector <Scientist> checkIfreal = _service.getScientist();
     for (unsigned int i = 0; i < checkIfreal.size(); i++)
@@ -469,21 +469,20 @@ bool ConsoleUI::askIfCitation()
 {
     string input;
     cout << "Would you like to write a citation on the scientist? (Y/N) ";
-    std::getline(cin, input);
-    std::getline(cin, input);
+    getline(cin, input);
+    getline(cin, input);
 
-    if(input == "Y" || input == "y")
+    while(input != "Y" && input != "y" && input != "n" && input != "N")
+    {
+        cout << "Invalid input!" << endl;
+        cout << "Type either Y or N: ";
+        getline(cin, input);
+    }
+    if(input == "y" || input == "Y")
     {
         return true;
     }
-    else if(input == "N" || input == "n")
-    {
-        return false;
-    }
-    else
-    {
-        cout << endl << "Invalid input!";
-        return askIfCitation();
-    }
+    else return false;
+
 
 }
