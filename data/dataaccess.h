@@ -18,6 +18,8 @@ public:
 
     void readToFile(Scientist scientist);
 
+    void fileWork (Scientist scientist);
+
     bool checkEntry (Scientist scientist);
 
     vector<Scientist> readFromFile();

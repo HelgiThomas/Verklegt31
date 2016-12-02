@@ -24,36 +24,8 @@ void DataAccess::readToFile(Scientist scientist)
     }
     else
     {
-
-        ifstream inputfile("ComputerScientist.txt", ios::app);
-        ofstream outputfile;
-        outputfile.open("ComputerScientist.txt", ios::app);
-
-        // These two #ifdef sentences are used to solve a problem with running the program
-        // on different platforms, Apple and Windows.
-        // If the user is running on a Windows computer the following code is executed.
-        #ifdef _WIN32
-            if(!(inputfile.std::ifstream::peek() == EOF))
-            {
-                outputfile << endl;
-            }
-        #endif
-        // If the user is running on a Apple computer the following code is executed.
-        #ifdef __APPLE__
-            if(inputfile.tellg() > 0)
-            {
-                outputfile << endl;
-
-            }
-        #endif
-
-        outputfile << scientist.getName() << endl;
-        outputfile << scientist.getSex() << endl;
-        outputfile << scientist.getBirth() << endl;
-        outputfile << scientist.getDeath() << endl;
-        outputfile << scientist.getCitation();
-        outputfile.close();
-      }
+        fileWork(scientist);
+    }
 
 }
 
@@ -130,19 +102,25 @@ bool DataAccess::checkEntry(Scientist scientist)
 
     return false;
 }
+/*
+ * This function removes selected scientist from list.
+ * @param: string name.
+ */
 void DataAccess::removeScientistlist (string name)
 {
     vector <Scientist> remove;
     vector <Scientist> temp;
     remove = readFromFile();
 
-    for (int i = 0; i < remove.size();i++)
+    for (unsigned int i = 0; i < remove.size();i++)
     {
+        //removes entered name from vector
         if (!(name == remove[i].getName()))
         {
             temp.push_back(remove[i]);
         }
     }
+    // If there is only one entry in the file
     if (temp.size() == 0)
     {
         ifstream inputfile("ComputerScientist.txt");
@@ -150,7 +128,7 @@ void DataAccess::removeScientistlist (string name)
     }
     else
     {
-        for (int i = 0; i < temp.size();i++)
+        for (unsigned int i = 0; i < temp.size();i++)
         {
             if (_temp == 0)
             {
@@ -168,6 +146,10 @@ void DataAccess::removeScientistlist (string name)
 
 
 }
+/*
+ * This functions erases everything that is in the file and adds the first entry.
+ * @param: string name.
+ */
 void DataAccess::firstEntry (Scientist scientist)
 {
     ifstream inputfile("ComputerScientist.txt");
@@ -198,10 +180,21 @@ void DataAccess::firstEntry (Scientist scientist)
     outputfile << scientist.getCitation();
     outputfile.close();
 }
+/*
+ * This functions adds the rest of the entries to the file
+ * @param: string name.
+ */
 void DataAccess::secondEntry (Scientist scientist)
 {
     ifstream inputfile("ComputerScientist.txt", ios::app);
     ofstream outputfile("ComputerScientist.txt", ios::app);
+
+    fileWork(scientist);
+}
+void DataAccess::fileWork (Scientist scientist)
+{
+    ifstream inputfile("ComputerScientist.txt", ios::app);
+    ofstream outputfile ("ComputerScientist.txt", ios::app);
 
     // These two #ifdef sentences are used to solve a problem with running the program
     // on different platforms, apple and windows.
