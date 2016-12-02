@@ -174,7 +174,15 @@ vector<Scientist> ScientistService::sortByBirth()
  */
 vector<Scientist> ScientistService::sortByDeath()
 {
-    vector<Scientist> scientists = getScientist();
+    vector <Scientist> scientists;
+    vector<Scientist> temp = getScientist();
+    for (int i = 0; i < temp.size(); i++)
+    {
+        if (!(temp[i].getDeath() == 0))
+        {
+            scientists.push_back(temp[i]);
+        }
+    }
 
     ScientistCompareDeath cmp;
     std::sort(scientists.begin(), scientists.end(), cmp);
@@ -231,7 +239,15 @@ vector<Scientist> ScientistService::sortByBirthReverse()
  */
 vector<Scientist> ScientistService::sortByDeathReverse()
 {
-    vector<Scientist> scientists = getScientist();
+    vector <Scientist> scientists;
+    vector<Scientist> temp = getScientist();
+    for (int i = 0; i < temp.size(); i++)
+    {
+        if (!(temp[i].getDeath() == 0))
+        {
+            scientists.push_back(temp[i]);
+        }
+    }
 
     ScientistCompareDeathReverse cmp;
     std::sort(scientists.begin(), scientists.end(), cmp);
