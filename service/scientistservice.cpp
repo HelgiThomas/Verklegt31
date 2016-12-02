@@ -176,7 +176,7 @@ vector<Scientist> ScientistService::sortByDeath()
 {
     vector <Scientist> scientists;
     vector<Scientist> temp = getScientist();
-    for (int i = 0; i < temp.size(); i++)
+    for (unsigned int i = 0; i < temp.size(); i++)
     {
         if (!(temp[i].getDeath() == 0))
         {
@@ -241,7 +241,7 @@ vector<Scientist> ScientistService::sortByDeathReverse()
 {
     vector <Scientist> scientists;
     vector<Scientist> temp = getScientist();
-    for (int i = 0; i < temp.size(); i++)
+    for (unsigned int i = 0; i < temp.size(); i++)
     {
         if (!(temp[i].getDeath() == 0))
         {
