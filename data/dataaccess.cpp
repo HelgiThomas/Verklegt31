@@ -130,6 +130,10 @@ bool DataAccess::checkEntry(Scientist scientist)
 
     return false;
 }
+
+/*
+ *
+ */
 void DataAccess::removeScientistlist (string name)
 {
     vector <Scientist> remove;
@@ -168,6 +172,10 @@ void DataAccess::removeScientistlist (string name)
 
 
 }
+
+/*
+ *
+ */
 void DataAccess::firstEntry (Scientist scientist)
 {
     ifstream inputfile("ComputerScientist.txt");
@@ -198,6 +206,10 @@ void DataAccess::firstEntry (Scientist scientist)
     outputfile << scientist.getCitation();
     outputfile.close();
 }
+
+/*
+ *
+ */
 void DataAccess::secondEntry (Scientist scientist)
 {
     ifstream inputfile("ComputerScientist.txt", ios::app);

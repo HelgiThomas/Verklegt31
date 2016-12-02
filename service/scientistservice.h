@@ -38,11 +38,15 @@ public:
     bool validSex(string sex);
     bool validYear(string year);
     bool validDeath(int birth, string strDeath);
+    bool validCommand(string command);
+
     int lengthOfLongestName(vector<Scientist> scientists);
     int lengthOfLongestCitation (vector<Scientist> scientists);
+
     string MorF(string sex);
     string makeFirstLetterBig(string name);
-    bool validCommand(string command);
+
+    void addDatabase();
 
 private:
     vector<Scientist> listOfScientist;

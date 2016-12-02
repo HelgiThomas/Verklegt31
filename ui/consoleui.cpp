@@ -13,7 +13,7 @@ using namespace std;
  */
 ConsoleUI::ConsoleUI()
 {
-
+    score = 0;
 }
 
 /*
@@ -22,6 +22,8 @@ ConsoleUI::ConsoleUI()
  */
 void ConsoleUI::run()
 {
+    _service.addDatabase();
+
     do
     {
     cout << "Please enter the name or number of one of the commands below:" << endl << endl;
@@ -31,7 +33,8 @@ void ConsoleUI::run()
     cout << "4. Sort" << endl;
     cout << "5. Reversed sort" << endl;
     cout << "6. Search " << endl;
-    cout << "7. Quit" << endl << endl << "=> ";
+    cout << "7. Play a game ;)" << endl;
+    cout << "8. Quit" << endl << endl << "=> ";
 
     string command;
     cin >> command;
@@ -60,6 +63,10 @@ void ConsoleUI::run()
       else if (command == "search" || command == "Search" || command == "6")
       {
           searchList();
+      }
+      else if(command == "Play" || command == "play" || command == "6")
+      {
+          playGame();
       }
       else if (command == "quit" || command == "Quit" || command == "7")
       {
@@ -406,8 +413,45 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
     cout << endl;
 }
 
-/*
- * This function clears the screen to make the menu look clean and beautiful.
+/**
+ * @brief ConsoleUI::playGame -> plays a game with the user, guessing who owns the citation.
+ */
+void ConsoleUI::playGame(){
+
+    clearScreen();
+
+    vector<Scientist> Scientist = _service.getScientist();
+
+    int r = rand() % (Scientist.size()) + 1;
+
+    string guess;
+    string quote = Scientist[r].getCitation();
+
+    cout << "-------------------------------------------------------------" << endl;
+    cout << "Let's play a little game, guess who owns the following quote!" << endl;
+    cout << "-------------------------------------------------------------" << endl;
+    cout << quote << endl;
+    cout << "Answer: ";
+    cin >> guess;
+    cout << endl;
+
+    if (guess == Scientist[r].getName())
+    {
+        cout << "You Guessed Correctly!!" << endl;
+        score++;
+        cout << "Your score is: " << score << endl;
+        cout << endl;
+    }
+    else
+    {
+        cout << "Wrong answer!! The correct answer is: " << endl;
+        cout << Scientist[r].getName() << endl;
+        cout << endl;
+    }
+}
+
+/**
+ * @brief ConsoleUI::clearScreen -> clears the screen to make the menu look clean and beautiful.
  * calls for the system command "cls" for windows and "clear" for apple systems.
  */
 void ConsoleUI::clearScreen()

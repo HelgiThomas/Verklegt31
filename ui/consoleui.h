@@ -10,7 +10,7 @@ class ConsoleUI
 {
 public:
     ConsoleUI();
-    void run ();
+    void run();
     void clearScreen();
     bool isPersonAlive();
 
@@ -20,12 +20,15 @@ private:
     void addSci();
     void sortSci();
     void reversedSortSci();
-    void searchList ();
+    void searchList();
+    void playGame();
     void validateSearch(vector<Scientist>names);
     bool askIfCitation();
-    void removeSci ();
+    void removeSci();
 
     ScientistService _service;
+
+    int score;
 };
 
 
