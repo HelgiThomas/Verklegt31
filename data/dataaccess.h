@@ -2,6 +2,9 @@
 #define DATAACCESS_H
 #include "model/scientist.h"
 #include <iostream>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QDebug>
 #include <fstream>
 #include <vector>
 #include <string>
@@ -36,6 +39,8 @@ public:
     void removeScientistlist(string name);
 
 private:
+    QSqlDatabase m_db;
+
     /**
      * @brief A helper function to write information into file, also provides
      * ways to differ between apple and windows computers.

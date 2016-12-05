@@ -8,74 +8,57 @@ using namespace std;
 DataAccess::DataAccess()
 {
 
+
 }
 
-/**
- * @brief This function writes/reads into the file ComputerScientists.txt when a new scientist
- * is added.
- * @param Scientist variable.
- */
+
 void DataAccess::readToFile(Scientist scientist)
 {
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("..\\Verklegt31\\DB_vika2.sqlite");
 
-    if (checkEntry (scientist))
+    if (!m_db.open())
     {
-        cout << "An entry like that already exists!" << endl;
+       qDebug() << "Error: connection with database fail";
     }
     else
     {
-        fileWork(scientist);
+       qDebug() << "Database: connection ok";
     }
+
+    // you should check if args are ok first...
+    QSqlQuery query;
+    QString qName = QString::fromStdString(scientist.getName());
+    QString qSex = QString::fromStdString(scientist.getSex());
+    QString qBirth = QString::number(scientist.getBirth());
+    QString qDeath = QString::number(scientist.getDeath());
+
+    query.prepare("INSERT INTO Scientists (name, sex, birth, death) VALUES (:name, :sex, :birth, :death)");
+    query.bindValue(":name", qName);
+    query.bindValue(":sex", qSex);
+    query.bindValue(":birth", qBirth);
+    query.bindValue(":death", qDeath);
+
+    query.exec();
+
 
 }
 
-/**
- * @brief A function that opens the file ComputerScientist.txt and returns a vector
- * containing all the scientists which are in the database.
- * @return Scientist vector of people in the file.
- */
+
 vector<Scientist> DataAccess::readFromFile()
 {
-    ifstream thefile;
-    vector<Scientist> sci;
-    thefile.open("ComputerScientist.txt");
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("..\\Verklegt31\\DB_vika2.sqlite");
 
-    if (thefile.is_open())
+    if (!m_db.open())
     {
-        while (!(thefile.eof()))
-        {
-            Scientist pl;
-            string name;
-            string sex;
-            string citation;
-            int birth;
-            int death;
-
-
-            std::getline(thefile, name);
-            thefile >> sex >> birth >> death;
-            std::getline(thefile, citation);
-            std::getline(thefile, citation);
-
-
-            pl.setName(name);
-            pl.setSex(sex);
-            pl.setBirth(birth);
-            pl.setDeath(death);
-            pl.setCitation(citation);
-
-            sci.push_back(pl);
-
-
-        }
+       qDebug() << "Error: connection with database fail";
     }
     else
     {
-        cout << "Error opening file!" << endl;
+       qDebug() << "Database: connection ok";
     }
 
-    thefile.close ();
-    return sci;
 }
 
 /**
@@ -85,6 +68,7 @@ vector<Scientist> DataAccess::readFromFile()
  */
 bool DataAccess::checkEntry(Scientist scientist)
 {
+    /*
     vector <Scientist> temp;
     temp = readFromFile();
     for (unsigned int i = 0 ; i < temp.size()-1; i++)
@@ -101,50 +85,12 @@ bool DataAccess::checkEntry(Scientist scientist)
     }
 
     return false;
+    */
 }
 
-/**
- * @brief This function removes selected scientist from list.
- * @param string name.
- */
+
 void DataAccess::removeScientistlist (string name)
 {
-    vector <Scientist> remove;
-    vector <Scientist> temp;
-    remove = readFromFile();
-
-    for (unsigned int i = 0; i < remove.size();i++)
-    {
-        //removes entered name from vector
-        if (!(name == remove[i].getName()))
-        {
-            temp.push_back(remove[i]);
-        }
-    }
-    // If there is only one entry in the file
-    if (temp.size() == 0)
-    {
-        ifstream inputfile("ComputerScientist.txt");
-        ofstream outputfile("ComputerScientist.txt");
-    }
-    else
-    {
-        for (unsigned int i = 0; i < temp.size();i++)
-        {
-            if (_temp == 0)
-            {
-                firstEntry (temp[i]);
-            }
-            else if (_temp > 0)
-            {
-                secondEntry (temp[i]);
-            }
-            _temp++;
-
-        }
-        _temp = 0;
-    }
-
 
 }
 
@@ -154,6 +100,7 @@ void DataAccess::removeScientistlist (string name)
  */
 void DataAccess::firstEntry (Scientist scientist)
 {
+    /*
     ifstream inputfile("ComputerScientist.txt");
     ofstream outputfile("ComputerScientist.txt");
 
@@ -180,18 +127,13 @@ void DataAccess::firstEntry (Scientist scientist)
     outputfile << scientist.getDeath() << endl;
     outputfile << scientist.getCitation();
     outputfile.close();
+    */
 }
 
-/**
- * @brief This functions adds the rest of the entries to the file
- * @param string name.
- */
 void DataAccess::secondEntry (Scientist scientist)
-{
-    ifstream inputfile("ComputerScientist.txt", ios::app);
-    ofstream outputfile("ComputerScientist.txt", ios::app);
 
-    fileWork(scientist);
+{
+
 }
 
 /**
@@ -200,31 +142,5 @@ void DataAccess::secondEntry (Scientist scientist)
  */
 void DataAccess::fileWork (Scientist scientist)
 {
-    ifstream inputfile("ComputerScientist.txt", ios::app);
-    ofstream outputfile ("ComputerScientist.txt", ios::app);
 
-    // These two #ifdef sentences are used to solve a problem with running the program
-    // on different platforms, apple and windows.
-    // If the user is running on a windows computer the following code is executed.
-    #ifdef _WIN32
-        if(!(inputfile.std::ifstream::peek() == EOF))
-        {
-            outputfile << endl;
-        }
-    #endif
-    // If the user is running on a apple computer the following code is executed.
-    #ifdef __APPLE__
-        if(inputfile.tellg() > 0)
-        {
-            outputfile << endl;
-
-        }
-    #endif
-
-    outputfile << scientist.getName() << endl;
-    outputfile << scientist.getSex() << endl;
-    outputfile << scientist.getBirth() << endl;
-    outputfile << scientist.getDeath() << endl;
-    outputfile << scientist.getCitation();
-    outputfile.close();
 }
