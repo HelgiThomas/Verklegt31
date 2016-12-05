@@ -14,17 +14,7 @@ DataAccess::DataAccess()
 
 void DataAccess::readToFile(Scientist scientist)
 {
-    m_db = QSqlDatabase::addDatabase("QSQLITE");
-    m_db.setDatabaseName("..\\Verklegt31\\DB_vika2.sqlite");
-
-    if (!m_db.open())
-    {
-       qDebug() << "Error: connection with database fail";
-    }
-    else
-    {
-       qDebug() << "Database: connection ok";
-    }
+    connect();
 
     // you should check if args are ok first...
     QSqlQuery query;
@@ -41,11 +31,50 @@ void DataAccess::readToFile(Scientist scientist)
 
     query.exec();
 
-
 }
 
 
 vector<Scientist> DataAccess::readFromFile()
+{
+
+    vector <Scientist> sci;
+    connect();
+
+    QSqlQuery query("SELECT * FROM Scientists");
+
+    int idName = query.record().indexOf("name");
+    int idSex= query.record().indexOf("sex");
+    int idBirth = query.record().indexOf("birth");
+    int idDeath = query.record().indexOf("death");
+    while (query.next())
+    {
+       Scientist pl;
+
+       QString qName = query.value(idName).toString();
+       QString qSex = query.value(idSex).toString();
+       QString qBirth = query.value(idBirth).toString();
+       QString qDeath = query.value(idDeath).toString();
+
+       std::string name = qName.toStdString();
+       std::string sex =  qSex.toStdString();
+       int birth = qBirth.toInt();
+       int death = qDeath.toInt();
+
+       pl.setName(name);
+       pl.setSex(sex);
+       pl.setBirth(birth);
+       pl.setDeath(death);
+
+       sci.push_back(pl);
+
+    }
+
+    return sci;
+
+
+}
+
+void DataAccess::connect()
 {
     m_db = QSqlDatabase::addDatabase("QSQLITE");
     m_db.setDatabaseName("..\\Verklegt31\\DB_vika2.sqlite");
@@ -58,7 +87,6 @@ vector<Scientist> DataAccess::readFromFile()
     {
        qDebug() << "Database: connection ok";
     }
-
 }
 
 /**

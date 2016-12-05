@@ -3,6 +3,7 @@
 #include "model/scientist.h"
 #include <iostream>
 #include <QSqlDatabase>
+#include <QSqlRecord>
 #include <QSqlQuery>
 #include <QDebug>
 #include <fstream>
@@ -18,12 +19,16 @@ public:
     /**
      * @brief Default constructor for the DataAccess class.
      */
+
     DataAccess();
+
+    void connect ();
 
     /**
      * @brief Function to read information about scientists to the .txt file.
      * @param Scientists scientist
      */
+
     void readToFile(Scientist scientist);
 
     /**
