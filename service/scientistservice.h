@@ -58,6 +58,8 @@ public:
      * @param string name.
      */
     void removeScientist (string name);
+    //comment below helgi
+    void removeEveryscientist ();
 
     /**
      * @brief Functions to validate if the entries when input by the user.

@@ -43,6 +43,8 @@ public:
      */
     void removeScientistlist(string name);
 
+    void removeEveryscienst ();
+
 private:
     QSqlDatabase m_db;
 

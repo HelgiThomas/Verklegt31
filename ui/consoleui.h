@@ -32,6 +32,7 @@ private:
     void searchList();
     void playGame();
 
+
     /**
      * @brief Function to see if the object you are searching for exists or not.
      * @param vector<Scientist> names
@@ -48,6 +49,8 @@ private:
      * @brief Function to remove a scientist from the list.
      */
     void removeSci();
+    // ekki gleyma að kommenta below helgi
+    void removeEverysci();
 
     /**
      * @brief Function to call the system commands to clear the screen.

@@ -37,9 +37,13 @@ void ScientistService::addScientist(Scientist newScientist)
  */
 void ScientistService::removeScientist (string nameOf)
 {
-    _access.removeScientistlist(nameOf);
+   _access.removeScientistlist(nameOf);
 }
 
+void ScientistService::removeEveryscientist ()
+{
+    _access.removeEveryscienst ();
+}
 /**
  * @brief Compares the name and returns true if the second parameter is higher.
  * @param Scientist variable.

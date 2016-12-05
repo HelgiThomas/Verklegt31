@@ -94,68 +94,60 @@ void DataAccess::connect()
  * @param Scientist variable.
  * @return true/false.
  */
+/*
 bool DataAccess::checkEntry(Scientist scientist)
 {
-    /*
-    vector <Scientist> temp;
-    temp = readFromFile();
-    for (unsigned int i = 0 ; i < temp.size()-1; i++)
-    {
-        if (scientist.getName() == temp[i].getName() && scientist.getSex() == temp[i].getSex() &&
-                scientist.getBirth() == temp[i].getBirth() && scientist.getDeath() == temp[i].getDeath())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+/*
+    QSqlQuery query;
+    query.prepare("SELECT name FROM people WHERE name = (:name)");
+    query.bindValue(":name", name);
 
-    return false;
+    if (query.exec())
+    {
+       if (query.next())
+       {
+          // it exists
+       }
+*/
+
+/*
+void DataAccess::removeScientistlist (string name)
+{
+    /*
+    if (personExists(name))
+    {
+       QSqlQuery query;
+       query.prepare("DELETE FROM people WHERE name = (:name)");
+       query.bindValue(":name", name);
+       success = query.exec();
+
+       if(!success)
+       {
+           qDebug() << "removePerson error: "
+                    << query.lastError();
+       }
+    }
     */
 }
 
-
-void DataAccess::removeScientistlist (string name)
+void DataAccess::removeEveryscienst ()
 {
-
+    QSqlQuery query;
+    query.prepare("DELETE FROM Scientists");
+    query.exec();
 }
 
 /**
+ * @brief DataAccess::firstEntry
+ * @param scientist
+ */
  * @brief This functions erases everything that is in the file and adds the first entry.
  * @param string name.
  */
+/*
 void DataAccess::firstEntry (Scientist scientist)
 {
-    /*
-    ifstream inputfile("ComputerScientist.txt");
-    ofstream outputfile("ComputerScientist.txt");
 
-    // These two #ifdef sentences are used to solve a problem with running the program
-    // on different platforms, apple and windows.
-    // If the user is running on a windows computer the following code is executed.
-    #ifdef _WIN32
-        if(!(inputfile.std::ifstream::peek() == EOF))
-        {
-            outputfile << endl;
-        }
-    #endif
-    // If the user is running on a apple computer the following code is executed.
-    #ifdef __APPLE__
-        if(inputfile.tellg() > 0)
-        {
-            outputfile << endl;
-        }
-     #endif
-
-    outputfile << scientist.getName() << endl;
-    outputfile << scientist.getSex() << endl;
-    outputfile << scientist.getBirth() << endl;
-    outputfile << scientist.getDeath() << endl;
-    outputfile << scientist.getCitation();
-    outputfile.close();
-    */
 }
 
 void DataAccess::secondEntry (Scientist scientist)
@@ -168,7 +160,9 @@ void DataAccess::secondEntry (Scientist scientist)
  * @brief This is a helper function that writes people in the file.
  * @param string name.
  */
+/*
 void DataAccess::fileWork (Scientist scientist)
 {
 
 }
+*/

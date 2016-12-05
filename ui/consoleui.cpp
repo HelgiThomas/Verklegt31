@@ -43,7 +43,20 @@ void ConsoleUI::run()
         }
         else if (command == "Remove" || command == "remove" || command == "2")
         {
-            removeSci ();
+            clearScreen();
+            string choice;
+            cout << "Would you like to remove one person or the entire list? ";
+            cout << "Type (one) or (everybody)" << endl;
+            cin >> choice;
+            if (choice == "one")
+            {
+                removeSci();
+            }
+            else if (choice == "everybody")
+            {
+                 removeEverysci ();
+            }
+
         }
         else if (command == "list" || command == "List" || command == "3")
         {
@@ -239,6 +252,28 @@ void ConsoleUI::removeSci ()
             cout << "Scientist not removed " << endl;
         }
     }
+}
+//komment below helgi
+void ConsoleUI::removeEverysci()
+{
+    clearScreen();
+    string choice;
+    cout << "Are you absolutely sure?  (Y/N)" << endl;
+    cin >> choice;
+
+
+    if (choice == "y" || choice == "Yes" || choice == "yes" || choice == "Yes")
+    {
+        _service.removeEveryscientist();
+        clearScreen();
+        cout << "Everybody has been removed " << endl << endl << endl << endl;
+    }
+    else
+    {
+
+    }
+
+
 }
 
 /**
