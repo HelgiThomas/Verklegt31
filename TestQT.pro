@@ -14,10 +14,12 @@ SOURCES += main.cpp \
     ui/consoleui.cpp \
     service/scientistservice.cpp \
     model/scientist.cpp \
-    data/dataaccess.cpp
+    data/dataaccess.cpp \
+    model/computer.cpp
 
 HEADERS += \
     ui/consoleui.h \
     service/scientistservice.h \
     model/scientist.h \
-    data/dataaccess.h
+    data/dataaccess.h \
+    model/computer.h
