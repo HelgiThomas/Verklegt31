@@ -21,6 +21,7 @@ public:
     int getBuildYear () const;
     string getCompType () const;
     string getWasBuilt() const;
+    string getDescription() const;
 
     /**
      * @brief Set functions for the class to return the private variables of the class.
@@ -30,12 +31,14 @@ public:
     void setBuildYear (int buildYear);
     void setCompType(string compType);
     void setWasBuilt(string wasBuilt);
+    void setDescription(string description);
 
 private:
     string _name;
     int _buildYear;
     string _compType;
     string _wasBuilt;
+    string _description;
 };
 
 #endif // COMPUTER_H

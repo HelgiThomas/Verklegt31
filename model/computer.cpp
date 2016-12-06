@@ -110,7 +110,7 @@ void Computer::setWasBuilt(string wasBuilt)
     _wasBuilt = wasBuilt;
 }
 
-void Computer::setDesctription(string description)
+void Computer::setDescription(string description)
 {
     _description = description;
 }
