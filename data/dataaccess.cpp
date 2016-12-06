@@ -110,7 +110,7 @@ bool DataAccess::checkEntry(Scientist scientist)
        }
 */
 
-/*
+
 void DataAccess::removeScientistlist (string name)
 {
     /*
@@ -130,6 +130,7 @@ void DataAccess::removeScientistlist (string name)
     */
 }
 
+
 void DataAccess::removeEveryscienst ()
 {
     QSqlQuery query;
@@ -137,32 +138,3 @@ void DataAccess::removeEveryscienst ()
     query.exec();
 }
 
-/**
- * @brief DataAccess::firstEntry
- * @param scientist
- */
- * @brief This functions erases everything that is in the file and adds the first entry.
- * @param string name.
- */
-/*
-void DataAccess::firstEntry (Scientist scientist)
-{
-
-}
-
-void DataAccess::secondEntry (Scientist scientist)
-
-{
-
-}
-
-/**
- * @brief This is a helper function that writes people in the file.
- * @param string name.
- */
-/*
-void DataAccess::fileWork (Scientist scientist)
-{
-
-}
-*/
