@@ -41,19 +41,20 @@ void ConsoleUI::run()
         {
             clearScreen ();
             string choice;
-            cout << "Would you like to add a scientist or a computer?" << endl;
-            cout << "Type (one) for scientist or (two) for computer" << endl;
-            cout << "Press three if you want to go back" << endl;
+            cout << "What would you like to add? " << endl;
+            cout << "1. Scientist" << endl;
+            cout << "2. Computer" << endl;
+            cout << "3. Back" << endl << endl << "=> ";
             cin >> choice;
-            if (choice == "one" || choice == "One" || choice == "1")
+            if (choice == "scientist" || choice == "Scientist" || choice == "1")
             {
                 addSci();
             }
-            else if(choice == "two" || choice == "Two" || choice == "2")
+            else if(choice == "computer" || choice == "Computer" || choice == "2")
             {
                 addComp();
             }
-            else if(choice == "three" || choice == "Three" || choice == "3")
+            else if(choice == "back" || choice == "Back" || choice == "3")
             {
                 clearScreen();
                 run();
@@ -68,20 +69,22 @@ void ConsoleUI::run()
         {
             clearScreen();
             string choice;
-            cout << "Would you like to remove one person or the entire list? " << endl;
-            cout << "Type (one) or (everybody)" << endl;
-            cout << "Press three if you want to go back" << endl;
+            cout << "What would you like to remove? " << endl;
+            cout << "1. Person" << endl;
+            cout << "2. Everyone" << endl;
+            cout << "3. Back" << endl << endl << "=> ";
             cin >> choice;
-            if (choice == "one")
+            if (choice == "person" || choice == "Person" || choice == "1")
             {
                 removeSci();
             }
-            else if (choice == "everybody")
+            else if (choice == "everyone" || choice == "Everyone" || choice == "2")
             {
                  removeEverysci ();
             }
-            else if(choice == "three" || choice == "Three" || choice == "3")
+            else if(choice == "back" || choice == "Back" || choice == "3")
             {
+                clearScreen();
                 run();
             }
             else
@@ -95,19 +98,20 @@ void ConsoleUI::run()
         {
             clearScreen();
             string choice;
-            cout << "Would you like to list the scientists or computers? " << endl;
-            cout << "Type (one) for list of scientists or (two) for list of computers " << endl;
-            cout << "Press three if you want to go back" << endl;
+            cout << "What would you like to list? " << endl;
+            cout << "1. Scientist" << endl;
+            cout << "2. Computer" << endl;
+            cout << "3. Back" << endl << endl << "=> ";
             cin >> choice;
-            if(choice == "one" || choice == "One" || choice == "1")
+            if(choice == "scientist" || choice == "Scientist" || choice == "1")
             {
                 listSci();
             }
-            else if(choice == "two" || choice == "Two" || choice == "2")
+            else if(choice == "computer" || choice == "Computer" || choice == "2")
             {
                 listComp();
             }
-            else if(choice == "three" || choice == "Three" || choice == "3")
+            else if(choice == "back" || choice == "Back" || choice == "3")
             {
                 clearScreen();
                 run();
