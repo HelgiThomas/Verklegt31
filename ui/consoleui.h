@@ -55,7 +55,8 @@ private:
      * @brief Function to remove a scientist from the list.
      */
     void removeSci();
-    // ekki gleyma aÃ° kommenta below helgi
+
+    // ekki gleyma ad kommenta below helgi
     void removeEverysci();
 
     /**

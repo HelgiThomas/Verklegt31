@@ -7,6 +7,7 @@ using namespace std;
  */
 Computer::Computer()
 {
+   _id = 0;
    _name = "";
    _buildYear = 0;
    _compType = "";
@@ -16,17 +17,28 @@ Computer::Computer()
 /**
  * @brief This function is a constructor that sets the information about
  * each computer.
+ * @param id id, sets the id.
  * @param string name, sets the name.
  * @param int buildYear, sets the year computer was built (if it was built, else 0).
  * @param string compType, sets the computer type.
  * @param string wasBuilt, sets either "Yes" or "No" whether the computer was built or not.
  */
-Computer::Computer(string name, int buildYear, string compType, string wasBuilt)
+Computer::Computer(int id, string name, int buildYear, string compType, string wasBuilt)
 {
+    _id = id;
     _name = name;
     _buildYear = buildYear;
     _compType = compType;
     _wasBuilt = wasBuilt;
+}
+
+/**
+ * @brief Computer::getID
+ * @return
+ */
+int Computer::getId() const
+{
+    return _id;
 }
 
 /**
@@ -72,6 +84,15 @@ string Computer::getWasBuilt()const
 string Computer::getDescription() const
 {
     return _description;
+}
+
+/**
+ * @brief Computer::setId, set the id for the computer
+ * @param int id
+ */
+void Computer::setId(int id)
+{
+    _id = id;
 }
 
 /**

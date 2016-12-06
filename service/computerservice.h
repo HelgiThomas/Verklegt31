@@ -1,6 +1,10 @@
 #ifndef COMPUTERSERVICE_H
 #define COMPUTERSERVICE_H
-#include "data/dataaccess.h"
+
+#include "data/computeraccess.h"
+#include "data/scientistaccess.h"
+#include "data/linkaccess.h"
+
 #include <vector>
 
 using namespace std;
@@ -78,7 +82,8 @@ public:
 
 private:
     vector<Computer> listOfComputer;
-    DataAccess _access;
+    ScientistAccess _SciAccess;
+    ComputerAccess _ComAccess;
 };
 
 #endif // COMPUTERSERVICE_H

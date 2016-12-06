@@ -253,7 +253,8 @@ void ConsoleUI::addSci()
     {
         citation = "No citation to be displayed.";
     }
-    Scientist newScientist (name,sex,birth,death,citation);
+    int id = 0;
+    Scientist newScientist (id, name,sex,birth,death,citation);
     _serviceSci.addScientist(newScientist);
     cout << "Scientist added." << endl << endl;
     string input;
@@ -261,8 +262,6 @@ void ConsoleUI::addSci()
     getline(cin, input);
 
     clearScreen();
-
-
 }
 
 void ConsoleUI::addComp()
@@ -300,7 +299,9 @@ void ConsoleUI::addComp()
     {
         wasBuilt = "No";
     }
-    Computer newComputer (name, builtYear, compType, wasBuilt);
+
+    int id = 0;
+    Computer newComputer (id, name, builtYear, compType, wasBuilt);
     _serviceComp.addComputer(newComputer);
     cout << "Computer added." << endl << endl;
     string input;

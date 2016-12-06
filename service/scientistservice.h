@@ -1,6 +1,10 @@
 #ifndef PERFORMERSERVICE_H
 #define PERFORMERSERVICE_H
-#include "data/dataaccess.h"
+
+#include "data/computeraccess.h"
+#include "data/scientistaccess.h"
+#include "data/linkaccess.h"
+
 #include <vector>
 
 using namespace std;
@@ -91,7 +95,8 @@ public:
 
 private:
     vector<Scientist> listOfScientist;
-    DataAccess _access;
+    ScientistAccess _SciAccess;
+    ComputerAccess _ComAccess;
 };
 
 #endif // PERFORMERSERVICE_H

@@ -15,7 +15,7 @@ ComputerService::ComputerService()
 vector <Computer> ComputerService::getComputer()
 {
 
-    listOfComputer = _access.readFromFileComputer();
+    listOfComputer = _ComAccess.readFromFile();
     return listOfComputer;
 
 }
@@ -27,7 +27,7 @@ vector <Computer> ComputerService::getComputer()
 void ComputerService::addComputer(Computer newComputer)
 {
 
-    _access.readToFileComputer(newComputer);
+    _ComAccess.readToFile(newComputer);
 
 }
 
@@ -38,13 +38,13 @@ void ComputerService::addComputer(Computer newComputer)
 void ComputerService::removeComputer (string nameOf)
 {
 
-   _access.removeComputerlist(nameOf);
+   _ComAccess.removeComputerlist(nameOf);
 
 }
 
 void ComputerService::removeEverycomputer ()
 {
-    _access.removeEveryComputer();
+    _ComAccess.removeEveryComputer();
 }
 /**
  * @brief Compares the name and returns true if the second parameter is higher.

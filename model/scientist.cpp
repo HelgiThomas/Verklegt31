@@ -7,6 +7,7 @@ using namespace std;
  */
 Scientist::Scientist()
 {
+    _id = 0;
     _name = "";
     _sex = "";
     _birth = 0;
@@ -17,18 +18,29 @@ Scientist::Scientist()
 /**
  * @brief This function is a constructor that sets the information about
  * each scientist.
+ * @param int id, sets the id.
  * @param string name, sets the name.
  * @param string sex, sets the sex.
  * @param int birth, sets the birth year.
  * @param int death, sets the death year.
  */
-Scientist::Scientist(string name,string sex, int birth, int death , string citation)
+Scientist::Scientist(int id, string name,string sex, int birth, int death , string citation)
 {
+    _id = id;
     _name = name;
     _sex = sex;
     _birth = birth;
     _death = death;
     _citation = citation;
+}
+
+/**
+ * @brief Scientist::getId, returns the id of the scientist.
+ * @return
+ */
+int Scientist::getId() const
+{
+    return _id;
 }
 
 /**
@@ -74,6 +86,15 @@ int Scientist:: getDeath () const
 string Scientist:: getCitation() const
 {
     return _citation;
+}
+
+/**
+ * @brief Scientist::setId, sets the id of the scientist.
+ * @param int id.
+ */
+void Scientist::setId(int id)
+{
+    _id = id;
 }
 
 /**

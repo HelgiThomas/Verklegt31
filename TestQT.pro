@@ -15,13 +15,13 @@ SOURCES += main.cpp \
     ui/consoleui.cpp \
     service/scientistservice.cpp \
     model/scientist.cpp \
-    data/dataaccess.cpp \
     service/computerservice.cpp \
     model/computer.cpp \
     data/scientistaccess.cpp \
     data/computeraccess.cpp \
     data/linkaccess.cpp \
-    service/generalservice.cpp
+    service/generalservice.cpp \
+    misc/utility.cpp
     model/computer.cpp
     service/computerservice.cpp
     model/computer.cpp
@@ -30,13 +30,13 @@ HEADERS += \
     ui/consoleui.h \
     service/scientistservice.h \
     model/scientist.h \
-    data/dataaccess.h \
     service/computerservice.h \
     model/computer.h \
     data/scientistaccess.h \
     data/computeraccess.h \
     data/linkaccess.h \
-    service/generalservice.h
+    service/generalservice.h \
+    misc/utility.h
     model/computer.h
     service/computerservice.h
     model/computer.h
