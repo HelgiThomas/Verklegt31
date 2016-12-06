@@ -1,6 +1,5 @@
 #include "ui/consoleui.h"
 #include "model/scientist.h"
-#include "model/computer.h"
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -40,14 +39,38 @@ void ConsoleUI::run()
 
         if (command == "add" || command == "Add" || command == "1")
         {
-            addSci();
+            clearScreen ();
+            string choice;
+            cout << "Would you like to add a scientist or a computer?" << endl;
+            cout << "Type (one) for scientist or (two) for computer" << endl;
+            cout << "Press three if you want to go back" << endl;
+            cin >> choice;
+            if (choice == "one" || choice == "One" || choice == "1")
+            {
+                addSci();
+            }
+            else if(choice == "two" || choice == "Two" || choice == "2")
+            {
+                addComp();
+            }
+            else if(choice == "three" || choice == "Three" || choice == "3")
+            {
+                clearScreen();
+                run();
+            }
+            else
+            {
+                clearScreen();
+                cout << "Invalid command!" << endl << endl;
+            }
         }
         else if (command == "Remove" || command == "remove" || command == "2")
         {
             clearScreen();
             string choice;
-            cout << "Would you like to remove one person or the entire list? ";
+            cout << "Would you like to remove one person or the entire list? " << endl;
             cout << "Type (one) or (everybody)" << endl;
+            cout << "Press three if you want to go back" << endl;
             cin >> choice;
             if (choice == "one")
             {
@@ -57,11 +80,43 @@ void ConsoleUI::run()
             {
                  removeEverysci ();
             }
+            else if(choice == "three" || choice == "Three" || choice == "3")
+            {
+                run();
+            }
+            else
+            {
+                clearScreen();
+                cout << "Invalid command!" << endl << endl;
+            }
 
         }
         else if (command == "list" || command == "List" || command == "3")
         {
-            list();
+            clearScreen();
+            string choice;
+            cout << "Would you like to list the scientists or computers? " << endl;
+            cout << "Type (one) for list of scientists or (two) for list of computers " << endl;
+            cout << "Press three if you want to go back" << endl;
+            cin >> choice;
+            if(choice == "one" || choice == "One" || choice == "1")
+            {
+                listSci();
+            }
+            else if(choice == "two" || choice == "Two" || choice == "2")
+            {
+                listComp();
+            }
+            else if(choice == "three" || choice == "Three" || choice == "3")
+            {
+                clearScreen();
+                run();
+            }
+            else
+            {
+                clearScreen();
+                cout << "Invalid command!" << endl << endl;
+            }
         }
         else if (command == "sort" || command == "Sort" || command == "4")
         {
@@ -95,12 +150,20 @@ void ConsoleUI::run()
  * @brief This function is called when the list command is selected by the user.
  * It lists out all the users in the order they were put into the program.
  */
-void ConsoleUI::list()
+void ConsoleUI::listSci()
 {
-    vector <Scientist> Scientist = _service.getScientist();
+    vector <Scientist> Scientist = _serviceSci.getScientist();
     displayListOfScientists(Scientist);
     cout << endl;
 }
+
+void ConsoleUI::listComp()
+{
+    vector <Computer> Computer = _serviceComp.getComputer();
+    displayListOfComputers(Computer);
+    cout << endl;
+}
+
 
 /**
  * @brief This function is called when the user chooses the add command.
@@ -122,17 +185,17 @@ void ConsoleUI::addSci()
     std::getline(cin, name);
     std::getline(cin, name);
 
-    while(!_service.validName(name))
+    while(!_serviceSci.validName(name))
     {
         cout << "Invalid name!" << endl;
         cout << "Name: ";
         std::getline(cin, name);
 
     }
-    name = _service.makeFirstLetterBig(name);
+    name = _serviceSci.makeFirstLetterBig(name);
     cout << "Sex: ";
     cin >> sex;
-    while(!_service.validSex(sex))
+    while(!_serviceSci.validSex(sex))
     {
         if(sex == "yes")
         {
@@ -147,12 +210,12 @@ void ConsoleUI::addSci()
             cin >> sex;
         }
     }
-    sex = _service.MorF(sex);
+    sex = _serviceSci.MorF(sex);
 
     cout << "Year of birth: ";
     cin >> strBirth;
 
-    while(_service.validYear(strBirth) == false)
+    while(_serviceSci.validYear(strBirth) == false)
     {
         cout << "Invalid input!" << endl;
         cout << "Year of birth: ";
@@ -165,7 +228,7 @@ void ConsoleUI::addSci()
         cout << "Year of death: ";
         cin >> strDeath;
 
-        while(_service.validYear(strDeath) == false || _service.validDeath(birth, strDeath) == false)
+        while(_serviceSci.validYear(strDeath) == false || _serviceSci.validDeath(birth, strDeath) == false)
         {
             cout << "Invalid input!" << endl;
             cout << "Year of death: ";
@@ -187,7 +250,7 @@ void ConsoleUI::addSci()
         citation = "No citation to be displayed.";
     }
     Scientist newScientist (name,sex,birth,death,citation);
-    _service.addScientist(newScientist);
+    _serviceSci.addScientist(newScientist);
     cout << "Scientist added." << endl << endl;
     string input;
     cout << "Press Enter to continue...";
@@ -197,6 +260,52 @@ void ConsoleUI::addSci()
 
 
 }
+
+void ConsoleUI::addComp()
+{
+    clearScreen();
+    string name;
+    string strBuiltYear;
+    string compType;
+    string wasBuilt;
+    int builtYear;
+
+    cout << "Name: ";
+    std::getline(cin, name);
+    std::getline(cin, name);
+
+    //name = _serviceComp.makeFirstLetterBig(name);
+
+    cout << "Build year: ";
+    cin >> strBuiltYear;
+    while(_serviceComp.validYear(strBuiltYear) == false)
+    {
+        cout << "Invalid input!" << endl;
+        cout << "Build year: ";
+        cin >> strBuiltYear;
+    }
+
+    cout << "Computer type: ";
+    cin >> compType;
+
+    if(askIfBuilt())
+    {
+        wasBuilt = "Yes";
+    }
+    else
+    {
+        wasBuilt = "No";
+    }
+    Computer newComputer (name, builtYear, compType, wasBuilt);
+    _serviceComp.addComputer(newComputer);
+    cout << "Computer added." << endl << endl;
+    string input;
+    cout << "Press Enter to continue...";
+    getline(cin, input);
+
+    clearScreen();
+}
+
 
 /**
  * @brief Removes a scientist from the list
@@ -214,9 +323,9 @@ void ConsoleUI::removeSci ()
     std::getline(cin, insert);
     std::getline(cin,insert);
 
-    nameOf = _service.makeFirstLetterBig(insert);
+    nameOf = _serviceSci.makeFirstLetterBig(insert);
 
-    vector <Scientist> checkIfreal = _service.getScientist();
+    vector <Scientist> checkIfreal = _serviceSci.getScientist();
     for (unsigned int i = 0; i < checkIfreal.size(); i++)
     {
         if ((nameOf == checkIfreal[i].getName()))
@@ -245,7 +354,7 @@ void ConsoleUI::removeSci ()
         }
         if(removePerson == "y" || removePerson == "Y")
         {
-            _service.removeScientist (nameOf);
+            _serviceSci.removeScientist (nameOf);
             cout << endl << "Scientist removed " << endl << endl;
         }
         else if (removePerson == "n" || removePerson == "N")
@@ -265,7 +374,7 @@ void ConsoleUI::removeEverysci()
 
     if (choice == "y" || choice == "Yes" || choice == "yes" || choice == "Yes")
     {
-        _service.removeEveryscientist();
+        _serviceSci.removeEveryscientist();
         clearScreen();
         cout << "Everybody has been removed " << endl << endl << endl << endl;
     }
@@ -286,7 +395,7 @@ void ConsoleUI::sortSci()
 {
     clearScreen();
     string command;
-    while(!_service.validCommand(command))
+    while(!_serviceSci.validCommand(command))
     {
         cout << "What would you like to sort it by?" << endl;
         cout << "1. Name" << endl;
@@ -298,22 +407,22 @@ void ConsoleUI::sortSci()
 
         if(command == "name" || command == "Name" || command == "1")
         {
-            vector<Scientist> Scientist = _service.sortByName();
+            vector<Scientist> Scientist = _serviceSci.sortByName();
             displayListOfScientists(Scientist);
         }
         else if(command == "sex" || command == "Sex" || command == "2")
         {
-            vector<Scientist> Scientist = _service.sortBySex();
+            vector<Scientist> Scientist = _serviceSci.sortBySex();
             displayListOfScientists(Scientist);
         }
         else if(command == "birth" || command == "Birth" || command == "3")
         {
-            vector<Scientist> Scientist = _service.sortByBirth();
+            vector<Scientist> Scientist = _serviceSci.sortByBirth();
             displayListOfScientists(Scientist);
         }
         else if(command == "death" || command == "Death" || command == "4")
         {
-            vector<Scientist> Scientist = _service.sortByDeath();
+            vector<Scientist> Scientist = _serviceSci.sortByDeath();
             displayListOfScientists(Scientist);
         }
         else
@@ -332,7 +441,7 @@ void ConsoleUI::reversedSortSci()
 {
     clearScreen();
     string command;
-    while(!_service.validCommand(command))
+    while(!_serviceSci.validCommand(command))
     {
         cout << "What would you like to reverse sort it by?" << endl;
         cout << "1. Name" << endl;
@@ -343,22 +452,22 @@ void ConsoleUI::reversedSortSci()
 
         if(command == "name" || command == "Name" || command == "1")
         {
-            vector<Scientist> Scientist = _service.sortByNameReverse();
+            vector<Scientist> Scientist = _serviceSci.sortByNameReverse();
             displayListOfScientists(Scientist);
         }
         else if(command == "sex" || command == "Sex" || command == "2")
         {
-            vector<Scientist> Scientist = _service.sortBySexReverse();
+            vector<Scientist> Scientist = _serviceSci.sortBySexReverse();
             displayListOfScientists(Scientist);
         }
         else if(command == "birth" || command == "Birth" || command == "3")
         {
-            vector<Scientist> Scientist = _service.sortByBirthReverse();
+            vector<Scientist> Scientist = _serviceSci.sortByBirthReverse();
             displayListOfScientists(Scientist);
         }
         else if(command == "death" || command == "Death" || command == "4")
         {
-            vector<Scientist> Scientist = _service.sortByDeathReverse();
+            vector<Scientist> Scientist = _serviceSci.sortByDeathReverse();
             displayListOfScientists(Scientist);
         }
         else
@@ -377,7 +486,7 @@ void ConsoleUI::searchList ()
 {
     clearScreen();
     string command;
-    while(!_service.validCommand(command))
+    while(!_serviceSci.validCommand(command))
     {
         cout << "By what would you like to search for? " << endl;
         cout << "1. Name" << endl;
@@ -395,7 +504,7 @@ void ConsoleUI::searchList ()
             cout << "Which name would you like to search for? " << endl << endl << "=> ";
             std::getline(cin, nameOf);
             std::getline(cin, nameOf);
-            vector<Scientist>names = _service.searchName (nameOf);
+            vector<Scientist>names = _serviceSci.searchName (nameOf);
             validateSearch(names);
         }
         else if(command == "sex" || command == "Sex" || command == "2")
@@ -404,8 +513,8 @@ void ConsoleUI::searchList ()
             string sexOf;
             cout << "Which sex would you like to search for? " << endl << endl << "=> ";
             cin >> sexOf;
-            sexOf = _service.MorF(sexOf);
-            vector<Scientist>names = _service.searchSex (sexOf);
+            sexOf = _serviceSci.MorF(sexOf);
+            vector<Scientist>names = _serviceSci.searchSex (sexOf);
             validateSearch(names);
 
         }
@@ -415,7 +524,7 @@ void ConsoleUI::searchList ()
             int birthOf;
             cout << "Which year of birth would you like to search for? " << endl << endl << "=> ";
             cin >> birthOf;
-            vector<Scientist>names = _service.searchBirth (birthOf);
+            vector<Scientist>names = _serviceSci.searchBirth (birthOf);
             validateSearch(names);
         }
         else if(command == "death" || command == "Death" || command == "4")
@@ -424,7 +533,7 @@ void ConsoleUI::searchList ()
             int deathOf;
             cout << "Which date of death would you like to serach for? " << endl << endl << "=> ";
             cin >> deathOf;
-            vector<Scientist>names =_service.searchDeath (deathOf);
+            vector<Scientist>names =_serviceSci.searchDeath (deathOf);
             validateSearch(names);
         }
         else
@@ -443,19 +552,19 @@ void ConsoleUI::searchList ()
 void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 {
     clearScreen();
-    cout << setw(_service.lengthOfLongestName(Scientist)) << left;
+    cout << setw(_serviceSci.lengthOfLongestName(Scientist)) << left;
     cout << "Name" << "\t\t";
     cout << "Sex" << " \t\t";
     cout << "Birth" << "\t\t";
     cout << "Death" << "\t\t";
     cout << "Citation" << "\t\t" << endl;
 
-    for(int i = 0; i < (_service.lengthOfLongestName(Scientist) + 50); i++)
+    for(int i = 0; i < (_serviceSci.lengthOfLongestName(Scientist) + 50); i++)
     {
         cout << "-";
     }
 
-    for(int i = 0; i < (_service.lengthOfLongestCitation(Scientist) + 20); i++)
+    for(int i = 0; i < (_serviceSci.lengthOfLongestCitation(Scientist) + 20); i++)
     {
         cout << "-";
     }
@@ -464,12 +573,44 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
     for (unsigned int i = 0 ; i < Scientist.size();i++)
     {
 
-        cout << setw(_service.lengthOfLongestName(Scientist)) << left;
+        cout << setw(_serviceSci.lengthOfLongestName(Scientist)) << left;
         cout << Scientist [i].getName () << "\t | \t";
         cout << Scientist [i].getSex () << "\t | \t";
         cout << Scientist [i].getBirth () << "\t | \t";
         cout << Scientist [i].getDeath () << "\t | \t";
         cout << Scientist [i].getCitation () << "\t\t" << endl;
+    }
+    cout << endl;
+}
+
+void ConsoleUI::displayListOfComputers(vector<Computer> Computer)
+{
+    clearScreen();
+    cout << setw(_serviceComp.lengthOfLongestName(Computer)) << left;
+    cout << "Name" << "\t\t";
+    cout << "Year" << " \t\t";
+    cout << "Type" << "\t\t";
+    cout << "Built" << "\t\t" << endl;
+
+    for(int i = 0; i < (_serviceComp.lengthOfLongestName(Computer) + 50); i++)
+    {
+        cout << "-";
+    }
+
+    /*for(int i = 0; i < (_serviceComp.lengthOfLongestCitation(Computer) + 20); i++)
+    {
+        cout << "-";
+    }*/
+    cout << endl;
+
+    for (unsigned int i = 0 ; i < Computer.size();i++)
+    {
+
+        cout << setw(_serviceComp.lengthOfLongestName(Computer)) << left;
+        cout << Computer [i].getName () << "\t | \t";
+        cout << Computer [i].getBuildYear () << "\t | \t";
+        cout << Computer [i].getCompType () << "\t | \t";
+        cout << Computer [i].getWasBuilt () << "\t\t" << endl;
     }
     cout << endl;
 }
@@ -481,7 +622,7 @@ void ConsoleUI::playGame(){
 
     clearScreen();
 
-    vector<Scientist> Scientist = _service.getScientist();
+    vector<Scientist> Scientist = _serviceSci.getScientist();
 
     int r = rand() % (Scientist.size()) + 1;
 
@@ -577,6 +718,31 @@ bool ConsoleUI::askIfCitation()
 {
     string input;
     cout << "Would you like to write a citation on the scientist? (Y/N) ";
+
+    getline(cin, input);
+    getline(cin, input);
+
+    while(input != "Y" && input != "y" && input != "n" && input != "N")
+    {
+        cout << "Invalid input!" << endl;
+        cout << "Type either Y or N: ";
+        getline(cin, input);
+    }
+
+    if(input == "y" || input == "Y")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool ConsoleUI::askIfBuilt()
+{
+    string input;
+    cout << "Was the computer built? (Y/N)";
 
     getline(cin, input);
     getline(cin, input);

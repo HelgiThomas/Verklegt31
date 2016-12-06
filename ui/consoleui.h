@@ -1,6 +1,7 @@
 #ifndef CONSOLEUI_H
 #define CONSOLEUI_H
 #include "service/scientistservice.h"
+#include "service/computerservice.h"
 
 /**
  * @brief ConsoleUI class, handles the interface/menu for the program.
@@ -25,8 +26,11 @@ private:
      * @param vector<Scientist> Scientist
      */
     void displayListOfScientists(vector<Scientist> Scientist);
-    void list();
+    void displayListOfComputers(vector<Computer> Computer);
+    void listSci();
+    void listComp();
     void addSci();
+    void addComp();
     void sortSci();
     void reversedSortSci();
     void searchList();
@@ -45,11 +49,13 @@ private:
      */
     bool askIfCitation();
 
+    bool askIfBuilt();
+
     /**
      * @brief Function to remove a scientist from the list.
      */
     void removeSci();
-    // ekki gleyma að kommenta below helgi
+    // ekki gleyma aÃ° kommenta below helgi
     void removeEverysci();
 
     /**
@@ -65,10 +71,12 @@ private:
      */
     bool isPersonAlive();
 
-    ScientistService _service;
+    ScientistService _serviceSci;
+    ComputerService _serviceComp;
 
     int score;
 };
 
 
 #endif // CONSOLEUI_H
+
