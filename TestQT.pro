@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     model/computer.cpp \
     data/scientistaccess.cpp \
     data/computeraccess.cpp \
-    data/linkaccess.cpp
+    data/linkaccess.cpp \
+    service/generalservice.cpp
     model/computer.cpp
     service/computerservice.cpp
     model/computer.cpp
@@ -34,7 +35,8 @@ HEADERS += \
     model/computer.h \
     data/scientistaccess.h \
     data/computeraccess.h \
-    data/linkaccess.h
+    data/linkaccess.h \
+    service/generalservice.h
     model/computer.h
     service/computerservice.h
     model/computer.h
