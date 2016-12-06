@@ -287,7 +287,7 @@ void ConsoleUI::addComp()
         cout << "Build year: ";
         cin >> strBuiltYear;
     }
-
+    builtYear = atoi(strBuiltYear.c_str());
     cout << "Computer type: ";
     cin >> compType;
 
