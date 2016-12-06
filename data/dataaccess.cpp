@@ -77,7 +77,7 @@ vector<Scientist> DataAccess::readFromFile()
 void DataAccess::connect()
 {
     m_db = QSqlDatabase::addDatabase("QSQLITE");
-    m_db.setDatabaseName("..\\Verklegt31\\DB_vika2.sqlite");
+    m_db.setDatabaseName("DB_vika2.sqlite");
 
     if (!m_db.open())
     {
@@ -97,7 +97,7 @@ void DataAccess::connect()
 /*
 bool DataAccess::checkEntry(Scientist scientist)
 {
-/*
+
     QSqlQuery query;
     query.prepare("SELECT name FROM people WHERE name = (:name)");
     query.bindValue(":name", name);
