@@ -15,8 +15,9 @@ ComputerService::ComputerService()
 vector <Computer> ComputerService::getComputer()
 {
 
-    listOfComputer = _access.readFromFile();
+    listOfComputer = _access.readFromFileComputer();
     return listOfComputer;
+
 }
 
 /**
@@ -25,7 +26,9 @@ vector <Computer> ComputerService::getComputer()
  */
 void ComputerService::addComputer(Computer newComputer)
 {
-    _access.readToFile(newComputer);
+
+    _access.readToFileComputer(newComputer);
+
 }
 
 /**
@@ -34,12 +37,14 @@ void ComputerService::addComputer(Computer newComputer)
  */
 void ComputerService::removeComputer (string nameOf)
 {
+
    _access.removeComputerlist(nameOf);
+
 }
 
 void ComputerService::removeEverycomputer ()
 {
-    _access.removeEveryscienst ();
+    _access.removeEveryComputer();
 }
 /**
  * @brief Compares the name and returns true if the second parameter is higher.
@@ -149,6 +154,7 @@ vector<Computer> ComputerService::sortByNameReverse()
  */
 vector <Computer> ComputerService::searchName (string command)
 {
+    /*
     vector<Computer> allNames;
     vector<Computer> allComputers = _access.readFromFile();
     for (unsigned int i = 0 ; i < allComputers.size();i++)
@@ -159,6 +165,7 @@ vector <Computer> ComputerService::searchName (string command)
         }
     }
     return allNames;
+    */
 }
 
 /**
@@ -169,6 +176,7 @@ vector <Computer> ComputerService::searchName (string command)
  */
 vector <Computer> ComputerService::searchBuildYear (int command)
 {
+    /*
     vector<Computer> allBuildYears;
     vector<Computer> allComputers = _access.readFromFile();
     for (unsigned int i = 0 ; i < allComputers.size();i++)
@@ -179,6 +187,7 @@ vector <Computer> ComputerService::searchBuildYear (int command)
         }
     }
     return allBuildYears;
+    */
 }
 
 /**

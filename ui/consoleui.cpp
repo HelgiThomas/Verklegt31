@@ -1,5 +1,6 @@
 #include "ui/consoleui.h"
 #include "model/scientist.h"
+#include "model/computer.h"
 #include <iostream>
 #include <string>
 #include <stdlib.h>

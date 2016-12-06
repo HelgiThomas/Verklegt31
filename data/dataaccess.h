@@ -1,6 +1,7 @@
 #ifndef DATAACCESS_H
 #define DATAACCESS_H
 #include "model/scientist.h"
+#include "model/computer.h"
 #include <iostream>
 #include <QSqlDatabase>
 #include <QSqlRecord>
@@ -30,12 +31,8 @@ public:
      */
 
     void readToFile(Scientist scientist);
-
-    /**
-     * @brief Function to read information from the file into the program again.
-     * @return vector<Scientists>
-     */
-    vector<Scientist> readFromFile();
+    // need to comment
+    void readToFileComputer(Computer computer);
 
     /**
      * @brief Function to remove a Scientist from the list of Scientists.
@@ -43,7 +40,21 @@ public:
      */
     void removeScientistlist(string name);
 
+    void removeComputerlist(string nameOf);
+    // Commenta helgi
     void removeEveryscienst ();
+    //commenta helgi
+    void removeEveryComputer ();
+
+    /**
+     * @brief Function to read information from the file into the program again.
+     * @return vector<Scientists>
+     */
+    vector<Scientist> readFromFile();
+    //need to comment
+    vector<Computer> readFromFileComputer();
+
+
 
 private:
     QSqlDatabase m_db;
@@ -55,12 +66,12 @@ private:
      */
     void fileWork(Scientist scientist);
 
+    // commenta helgi
+    void editScientist (int id, string command);
     /**
      * @brief Functions to check if the entries are valid and correct.
      * @param Scientist scientist
      */
-    void firstEntry(Scientist scientist);
-    void secondEntry(Scientist scientist);
     bool checkEntry(Scientist scientist);
 
     vector<Scientist> theList;
