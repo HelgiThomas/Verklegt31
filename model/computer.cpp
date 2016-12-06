@@ -110,6 +110,10 @@ void Computer::setWasBuilt(string wasBuilt)
     _wasBuilt = wasBuilt;
 }
 
+/**
+ * @brief This function sets the correct value for description of the computer
+ * @param string description
+ */
 void Computer::setDescription(string description)
 {
     _description = description;

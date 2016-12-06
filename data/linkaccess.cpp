@@ -4,3 +4,4 @@ LinkAccess::LinkAccess()
 {
 
 }
+
