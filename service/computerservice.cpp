@@ -131,15 +131,15 @@ vector<Computer> ComputerService::sortByNameReverse()
  * @brief This function sorts the build years in the computer vector by the youngest computer.
  * @return vector<Computer>.
  */
-vector<Computer> ComputerService::sortByBuildYearReverse()
+/*vector<Computer> ComputerService::sortByBuildYearReverse()
 {
     vector<Computer> computers = getComputer();
-
+                                                        Þarf að skoða þetta fall, structið í fokki.
     ComputerCompareBuildYearReverse cmp;
     std::sort(computers.begin(), computers.end(), cmp);
 
     return computers;
-}
+} */
 
 /**
  * @brief This function searches the input, and finds a match in the .txt file
@@ -149,7 +149,6 @@ vector<Computer> ComputerService::sortByBuildYearReverse()
  */
 vector <Computer> ComputerService::searchName (string command)
 {
-    command = makeFirstLetterBig(command);
     vector<Computer> allNames;
     vector<Computer> allComputers = _access.readFromFile();
     for (unsigned int i = 0 ; i < allComputers.size();i++)
@@ -193,8 +192,9 @@ bool ComputerService::validName(string name)
     for(unsigned int i = 0; i < name.size(); i++)
     {
 
-        if(!IsNullOrWhitespace(name.at(i)))
+        if(0) //<--------!IsNullOrWhitespace(name.at(i))
         {
+                //TODO: Laga eitthvað með þessa if setningu..
             valid = true;
         }
 
@@ -206,7 +206,7 @@ bool ComputerService::validName(string name)
 bool ComputerService::validCompType(string compType)
 {
     bool valid = false;
-    for(unsigned int i = 0; i < name.size(); i++)
+    for(unsigned int i = 0; i < compType.size(); i++)
     {
 
         if(isalpha(compType.at(i)))

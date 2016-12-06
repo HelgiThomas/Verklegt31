@@ -17,7 +17,7 @@ public:
      * @brief Function to return a vector of all the Computers.
      * @return vector<Computer>.
      */
-    vector<ComputerComputer> getComputer();
+    vector<Computer> getComputer();
 
     /**
      * @brief Function to add a new computer.
@@ -64,6 +64,7 @@ public:
      * @return true/false.
      */
     bool validName(string name);
+    bool validCompType(string compType);
     bool validWasBuilt(string wasBuilt);
     bool validYear(string year);
     bool validCommand(string command);
