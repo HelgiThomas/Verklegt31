@@ -10,7 +10,7 @@ ComputerAccess::ComputerAccess()
 void readToFile(Computer computer)
 {
     int number = 1;
-    connect();
+    util.connect();
 
     if (checkEntry(computer))
     {
