@@ -60,11 +60,19 @@ string Computer::getCompType()const
  * @brief This function returns whether the computer was built or not (a "Yes" or a "No").
  * @return string wasBuilt.
  */
-string Computer:: getWasBuilt()const
+string Computer::getWasBuilt()const
 {
     return _wasBuilt;
 }
 
+/**
+ * @brief Function to return the desctription for the computer.
+ * @return string description.
+ */
+string Computer::getDescription() const
+{
+    return _description;
+}
 
 /**
  * @brief This function sets the name.
@@ -100,4 +108,9 @@ void Computer::setCompType(string compType)
 void Computer::setWasBuilt(string wasBuilt)
 {
     _wasBuilt = wasBuilt;
+}
+
+void Computer::setDesctription(string description)
+{
+    _description = description;
 }
