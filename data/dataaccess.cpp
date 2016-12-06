@@ -40,7 +40,25 @@ void DataAccess::readToFile(Scientist scientist)
 }
 void DataAccess::readToFileComputer(Computer computer)
 {
+    int number = 1;
+       connect();
 
+       QSqlQuery query;
+
+       QString qName = QString::fromStdString(computer.getName());
+       QString qYear = QString::number(computer.getBuildYear());
+       QString qType = QString::fromStdString(computer.getCompType());
+       QString qBuilt = QString::fromStdString(computer.getWasBuilt());
+       QString qStatus = QString::number(number);
+
+       query.prepare("INSERT INTO Computers (name, year, type, wasbuilt, status) VALUES (:name, :year, :type, :wasbuilt, :status)");
+       query.bindValue(":name", qName);
+       query.bindValue(":year", qYear);
+       query.bindValue(":type", qType);
+       query.bindValue(":wasbuilt", qBuilt);
+       query.bindValue(":status", qStatus);
+
+       query.exec();
 }
 
 vector<Scientist> DataAccess::readFromFile()
@@ -87,7 +105,45 @@ vector<Scientist> DataAccess::readFromFile()
 //comment helgi
 vector<Computer> DataAccess::readFromFileComputer()
 {
+    vector <Computer> comp;
+        connect();
 
+        QSqlQuery query("SELECT * FROM Computers");
+
+        int idName = query.record().indexOf("name");
+        int idYear = query.record().indexOf("year");
+        int idType = query.record().indexOf("type");
+        int idBuilt = query.record().indexOf("wasbuilt");
+        int idStatus = query.record().indexOf("status");
+
+        while (query.next())
+        {
+           Computer pl;
+
+           QString qName = query.value(idName).toString();
+           QString qYear = query.value(idYear).toString();
+           QString qType = query.value(idType).toString();
+           QString qBuilt = query.value(idBuilt).toString();
+           QString qStatus = query.value(idStatus).toString();
+
+           std::string name = qName.toStdString();
+           int year = qYear.toInt();
+           std::string type = qType.toStdString();
+           std::string built = qBuilt.toStdString();
+           int status = qStatus.toInt();
+
+           if (status == 1)
+           {
+               pl.setName(name);
+               pl.setBuildYear(year);
+               pl.setCompType(type);
+               pl.setWasBuilt(built);
+
+               comp.push_back(pl);
+           }
+        }
+
+        return comp;
 }
 
 //commenta helgi
