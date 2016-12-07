@@ -45,6 +45,7 @@ public:
     vector<Computer> sortByName();
     vector<Computer> sortByBuildYear();
     vector<Computer> sortByCompType();
+    //Adda tannig ad tad se haegt sorta eftir wasBuilt
 
     /**
      * @brief Functions to sort in reverse order by various different means.

@@ -16,26 +16,25 @@ void ComputerAccess::readToDatabase(Computer computer)
     connect();
 
     if (checkEntry(computer))
-    {        
+    {
         // you should check if args are ok first...
-        QSqlQuery query(m_db);
-        QString qId = QString::number(computer.getId());
+        QSqlQuery query;
         QString qName = QString::fromStdString(computer.getName());
+        QString qYear = QString::number(computer.getBuildYear());
         QString qType = QString::fromStdString(computer.getCompType());
         QString qBuilt = QString::fromStdString(computer.getWasBuilt());
-        QString qDescription = QString::fromStdString(computer.getDescription());
         QString qStatus = QString::number(number);
 
-        query.prepare("INSERT INTO Computers (id, name, type, build, description, status) VALUES (:id, :name, :type, :built, :description, :status)");
-        query.bindValue(":id", qId);
+        query.prepare("INSERT INTO Computers (name, year, type, wasbuilt, status) VALUES (:name, :year, :type, :wasbuilt, :status)");
         query.bindValue(":name", qName);
+        query.bindValue(":year", qYear);
         query.bindValue(":type", qType);
-        query.bindValue(":built", qBuilt);
-        query.bindValue(":description", qDescription);
+        query.bindValue(":wasbuilt", qBuilt);
         query.bindValue(":status", qStatus);
 
         query.exec();
     }
+        m_db.close();
 }
 
 
@@ -77,6 +76,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
 
     int idId = query.record().indexOf("id");
     int idName = query.record().indexOf("name");
+    int idYear = query.record().indexOf("year");
     int idType = query.record().indexOf("type");
     int idBuilt = query.record().indexOf("built");
     int idDescription = query.record().indexOf("description");
@@ -87,6 +87,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
 
        QString qId = query.value(idId).toString();
        QString qName = query.value(idName).toString();
+       QString qYear = query.value(idYear).toString();
        QString qType = query.value(idType).toString();
        QString qBuilt = query.value(idBuilt).toString();
        QString qDescription = query.value(idDescription).toString();
@@ -94,6 +95,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
 
        int id = qId.toInt();
        std::string name = qName.toStdString();
+       int year = qYear.toInt();
        std::string type =  qType.toStdString();
        std::string built = qBuilt.toStdString();
        std::string description = qDescription.toStdString();
@@ -102,6 +104,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
        {
            pl.setId(id);
            pl.setName(name);
+           pl.setBuildYear(year);
            pl.setCompType(type);
            pl.setWasBuilt(built);
            pl.setDescription(description);
@@ -109,7 +112,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
            com.push_back(pl);
        }
     }
-
+        m_db.close();
     return com;
 }
 
@@ -148,6 +151,22 @@ void ComputerAccess::edit(int id, string command)
     {
 
     }
+}
+vector<Computer> sortQuery(string var, string command)
+{
+    vector<Computer> comp;
+
+    connect();
+
+    QSqlDatabase query(m_db);
+    QString qVar = QString::fromStdString(var);
+    QString qCom = QString::fromStdString(command);
+
+    query.prepare("SELECT * FROM Scientists ORDER BY ':var' ':com'");
+    query.bindValue(":var", qVar);
+    query.bindValue(":com", qCom);
+
+    query.exec();
 }
 
 bool ComputerAccess::checkEntry(Computer computer)

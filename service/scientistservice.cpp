@@ -132,216 +132,49 @@ struct ScientistCompareDeathReverse
     bool operator() (Scientist i,Scientist j) { return (i.getDeath()>j.getDeath());}
 };
 
-/**
- * @brief This function sorts the names in the scientist vector in alphabetical order.
- * @return vector<Scientist>.
- */
 vector<Scientist> ScientistService::sortByName()
 {
-    vector<Scientist> scientists = getScientist();
-
-    ScientistCompareName cmp;
-    std::sort(scientists.begin(), scientists.end(), cmp);
-
-    return scientists;
+    return _SciAccess.sortQuery("name", "ASC");
 }
 
-/**
- * @brief This function sorts the sex in the scientist vector in alphabetical order.
- * @return vector<Scientist>.
- */
 vector<Scientist> ScientistService::sortBySex()
 {
-    vector<Scientist> scientists = getScientist();
-
-    ScientistCompareSex cmp;
-    std::sort(scientists.begin(), scientists.end(), cmp);
-
-    return scientists;
+    return _SciAccess.sortQuery("sex", "ASC");
 }
 
-/**
- * @brief This function sorts the birth years in the scientist vector by the oldest scientist.
- * @return vector<Scientist>.
- */
 vector<Scientist> ScientistService::sortByBirth()
 {
-    vector<Scientist> scientists = getScientist();
-
-    ScientistCompareBirth cmp;
-    std::sort(scientists.begin(), scientists.end(), cmp);
-
-    return scientists;
+    return _SciAccess.sortQuery("birth", "ASC");
 }
 
-/**
- * @brief This function sorts the death years in the scientist vector
- * by the scientist that died first.
- * @return vector<Scientist>.
- */
 vector<Scientist> ScientistService::sortByDeath()
 {
-    vector <Scientist> scientists;
-    vector<Scientist> temp = getScientist();
-    for (unsigned int i = 0; i < temp.size(); i++)
-    {
-        if (!(temp[i].getDeath() == 0))
-        {
-            scientists.push_back(temp[i]);
-        }
-    }
-
-    ScientistCompareDeath cmp;
-    std::sort(scientists.begin(), scientists.end(), cmp);
-
-    return scientists;
+    return _SciAccess.sortQuery("death", "ASC");
 }
 
-/**
- * @brief This function sorts the names in the scientist vector in reverse alphabetical order.
- * @return vector<Scientist>.
- */
+
 vector<Scientist> ScientistService::sortByNameReverse()
 {
-    vector<Scientist> scientists = getScientist();
-
-    ScientistCompareNameReverse cmp;
-    std::sort(scientists.begin(), scientists.end(), cmp);
-
-    return scientists;
+    return _SciAccess.sortQuery("name", "DESC");
 }
 
-/**
- * @brief This function sorts the sex in the scientist vector in reverse alphabetical order.
- * @return vector<Scientist>.
- */
 vector<Scientist> ScientistService::sortBySexReverse()
 {
-    vector<Scientist> scientists = getScientist();
-
-    ScientistCompareSexReverse cmp;
-    std::sort(scientists.begin(), scientists.end(), cmp);
-
-    return scientists;
+    return _SciAccess.sortQuery("sex", "DESC");
 }
 
-/**
- * @brief This function sorts the birth years in the scientist vector by the youngest scientist.
- * @return vector<Scientist>.
- */
 vector<Scientist> ScientistService::sortByBirthReverse()
 {
-    vector<Scientist> scientists = getScientist();
-
-    ScientistCompareBirthReverse cmp;
-    std::sort(scientists.begin(), scientists.end(), cmp);
-
-    return scientists;
+    return _SciAccess.sortQuery("birth", "DESC");
 }
 
-/**
- * @brief This function sorts the death years in the scientist vector
- * by the scientist that died last.
- * @return vector<Scientist>.
- */
 vector<Scientist> ScientistService::sortByDeathReverse()
 {
-    vector <Scientist> scientists;
-    vector<Scientist> temp = getScientist();
-    for (unsigned int i = 0; i < temp.size(); i++)
-    {
-        if (!(temp[i].getDeath() == 0))
-        {
-            scientists.push_back(temp[i]);
-        }
-    }
-
-    ScientistCompareDeathReverse cmp;
-    std::sort(scientists.begin(), scientists.end(), cmp);
-
-    return scientists;
+    return _SciAccess.sortQuery("death", "DESC");
 }
 
-/**
- * @brief This function searches the input, and finds a match in the .txt file
- * if it exists.
- * @param string input.
- * @return vector<Scientist>.
- */
-vector <Scientist> ScientistService::searchName (string command)
-{
-    command = makeFirstLetterBig(command);
-    vector<Scientist> allNames;
-    vector<Scientist> allScientists = _SciAccess.readFromDatabase();
-    for (unsigned int i = 0 ; i < allScientists.size();i++)
-    {
-        if ((command == allScientists[i].getName()))
-        {
-            allNames.push_back(allScientists[i]);
-        }
-    }
-    return allNames;
-}
 
-/**
- * @brief This function searches the input, and finds a match in the .txt file
- * if it exists.
- * @param string input.
- * @return vector<Scientist>.
- */
-vector <Scientist> ScientistService::searchSex (string command)
-{
-    vector<Scientist> allSex;
-    vector<Scientist> allScientists = _SciAccess.readFromDatabase();
-    for (unsigned int i = 0 ; i < allScientists.size();i++)
-    {
-        if ((command == allScientists[i].getSex()))
-        {
-            allSex.push_back(allScientists[i]);
-        }
-    }
-    return allSex;
-}
 
-/**
- * @brief This function searches the input, and finds a match in the .txt file
- * if it exists.
- * @param string input.
- * @return vector<Scientist>.
- */
-vector <Scientist> ScientistService::searchBirth (int command)
-{
-    vector<Scientist> allBirth;
-    vector<Scientist> allScientists = _SciAccess.readFromDatabase();
-    for (unsigned int i = 0 ; i < allScientists.size();i++)
-    {
-        if ((command) == (allScientists[i].getBirth()))
-        {
-            allBirth.push_back(allScientists[i]);
-        }
-    }
-    return allBirth;
-}
-
-/**
- * @brief This function searches the input, and finds a match in the .txt file
- * if it exists.
- * @param string input.
- * @return vector<Scientist>.
- */
-vector <Scientist> ScientistService::searchDeath (int command)
-{
-    vector<Scientist> allDeath;
-    vector<Scientist> allScientists = _SciAccess.readFromDatabase();
-    for (unsigned int i = 0 ; i < allScientists.size();i++)
-    {
-        if ((command) == (allScientists[i].getDeath()))
-        {
-            allDeath.push_back(allScientists[i]);
-        }
-    }
-    return allDeath;
-}
 
 /**
  * @brief A function that validates if the name which the user asks to input is valid.

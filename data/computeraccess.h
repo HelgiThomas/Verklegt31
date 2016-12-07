@@ -38,6 +38,7 @@ public:
 
 
     vector<Computer> readFromDatabase();
+    vector<Computer> sortQuery(string var, string command);
 
     void connect();
 
