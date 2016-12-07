@@ -90,7 +90,7 @@ public:
      * @param sex, name
      * @return string
      */
-    string MorF(string sex);
+    string mOrF(string sex);
     string makeFirstLetterBig(string name);
 
 private:

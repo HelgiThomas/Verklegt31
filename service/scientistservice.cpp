@@ -459,7 +459,7 @@ int ScientistService::lengthOfLongestCitation(vector<Scientist> scientists)
  * @param string containing the users input.
  * @return string sex (changed to the correct format).
  */
-string ScientistService::MorF(string sex)
+string ScientistService::mOrF(string sex)
 {
     if(sex == "female" || sex == "f" || sex == "F")
     {

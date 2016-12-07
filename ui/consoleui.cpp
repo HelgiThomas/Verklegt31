@@ -214,7 +214,7 @@ void ConsoleUI::addSci()
             cin >> sex;
         }
     }
-    sex = _serviceSci.MorF(sex);
+    sex = _serviceSci.mOrF(sex);
 
     cout << "Year of birth: ";
     cin >> strBirth;
@@ -518,7 +518,7 @@ void ConsoleUI::searchList ()
             string sexOf;
             cout << "Which sex would you like to search for? " << endl << endl << "=> ";
             cin >> sexOf;
-            sexOf = _serviceSci.MorF(sexOf);
+            sexOf = _serviceSci.mOrF(sexOf);
             vector<Scientist>names = _serviceSci.searchSex (sexOf);
             validateSearch(names);
 

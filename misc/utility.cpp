@@ -11,8 +11,9 @@ QSqlDatabase Utility::getConnection()
 
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("DB_vika2.sqlite");
+    db.open();
 
-    if (!db.open())
+    if (!db.isOpen())
     {
        qDebug() << "Error: connection with database fail";
     }
