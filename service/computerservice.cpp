@@ -15,7 +15,7 @@ ComputerService::ComputerService()
  * @brief This function returns the list of all the computers in the .txt file.
  * @return vector of computers.
  */
-vector <Computer> ComputerService::getComputer()
+vector <Computer> ComputerService::getComputers()
 {
 
     listOfComputer = _ComAccess.readFromDatabase();

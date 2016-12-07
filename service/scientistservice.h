@@ -21,7 +21,7 @@ public:
      * @brief Function to return a vector of all the Scientists.
      * @return vector<Scientist>.
      */
-    vector<Scientist> getScientist();
+    vector<Scientist> getScientists();
 
     /**
      * @brief Function to add a new scientist.

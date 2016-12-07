@@ -163,14 +163,14 @@ void ConsoleUI::run()
  */
 void ConsoleUI::listSci()
 {
-    vector <Scientist> Scientist = _serviceSci.getScientist();
+    vector<Scientist> Scientist = _serviceSci.getScientists();
     displayListOfScientists(Scientist);
     cout << endl;
 }
 
 void ConsoleUI::listComp()
 {
-    vector <Computer> Computer = _serviceComp.getComputer();
+    vector <Computer> Computer = _serviceComp.getComputers();
     displayListOfComputers(Computer);
     cout << endl;
 }
@@ -337,7 +337,7 @@ void ConsoleUI::removeSci ()
 
     nameOf = _serviceSci.makeFirstLetterBig(insert);
 
-    vector <Scientist> checkIfreal = _serviceSci.getScientist();
+    vector <Scientist> checkIfreal = _serviceSci.getScientists();
     for (unsigned int i = 0; i < checkIfreal.size(); i++)
     {
         if ((nameOf == checkIfreal[i].getName()))
@@ -633,7 +633,7 @@ void ConsoleUI::playGame(){
 
     clearScreen();
 
-    vector<Scientist> Scientist = _serviceSci.getScientist();
+    vector<Scientist> Scientist = _serviceSci.getScientists();
 
     int r = rand() % (Scientist.size()) + 1;
 

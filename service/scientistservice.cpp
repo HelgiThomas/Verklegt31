@@ -15,7 +15,7 @@ ScientistService::ScientistService()
  * @brief This function returns the list of all the scientists in the .txt file.
  * @return vector of scientists.
  */
-vector <Scientist> ScientistService::getScientist()
+vector <Scientist> ScientistService::getScientists()
 {
 
     listOfScientist = _SciAccess.readFromDatabase();

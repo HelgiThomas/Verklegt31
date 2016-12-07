@@ -13,7 +13,7 @@ ScientistAccess::ScientistAccess()
 
 vector<Scientist> ScientistAccess::readFromDatabase()
 {
-    vector <Scientist> sci;
+    vector<Scientist> sci;
 
     connect();
 
@@ -24,7 +24,9 @@ vector<Scientist> ScientistAccess::readFromDatabase()
     int idSex= query.record().indexOf("sex");
     int idBirth = query.record().indexOf("birth");
     int idDeath = query.record().indexOf("death");
-    int idStatus = query.record().indexOf("Status");
+    int idCitation = query.record().indexOf("citation");
+    int idStatus = query.record().indexOf("status");
+
     while (query.next())
     {
        Scientist pl;
@@ -34,6 +36,7 @@ vector<Scientist> ScientistAccess::readFromDatabase()
        QString qSex = query.value(idSex).toString();
        QString qBirth = query.value(idBirth).toString();
        QString qDeath = query.value(idDeath).toString();
+       QString qCitation = query.value(idCitation).toString();
        QString qStatus = query.value(idStatus).toString();
 
        int id = qId.toInt();
@@ -41,6 +44,7 @@ vector<Scientist> ScientistAccess::readFromDatabase()
        std::string sex =  qSex.toStdString();
        int birth = qBirth.toInt();
        int death = qDeath.toInt();
+       std::string citation = qCitation.toStdString();
        int status = qStatus.toInt();
        if (status == 1)
        {
@@ -49,6 +53,7 @@ vector<Scientist> ScientistAccess::readFromDatabase()
            pl.setSex(sex);
            pl.setBirth(birth);
            pl.setDeath(death);
+           pl.setCitation(citation);
 
            sci.push_back(pl);
        }
@@ -72,13 +77,15 @@ void ScientistAccess::readToDatabase(Scientist scientist)
         QString qSex = QString::fromStdString(scientist.getSex());
         QString qBirth = QString::number(scientist.getBirth());
         QString qDeath = QString::number(scientist.getDeath());
+        QString qCitation = QString::fromStdString(scientist.getCitation());
         QString qStatus = QString::number(number);
 
-        query.prepare("INSERT INTO Scientists (name, sex, birth, death, status) VALUES (:name, :sex, :birth, :death, :status)");
+        query.prepare("INSERT INTO Scientists (name, sex, birth, death, citation, status) VALUES (:name, :sex, :birth, :death, :citation, :status)");
         query.bindValue(":name", qName);
         query.bindValue(":sex", qSex);
         query.bindValue(":birth", qBirth);
         query.bindValue(":death", qDeath);
+        query.bindValue(":citation", qCitation);
         query.bindValue(":status", qStatus);
 
         query.exec();

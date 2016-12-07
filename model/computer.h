@@ -18,9 +18,9 @@ public:
      * @return name, buildYear, compType, wasBuilt.
      */
     int getId() const;
-    string getName () const;
-    int getBuildYear () const;
-    string getCompType () const;
+    string getName() const;
+    int getBuildYear() const;
+    string getCompType() const;
     string getWasBuilt() const;
     string getDescription() const;
 
@@ -29,7 +29,7 @@ public:
      * @param name, buildYear, compType, wasBuilt.
      */
     void setId(int id);
-    void setName (string name);
+    void setName(string name);
     void setBuildYear (int buildYear);
     void setCompType(string compType);
     void setWasBuilt(string wasBuilt);

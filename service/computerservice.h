@@ -21,7 +21,7 @@ public:
      * @brief Function to return a vector of all the Computers.
      * @return vector<Computer>.
      */
-    vector<Computer> getComputer();
+    vector<Computer> getComputers();
 
     /**
      * @brief Function to add a new computer.

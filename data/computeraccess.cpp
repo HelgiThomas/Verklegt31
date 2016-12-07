@@ -17,16 +17,19 @@ vector<Computer> ComputerAccess::readFromDatabase()
 
     QSqlQuery query("SELECT * FROM Computers");
 
+    int idId = query.record().indexOf("id");
     int idName = query.record().indexOf("name");
     int idYear = query.record().indexOf("year");
     int idType = query.record().indexOf("type");
-    int idBuilt = query.record().indexOf("built");
+    int idBuilt = query.record().indexOf("wasbuilt");
     int idDescription = query.record().indexOf("description");
-    int idStatus = query.record().indexOf("Status");
+    int idStatus = query.record().indexOf("status");
+
     while (query.next())
     {
        Computer pl;
 
+       QString qId = query.value(idId).toString();
        QString qName = query.value(idName).toString();
        QString qYear = query.value(idYear).toString();
        QString qType = query.value(idType).toString();
@@ -34,6 +37,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
        QString qDescription = query.value(idDescription).toString();
        QString qStatus = query.value(idStatus).toString();
 
+       int id = qId.toInt();
        std::string name = qName.toStdString();
        int year = qYear.toInt();
        std::string type =  qType.toStdString();
@@ -42,6 +46,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
        int status = qStatus.toInt();
        if (status == 1)
        {
+           pl.setId(id);
            pl.setName(name);
            pl.setBuildYear(year);
            pl.setCompType(type);
@@ -69,13 +74,15 @@ void ComputerAccess::readToDatabase(Computer computer)
         QString qYear = QString::number(computer.getBuildYear());
         QString qType = QString::fromStdString(computer.getCompType());
         QString qBuilt = QString::fromStdString(computer.getWasBuilt());
+        QString qDescription = QString::fromStdString(computer.getDescription());
         QString qStatus = QString::number(number);
 
-        query.prepare("INSERT INTO Computers (name, year, type, wasbuilt, status) VALUES (:name, :year, :type, :wasbuilt, :status)");
+        query.prepare("INSERT INTO Computers (name, year, type, wasbuilt, description, status) VALUES (:name, :year, :type, :wasbuilt, :description, :status)");
         query.bindValue(":name", qName);
         query.bindValue(":year", qYear);
         query.bindValue(":type", qType);
         query.bindValue(":wasbuilt", qBuilt);
+        query.bindValue(":description", qDescription);
         query.bindValue(":status", qStatus);
 
         query.exec();
@@ -178,7 +185,6 @@ bool ComputerAccess::checkEntry(Computer computer)
 {
     QSqlQuery query("SELECT * FROM Computers");
 
-    QString Id = QString::number(computer.getId());
     QString Name = QString::fromStdString(computer.getName());
     QString Type = QString::fromStdString(computer.getCompType());
     QString Built = QString::fromStdString(computer.getWasBuilt());
@@ -186,14 +192,12 @@ bool ComputerAccess::checkEntry(Computer computer)
 
     while (query.next())
     {
-        int idId = query.record().indexOf("id");
         int idName = query.record().indexOf("name");
         int idType = query.record().indexOf("type");
         int idBuilt = query.record().indexOf("built");
         int idDescription = query.record().indexOf("description");
         int idStatus = query.record().indexOf("Status");
 
-        QString qId = query.value(idId).toString();
         QString qName = query.value(idName).toString();
         QString qType = query.value(idType).toString();
         QString qBuilt = query.value(idBuilt).toString();
