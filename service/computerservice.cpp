@@ -123,14 +123,18 @@ vector<Computer> ComputerService::sortByNameReverse()
 
 vector<Computer> ComputerService::sortByBuildYearReverse()
 {
-    return _ComAccess.sortQuery("buildyear", "DESC");
+    return _ComAccess.sortQuery("year", "DESC");
 
 }
 
 vector<Computer> ComputerService::sortByCompTypeReverse()
 {
-    return _ComAccess.sortQuery("comptype", "DESC");
+    return _ComAccess.sortQuery("type", "DESC");
 
+}
+vector<Computer> ComputerService::sortBywasBuiltReverse()
+{
+    return _ComAccess.sortQuery("wasBuilt", "DESC");
 }
 
 /**

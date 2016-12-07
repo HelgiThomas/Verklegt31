@@ -131,35 +131,59 @@ void ConsoleUI::run()
         }
         else if (command == "sort" || command == "Sort" || command == "5")
         {
-        clearScreen();
-        string choice;
-        cout << "Would you like to sort by Scientist or Computer?? " << endl;
-        cout << "1. Scientist" << endl;
-        cout << "2. Computer" << endl;
-        cout << "3. Back" << endl << endl << "=> ";
-        cin >> choice;
-        if(choice == "scientist" || choice == "Scientist" || choice == "1")
-        {
+            clearScreen();
+            string choice;
+            cout << "Would you like to Sort by, Scientist or Computer?? " << endl;
+            cout << "1. Scientist" << endl;
+            cout << "2. Computer" << endl;
+            cout << "3. Back" << endl << endl << "=> ";
+            cin >> choice;
+            if(choice == "scientist" || choice == "Scientist" || choice == "1")
+            {
                 sortSci();
-        }
-        else if(choice == "computer" || choice == "Computer" || choice == "2")
-        {
+            }
+            else if(choice == "computer" || choice == "Computer" || choice == "2")
+            {
                 sortComp();
-        }
-        else if(choice == "back" || choice == "Back" || choice == "3")
-        {
+            }
+            else if(choice == "back" || choice == "Back" || choice == "3")
+            {
                 clearScreen();
                 run();
-        }
-        else
-        {
+            }
+            else
+            {
                 clearScreen();
                 cout << "Invalid command!" << endl << endl;
-         }
+            }
         }
         else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "6")
         {
-            reversedSortSci();
+            clearScreen();
+            string choice;
+            cout << "Would you like to Reverse Sort by, Scientist or Computer?? " << endl;
+            cout << "1. Scientist" << endl;
+            cout << "2. Computer" << endl;
+            cout << "3. Back" << endl << endl << "=> ";
+            cin >> choice;
+            if(choice == "scientist" || choice == "Scientist" || choice == "1")
+            {
+                reversedSortSci();
+            }
+            else if(choice == "computer" || choice == "Computer" || choice == "2")
+            {
+                reversedSortComp();
+            }
+            else if(choice == "back" || choice == "Back" || choice == "3")
+            {
+                clearScreen();
+                run();
+            }
+            else
+            {
+                clearScreen();
+                cout << "Invalid command!" << endl << endl;
+            }
         }
         else if (command == "search" || command == "Search" || command == "7")
         {
@@ -545,6 +569,49 @@ void ConsoleUI::reversedSortSci()
         {
             vector<Scientist> Scientist = _serviceSci.sortByDeathReverse();
             displayListOfScientists(Scientist);
+        }
+        else
+        {
+            clearScreen();
+            cout << "Invalid sort!" << endl << endl;
+        }
+    }
+}
+
+
+void ConsoleUI::reversedSortComp()
+{
+    clearScreen();
+    string command;
+    while(!_serviceComp.validCommand(command))
+    {
+        cout << "What would you like to sort it by?" << endl;
+        cout << "1. Name" << endl;
+        cout << "2. Year" << endl;
+        cout << "3. Type" << endl;
+        cout << "4. Built" << endl << endl << "=> ";
+
+        cin >> command;
+
+        if(command == "name" || command == "Name" || command == "1")
+        {
+            vector<Computer> Computer = _serviceComp.sortByNameReverse();
+            displayListOfComputers(Computer);
+        }
+        else if(command == "year" || command == "Year" || command == "2")
+        {
+            vector<Computer> Computer = _serviceComp.sortByBuildYearReverse();
+            displayListOfComputers(Computer);
+        }
+        else if(command == "type" || command == "Type" || command == "3")
+        {
+            vector<Computer> Computer = _serviceComp.sortByCompTypeReverse();
+            displayListOfComputers(Computer);
+        }
+        else if(command == "built" || command == "Built" || command == "4")
+        {
+            vector<Computer> Computer = _serviceComp.sortBywasBuiltReverse();
+            displayListOfComputers(Computer);
         }
         else
         {

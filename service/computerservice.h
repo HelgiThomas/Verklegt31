@@ -56,6 +56,7 @@ public:
     vector<Computer> sortByNameReverse();
     vector<Computer> sortByBuildYearReverse();
     vector<Computer> sortByCompTypeReverse();
+    vector<Computer> sortBywasBuiltReverse ();
 
     /**
      * @brief Function to remove a computer from the list.

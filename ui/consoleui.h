@@ -34,6 +34,7 @@ private:
     void sortSci();
     void sortComp();
     void reversedSortSci();
+    void reversedSortComp();
     void searchList();
     void playGame();
 
