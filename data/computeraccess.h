@@ -29,16 +29,17 @@ public:
     ComputerAccess();
 
     void readToDatabase(Computer computer);
+    vector<Computer> readFromDatabase();
 
 
     void removelist(string nameOf);
-
-
     void removeAll();
 
 
-    vector<Computer> readFromDatabase();
     vector<Computer> sortQuery(string var, string command);
+    vector<Computer> searchQueryString(string command);
+    vector<Computer> searchQueryInt(int command);
+
 
     void connect();
 

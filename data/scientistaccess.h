@@ -22,18 +22,18 @@ public:
 
     ScientistAccess();
 
-
     void readToDatabase(Scientist scientist);
+    vector<Scientist> readFromDatabase();
 
 
     void removelist(string name);
-
-
     void removeAll();
 
 
-    vector<Scientist> readFromDatabase();
     vector<Scientist> sortQuery(string var, string command);
+    vector<Scientist> searchQueryString(string command);
+    vector<Scientist> searchQueryInt(int command);
+
 
     void connect();
 

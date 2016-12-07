@@ -132,6 +132,28 @@ struct ScientistCompareDeathReverse
     bool operator() (Scientist i,Scientist j) { return (i.getDeath()>j.getDeath());}
 };
 
+
+vector<Scientist> ScientistService::searchName(string command)
+{
+    return _SciAccess.searchQueryString(command);
+}
+
+vector<Scientist> ScientistService::searchSex(string command)
+{
+    return _SciAccess.searchQueryString(command);
+}
+
+vector<Scientist> ScientistService::searchBirth(int command)
+{
+    return _SciAccess.searchQueryInt(command);
+}
+
+vector<Scientist> ScientistService::searchDeath(int command)
+{
+    return _SciAccess.searchQueryInt(command);
+}
+
+
 vector<Scientist> ScientistService::sortByName()
 {
     return _SciAccess.sortQuery("name", "ASC");

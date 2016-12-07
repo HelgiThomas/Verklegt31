@@ -395,7 +395,6 @@ void ConsoleUI::removeEverySci()
 
     }
 
-
 }
 
 /**

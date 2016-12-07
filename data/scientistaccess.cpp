@@ -1,10 +1,61 @@
 #include "data/scientistaccess.h"
 
+#include <QString>
+#include <cstdlib>
+#include <sstream>
+
 using namespace std;
 
 ScientistAccess::ScientistAccess()
 {
     _temp = 0;
+}
+
+vector<Scientist> ScientistAccess::readFromDatabase()
+{
+    vector <Scientist> sci;
+
+    connect();
+
+    QSqlQuery query("SELECT * FROM Scientists");
+
+    int idId = query.record().indexOf("id");
+    int idName = query.record().indexOf("name");
+    int idSex= query.record().indexOf("sex");
+    int idBirth = query.record().indexOf("birth");
+    int idDeath = query.record().indexOf("death");
+    int idStatus = query.record().indexOf("Status");
+    while (query.next())
+    {
+       Scientist pl;
+
+       QString qId = query.value(idId).toString();
+       QString qName = query.value(idName).toString();
+       QString qSex = query.value(idSex).toString();
+       QString qBirth = query.value(idBirth).toString();
+       QString qDeath = query.value(idDeath).toString();
+       QString qStatus = query.value(idStatus).toString();
+
+       int id = qId.toInt();
+       std::string name = qName.toStdString();
+       std::string sex =  qSex.toStdString();
+       int birth = qBirth.toInt();
+       int death = qDeath.toInt();
+       int status = qStatus.toInt();
+       if (status == 1)
+       {
+           pl.setId(id);
+           pl.setName(name);
+           pl.setSex(sex);
+           pl.setBirth(birth);
+           pl.setDeath(death);
+
+           sci.push_back(pl);
+       }
+    }
+    m_db.close();
+
+    return sci;
 }
 
 void ScientistAccess::readToDatabase(Scientist scientist)
@@ -58,60 +109,18 @@ void ScientistAccess::removeAll()
 
     QSqlQuery query;
     query.prepare("TRUNCATE TABLE Scientists");
-    //query.exec();
-}
-
-vector<Scientist> ScientistAccess::readFromDatabase()
-{
-    vector <Scientist> sci;
-
-    connect();
-
-    QSqlQuery query("SELECT * FROM Scientists");
-
-    int idId = query.record().indexOf("id");
-    int idName = query.record().indexOf("name");
-    int idSex= query.record().indexOf("sex");
-    int idBirth = query.record().indexOf("birth");
-    int idDeath = query.record().indexOf("death");
-    int idStatus = query.record().indexOf("Status");
-    while (query.next())
-    {
-       Scientist pl;
-
-       QString qId = query.value(idId).toString();
-       QString qName = query.value(idName).toString();
-       QString qSex = query.value(idSex).toString();
-       QString qBirth = query.value(idBirth).toString();
-       QString qDeath = query.value(idDeath).toString();
-       QString qStatus = query.value(idStatus).toString();
-
-       int id = qId.toInt();
-       std::string name = qName.toStdString();
-       std::string sex =  qSex.toStdString();
-       int birth = qBirth.toInt();
-       int death = qDeath.toInt();
-       int status = qStatus.toInt();
-       if (status == 1)
-       {
-           pl.setId(id);
-           pl.setName(name);
-           pl.setSex(sex);
-           pl.setBirth(birth);
-           pl.setDeath(death);
-
-           sci.push_back(pl);
-       }
-    }
-    m_db.close();
-
-    return sci;
+    query.exec();
 }
 
 void ScientistAccess::connect()
 {
+    QString name = "database";
+
+
+
     m_db = QSqlDatabase::addDatabase("QSQLITE");
     m_db.setDatabaseName("DB_vika2.sqlite");
+
 
     if (!m_db.open())
     {
@@ -146,18 +155,44 @@ void ScientistAccess::edit(int Id, string command)
 
     }
 }
- vector<Scientist> ScientistAccess::sortQuery(string var, string command)
+
+
+vector<Scientist> ScientistAccess::sortQuery(string var, string command)
 {
     vector<Scientist> sci;
 
-    connect();
-
-    QSqlDatabase query();
-    QString qVar = QString::fromStdString(var);
-    QString qCom = QString::fromStdString(command);
+    QSqlQuery query;
 
     //Vantar koda til ad gera query!
-    sci = scientistQuery(query);
+
+    //sci = scientistQuery(query);
+
+    return sci;
+}
+
+vector<Scientist> ScientistAccess::searchQueryString(string command)
+{
+    vector<Scientist> sci;
+
+    QSqlQuery query;
+
+    //Koði til að gera query!
+
+    //sci = scientistQuery(query);
+
+    return sci;
+}
+
+
+vector<Scientist> ScientistAccess::searchQueryInt(int command)
+{
+    vector<Scientist> sci;
+
+    QSqlQuery query;
+
+    //Koði til að gera query!
+
+    //sci = scientistQuery(query);
 
     return sci;
 }
@@ -166,7 +201,6 @@ bool ScientistAccess::checkEntry(Scientist scientist)
 {
     QSqlQuery query("SELECT * FROM Scientists");
 
-    QString Id = QString::number(scientist.getId());
     QString Name = QString::fromStdString(scientist.getName());
     QString Sex = QString::fromStdString(scientist.getSex());
     QString Birth = QString::number(scientist.getBirth());
@@ -174,15 +208,12 @@ bool ScientistAccess::checkEntry(Scientist scientist)
 
     while (query.next())
     {
-
-        int idId = query.record().indexOf("id");
         int idName = query.record().indexOf("name");
         int idSex= query.record().indexOf("sex");
         int idBirth = query.record().indexOf("birth");
         int idDeath = query.record().indexOf("death");
         int idStatus = query.record().indexOf("Status");
 
-        QString qId = query.value(idId).toString();
         QString qName = query.value(idName).toString();
         QString qSex = query.value(idSex).toString();
         QString qBirth = query.value(idBirth).toString();
