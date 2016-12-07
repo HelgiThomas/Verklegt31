@@ -3,7 +3,12 @@
 
 #include "model/computer.h"
 #include "model/scientist.h"
-#include "misc/utility.h"
+
+#include <QSql>
+#include <QSqlDatabase>
+#include <QSqlRecord>
+#include <QSqlQuery>
+#include <QDebug>
 
 #include <iostream>
 #include <string>
@@ -18,9 +23,10 @@ public:
 
     bool link(int scientistId, int computerId);
 
+    void connect();
+
 private:
     QSqlDatabase m_db;
-    Utility util;
 };
 
 #endif // LINKACCESS_H
