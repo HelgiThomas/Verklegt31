@@ -1,5 +1,7 @@
 #include "data/computeraccess.h"
 
+#include <sstream>
+
 using namespace std;
 
 ComputerAccess::ComputerAccess()
@@ -27,6 +29,15 @@ void ComputerAccess::readToDatabase(Computer computer)
         QString qStatus = QString::number(number);
 
 
+        stringstream q;
+        q << "INSERT INTO Computers (id, name, type, build, description, status) VALUES ("
+          << computer.getId() << ", "
+          << "'" << computer.getName() << "', "
+          << "'" << computer.getCompType() << "', "
+          << "'" << computer.getDescription() << "', "
+          << number << ")";
+
+        /*
         query.prepare("INSERT INTO Computers (id, name, type, build, description, status) VALUES (:id, :name, :type, :built, :description, :status)");
         query.bindValue(":id", qId);
         query.bindValue(":name", qName);
@@ -34,8 +45,9 @@ void ComputerAccess::readToDatabase(Computer computer)
         query.bindValue(":built", qBuilt);
         query.bindValue(":description", qDescription);
         query.bindValue(":status", qStatus);
+        */
 
-        query.exec();
+        query.exec(QString::fromStdString(q.str()));
     }
 }
 
