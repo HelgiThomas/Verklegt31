@@ -57,7 +57,7 @@ private:
     void removeSci();
 
     // ekki gleyma ad kommenta below helgi
-    void removeEverysci();
+    void removeEverySci();
 
     /**
      * @brief Function to call the system commands to clear the screen.

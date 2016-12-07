@@ -1,5 +1,6 @@
 #include "data/linkaccess.h"
 
+#include <sstream>
 
 using namespace std;
 
@@ -9,9 +10,21 @@ LinkAccess::LinkAccess()
 }
 
 
-bool link(int scientistId, int computerId)
+bool LinkAccess::link(int scientistId, int computerId)
 {
+    int number = 1;
 
+    connect();
+
+    QSqlQuery query(m_db);
+    QString qSci = QString::number(scientistId);
+    QString qComp = QString::number(computerId);
+
+    query.prepare("INSERT INTO SciComp (SciID, CompID) VALUES (:sci, :comp)");
+    query.bindValue(":sci", qSci);
+    query.bindValue(":comp", qComp);
+
+    query.exec();
 }
 
 

@@ -29,11 +29,12 @@ void ConsoleUI::run()
         cout << "1. Add" << endl;
         cout << "2. Remove" << endl;
         cout << "3. List" << endl;
-        cout << "4. Sort" << endl;
-        cout << "5. Reversed sort" << endl;
-        cout << "6. Search " << endl;
-        cout << "7. Game" << endl;
-        cout << "8. Quit" << endl << endl << "=> ";
+        cout << "4. Edit" << endl;
+        cout << "5. Sort" << endl;
+        cout << "6. Reversed sort" << endl;
+        cout << "7. Search " << endl;
+        cout << "8. Game" << endl;
+        cout << "9. Quit" << endl << endl << "=> ";
 
         string command;
         cin >> command;
@@ -82,7 +83,7 @@ void ConsoleUI::run()
             }
             else if (choice == "everyone" || choice == "Everyone" || choice == "2")
             {
-                 removeEverysci ();
+                 removeEverySci();
             }
             else if(choice == "back" || choice == "Back" || choice == "3")
             {
@@ -124,25 +125,29 @@ void ConsoleUI::run()
                 cout << "Invalid command!" << endl << endl;
             }
         }
-        else if (command == "sort" || command == "Sort" || command == "4")
+        else if (command == "edit" || command == "Edit" || command == "4")
+        {
+
+        }
+        else if (command == "sort" || command == "Sort" || command == "5")
         {
             sortSci();
         }
-        else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "5")
+        else if (command == "reversed" || command == "Reversed" || command == "reversed sort" || command == "Reversed sort"|| command == "6")
         {
             reversedSortSci();
         }
-        else if (command == "search" || command == "Search" || command == "6")
+        else if (command == "search" || command == "Search" || command == "7")
         {
             searchList();
         }
-        else if(command == "Game" || command == "game" || command == "7")
+        else if(command == "Game" || command == "game" || command == "8")
         {
             playGame();
         }
-        else if (command == "quit" || command == "Quit" || command == "8")
+        else if (command == "quit" || command == "Quit" || command == "9")
         {
-            exit(10);
+            exit(1);
         }
         else
         {
@@ -371,7 +376,7 @@ void ConsoleUI::removeSci ()
     }
 }
 //komment below helgi
-void ConsoleUI::removeEverysci()
+void ConsoleUI::removeEverySci()
 {
     clearScreen();
     string choice;
