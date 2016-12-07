@@ -65,7 +65,7 @@ void ScientistAccess::removeAll()
 
     QSqlQuery query;
     query.prepare("TRUNCATE TABLE Scientists");
-    query.exec();
+    //query.exec();
 }
 
 vector<Scientist> ScientistAccess::readFromDatabase()
