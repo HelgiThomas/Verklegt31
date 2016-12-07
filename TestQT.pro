@@ -22,9 +22,6 @@ SOURCES += main.cpp \
     data/linkaccess.cpp \
     service/generalservice.cpp \
     misc/utility.cpp
-    model/computer.cpp
-    service/computerservice.cpp
-    model/computer.cpp
 
 HEADERS += \
     ui/consoleui.h \
@@ -37,6 +34,3 @@ HEADERS += \
     data/linkaccess.h \
     service/generalservice.h \
     misc/utility.h
-    model/computer.h
-    service/computerservice.h
-    model/computer.h
