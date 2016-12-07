@@ -17,15 +17,13 @@ void ScientistAccess::readToDatabase(Scientist scientist)
     {
         // you should check if args are ok first...
         QSqlQuery query;
-        QString qId = QString::number(scientist.getId());
         QString qName = QString::fromStdString(scientist.getName());
         QString qSex = QString::fromStdString(scientist.getSex());
         QString qBirth = QString::number(scientist.getBirth());
         QString qDeath = QString::number(scientist.getDeath());
         QString qStatus = QString::number(number);
 
-        query.prepare("INSERT INTO Scientists (id, name, sex, birth, death, status) VALUES (:id, :name, :sex, :birth, :death, :status)");
-        query.bindValue(":id", qId);
+        query.prepare("INSERT INTO Scientists (name, sex, birth, death, status) VALUES (:name, :sex, :birth, :death, :status)");
         query.bindValue(":name", qName);
         query.bindValue(":sex", qSex);
         query.bindValue(":birth", qBirth);
@@ -34,7 +32,6 @@ void ScientistAccess::readToDatabase(Scientist scientist)
 
         query.exec();
     }
-
     m_db.close();
 }
 
@@ -106,6 +103,7 @@ vector<Scientist> ScientistAccess::readFromDatabase()
            sci.push_back(pl);
        }
     }
+    m_db.close();
 
     m_db.close();
 
