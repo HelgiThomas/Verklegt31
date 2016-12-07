@@ -105,8 +105,6 @@ vector<Scientist> ScientistAccess::readFromDatabase()
     }
     m_db.close();
 
-    m_db.close();
-
     return sci;
 }
 

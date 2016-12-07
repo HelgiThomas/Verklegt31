@@ -16,7 +16,7 @@ void ComputerAccess::readToDatabase(Computer computer)
     connect();
 
     if (checkEntry(computer))
-    {        
+    {
         // you should check if args are ok first...
         QSqlQuery query;
         QString qName = QString::fromStdString(computer.getName());
