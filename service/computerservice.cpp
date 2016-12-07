@@ -93,104 +93,39 @@ struct ComputerCompareBirthReverse
     bool operator() (Computer i,Computer j) { return (i.getBuildYear()>j.getBuildYear());}
 };
 
-/**
- * @brief This function sorts the names in the computer vector in alphabetical order.
- * @return vector<Computer>.
- */
+
 vector<Computer> ComputerService::sortByName()
 {
-    vector<Computer> computers = getComputer();
-
-    ComputerCompareName cmp;
-    std::sort(computers.begin(), computers.end(), cmp);
-
-    return computers;
+    return _ComAccess.sortQuery("name", "ASC");
 }
 
-/**
- * @brief This function sorts the build years in the computer vector by the oldest computer.
- * @return vector<Computer>.
- */
 vector<Computer> ComputerService::sortByBuildYear()
 {
-    vector<Computer> computers = getComputer();
-
-    ComputerCompareBuildYear cmp;
-    std::sort(computers.begin(), computers.end(), cmp);
-
-    return computers;
+    return _ComAccess.sortQuery("name", "ASC");
 }
 
-/**
- * @brief This function sorts the names in the computer vector in reverse alphabetical order.
- * @return vector<Computer>.
- */
+vector<Computer> ComputerService::sortByCompType()
+{
+    return _ComAccess.sortQuery("name", "ASC");
+
+}
+
 vector<Computer> ComputerService::sortByNameReverse()
 {
-    vector<Computer> computers = getComputer();
+    return _ComAccess.sortQuery("name", "ASC");
 
-    ComputerCompareNameReverse cmp;
-    std::sort(computers.begin(), computers.end(), cmp);
-
-    return computers;
 }
 
-/**
- * @brief This function sorts the build years in the computer vector by the youngest computer.
- * @return vector<Computer>.
- */
-/*vector<Computer> ComputerService::sortByBuildYearReverse()
+vector<Computer> ComputerService::sortByBuildYearReverse()
 {
-    vector<Computer> computers = getComputer();
-                                                        Þarf að skoða þetta fall, structið í fokki.
-    ComputerCompareBuildYearReverse cmp;
-    std::sort(computers.begin(), computers.end(), cmp);
+    return _ComAccess.sortQuery("name", "ASC");
 
-    return computers;
-} */
-
-/**
- * @brief This function searches the input, and finds a match in the .txt file
- * if it exists.
- * @param string input.
- * @return vector<Computer>.
- */
-vector <Computer> ComputerService::searchName (string command)
-{
-    /*
-    vector<Computer> allNames;
-    vector<Computer> allComputers = _access.readFromFile();
-    for (unsigned int i = 0 ; i < allComputers.size();i++)
-    {
-        if ((command == allComputers[i].getName()))
-        {
-            allNames.push_back(allComputers[i]);
-        }
-    }
-    return allNames;
-    */
 }
 
-/**
- * @brief This function searches the input, and finds a match in the .txt file
- * if it exists.
- * @param string input.
- * @return vector<Computer>.
- */
-vector <Computer> ComputerService::searchBuildYear (int command)
+vector<Computer> ComputerService::sortByCompTypeReverse()
 {
-    /*
-    vector<Computer> allBuildYears;
-    vector<Computer> allComputers = _access.readFromFile();
-    for (unsigned int i = 0 ; i < allComputers.size();i++)
-    {
-        if ((command) == (allComputers[i].getBuildYear()))
-        {
-            allBuildYears.push_back(allComputers[i]);
-        }
-    }
-    return allBuildYears;
-    */
+    return _ComAccess.sortQuery("name", "ASC");
+
 }
 
 /**
