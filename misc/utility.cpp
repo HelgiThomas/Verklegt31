@@ -6,7 +6,7 @@ Utility::Utility()
 }
 
 
-QSqlDatabase connect()
+QSqlDatabase Utility::getConnection ()
 {
     QSqlDatabase db;
 
