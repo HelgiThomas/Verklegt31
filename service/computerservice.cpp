@@ -101,14 +101,19 @@ vector<Computer> ComputerService::sortByName()
 
 vector<Computer> ComputerService::sortByBuildYear()
 {
-    return _ComAccess.sortQuery("buildyear", "ASC");
+    return _ComAccess.sortQuery("year", "ASC");
 }
 
 vector<Computer> ComputerService::sortByCompType()
 {
-    return _ComAccess.sortQuery("comptype", "ASC");
+    return _ComAccess.sortQuery("type", "ASC");
 
 }
+vector<Computer> ComputerService::sortBywasBuilt()
+{
+    return _ComAccess.sortQuery("wasBuilt", "ASC");
+}
+
 
 vector<Computer> ComputerService::sortByNameReverse()
 {
@@ -211,7 +216,7 @@ int ComputerService::lengthOfLongestName(vector<Computer> computers)
  */
 bool ComputerService::validCommand(string command)
 {
-    if(command == "1" || command == "2" || command == "3" || command == "4" || command == "name" || command == "Name" || command == "build year" || command == "Build year")
+    if(command == "1" || command == "2" || command == "3" || command == "4" || command == "name" || command == "Name" || command == "year" || command == "Year" || command == "Type" || command == "type"|| command == "Built" || command == "built")
         return true;
     else
         return false;

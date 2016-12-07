@@ -45,6 +45,8 @@ public:
     vector<Computer> sortByName();
     vector<Computer> sortByBuildYear();
     vector<Computer> sortByCompType();
+    vector<Computer> sortBywasBuilt();
+
     //Adda tannig ad tad se haegt sorta eftir wasBuilt
 
     /**

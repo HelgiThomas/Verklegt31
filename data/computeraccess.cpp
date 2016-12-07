@@ -126,10 +126,12 @@ void ComputerAccess::connect()
 
     if (!m_db.open())
     {
+        // ATH ATH ATH THETTA MA EKKI VERA HER
        qDebug() << "Error: connection with database fail";
     }
     else
     {
+        // ATH ATH ATH THETTA MA EKKI VERA HER
        qDebug() << "Database: connection ok";
     }
 }
@@ -137,17 +139,57 @@ void ComputerAccess::connect()
 
 vector<Computer> ComputerAccess::sortQuery(string var, string command)
 {
+    connect();
     vector<Computer> comp;
 
-    connect();
-
     QSqlQuery query;
-    QString qVar = QString::fromStdString(var);
-    QString qCom = QString::fromStdString(command);
 
-    query.prepare("SELECT * FROM Scientists ORDER BY ':var' ':com'");
-    query.bindValue(":var", qVar);
-    query.bindValue(":com", qCom);
+    string query_string = "SELECT * FROM Computers ORDER BY " + var + " " + command;
+    QString qCommand (query_string.c_str());
+    query.exec(qCommand);
+
+    int idId = query.record().indexOf("id");
+    int idName = query.record().indexOf("name");
+    int idYear = query.record().indexOf("year");
+    int idType = query.record().indexOf("type");
+    int idBuilt = query.record().indexOf("wasbuilt");
+    int idDescription = query.record().indexOf("description");
+    int idStatus = query.record().indexOf("status");
+
+    while (query.next())
+    {
+       Computer pl;
+
+       QString qId = query.value(idId).toString();
+       QString qName = query.value(idName).toString();
+       QString qYear = query.value(idYear).toString();
+       QString qType = query.value(idType).toString();
+       QString qBuilt = query.value(idBuilt).toString();
+       QString qDescription = query.value(idDescription).toString();
+       QString qStatus = query.value(idStatus).toString();
+
+       int id = qId.toInt();
+       std::string name = qName.toStdString();
+       int year = qYear.toInt();
+       std::string type =  qType.toStdString();
+       std::string built = qBuilt.toStdString();
+       std::string description = qDescription.toStdString();
+       int status = qStatus.toInt();
+       if (status == 1)
+       {
+           pl.setId(id);
+           pl.setName(name);
+           pl.setBuildYear(year);
+           pl.setCompType(type);
+           pl.setWasBuilt(built);
+           pl.setDescription(description);
+
+           comp.push_back(pl);
+       }
+    }
+        m_db.close();
+    return comp;
+
 
     //comp = computerQuery(query);
 }
@@ -206,6 +248,7 @@ bool ComputerAccess::checkEntry(Computer computer)
 
        if (Name == qName && Type == qType && Built == qBuilt && Description == qDescription)
        {
+           // ATH ATH ATH THETTA MA EKKI VERA HER
           cout << "This person already exist! ";
           return false;
        }

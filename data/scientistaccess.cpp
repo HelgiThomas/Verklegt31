@@ -166,13 +166,56 @@ void ScientistAccess::edit(int Id, string command)
 
 vector<Scientist> ScientistAccess::sortQuery(string var, string command)
 {
-    vector<Scientist> sci;
+    connect();
 
     QSqlQuery query;
+    vector<Scientist> sci;
 
-    //Vantar koda til ad gera query!
+    string query_string = "SELECT * FROM Scientists ORDER BY " + var + " " + command;
+    QString qCommand (query_string.c_str());
+    query.exec(qCommand);
 
-    //sci = scientistQuery(query);
+
+    int idId = query.record().indexOf("id");
+    int idName = query.record().indexOf("name");
+    int idSex= query.record().indexOf("sex");
+    int idBirth = query.record().indexOf("birth");
+    int idDeath = query.record().indexOf("death");
+    int idCitation = query.record().indexOf("citation");
+    int idStatus = query.record().indexOf("status");
+
+    while (query.next())
+    {
+       Scientist pl;
+
+       QString qId = query.value(idId).toString();
+       QString qName = query.value(idName).toString();
+       QString qSex = query.value(idSex).toString();
+       QString qBirth = query.value(idBirth).toString();
+       QString qDeath = query.value(idDeath).toString();
+       QString qCitation = query.value(idCitation).toString();
+       QString qStatus = query.value(idStatus).toString();
+
+       int id = qId.toInt();
+       std::string name = qName.toStdString();
+       std::string sex =  qSex.toStdString();
+       int birth = qBirth.toInt();
+       int death = qDeath.toInt();
+       std::string citation = qCitation.toStdString();
+       int status = qStatus.toInt();
+       if (status == 1)
+       {
+           pl.setId(id);
+           pl.setName(name);
+           pl.setSex(sex);
+           pl.setBirth(birth);
+           pl.setDeath(death);
+           pl.setCitation(citation);
+
+           sci.push_back(pl);
+       }
+    }
+    m_db.close();
 
     return sci;
 }
@@ -234,4 +277,8 @@ bool ScientistAccess::checkEntry(Scientist scientist)
        }
     }
     return true;
+}
+void ScientistAccess::queryShortcut ()
+{
+
 }

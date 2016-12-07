@@ -93,6 +93,7 @@ public:
     string mOrF(string sex);
     string makeFirstLetterBig(string name);
 
+
 private:
     vector<Scientist> listOfScientist;
     ScientistAccess _SciAccess;

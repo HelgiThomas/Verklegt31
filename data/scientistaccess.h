@@ -41,6 +41,9 @@ private:
 
     void fileWork(Scientist scientist);
 
+    //kommenta helgi
+    void queryShortcut ();
+
 
     void edit(int id, string command);
 
