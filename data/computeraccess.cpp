@@ -7,18 +7,16 @@ using namespace std;
 ComputerAccess::ComputerAccess()
 {
     _temp = 0;
-    m_db = _util.getConnection();
 }
 
 void ComputerAccess::readToDatabase(Computer computer)
 {
     int number = 1;
 
-    m_db.open();
+    connect();
 
     if (checkEntry(computer))
-    {
-
+    {        
         // you should check if args are ok first...
         QSqlQuery query(m_db);
         QString qId = QString::number(computer.getId());
@@ -28,16 +26,6 @@ void ComputerAccess::readToDatabase(Computer computer)
         QString qDescription = QString::fromStdString(computer.getDescription());
         QString qStatus = QString::number(number);
 
-
-        stringstream q;
-        q << "INSERT INTO Computers (id, name, type, build, description, status) VALUES ("
-          << computer.getId() << ", "
-          << "'" << computer.getName() << "', "
-          << "'" << computer.getCompType() << "', "
-          << "'" << computer.getDescription() << "', "
-          << number << ")";
-
-        /*
         query.prepare("INSERT INTO Computers (id, name, type, build, description, status) VALUES (:id, :name, :type, :built, :description, :status)");
         query.bindValue(":id", qId);
         query.bindValue(":name", qName);
@@ -45,9 +33,8 @@ void ComputerAccess::readToDatabase(Computer computer)
         query.bindValue(":built", qBuilt);
         query.bindValue(":description", qDescription);
         query.bindValue(":status", qStatus);
-        */
 
-        query.exec(QString::fromStdString(q.str()));
+        query.exec();
     }
 }
 
@@ -56,7 +43,7 @@ void ComputerAccess::removelist(string name)
 {
     int number = 0;
 
-    m_db.open();
+    connect();
 
     QSqlQuery query(m_db);
 
@@ -72,7 +59,7 @@ void ComputerAccess::removelist(string name)
 
 void ComputerAccess::removeAll()
 {
-    m_db.open();
+    connect();
 
     QSqlQuery query;
     query.prepare("TRUNCATE TABLE Computers");
@@ -84,12 +71,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
 {
     vector<Computer> com;
 
-    m_db.open();
-
-    if(!m_db.isOpen())
-    {
-        return com;
-    }
+    connect();
 
     QSqlQuery query("SELECT * FROM Computers");
 
@@ -129,6 +111,22 @@ vector<Computer> ComputerAccess::readFromDatabase()
     }
 
     return com;
+}
+
+
+void ComputerAccess::connect()
+{
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("DB_vika2.sqlite");
+
+    if (!m_db.open())
+    {
+       qDebug() << "Error: connection with database fail";
+    }
+    else
+    {
+       qDebug() << "Database: connection ok";
+    }
 }
 
 

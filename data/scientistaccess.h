@@ -2,7 +2,6 @@
 #define SCIENTISTACCESS_H
 
 #include "model/scientist.h"
-#include "misc/utility.h"
 
 #include <QSql>
 #include <QSqlDatabase>
@@ -35,6 +34,8 @@ public:
 
     vector<Scientist> readFromDatabase();
 
+    void connect();
+
 private:
 
     void fileWork(Scientist scientist);
@@ -46,7 +47,6 @@ private:
     bool checkEntry(Scientist scientist);
 
     QSqlDatabase m_db;
-    Utility _util;
     vector<Scientist> theList;
     int _temp;
 };

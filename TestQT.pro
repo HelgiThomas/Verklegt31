@@ -20,8 +20,7 @@ SOURCES += main.cpp \
     data/scientistaccess.cpp \
     data/computeraccess.cpp \
     data/linkaccess.cpp \
-    service/generalservice.cpp \
-    misc/utility.cpp
+    service/generalservice.cpp
 
 HEADERS += \
     ui/consoleui.h \
@@ -32,5 +31,4 @@ HEADERS += \
     data/scientistaccess.h \
     data/computeraccess.h \
     data/linkaccess.h \
-    service/generalservice.h \
-    misc/utility.h
+    service/generalservice.h

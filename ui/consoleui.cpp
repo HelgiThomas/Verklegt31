@@ -1,5 +1,6 @@
 #include "ui/consoleui.h"
 #include "model/scientist.h"
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -21,6 +22,7 @@ ConsoleUI::ConsoleUI()
  */
 void ConsoleUI::run()
 {
+
     do
     {
         cout << "Please enter the name or number of one of the commands below:" << endl << endl;

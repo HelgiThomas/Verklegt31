@@ -2,7 +2,6 @@
 #define COMPUTERACCESS_H
 
 #include "model/computer.h"
-#include "misc/utility.h"
 
 #include <QSql>
 #include <QSqlDatabase>
@@ -40,6 +39,8 @@ public:
 
     vector<Computer> readFromDatabase();
 
+    void connect();
+
 private:
 
     void fileWork(Computer computer);
@@ -51,7 +52,6 @@ private:
     bool checkEntry(Computer computer);
 
     QSqlDatabase m_db;
-    Utility _util;
     vector<Computer> theList;
     int _temp;
 };

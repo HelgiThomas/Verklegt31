@@ -5,19 +5,13 @@ using namespace std;
 ScientistAccess::ScientistAccess()
 {
     _temp = 0;
-    m_db = _util.getConnection();
 }
 
 void ScientistAccess::readToDatabase(Scientist scientist)
 {
     int number = 1;
 
-    m_db.open();
-
-    if(m_db.isOpen()){
-        cout << "database open" << endl;
-
-    }
+    connect();
 
     if (checkEntry(scientist))
     {
@@ -46,7 +40,7 @@ void ScientistAccess::removelist(string name)
 {
     int number = 0;
 
-    m_db.open();
+    connect();
 
     QSqlQuery query;
 
@@ -61,7 +55,7 @@ void ScientistAccess::removelist(string name)
 
 void ScientistAccess::removeAll()
 {
-    m_db.open();
+    connect();
 
     QSqlQuery query;
     query.prepare("TRUNCATE TABLE Scientists");
@@ -119,9 +113,24 @@ vector<Scientist> ScientistAccess::readFromDatabase()
     return sci;
 }
 
+void ScientistAccess::connect()
+{
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("DB_vika2.sqlite");
+
+    if (!m_db.open())
+    {
+       qDebug() << "Error: connection with database fail";
+    }
+    else
+    {
+       qDebug() << "Database: connection ok";
+    }
+}
+
 void ScientistAccess::edit(int Id, string command)
 {
-    m_db.open();
+    connect();
 
     QSqlQuery query;
 
