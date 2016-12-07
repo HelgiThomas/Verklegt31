@@ -152,6 +152,22 @@ void ComputerAccess::edit(int id, string command)
 
     }
 }
+vector<Computer> sortQuery(string var, string command)
+{
+    vector<Computer> comp;
+
+    connect();
+
+    QSqlDatabase query(m_db);
+    QString qVar = QString::fromStdString(var);
+    QString qCom = QString::fromStdString(command);
+
+    query.prepare("SELECT * FROM Scientists ORDER BY ':var' ':com'");
+    query.bindValue(":var", qVar);
+    query.bindValue(":com", qCom);
+
+    query.exec();
+}
 
 bool ComputerAccess::checkEntry(Computer computer)
 {

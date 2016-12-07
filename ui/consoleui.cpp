@@ -511,7 +511,7 @@ void ConsoleUI::searchList ()
             cout << "Which name would you like to search for? " << endl << endl << "=> ";
             std::getline(cin, nameOf);
             std::getline(cin, nameOf);
-            vector<Scientist>names = _serviceSci.searchName (nameOf);
+            vector<Scientist> names = _serviceSci.searchName(nameOf);
             validateSearch(names);
         }
         else if(command == "sex" || command == "Sex" || command == "2")
@@ -521,7 +521,7 @@ void ConsoleUI::searchList ()
             cout << "Which sex would you like to search for? " << endl << endl << "=> ";
             cin >> sexOf;
             sexOf = _serviceSci.mOrF(sexOf);
-            vector<Scientist>names = _serviceSci.searchSex (sexOf);
+            vector<Scientist> names = _serviceSci.searchSex (sexOf);
             validateSearch(names);
 
         }
@@ -531,7 +531,7 @@ void ConsoleUI::searchList ()
             int birthOf;
             cout << "Which year of birth would you like to search for? " << endl << endl << "=> ";
             cin >> birthOf;
-            vector<Scientist>names = _serviceSci.searchBirth (birthOf);
+            vector<Scientist> names = _serviceSci.searchBirth (birthOf);
             validateSearch(names);
         }
         else if(command == "death" || command == "Death" || command == "4")
@@ -540,7 +540,7 @@ void ConsoleUI::searchList ()
             int deathOf;
             cout << "Which date of death would you like to serach for? " << endl << endl << "=> ";
             cin >> deathOf;
-            vector<Scientist>names =_serviceSci.searchDeath (deathOf);
+            vector<Scientist> names =_serviceSci.searchDeath (deathOf);
             validateSearch(names);
         }
         else

@@ -146,6 +146,21 @@ void ScientistAccess::edit(int Id, string command)
 
     }
 }
+ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
+{
+    vector<Scientist> sci;
+
+    connect();
+
+    QSqlDatabase query();
+    QString qVar = QString::fromStdString(var);
+    QString qCom = QString::fromStdString(command);
+
+    //Vantar koda til ad gera query!
+    sci = scientistQuery(query);
+
+    return sci;
+}
 
 bool ScientistAccess::checkEntry(Scientist scientist)
 {

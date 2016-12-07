@@ -155,22 +155,22 @@ vector<Scientist> ScientistService::sortByDeath()
 
 vector<Scientist> ScientistService::sortByNameReverse()
 {
-
+    return _SciAccess.sortQuery("name", "DESC");
 }
 
 vector<Scientist> ScientistService::sortBySexReverse()
 {
-
+    return _SciAccess.sortQuery("sex", "DESC");
 }
 
 vector<Scientist> ScientistService::sortByBirthReverse()
 {
-
+    return _SciAccess.sortQuery("birth", "DESC");
 }
 
 vector<Scientist> ScientistService::sortByDeathReverse()
 {
-
+    return _SciAccess.sortQuery("death", "DESC");
 }
 
 

@@ -33,6 +33,7 @@ public:
 
 
     vector<Scientist> readFromDatabase();
+    vector<Scientist> sortQuery(string var, string command);
 
     void connect();
 
