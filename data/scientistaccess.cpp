@@ -24,7 +24,7 @@ void ScientistAccess::readToDatabase(Scientist scientist)
         QString qDeath = QString::number(scientist.getDeath());
         QString qStatus = QString::number(number);
 
-        query.prepare("INSERT INTO Computers (id, name, sex, birth, death, status) VALUES (:id, :name, :sex, :birth, :death, :status)");
+        query.prepare("INSERT INTO Scientists (id, name, sex, birth, death, status) VALUES (:id, :name, :sex, :birth, :death, :status)");
         query.bindValue(":id", qId);
         query.bindValue(":name", qName);
         query.bindValue(":sex", qSex);
