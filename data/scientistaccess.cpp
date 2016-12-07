@@ -66,12 +66,7 @@ vector<Scientist> ScientistAccess::readFromDatabase()
 {
     vector <Scientist> sci;
 
-    m_db.open();
-
-    if(!m_db.isOpen())
-    {
-        return sci;
-    }
+    connect();
 
     QSqlQuery query("SELECT * FROM Scientists");
 
