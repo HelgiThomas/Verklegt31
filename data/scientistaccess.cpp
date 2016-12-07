@@ -34,6 +34,8 @@ void ScientistAccess::readToDatabase(Scientist scientist)
 
         query.exec();
     }
+
+    m_db.close();
 }
 
 void ScientistAccess::removelist(string name)
@@ -104,6 +106,8 @@ vector<Scientist> ScientistAccess::readFromDatabase()
            sci.push_back(pl);
        }
     }
+
+    m_db.close();
 
     return sci;
 }
