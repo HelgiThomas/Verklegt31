@@ -14,6 +14,11 @@ void ScientistAccess::readToDatabase(Scientist scientist)
 
     m_db.open();
 
+    if(m_db.isOpen()){
+        cout << "database open" << endl;
+
+    }
+
     if (checkEntry(scientist))
     {
         // you should check if args are ok first...
