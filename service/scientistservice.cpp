@@ -18,7 +18,7 @@ ScientistService::ScientistService()
 vector <Scientist> ScientistService::getScientist()
 {
 
-    listOfScientist = _SciAccess.readFromFile();
+    listOfScientist = _SciAccess.readFromDatabase();
     return listOfScientist;
 }
 
@@ -28,21 +28,21 @@ vector <Scientist> ScientistService::getScientist()
  */
 void ScientistService::addScientist(Scientist newScientist)
 {
-    _SciAccess.readToFile(newScientist);
+    _SciAccess.readToDatabase(newScientist);
 }
 
 /**
  * @brief This function removes a scientist from the .txt file.
  * @param nameOf
  */
-void ScientistService::removeScientist (string nameOf)
+void ScientistService::removeScientist (string name)
 {
-   _SciAccess.removeScientistlist(nameOf);
+   _SciAccess.removelist(name);
 }
 
-void ScientistService::removeEveryscientist ()
+void ScientistService::removeEveryscientist()
 {
-    _SciAccess.removeEveryscienst ();
+    _SciAccess.removeAll();
 }
 /**
  * @brief Compares the name and returns true if the second parameter is higher.
@@ -272,7 +272,7 @@ vector <Scientist> ScientistService::searchName (string command)
 {
     command = makeFirstLetterBig(command);
     vector<Scientist> allNames;
-    vector<Scientist> allScientists = _SciAccess.readFromFile();
+    vector<Scientist> allScientists = _SciAccess.readFromDatabase();
     for (unsigned int i = 0 ; i < allScientists.size();i++)
     {
         if ((command == allScientists[i].getName()))
@@ -292,7 +292,7 @@ vector <Scientist> ScientistService::searchName (string command)
 vector <Scientist> ScientistService::searchSex (string command)
 {
     vector<Scientist> allSex;
-    vector<Scientist> allScientists = _SciAccess.readFromFile();
+    vector<Scientist> allScientists = _SciAccess.readFromDatabase();
     for (unsigned int i = 0 ; i < allScientists.size();i++)
     {
         if ((command == allScientists[i].getSex()))
@@ -312,7 +312,7 @@ vector <Scientist> ScientistService::searchSex (string command)
 vector <Scientist> ScientistService::searchBirth (int command)
 {
     vector<Scientist> allBirth;
-    vector<Scientist> allScientists = _SciAccess.readFromFile();
+    vector<Scientist> allScientists = _SciAccess.readFromDatabase();
     for (unsigned int i = 0 ; i < allScientists.size();i++)
     {
         if ((command) == (allScientists[i].getBirth()))
@@ -332,7 +332,7 @@ vector <Scientist> ScientistService::searchBirth (int command)
 vector <Scientist> ScientistService::searchDeath (int command)
 {
     vector<Scientist> allDeath;
-    vector<Scientist> allScientists = _SciAccess.readFromFile();
+    vector<Scientist> allScientists = _SciAccess.readFromDatabase();
     for (unsigned int i = 0 ; i < allScientists.size();i++)
     {
         if ((command) == (allScientists[i].getDeath()))

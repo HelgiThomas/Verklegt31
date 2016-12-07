@@ -4,11 +4,13 @@
 #include "model/computer.h"
 #include "misc/utility.h"
 
-#include <iostream>
+#include <QSql>
 #include <QSqlDatabase>
 #include <QSqlRecord>
 #include <QSqlQuery>
 #include <QDebug>
+
+#include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
@@ -27,31 +29,31 @@ public:
      */
     ComputerAccess();
 
-    void readToFile(Computer computer);
+    void readToDatabase(Computer computer);
 
 
-    void removeComputerlist(string nameOf);
+    void removelist(string nameOf);
 
 
-    void removeEveryComputer();
+    void removeAll();
 
 
-    vector<Computer> readFromFile();
+    vector<Computer> readFromDatabase();
 
 private:
-    QSqlDatabase m_db;
-    Utility util;
 
     void fileWork(Computer computer);
 
 
-    void editComputer(int id, string command);
+    void edit(int id, string command);
 
 
     bool checkEntry(Computer computer);
 
+    QSqlDatabase m_db;
+    Utility _util;
     vector<Computer> theList;
-    int _temp = 0;
+    int _temp;
 };
 
 #endif // COMPUTERACCESS_H

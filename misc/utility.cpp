@@ -6,12 +6,14 @@ Utility::Utility()
 }
 
 
-void connect ()
+QSqlDatabase connect()
 {
-    m_db = QSqlDatabase::addDatabase("QSQLITE");
-    m_db.setDatabaseName("DB_vika2.sqlite");
+    QSqlDatabase db;
 
-    if (!m_db.open())
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("DB_vika2.sqlite");
+
+    if (!db.open())
     {
        qDebug() << "Error: connection with database fail";
     }
@@ -19,4 +21,6 @@ void connect ()
     {
        qDebug() << "Database: connection ok";
     }
+
+    return db;
 }

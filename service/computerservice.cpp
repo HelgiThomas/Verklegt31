@@ -1,6 +1,8 @@
 #include "service/computerservice.h"
 #include "algorithm"
 
+using namespace std;
+
 /**
  * @brief This is the default constructor.
  */
@@ -8,6 +10,7 @@ ComputerService::ComputerService()
 {
 
 }
+
 /**
  * @brief This function returns the list of all the computers in the .txt file.
  * @return vector of computers.
@@ -15,7 +18,7 @@ ComputerService::ComputerService()
 vector <Computer> ComputerService::getComputer()
 {
 
-    listOfComputer = _ComAccess.readFromFile();
+    listOfComputer = _ComAccess.readFromDatabase();
     return listOfComputer;
 
 }
@@ -27,7 +30,7 @@ vector <Computer> ComputerService::getComputer()
 void ComputerService::addComputer(Computer newComputer)
 {
 
-    _ComAccess.readToFile(newComputer);
+    _ComAccess.readToDatabase(newComputer);
 
 }
 
@@ -38,13 +41,13 @@ void ComputerService::addComputer(Computer newComputer)
 void ComputerService::removeComputer (string nameOf)
 {
 
-   _ComAccess.removeComputerlist(nameOf);
+   _ComAccess.removelist(nameOf);
 
 }
 
 void ComputerService::removeEverycomputer ()
 {
-    _ComAccess.removeEveryComputer();
+    _ComAccess.removeAll();
 }
 /**
  * @brief Compares the name and returns true if the second parameter is higher.

@@ -16,10 +16,7 @@ public:
     /**
      * @brief connect, connects to the sql database.
      */
-    void connect ();
-
-private:
-    QSqlDatabase m_db;
+    QSqlDatabase getConnection();
 };
 
 #endif // UTILITY_H

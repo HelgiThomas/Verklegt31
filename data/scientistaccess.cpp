@@ -1,21 +1,21 @@
 #include "data/scientistaccess.h"
-#include "misc/utility.h"
 
 using namespace std;
 
 ScientistAccess::ScientistAccess()
 {
-
+    _temp = 0;
+    m_db = _util.getConnection();
 }
 
-void readToFile(Scientist scientist)
+void ScientistAccess::readToDatabase(Scientist scientist)
 {
     int number = 1;
-    util.connect();
+
+    m_db.open();
 
     if (checkEntry(scientist))
     {
-
         // you should check if args are ok first...
         QSqlQuery query;
         QString qId = QString::number(scientist.getId());
@@ -37,9 +37,11 @@ void readToFile(Scientist scientist)
     }
 }
 
-void removeScientistlist(string name)
+void ScientistAccess::removelist(string name)
 {
     int number = 0;
+
+    m_db.open();
 
     QSqlQuery query;
 
@@ -52,15 +54,25 @@ void removeScientistlist(string name)
     query.exec();
 }
 
-void removeEveryscienst ()
+void ScientistAccess::removeAll()
 {
+    m_db.open();
 
+    QSqlQuery query;
+    query.prepare("TRUNCATE TABLE Scientists");
+    query.exec();
 }
 
-vector<Scientist> readFromFile()
+vector<Scientist> ScientistAccess::readFromDatabase()
 {
     vector <Scientist> sci;
-    util.connect();
+
+    m_db.open();
+
+    if(!m_db.isOpen())
+    {
+        return sci;
+    }
 
     QSqlQuery query("SELECT * FROM Scientists");
 
@@ -102,11 +114,15 @@ vector<Scientist> readFromFile()
     return sci;
 }
 
-void editScientist (int id, string command)
+void ScientistAccess::edit(int Id, string command)
 {
+    m_db.open();
+
+    QSqlQuery query;
+
     if (command == "name")
     {
-
+        query.prepare("UPDATE name FROM Scientists SET name = (:change) WHERE id = (:Id)");
     }
     else if (command == "sex")
     {
@@ -122,7 +138,7 @@ void editScientist (int id, string command)
     }
 }
 
-bool checkEntry(Scientist scientist)
+bool ScientistAccess::checkEntry(Scientist scientist)
 {
     QSqlQuery query("SELECT * FROM Scientists");
 

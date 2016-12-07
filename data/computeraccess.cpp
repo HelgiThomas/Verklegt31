@@ -4,32 +4,35 @@ using namespace std;
 
 ComputerAccess::ComputerAccess()
 {
-
+    _temp = 0;
+    m_db = _util.getConnection();
 }
 
-void readToFile(Computer computer)
+void ComputerAccess::readToDatabase(Computer computer)
 {
     int number = 1;
-    util.connect();
+
+    m_db.open();
 
     if (checkEntry(computer))
     {
 
         // you should check if args are ok first...
-        QSqlQuery query;
+        QSqlQuery query(m_db);
         QString qId = QString::number(computer.getId());
         QString qName = QString::fromStdString(computer.getName());
-        QString qSex = QString::fromStdString(computer.getSex());
-        QString qBirth = QString::number(computer.getBirth());
-        QString qDeath = QString::number(computer.getDeath());
+        QString qType = QString::fromStdString(computer.getCompType());
+        QString qBuilt = QString::fromStdString(computer.getWasBuilt());
+        QString qDescription = QString::fromStdString(computer.getDescription());
         QString qStatus = QString::number(number);
 
-        query.prepare("INSERT INTO Computers (id, name, sex, birth, death, status) VALUES (:id, :name, :sex, :birth, :death, :status)");
+
+        query.prepare("INSERT INTO Computers (id, name, type, build, description, status) VALUES (:id, :name, :type, :built, :description, :status)");
         query.bindValue(":id", qId);
         query.bindValue(":name", qName);
-        query.bindValue(":sex", qSex);
-        query.bindValue(":birth", qBirth);
-        query.bindValue(":death", qDeath);
+        query.bindValue(":type", qType);
+        query.bindValue(":built", qBuilt);
+        query.bindValue(":description", qDescription);
         query.bindValue(":status", qStatus);
 
         query.exec();
@@ -37,11 +40,13 @@ void readToFile(Computer computer)
 }
 
 
-void removeComputerlist(string name)
+void ComputerAccess::removelist(string name)
 {
     int number = 0;
 
-    QSqlQuery query;
+    m_db.open();
+
+    QSqlQuery query(m_db);
 
     QString qStatus = QString::number(number);
     QString qName = QString::fromStdString(name);
@@ -53,24 +58,34 @@ void removeComputerlist(string name)
 }
 
 
-void removeEveryComputer()
+void ComputerAccess::removeAll()
 {
+    m_db.open();
 
+    QSqlQuery query;
+    query.prepare("TRUNCATE TABLE Computers");
+    query.exec();
 }
 
 
-vector<Computer> readFromFile()
+vector<Computer> ComputerAccess::readFromDatabase()
 {
     vector<Computer> com;
-    connect();
+
+    m_db.open();
+
+    if(!m_db.isOpen())
+    {
+        return com;
+    }
 
     QSqlQuery query("SELECT * FROM Computers");
 
     int idId = query.record().indexOf("id");
     int idName = query.record().indexOf("name");
-    int idSex= query.record().indexOf("sex");
-    int idBirth = query.record().indexOf("birth");
-    int idDeath = query.record().indexOf("death");
+    int idType = query.record().indexOf("type");
+    int idBuilt = query.record().indexOf("built");
+    int idDescription = query.record().indexOf("description");
     int idStatus = query.record().indexOf("Status");
     while (query.next())
     {
@@ -78,26 +93,26 @@ vector<Computer> readFromFile()
 
        QString qId = query.value(idId).toString();
        QString qName = query.value(idName).toString();
-       QString qSex = query.value(idSex).toString();
-       QString qBirth = query.value(idBirth).toString();
-       QString qDeath = query.value(idDeath).toString();
+       QString qType = query.value(idType).toString();
+       QString qBuilt = query.value(idBuilt).toString();
+       QString qDescription = query.value(idDescription).toString();
        QString qStatus = query.value(idStatus).toString();
 
        int id = qId.toInt();
        std::string name = qName.toStdString();
-       std::string sex =  qSex.toStdString();
-       int birth = qBirth.toInt();
-       int death = qDeath.toInt();
+       std::string type =  qType.toStdString();
+       std::string built = qBuilt.toStdString();
+       std::string description = qDescription.toStdString();
        int status = qStatus.toInt();
        if (status == 1)
        {
            pl.setId(id);
            pl.setName(name);
-           pl.setSex(sex);
-           pl.setBirth(birth);
-           pl.setDeath(death);
+           pl.setCompType(type);
+           pl.setWasBuilt(built);
+           pl.setDescription(description);
 
-           sci.push_back(pl);
+           com.push_back(pl);
        }
     }
 
@@ -105,7 +120,7 @@ vector<Computer> readFromFile()
 }
 
 
-void editComputer(int id, string command)
+void ComputerAccess::edit(int id, string command)
 {
     if (command == "name")
     {
@@ -125,34 +140,34 @@ void editComputer(int id, string command)
     }
 }
 
-bool checkEntry(Computer computer)
+bool ComputerAccess::checkEntry(Computer computer)
 {
     QSqlQuery query("SELECT * FROM Computers");
 
     QString Id = QString::number(computer.getId());
     QString Name = QString::fromStdString(computer.getName());
-    QString Sex = QString::fromStdString(computer.getSex());
-    QString Birth = QString::number(computer.getBirth());
-    QString Death = QString::number(computer.getDeath());
+    QString Type = QString::fromStdString(computer.getCompType());
+    QString Built = QString::fromStdString(computer.getWasBuilt());
+    QString Description = QString::fromStdString(computer.getDescription());
 
     while (query.next())
     {
 
         int idId = query.record().indexOf("id");
         int idName = query.record().indexOf("name");
-        int idSex= query.record().indexOf("sex");
-        int idBirth = query.record().indexOf("birth");
-        int idDeath = query.record().indexOf("death");
+        int idType = query.record().indexOf("type");
+        int idBuilt = query.record().indexOf("built");
+        int idDescription = query.record().indexOf("description");
         int idStatus = query.record().indexOf("Status");
 
         QString qId = query.value(idId).toString();
         QString qName = query.value(idName).toString();
-        QString qSex = query.value(idSex).toString();
-        QString qBirth = query.value(idBirth).toString();
-        QString qDeath = query.value(idDeath).toString();
+        QString qType = query.value(idType).toString();
+        QString qBuilt = query.value(idBuilt).toString();
+        QString qDescription = query.value(idDescription).toString();
         QString qStatus = query.value(idStatus).toString();
 
-       if (Name == qName && Sex == qSex && Birth == qBirth && Death == qDeath)
+       if (Name == qName && Type == qType && Built == qBuilt && Description == qDescription)
        {
           cout << "This person already exist! ";
           return false;

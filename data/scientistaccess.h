@@ -4,53 +4,51 @@
 #include "model/scientist.h"
 #include "misc/utility.h"
 
-#include <iostream>
+#include <QSql>
 #include <QSqlDatabase>
 #include <QSqlRecord>
 #include <QSqlQuery>
 #include <QDebug>
+
+#include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
 
 using namespace std;
 
-/**
- * @brief The ScientistAccess class
- */
 class ScientistAccess
 {
 public:
-    /**
-     * @brief ScientistAccess, default constructor.
-     */
+
     ScientistAccess();
 
-    void readToFile(Scientist scientist);
+
+    void readToDatabase(Scientist scientist);
 
 
-    void removeScientistlist(string name);
+    void removelist(string name);
 
 
-    void removeEveryscienst ();
+    void removeAll();
 
 
-    vector<Scientist> readFromFile();
+    vector<Scientist> readFromDatabase();
 
 private:
-    QSqlDatabase m_db;
-    Utility util;
 
     void fileWork(Scientist scientist);
 
 
-    void editScientist (int id, string command);
+    void edit(int id, string command);
 
 
     bool checkEntry(Scientist scientist);
 
+    QSqlDatabase m_db;
+    Utility _util;
     vector<Scientist> theList;
-    int _temp = 0;
+    int _temp;
 };
 
 #endif // SCIENTISTACCESS_H
