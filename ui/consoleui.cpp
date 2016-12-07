@@ -25,7 +25,6 @@ void ConsoleUI::run()
 
     do
     {
-        clearScreen();
         cout << "Please enter the name or number of one of the commands below:" << endl << endl;
         cout << "1. Add" << endl;
         cout << "2. Remove" << endl;
