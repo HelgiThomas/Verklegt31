@@ -29,6 +29,9 @@ public:
     void removelist(string name);
     void removeAll();
 
+    void editString(string nameOf, string variable, string newElement);
+    void editInt(string nameOf, string variable, int newElement);
+
 
     vector<Scientist> sortQuery(string var, string command);
     vector<Scientist> searchQueryString(string command);

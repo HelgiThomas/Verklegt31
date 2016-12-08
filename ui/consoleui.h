@@ -31,11 +31,14 @@ private:
     void listComp();
     void addSci();
     void addComp();
+    void editSci ();
+    void editComp ();
     void sortSci();
     void sortComp();
     void reversedSortSci();
     void reversedSortComp();
-    void searchList();
+    void searchScientistList();
+    void searchComputerList ();
     void playGame();
 
 

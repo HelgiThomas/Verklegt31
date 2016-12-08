@@ -117,7 +117,15 @@ void ComputerAccess::removeAll()
     query.prepare("TRUNCATE TABLE Computers");
     query.exec();
 }
+void ComputerAccess::editString(string nameOf, string variable, string newElement)
+{
+    cout << "hello there";
+}
 
+void ComputerAccess::editInt(string nameOf, string variable, int newElement)
+{
+    cout << "hello there";
+}
 
 void ComputerAccess::connect()
 {

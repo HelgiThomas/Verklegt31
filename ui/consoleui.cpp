@@ -127,7 +127,31 @@ void ConsoleUI::run()
         }
         else if (command == "edit" || command == "Edit" || command == "4")
         {
-
+            clearScreen ();
+            string choice;
+            cout << "What would you like to edit? " << endl;
+            cout << "1. Scientist" << endl;
+            cout << "2. Computer" << endl;
+            cout << "3. Back" << endl << endl << "=> ";
+            cin >> choice;
+            if (choice == "scientist" || choice == "Scientist" || choice == "1")
+            {
+                editSci();
+            }
+            else if(choice == "computer" || choice == "Computer" || choice == "2")
+            {
+                editComp();
+            }
+            else if(choice == "back" || choice == "Back" || choice == "3")
+            {
+                clearScreen();
+                run();
+            }
+            else
+            {
+                clearScreen();
+                cout << "Invalid command!" << endl << endl;
+            }
         }
         else if (command == "sort" || command == "Sort" || command == "5")
         {
@@ -187,7 +211,33 @@ void ConsoleUI::run()
         }
         else if (command == "search" || command == "Search" || command == "7")
         {
-            searchList();
+            clearScreen();
+            string choice;
+            cout << "Would you like to Search by, Scientist or Computer?? " << endl;
+            cout << "1. Scientist" << endl;
+            cout << "2. Computer" << endl;
+            cout << "3. Back" << endl << endl << "=> ";
+            cin >> choice;
+            if(choice == "scientist" || choice == "Scientist" || choice == "1")
+            {
+                searchScientistList();
+            }
+            else if(choice == "computer" || choice == "Computer" || choice == "2")
+            {
+                searchComputerList();
+            }
+            else if(choice == "back" || choice == "Back" || choice == "3")
+            {
+                clearScreen();
+                run();
+            }
+            else
+            {
+                clearScreen();
+                cout << "Invalid command!" << endl << endl;
+            }
+
+
         }
         else if(command == "Game" || command == "game" || command == "8")
         {
@@ -366,6 +416,129 @@ void ConsoleUI::addComp()
     clearScreen();
 }
 
+void ConsoleUI::editSci()
+{
+    string nameOf;
+    string variable;
+
+    vector<Scientist> Scientist = _serviceSci.getScientists();
+    displayListOfScientists(Scientist);
+
+    cout << "Which Scientist would you like to edit? " << endl << endl << "=> ";
+
+    std::getline(cin, nameOf);
+    std::getline(cin,nameOf);
+    cout << endl;
+
+    while(!_serviceSci.validCommand(variable))
+    {
+        cout << "Which element would you like to edit?" << endl;
+        cout << "1. Name" << endl;
+        cout << "2. Sex" << endl;
+        cout << "3. Birth" << endl;
+        cout << "4. Death" << endl << endl << "=> ";
+
+        cin >> variable;
+
+        if(variable == "name" || variable == "Name" || variable == "1")
+        {
+            string newName;
+            cout << endl << "What would you like to change the name too? " << endl << endl << "=> ";
+            std::getline(cin, newName);
+            std::getline(cin,newName);
+            _serviceSci.editScientistString(nameOf,variable,newName);
+
+        }
+        else if(variable == "sex" || variable == "Sex" || variable == "2")
+        {
+            string newSex;
+            cout << endl << "What would you like to change the sex too? " << endl << endl << "=> ";
+            std::getline(cin, newSex);
+            std::getline(cin,newSex);
+            _serviceSci.editScientistString(nameOf,variable,newSex);
+        }
+        else if(variable == "birth" || variable == "Birth" || variable == "3")
+        {
+            int newBirth;
+            cout << endl << "What would you like to change the birth too? " << endl << endl << "=> ";
+            cin >> newBirth;
+            _serviceSci.editScientistInt(nameOf,variable,newBirth);
+        }
+        else if(variable == "death" || variable == "Death" || variable == "4")
+        {
+            int newDeath;
+            cout << endl << "What would you like to change the death too? " << endl << endl << "=> ";
+            cin >> newDeath;
+            _serviceSci.editScientistInt(nameOf,variable,newDeath);
+        }
+        else
+        {
+            clearScreen();
+            cout << "Invalid edit!" << endl << endl;
+        }
+    }
+}
+void ConsoleUI::editComp()
+{
+    string nameOf;
+    string variable;
+
+    vector <Computer> Computer = _serviceComp.getComputers();
+    displayListOfComputers(Computer);
+
+    cout << "Which Computer would you like to edit? " << endl << endl << "=> ";
+    std::getline(cin, nameOf);
+    std::getline(cin,nameOf);
+    cout << endl;
+
+    while(!_serviceComp.validCommand(variable))
+    {
+        cout << "What would you like to edit?" << endl;
+        cout << "1. Name" << endl;
+        cout << "2. Year" << endl;
+        cout << "3. Type" << endl;
+        cout << "4. Built" << endl << endl << "=> ";
+
+        cin >> variable;
+
+        if( variable == "name" || variable == "Name" || variable == "1")
+        {
+            string newName;
+            cout << endl << "What would you like to change the name too? " << endl << endl << "=> ";
+            std::getline(cin, newName);
+            std::getline(cin,newName);
+            _serviceComp.editComputerString(nameOf,variable,newName);
+        }
+        else if(variable == "year" || variable == "Year" || variable == "2")
+        {
+            int newYear;
+            cout << endl << "What would you like to change the year too? " << endl << endl << "=> ";
+            cin >> newYear;
+            _serviceComp.editComputerInt(nameOf,variable,newYear);
+        }
+        else if(variable == "type" || variable == "Type" || variable == "3")
+        {
+            string newType;
+            cout << endl << "What would you like to change the type too? " << endl << endl << "=> ";
+            std::getline(cin, newType);
+            std::getline(cin, newType);
+            _serviceComp.editComputerString(nameOf,variable,newType);
+        }
+        else if(variable == "built" || variable == "Built" || variable == "4")
+        {
+            string newBuilt;
+            cout << endl << "What would you like to change the built too? " << endl << endl << "=> ";
+            std::getline(cin, newBuilt);
+            std::getline(cin,newBuilt);
+            _serviceComp.editComputerString(nameOf,variable,newBuilt);
+        }
+        else
+        {
+            clearScreen();
+            cout << "Invalid edit!" << endl << endl;
+        }
+     }
+}
 
 /**
  * @brief Removes a scientist from the list
@@ -378,7 +551,7 @@ void ConsoleUI::removeSci ()
     string insert;
     string nameOf;
 
-    cout << "Which scientist would you like to remove? " << endl << endl << "=> ";;
+    cout << "Which scientist would you like to remove? " << endl << endl << "=> ";
 
     std::getline(cin, insert);
     std::getline(cin,insert);
@@ -625,7 +798,7 @@ void ConsoleUI::reversedSortComp()
  * @brief This function search the list of scientists and you can choose to sort by either
  * Name, Sex, Birth and Death.
  */
-void ConsoleUI::searchList ()
+void ConsoleUI::searchScientistList ()
 {
     clearScreen();
     string command;
@@ -685,6 +858,10 @@ void ConsoleUI::searchList ()
             cout << "Invalid command!" << endl << endl;
         }
     }
+}
+void ConsoleUI::searchComputerList()
+{
+
 }
 
 /**

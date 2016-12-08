@@ -44,6 +44,15 @@ void ScientistService::removeEveryscientist()
 {
     _SciAccess.removeAll();
 }
+void ScientistService::editScientistString(string nameOf, string variable, string newElement)
+{
+    _SciAccess.editString (nameOf,variable,newElement);
+}
+void ScientistService::editScientistInt (string nameOf, string variable, int newElement)
+{
+    _SciAccess.editInt (nameOf,variable,newElement);
+}
+
 /**
  * @brief Compares the name and returns true if the second parameter is higher.
  * @param Scientist variable.

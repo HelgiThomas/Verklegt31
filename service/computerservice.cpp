@@ -49,6 +49,16 @@ void ComputerService::removeEverycomputer ()
 {
     _ComAccess.removeAll();
 }
+
+void ComputerService::editComputerString(string nameOf, string variable, string newElement)
+{
+    _ComAccess.editString (nameOf,variable,newElement);
+}
+void ComputerService::editComputerInt(string nameOf, string variable, int newElement)
+{
+    _ComAccess.editInt (nameOf,variable,newElement);
+}
+
 /**
  * @brief Compares the name and returns true if the second parameter is higher.
  * @param Computer variable.

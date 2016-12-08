@@ -118,7 +118,32 @@ void ScientistAccess::removeAll()
     query.prepare("TRUNCATE TABLE Scientists");
     query.exec();
 }
+void ScientistAccess::editString(string nameOf, string variable, string newElement)
+{
+    connect();
+    QSqlQuery query;
 
+    QString qNameOf = QString::fromStdString(nameOf);
+    QString qVariable = QString::fromStdString(variable);
+    QString qNewElement = QString::fromStdString(newElement);
+
+    //string query_string = "UPDATE Scientists SET " + variable + " = " + newElement + " WHERE Name = " + name;
+
+    query.prepare("UPDATE Scientists SET (:'variable') = (:'newElement') WHERE Name = (:'nameOf')");
+    query.bindValue(":variable", qVariable);
+    query.bindValue(":newElement", qNewElement);
+    query.bindValue(":name", qNameOf);
+
+   // QString qCommand (query_string.c_str());
+    //query.exec(qCommand);
+    query.exec();
+
+}
+
+void ScientistAccess::editInt(string nameOf, string variable, int newElement)
+{
+
+}
 void ScientistAccess::connect()
 {
     QString name = "database";
@@ -136,30 +161,6 @@ void ScientistAccess::connect()
     else
     {
        qDebug() << "Database: connection ok";
-    }
-}
-
-void ScientistAccess::edit(int Id, string command)
-{
-    connect();
-
-    QSqlQuery query;
-
-    if (command == "name")
-    {
-        query.prepare("UPDATE name FROM Scientists SET name = (:change) WHERE id = (:Id)");
-    }
-    else if (command == "sex")
-    {
-
-    }
-    else if (command == "birth")
-    {
-
-    }
-    else if (command == "death")
-    {
-
     }
 }
 

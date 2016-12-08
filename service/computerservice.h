@@ -66,6 +66,9 @@ public:
     //comment below helgi
     void removeEverycomputer ();
 
+    void editComputerString(string nameOf, string variable, string newElement);
+    void editComputerInt(string nameOf, string variable, int newElement);
+
     /**
      * @brief Functions to validate if the entries when input by the user.
      * @param name, wasBuilt, year, command.
