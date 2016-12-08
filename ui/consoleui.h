@@ -2,6 +2,7 @@
 #define CONSOLEUI_H
 #include "service/scientistservice.h"
 #include "service/computerservice.h"
+#include "service/generalservice.h"
 
 /**
  * @brief ConsoleUI class, handles the interface/menu for the program.
@@ -84,6 +85,7 @@ private:
 
     ScientistService _serviceSci;
     ComputerService _serviceComp;
+    GeneralService _serviceGen;
 
     int score;
 };
