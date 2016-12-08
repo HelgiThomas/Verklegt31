@@ -22,7 +22,7 @@ ConsoleUI::ConsoleUI()
  */
 void ConsoleUI::run()
 {
-
+    clearScreen();
     do
     {
         cout << "Please enter the name or number of one of the commands below:" << endl << endl;
@@ -551,7 +551,7 @@ void ConsoleUI::editComp()
 void ConsoleUI::removeSci ()
 {
     bool exist;
-    int temp;
+    unsigned int temp;
     string removePerson;
     string insert;
     int idOf;
@@ -635,7 +635,7 @@ void ConsoleUI::removeEverySci()
 void ConsoleUI::removeComp()
 {
     bool exist;
-    int temp;
+    unsigned int temp;
     string removePerson;
     string insert;
     int idOf;
