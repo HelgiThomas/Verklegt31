@@ -92,10 +92,13 @@ public:
     int lengthOfLongestName(vector<Computer> computers);
     int lengthOfLongestType(vector<Computer> computers);
 
+    vector <int> allComputerID ();
+
 private:
     vector<Computer> listOfComputer;
     ScientistAccess _SciAccess;
     ComputerAccess _ComAccess;
+    LinkAccess _link;
 };
 
 #endif // COMPUTERSERVICE_H

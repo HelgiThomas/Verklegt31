@@ -347,3 +347,7 @@ bool ScientistService::validCommand(string command)
     else
         return false;
 }
+vector <int> ScientistService::allScientistID ()
+{
+    return _link.ScientistId();
+}

@@ -96,11 +96,14 @@ public:
     string mOrF(string sex);
     string makeFirstLetterBig(string name);
 
+     vector <int> allScientistID ();
+
 
 private:
     vector<Scientist> listOfScientist;
     ScientistAccess _SciAccess;
     ComputerAccess _ComAccess;
+    LinkAccess _link;
 };
 
 #endif // PERFORMERSERVICE_H

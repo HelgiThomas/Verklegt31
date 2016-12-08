@@ -22,6 +22,8 @@ public:
     LinkAccess();
 
     bool link(int scientistId, int computerId);
+    vector<int> ScientistId ();
+    vector<int> ComputerId ();
 
     void connect();
 

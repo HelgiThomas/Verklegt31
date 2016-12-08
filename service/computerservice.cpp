@@ -278,3 +278,7 @@ bool ComputerService::validCommand(string command)
     else
         return false;
 }
+vector <int> ComputerService::allComputerID ()
+{
+    return _link.ComputerId();
+}

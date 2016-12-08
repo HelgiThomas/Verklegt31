@@ -119,7 +119,8 @@ void ConsoleUI::run()
             cout << "What would you like to list? " << endl;
             cout << "1. Scientist" << endl;
             cout << "2. Computer" << endl;
-            cout << "3. Back" << endl << endl << "=> ";
+            cout << "3. Relation" << endl;
+            cout << "4. Back" << endl << endl << "=> ";
             cin >> choice;
             if(choice == "scientist" || choice == "Scientist" || choice == "1")
             {
@@ -515,6 +516,54 @@ void ConsoleUI::addRelation()
 
 void ConsoleUI::listRelation()
 {
+    bool isValid = true;
+    vector<int> temp;
+    int tempa = 0;
+    int tempb = 0;
+    vector<int>ScientistID = _serviceSci.allScientistID ();
+    vector<int>ComputerID = _serviceComp.allComputerID ();
+
+    vector<Computer> Computers = _serviceComp.getComputers();
+    vector<Scientist> Scientists = _serviceSci.getScientists();
+    vector<Scientist> tempSci;
+
+    cout << "No." << "\t";
+    cout << "ScientistID" << "\t\t";
+    cout << "ComputerID" << " \t\t";
+
+        cout << endl << "-----------------------------------------------------------------------------------------------------" << endl;
+
+        for (int i = 0 ; i < ComputerID.size(); i++)
+         {
+             for (int k = 0; k < Computers.size(); k++)
+             {
+                if(ComputerID[i] == Computers[k].getId())
+                {
+                   temp.push_back(k);
+                   break;
+                }
+             }
+         }
+
+         for (int i = 0 ; i < ScientistID.size(); i++)
+         {
+             cout << i + 1<< ". | ";
+             for (int k = 0; k < Scientists.size();k++)
+             {
+                if(ScientistID[i] == Scientists[k].getId())
+                {
+                    tempb = temp[tempa];
+                    cout << Scientists[k].getName() << "\t\t" << Computers[tempb].getName() << endl;
+                    tempa++;
+                    break;
+
+                }
+             }
+         }
+
+
+    cout << endl;
+
 
 }
 
