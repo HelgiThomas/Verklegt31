@@ -124,25 +124,50 @@ void ScientistAccess::editString(string nameOf, string variable, string newEleme
     QSqlQuery query;
 
     QString qNameOf = QString::fromStdString(nameOf);
-    QString qVariable = QString::fromStdString(variable);
     QString qNewElement = QString::fromStdString(newElement);
 
-    //string query_string = "UPDATE Scientists SET " + variable + " = " + newElement + " WHERE Name = " + name;
+    if (variable == "Name" || variable == "name")
+    {
+        query.prepare("UPDATE Scientists SET Name = :newElement WHERE Name = :name");
+        query.bindValue(":newElement", qNewElement);
+        query.bindValue(":name", qNameOf);
+    }
+    else if (variable == "Sex" || variable == "sex")
+    {
+        query.prepare("UPDATE Scientists SET Sex = :newElement WHERE Name = :name");
+        query.bindValue(":newElement", qNewElement);
+        query.bindValue(":name", qNameOf);
+    }
 
-    query.prepare("UPDATE Scientists SET (:'variable') = (:'newElement') WHERE Name = (:'nameOf')");
-    query.bindValue(":variable", qVariable);
-    query.bindValue(":newElement", qNewElement);
-    query.bindValue(":name", qNameOf);
-
-   // QString qCommand (query_string.c_str());
-    //query.exec(qCommand);
     query.exec();
 
 }
 
 void ScientistAccess::editInt(string nameOf, string variable, int newElement)
 {
+    connect();
 
+    QSqlQuery query;
+    string newElementStr;
+    newElementStr = to_string(newElement);
+
+    QString qNameOf = QString::fromStdString(nameOf);
+    QString qNewElement = QString::number(newElement);
+
+    if (variable == "Birth" || variable == "birth")
+    {
+        query.prepare("UPDATE Scientists SET Birth = :newElement WHERE Name = :name");
+        query.bindValue(":name", qNameOf);
+        query.bindValue(":newElement", qNewElement);
+    }
+    else if (variable == "Death" || variable == "death")
+    {
+        query.prepare("UPDATE Scientists SET Death = :newElement WHERE Name = :name");
+        query.bindValue(":name", qNameOf);
+        query.bindValue(":newElement", qNewElement);
+    }
+
+    query.exec();
 }
 void ScientistAccess::connect()
 {
@@ -223,13 +248,68 @@ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
 
 vector<Scientist> ScientistAccess::searchQueryString(string variable,string command)
 {
-    vector<Scientist> sci;
+    connect();
+
 
     QSqlQuery query;
+    vector<Scientist> sci;
 
-    //Koði til að gera query!
 
-    //sci = scientistQuery(query);
+    if (variable == "Name" || variable == "name")
+    {
+        string query_string = "SELECT * FROM Scientists WHERE Name LIKE '" + command + "%'";
+        QString qCommand (query_string.c_str());
+        query.exec(qCommand);
+    }
+    else if (variable == "Sex" || variable == "sex")
+    {
+        string query_string = "SELECT * FROM Scientists WHERE Sex LIKE '" + command + "%'";
+        QString qCommand (query_string.c_str());
+        query.exec(qCommand);
+    }
+
+    int idId = query.record().indexOf("id");
+    int idName = query.record().indexOf("name");
+    int idSex= query.record().indexOf("sex");
+    int idBirth = query.record().indexOf("birth");
+    int idDeath = query.record().indexOf("death");
+    int idCitation = query.record().indexOf("citation");
+    int idStatus = query.record().indexOf("status");
+
+    while (query.next())
+    {
+       Scientist pl;
+
+       QString qId = query.value(idId).toString();
+       QString qName = query.value(idName).toString();
+       QString qSex = query.value(idSex).toString();
+       QString qBirth = query.value(idBirth).toString();
+       QString qDeath = query.value(idDeath).toString();
+       QString qCitation = query.value(idCitation).toString();
+       QString qStatus = query.value(idStatus).toString();
+
+       int id = qId.toInt();
+       std::string name = qName.toStdString();
+       std::string sex =  qSex.toStdString();
+       int birth = qBirth.toInt();
+       int death = qDeath.toInt();
+       std::string citation = qCitation.toStdString();
+       int status = qStatus.toInt();
+       if (status == 1)
+       {
+           pl.setId(id);
+           pl.setName(name);
+           pl.setSex(sex);
+           pl.setBirth(birth);
+           pl.setDeath(death);
+           pl.setCitation(citation);
+
+           sci.push_back(pl);
+       }
+    }
+    m_db.close();
+
+
 
     return sci;
 }
@@ -237,13 +317,97 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
 
 vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operatorOf, int command)
 {
+    connect();
+    string commandStr;
+    commandStr = to_string(command);
+    QSqlQuery query;
     vector<Scientist> sci;
 
-    QSqlQuery query;
+    if (variable == "Birth" || variable == "birth")
+    {
+        if (operatorOf == "greater" || operatorOf == "Greater")
+        {
+            string query_string = "SELECT * FROM Scientists WHERE Birth > "+ commandStr;
+            QString qCommand (query_string.c_str());
+            query.exec(qCommand);
+        }
+        else if (operatorOf == "less" || operatorOf == "Less")
+        {
+            string query_string = "SELECT * FROM Scientists WHERE Birth < " + commandStr;
+            QString qCommand (query_string.c_str());
+            query.exec(qCommand);
+        }
+        else if (operatorOf == "equal" || operatorOf == "Equal")
+        {
+            string query_string = "SELECT * FROM Scientists WHERE Birth = " + commandStr;
+            QString qCommand (query_string.c_str());
+            query.exec(qCommand);
+        }
+    }
+    else if (variable == "Death" || variable == "death")
+    {
+        if (operatorOf == "greater" || operatorOf == "Greater")
+        {
+            string query_string = "SELECT * FROM Scientists WHERE Death > "+ commandStr;
+            QString qCommand (query_string.c_str());
+            query.exec(qCommand);
+        }
+        else if (operatorOf == "less" || operatorOf == "Less")
+        {
+            string query_string = "SELECT * FROM Scientists WHERE Death < " + commandStr;
+            QString qCommand (query_string.c_str());
+            query.exec(qCommand);
+        }
+        else if (operatorOf == "equal" || operatorOf == "Equal")
+        {
+            string query_string = "SELECT * FROM Scientists WHERE Death = " + commandStr;
+            QString qCommand (query_string.c_str());
+            query.exec(qCommand);
+        }
+    }
 
-    //Koði til að gera query!
+    int idId = query.record().indexOf("id");
+    int idName = query.record().indexOf("name");
+    int idSex= query.record().indexOf("sex");
+    int idBirth = query.record().indexOf("birth");
+    int idDeath = query.record().indexOf("death");
+    int idCitation = query.record().indexOf("citation");
+    int idStatus = query.record().indexOf("status");
 
-    //sci = scientistQuery(query);
+    while (query.next())
+    {
+       Scientist pl;
+
+       QString qId = query.value(idId).toString();
+       QString qName = query.value(idName).toString();
+       QString qSex = query.value(idSex).toString();
+       QString qBirth = query.value(idBirth).toString();
+       QString qDeath = query.value(idDeath).toString();
+       QString qCitation = query.value(idCitation).toString();
+       QString qStatus = query.value(idStatus).toString();
+
+       int id = qId.toInt();
+       std::string name = qName.toStdString();
+       std::string sex =  qSex.toStdString();
+       int birth = qBirth.toInt();
+       int death = qDeath.toInt();
+       std::string citation = qCitation.toStdString();
+       int status = qStatus.toInt();
+       if (status == 1)
+       {
+           pl.setId(id);
+           pl.setName(name);
+           pl.setSex(sex);
+           pl.setBirth(birth);
+           pl.setDeath(death);
+           pl.setCitation(citation);
+
+           sci.push_back(pl);
+       }
+    }
+    m_db.close();
+
+
 
     return sci;
 }

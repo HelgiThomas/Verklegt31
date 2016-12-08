@@ -119,12 +119,52 @@ void ComputerAccess::removeAll()
 }
 void ComputerAccess::editString(string nameOf, string variable, string newElement)
 {
-    cout << "hello there";
+    connect();
+    QSqlQuery query;
+
+    QString qNameOf = QString::fromStdString(nameOf);
+    QString qNewElement = QString::fromStdString(newElement);
+
+    if (variable == "Name" || variable == "name")
+    {
+        query.prepare("UPDATE Computers SET Name = :newElement WHERE Name = :name");
+        query.bindValue(":newElement", qNewElement);
+        query.bindValue(":name", qNameOf);
+    }
+    else if (variable == "Type" || variable == "type")
+    {
+        query.prepare("UPDATE Computers SET type = :newElement WHERE Name = :name");
+        query.bindValue(":newElement", qNewElement);
+        query.bindValue(":name", qNameOf);
+    }
+    else if (variable == "Built" || variable == "built")
+    {
+        query.prepare("UPDATE Computers SET wasBuilt = :newElement WHERE Name = :name");
+        query.bindValue(":newElement", qNewElement);
+        query.bindValue(":name", qNameOf);
+    }
+
+    query.exec();
 }
 
 void ComputerAccess::editInt(string nameOf, string variable, int newElement)
 {
-    cout << "hello there";
+    connect();
+
+    QSqlQuery query;
+    string newElementStr;
+    newElementStr = to_string(newElement);
+
+    QString qNameOf = QString::fromStdString(nameOf);
+    QString qNewElement = QString::number(newElement);
+
+    if (variable == "Year" || variable == "year")
+    {
+        query.prepare("UPDATE Computers SET year = :newElement WHERE Name = :name");
+        query.bindValue(":name", qNameOf);
+        query.bindValue(":newElement", qNewElement);
+    }
+    query.exec();
 }
 
 void ComputerAccess::connect()
@@ -205,26 +245,148 @@ vector<Computer> ComputerAccess::sortQuery(string var, string command)
 
 vector<Computer> ComputerAccess::searchQueryString(string variable,string command)
 {
-    vector<Computer> sci;
+    connect();
+
 
     QSqlQuery query;
+    vector<Computer> comp;
 
 
+    if (variable == "Name" || variable == "name")
+    {
+        string query_string = "SELECT * FROM Computers WHERE Name LIKE '" + command + "%'";
+        QString qCommand (query_string.c_str());
+        query.exec(qCommand);
+    }
+    else if (variable == "Type" || variable == "type")
+    {
+        string query_string = "SELECT * FROM Computers WHERE Type LIKE '" + command + "%'";
+        QString qCommand (query_string.c_str());
+        query.exec(qCommand);
+    }
+    else if (variable == "wasbuilt" || variable == "wasBuilt" || variable == "WasBuilt" || variable == "Wasbuilt")
+    {
+        string query_string = "SELECT * FROM Computers WHERE wasBuilt LIKE '" + command + "%'";
+        QString qCommand (query_string.c_str());
+        query.exec(qCommand);
+    }
 
-    return sci;
+    int idId = query.record().indexOf("id");
+    int idName = query.record().indexOf("name");
+    int idYear = query.record().indexOf("year");
+    int idType = query.record().indexOf("type");
+    int idBuilt = query.record().indexOf("wasbuilt");
+    int idDescription = query.record().indexOf("description");
+    int idStatus = query.record().indexOf("status");
 
+    while (query.next())
+    {
+       Computer pl;
 
+       QString qId = query.value(idId).toString();
+       QString qName = query.value(idName).toString();
+       QString qYear = query.value(idYear).toString();
+       QString qType = query.value(idType).toString();
+       QString qBuilt = query.value(idBuilt).toString();
+       QString qDescription = query.value(idDescription).toString();
+       QString qStatus = query.value(idStatus).toString();
+
+       int id = qId.toInt();
+       std::string name = qName.toStdString();
+       int year = qYear.toInt();
+       std::string type =  qType.toStdString();
+       std::string built = qBuilt.toStdString();
+       std::string description = qDescription.toStdString();
+       int status = qStatus.toInt();
+       if (status == 1)
+       {
+           pl.setId(id);
+           pl.setName(name);
+           pl.setBuildYear(year);
+           pl.setCompType(type);
+           pl.setWasBuilt(built);
+           pl.setDescription(description);
+
+           comp.push_back(pl);
+       }
+    }
+        m_db.close();
+
+    return comp;
 }
 
 vector<Computer> ComputerAccess::searchQueryInt(string variable, string operatorOf, int command)
 {
-    vector<Computer> sci;
-
+    connect();
+    string commandStr;
+    commandStr = to_string(command);
     QSqlQuery query;
+    vector <Computer> comp;
 
+    if (variable == "Year" || variable == "year")
+    {
+        if (operatorOf == "greater" || operatorOf == "Greater")
+        {
+            string query_string = "SELECT * FROM Computers WHERE Year > "+ commandStr;
+            QString qCommand (query_string.c_str());
+            query.exec(qCommand);
+        }
+        else if (operatorOf == "less" || operatorOf == "Less")
+        {
+            string query_string = "SELECT * FROM Computers WHERE Year < " + commandStr;
+            QString qCommand (query_string.c_str());
+            query.exec(qCommand);
+        }
+        else if (operatorOf == "equal" || operatorOf == "Equal")
+        {
+            string query_string = "SELECT * FROM Computers WHERE Year = " + commandStr;
+            QString qCommand (query_string.c_str());
+            query.exec(qCommand);
+        }
+    }
 
+    int idId = query.record().indexOf("id");
+    int idName = query.record().indexOf("name");
+    int idYear = query.record().indexOf("year");
+    int idType = query.record().indexOf("type");
+    int idBuilt = query.record().indexOf("wasbuilt");
+    int idDescription = query.record().indexOf("description");
+    int idStatus = query.record().indexOf("status");
 
-    return sci;
+    while (query.next())
+    {
+       Computer pl;
+
+       QString qId = query.value(idId).toString();
+       QString qName = query.value(idName).toString();
+       QString qYear = query.value(idYear).toString();
+       QString qType = query.value(idType).toString();
+       QString qBuilt = query.value(idBuilt).toString();
+       QString qDescription = query.value(idDescription).toString();
+       QString qStatus = query.value(idStatus).toString();
+
+       int id = qId.toInt();
+       std::string name = qName.toStdString();
+       int year = qYear.toInt();
+       std::string type =  qType.toStdString();
+       std::string built = qBuilt.toStdString();
+       std::string description = qDescription.toStdString();
+       int status = qStatus.toInt();
+       if (status == 1)
+       {
+           pl.setId(id);
+           pl.setName(name);
+           pl.setBuildYear(year);
+           pl.setCompType(type);
+           pl.setWasBuilt(built);
+           pl.setDescription(description);
+
+           comp.push_back(pl);
+       }
+    }
+        m_db.close();
+
+    return comp;
 }
 
 bool ComputerAccess::checkEntry(Computer computer)
