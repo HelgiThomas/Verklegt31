@@ -21,9 +21,7 @@ class LinkAccess
 public:
     LinkAccess();
 
-    void link(int scientistId, int computerId);
-
-    vector<int> readFromDatabase();
+    bool link(int scientistId, int computerId);
 
     void connect();
 

@@ -8,7 +8,7 @@ LinkAccess::LinkAccess()
 }
 
 
-void LinkAccess::link(int scientistId, int computerId)
+bool LinkAccess::link(int scientistId, int computerId)
 {
     int number = 1;
 
@@ -25,17 +25,6 @@ void LinkAccess::link(int scientistId, int computerId)
     query.exec();
 }
 
-vector<int> readFromDatabase()
-{
-    vector<int> link;
-
-    connect();
-
-    QSqlQuery query("SELECT * FROM SciCom");
-
-    int sciID = query.record().indexof("sciID");
-    int comID = query.record().indexof("comID");
-}
 
 void LinkAccess::connect()
 {
