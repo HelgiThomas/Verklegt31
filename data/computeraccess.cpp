@@ -203,30 +203,26 @@ vector<Computer> ComputerAccess::sortQuery(string var, string command)
 }
 
 
-vector<Computer> ComputerAccess::searchQueryString(string command)
+vector<Computer> ComputerAccess::searchQueryString(string variable,string command)
 {
     vector<Computer> sci;
 
     QSqlQuery query;
 
-    //Koði til að gera query!
 
-    //sci = computerQuery(query);
 
     return sci;
 
 
 }
 
-vector<Computer> ComputerAccess::searchQueryInt(int command)
+vector<Computer> ComputerAccess::searchQueryInt(string variable, string operatorOf, int command)
 {
     vector<Computer> sci;
 
     QSqlQuery query;
 
-    //Koði til að gera query!
 
-    //sci = computerQuery(query);
 
     return sci;
 }

@@ -34,9 +34,13 @@ public:
      * @param string/int command.
      * @return vector <Computer>.
      */
-    vector<Computer> searchName (string command);
-    vector<Computer> searchBuildYear (int command);
-    vector<Computer> searchCompType(string command);
+    vector<Scientist> searchName(string command);
+
+    vector<Scientist> searchYear(string operatorOf, int command);
+
+    vector<Scientist> searchType(string command);
+
+    vector<Scientist> searchwasBuilt(string builtOf);
 
     /**
      * @brief Functions to sort by different means.

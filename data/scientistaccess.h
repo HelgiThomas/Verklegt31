@@ -34,8 +34,9 @@ public:
 
 
     vector<Scientist> sortQuery(string var, string command);
-    vector<Scientist> searchQueryString(string command);
-    vector<Scientist> searchQueryInt(int command);
+    vector<Scientist> searchQueryString(string variable,string command);
+    vector<Scientist> searchQueryInt(string variable, string operatorOf, int command);
+
 
 
     void connect();

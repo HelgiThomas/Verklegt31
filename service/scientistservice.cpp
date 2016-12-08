@@ -77,7 +77,7 @@ void ScientistService::editScientistInt (string nameOf, string variable, int new
  */
 vector<Scientist> ScientistService::searchName(string command)
 {
-    return _SciAccess.searchQueryString(command);
+    return _SciAccess.searchQueryString("Name",command);
 }
 
 /**
@@ -87,7 +87,7 @@ vector<Scientist> ScientistService::searchName(string command)
  */
 vector<Scientist> ScientistService::searchSex(string command)
 {
-    return _SciAccess.searchQueryString(command);
+    return _SciAccess.searchQueryString("Sex",command);
 }
 
 /**
@@ -95,9 +95,9 @@ vector<Scientist> ScientistService::searchSex(string command)
  * @param command
  * @return
  */
-vector<Scientist> ScientistService::searchBirth(int command)
+vector<Scientist> ScientistService::searchBirth(string operatorOf, int command)
 {
-    return _SciAccess.searchQueryInt(command);
+    return _SciAccess.searchQueryInt("birth",operatorOf,command);
 }
 
 /**
@@ -105,9 +105,9 @@ vector<Scientist> ScientistService::searchBirth(int command)
  * @param command
  * @return
  */
-vector<Scientist> ScientistService::searchDeath(int command)
+vector<Scientist> ScientistService::searchDeath(string operatorOf,int command)
 {
-    return _SciAccess.searchQueryInt(command);
+    return _SciAccess.searchQueryInt("death",operatorOf,command);
 }
 
 /**
