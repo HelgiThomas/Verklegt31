@@ -34,13 +34,13 @@ public:
      * @param string/int command.
      * @return vector <Computer>.
      */
-    vector<Scientist> searchName(string command);
+    vector<Computer> searchName(string command);
 
-    vector<Scientist> searchYear(string operatorOf, int command);
+    vector<Computer> searchYear(string operatorOf, int command);
 
-    vector<Scientist> searchType(string command);
+    vector<Computer> searchType(string command);
 
-    vector<Scientist> searchwasBuilt(string builtOf);
+    vector<Computer> searchwasBuilt(string builtOf,string operatorOf);
 
     /**
      * @brief Functions to sort by different means.
@@ -66,7 +66,7 @@ public:
      * @brief Function to remove a computer from the list.
      * @param string name.
      */
-    void removeComputer (string name);
+    void removeComputer (int nameOf);
     //comment below helgi
     void removeEverycomputer ();
 
@@ -90,6 +90,7 @@ public:
      * @return integer
      */
     int lengthOfLongestName(vector<Computer> computers);
+    int lengthOfLongestType(vector<Computer> computers);
 
 private:
     vector<Computer> listOfComputer;

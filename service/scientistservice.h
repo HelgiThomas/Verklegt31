@@ -61,7 +61,7 @@ public:
      * @brief Function to remove a scientist from the list.
      * @param string name.
      */
-    void removeScientist (string name);
+    void removeScientist (int nameOf);
     //comment below helgi
     void removeEveryscientist ();
 

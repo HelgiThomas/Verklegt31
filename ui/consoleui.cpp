@@ -1,6 +1,6 @@
 #include "ui/consoleui.h"
 #include "model/scientist.h"
-
+#include "model/computer.h"
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -22,7 +22,7 @@ ConsoleUI::ConsoleUI()
  */
 void ConsoleUI::run()
 {
-
+    clearScreen();
     do
     {
         cout << "Please enter the name or number of one of the commands below:" << endl << endl;
@@ -74,18 +74,23 @@ void ConsoleUI::run()
             string choice;
             cout << "What would you like to remove? " << endl;
             cout << "1. Person" << endl;
-            cout << "2. Everyone" << endl;
-            cout << "3. Back" << endl << endl << "=> ";
+            cout << "2. Computer" << endl;
+            cout << "3. Everyone" << endl;
+            cout << "4. Back" << endl << endl << "=> ";
             cin >> choice;
             if (choice == "person" || choice == "Person" || choice == "1")
             {
                 removeSci();
             }
-            else if (choice == "everyone" || choice == "Everyone" || choice == "2")
+            else if(choice == "computer" || choice == "Computer" || choice == "2")
             {
-                 removeEverySci();
+                removeComp();
             }
-            else if(choice == "back" || choice == "Back" || choice == "3")
+            else if (choice == "everyone" || choice == "Everyone" || choice == "3")
+            {
+                removeEverySci();
+            }
+            else if(choice == "back" || choice == "Back" || choice == "4")
             {
                 clearScreen();
                 run();
@@ -621,7 +626,7 @@ void ConsoleUI::editComp()
             clearScreen();
             cout << "Invalid edit!" << endl << endl;
         }
-     }
+    }
 }
 
 /**
@@ -629,29 +634,35 @@ void ConsoleUI::editComp()
  */
 void ConsoleUI::removeSci ()
 {
-    bool exist = false;
-    int temp;
+    bool exist;
+    unsigned int temp;
     string removePerson;
     string insert;
-    string nameOf;
-
-    cout << "Which scientist would you like to remove? " << endl << endl << "=> ";
-
-    std::getline(cin, insert);
-    std::getline(cin,insert);
-
-    nameOf = _serviceSci.makeFirstLetterBig(insert);
-
+    int idOf;
+    listSci();
     vector <Scientist> checkIfreal = _serviceSci.getScientists();
-    for (unsigned int i = 0; i < checkIfreal.size(); i++)
+    do
     {
-        if ((nameOf == checkIfreal[i].getName()))
+        exist = true;
+        cout << "Which No. Scientist would you like to remove?? " << endl << endl << "=> ";
+        cin >> temp;
+
+        if (temp > 0 && temp <= checkIfreal.size())
         {
             exist = true;
-            temp = i;
         }
+        else
+        {
+            exist = false;
+             cout << "Invalid number! " << endl;
+        }
+    } while (!exist);
+    /*
+    if(isdigit(insert) &&)
+    {
+    temp = atoi(insert) - 1;
+    exist = true;
     }
-
     if (exist == false)
     {
         cout << "There is no such scientist in the list! " << endl << endl;
@@ -659,7 +670,9 @@ void ConsoleUI::removeSci ()
 
     else
     {
-        cout << endl << "Reomve: " << checkIfreal [temp].getName () << " " <<  checkIfreal [temp].getSex() << " " <<  checkIfreal [temp].getBirth() << " " << checkIfreal [temp].getDeath() << " ?" << endl;
+    */
+    temp = temp - 1;
+        cout << endl << "Remove: " << checkIfreal [temp].getName () << " " <<  checkIfreal [temp].getSex() << " " <<  checkIfreal [temp].getBirth() << " " << checkIfreal [temp].getDeath() << " ?" << endl;
         cout << "(Y/N) ";
         cin >> removePerson;
 
@@ -671,14 +684,14 @@ void ConsoleUI::removeSci ()
         }
         if(removePerson == "y" || removePerson == "Y")
         {
-            _serviceSci.removeScientist (nameOf);
+            idOf = checkIfreal[temp].getId ();
+            _serviceSci.removeScientist (idOf);
             cout << endl << "Scientist removed " << endl << endl;
         }
         else if (removePerson == "n" || removePerson == "N")
         {
             cout << "Scientist not removed " << endl;
         }
-    }
 }
 //komment below helgi
 void ConsoleUI::removeEverySci()
@@ -702,11 +715,76 @@ void ConsoleUI::removeEverySci()
 
 }
 
+
+void ConsoleUI::removeComp()
+{
+    bool exist;
+    unsigned int temp;
+    string removePerson;
+    string insert;
+    int idOf;
+    listComp();
+    vector <Computer> checkIfreal = _serviceComp.getComputers();
+    do
+    {
+        exist = true;
+        cout << "Which No. Computer would you like to remove?? " << endl << endl << "=> ";
+        cin >> temp;
+
+        if (temp > 0 && temp <= checkIfreal.size())
+        {
+            exist = true;
+        }
+        else
+        {
+            exist = false;
+             cout << "Invalid number! " << endl;
+        }
+    } while (!exist);
+    /*
+    if(isdigit(insert) &&)
+    {
+    temp = atoi(insert) - 1;
+    exist = true;
+    }
+    if (exist == false)
+    {
+        cout << "There is no such scientist in the list! " << endl << endl;
+    }
+
+    else
+    {
+    */
+    temp = temp - 1;
+        cout << endl << "Remove: " << checkIfreal [temp].getName () << " " <<  checkIfreal [temp].getBuildYear() << " " <<  checkIfreal [temp].getCompType() << " ?" << endl;
+        cout << "(Y/N) ";
+        cin >> removePerson;
+
+        while(removePerson != "Y" && removePerson != "y" && removePerson != "n" && removePerson != "N")
+        {
+            cout << "Invalid input!" << endl;
+            cout << "Type either Y or N: ";
+            cin >> removePerson;
+        }
+        if(removePerson == "y" || removePerson == "Y")
+        {
+            idOf = checkIfreal[temp].getId ();
+            _serviceComp.removeComputer(idOf);
+            cout << endl << "Scientist removed " << endl << endl;
+        }
+        else if (removePerson == "n" || removePerson == "N")
+        {
+            cout << "Scientist not removed " << endl;
+        }
+}
+
 /**
  * @brief This is the function that's called when the user selects the sort command.
  * It sorts the list of scientists by either Name, Sex, Birth or Death. Depending
  * the the command the user selects.
  */
+
+
 void ConsoleUI::sortSci()
 {
     clearScreen();
@@ -914,27 +992,34 @@ void ConsoleUI::searchScientistList ()
             cout << "Which sex would you like to search for? " << endl << endl << "=> ";
             cin >> sexOf;
             sexOf = _serviceSci.mOrF(sexOf);
-            vector<Scientist> names = _serviceSci.searchSex (sexOf);
-            validateSearch(names);
+            vector<Scientist> sex = _serviceSci.searchSex (sexOf);
+            validateSearch(sex);
 
         }
         else if(command == "birth" || command == "Birth" || command == "3")
         {
             clearScreen();
             int birthOf;
+            string operatorOf;
             cout << "Which year of birth would you like to search for? " << endl << endl << "=> ";
             cin >> birthOf;
-            vector<Scientist> names = _serviceSci.searchBirth (birthOf);
-            validateSearch(names);
+            clearScreen();
+            cout << "Would you like to choose greater, less or equal ";
+            cin >> operatorOf;
+            vector<Scientist> birth = _serviceSci.searchBirth (operatorOf,birthOf);
+            validateSearch(birth);
         }
         else if(command == "death" || command == "Death" || command == "4")
         {
             clearScreen();
             int deathOf;
-            cout << "Which date of death would you like to serach for? " << endl << endl << "=> ";
+            string operatorOf;
+            cout << "Which year of death would you like to serach for? " << endl << endl << "=> ";
             cin >> deathOf;
-            vector<Scientist> names =_serviceSci.searchDeath (deathOf);
-            validateSearch(names);
+            cout << "Would you like to choose greate, less or equal ";
+            cin >> operatorOf;
+            vector<Scientist> death =_serviceSci.searchDeath(operatorOf,deathOf);
+            validateSearch(death);
         }
         else
         {
@@ -945,7 +1030,69 @@ void ConsoleUI::searchScientistList ()
 }
 void ConsoleUI::searchComputerList()
 {
+    clearScreen();
+    string command;
+    while(!_serviceSci.validCommand(command))
+    {
+        cout << "By what would you like to search for? " << endl;
+        cout << "1. Name" << endl;
+        cout << "2. Build year" << endl;
+        cout << "3. Computer type" << endl;
+        cout << "4. If it was built" << endl << endl;
+        cout << "=> ";
+        cin >> command;
 
+
+        if(command == "name" || command == "Name" || command == "1")
+        {
+            clearScreen();
+            string nameOf;
+            cout << "Which name would you like to search for? " << endl << endl << "=> ";
+            std::getline(cin, nameOf);
+            std::getline(cin, nameOf);
+            vector<Computer> name = _serviceComp.searchName(nameOf);
+            validateSearch(name);
+        }
+        else if(command == "build year" || command == "Build year" || command == "Year" || command == "year" || command == "2")
+        {
+            clearScreen();
+            int yearOf;
+            string operatorOf;
+            cout << "What build year would you like to search for? " << endl << endl << "=> ";
+            cin >> yearOf;
+            clearScreen();
+            cout << "Would you like to choose greater, less or equal ";
+            cin >> operatorOf;
+            vector<Computer> year = _serviceComp.searchYear(operatorOf,yearOf);
+            validateSearch(year);
+
+        }
+        else if(command == "type" || command == "Type" || command == "Computer type" || command == "computer type" || command == "3")
+        {
+            clearScreen();
+            string typeOf;
+            cout << "Which type would you like to search for? " << endl << endl << "=> ";
+            cin >> typeOf;
+            clearScreen();
+            vector<Computer> types = _serviceComp.searchType(typeOf);
+            validateSearch(types);
+        }
+        else if(command == "was built" || command == "Was built" || command == "built" || command == "Built" || command == "4")
+        {
+            clearScreen();
+            string builtOf;
+            string operatorOf;
+            cout << "Which would you like to search for (Y/N)? " << endl << endl << "=> ";
+            cin >> builtOf;
+            vector<Computer> built =_serviceComp.searchwasBuilt(builtOf, operatorOf);
+            validateSearch(built);
+        }
+        else
+        {
+            clearScreen();
+            cout << "Invalid command!" << endl << endl;
+        }
+    }
 }
 
 /**
@@ -956,8 +1103,10 @@ void ConsoleUI::searchComputerList()
 void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 {
     clearScreen();
-    cout << setw(_serviceSci.lengthOfLongestName(Scientist)) << left;
+    cout << "No." << "\t\t";
     cout << "Name" << "\t\t";
+    cout << setw(_serviceSci.lengthOfLongestName(Scientist)-17) << left;
+    cout << "               ";
     cout << "Sex" << " \t\t";
     cout << "Birth" << "\t\t";
     cout << "Death" << "\t\t";
@@ -977,6 +1126,8 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
     for (unsigned int i = 0 ; i < Scientist.size();i++)
     {
 
+
+        cout << i + 1<< ". | ";
         cout << setw(_serviceSci.lengthOfLongestName(Scientist)) << left;
         cout << Scientist [i].getName () << "\t | \t";
         cout << Scientist [i].getSex () << "\t | \t";
@@ -990,29 +1141,32 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 void ConsoleUI::displayListOfComputers(vector<Computer> Computer)
 {
     clearScreen();
+    cout << "No." << "\t";
     cout << setw(_serviceComp.lengthOfLongestName(Computer)) << left;
     cout << "Name" << "\t\t";
     cout << "Year" << " \t\t";
+    cout << setw(_serviceComp.lengthOfLongestType(Computer)) << left;
     cout << "Type" << "\t\t";
     cout << "Built" << "\t\t" << endl;
 
-    for(int i = 0; i < (_serviceComp.lengthOfLongestName(Computer) + 50); i++)
+    for(int i = 0; i < (_serviceComp.lengthOfLongestName(Computer) + 30); i++)
     {
         cout << "-";
     }
 
-    /*for(int i = 0; i < (_serviceComp.lengthOfLongestCitation(Computer) + 20); i++)
+    for(int i = 0; i < (_serviceComp.lengthOfLongestType(Computer) + 20); i++)
     {
         cout << "-";
-    }*/
+    }
     cout << endl;
 
     for (unsigned int i = 0 ; i < Computer.size();i++)
     {
-
+        cout << i + 1 << ". | " << "\t";
         cout << setw(_serviceComp.lengthOfLongestName(Computer)) << left;
         cout << Computer [i].getName () << "\t | \t";
         cout << Computer [i].getBuildYear () << "\t | \t";
+        cout << setw(_serviceComp.lengthOfLongestType(Computer)) << left;
         cout << Computer [i].getCompType () << "\t | \t";
         cout << Computer [i].getWasBuilt () << "\t\t" << endl;
     }
@@ -1063,12 +1217,12 @@ void ConsoleUI::playGame(){
  */
 void ConsoleUI::clearScreen()
 {
-    #ifdef _WIN32
-        system ("cls");
-    #endif
-    #ifdef __APPLE__
-        system("clear");
-    #endif
+#ifdef _WIN32
+    system ("cls");
+#endif
+#ifdef __APPLE__
+    system("clear");
+#endif
 }
 
 /*
@@ -1079,7 +1233,7 @@ void ConsoleUI::clearScreen()
 bool ConsoleUI::isPersonAlive()
 {
     string input;
-    cout << "Is this person alive? (Y/N): ";
+    cout << "Is this person alive? (Y/N) ";
     cin >> input;
 
     if(input == "Y" || input == "y")
@@ -1101,11 +1255,23 @@ bool ConsoleUI::isPersonAlive()
  * @brief A function to validate if the list of scientists contains any names to display.
  * Vector of Scientists.
  */
-void ConsoleUI::validateSearch(vector<Scientist>names)
+void ConsoleUI::validateSearch(vector<Scientist>search)
 {
-    if (names.size() > 0)
+    if (search.size() > 0)
     {
-        displayListOfScientists(names);
+        displayListOfScientists(search);
+    }
+    else
+    {
+        cout << "Nothing found in the list." << endl;
+    }
+    cout << endl;
+}
+void ConsoleUI::validateSearch(vector<Computer>search)
+{
+    if (search.size() > 0)
+    {
+        displayListOfComputers(search);
     }
     else
     {
@@ -1146,7 +1312,7 @@ bool ConsoleUI::askIfCitation()
 bool ConsoleUI::askIfBuilt()
 {
     string input;
-    cout << "Was the computer built? (Y/N)";
+    cout << "Was the computer built? (Y/N) ";
 
     getline(cin, input);
     getline(cin, input);
@@ -1167,3 +1333,4 @@ bool ConsoleUI::askIfBuilt()
         return false;
     }
 }
+
