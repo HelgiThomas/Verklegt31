@@ -36,8 +36,8 @@ public:
      */
     vector<Scientist> searchName (string command);
     vector<Scientist> searchSex (string command);
-    vector<Scientist> searchBirth (int command);
-    vector<Scientist> searchDeath (int command);
+    vector<Scientist> searchBirth (string operatorOf, int command);
+    vector<Scientist> searchDeath (string operatorOf, int command);
 
     /**
      * @brief Functions to sort by different means.

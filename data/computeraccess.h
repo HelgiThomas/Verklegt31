@@ -40,8 +40,8 @@ public:
 
 
     vector<Computer> sortQuery(string var, string command);
-    vector<Computer> searchQueryString(string command);
-    vector<Computer> searchQueryInt(int command);
+    vector<Computer> searchQueryString(string variable,string command);
+    vector<Computer> searchQueryInt(string variable, string operatorOf, int command);
 
 
     void connect();
