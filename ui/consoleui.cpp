@@ -558,13 +558,29 @@ void ConsoleUI::editSci()
             cout << endl << "What would you like to change the sex too? " << endl << endl << "=> ";
             std::getline(cin, newSex);
             std::getline(cin,newSex);
+            while((!_serviceSci.validSex(newSex)))
+            {
+                  cout << "Not valid!" << endl;
+                  cout << endl << "What would you like to change the sex too? " << endl << endl << "=> ";
+                  std::getline(cin, newSex);
+            }
+            newSex = _serviceSci.mOrF(newSex);
             _serviceSci.editScientistString(nameOf,variable,newSex);
         }
         else if(variable == "birth" || variable == "Birth" || variable == "3")
         {
             int newBirth;
+            string strNewBirth;
             cout << endl << "What would you like to change the birth too? " << endl << endl << "=> ";
-            cin >> newBirth;
+            getline(cin, strNewBirth);
+            getline(cin, strNewBirth);
+            while(!_serviceSci.validYear(strNewBirth))
+            {
+                cout << "Not valid!" << endl;
+                cout << endl << "What would you like to change the birth too? " << endl << endl << "=> ";
+                getline(cin, strNewBirth);
+            }
+            newBirth = atoi(strNewBirth.c_str());
             _serviceSci.editScientistInt(nameOf,variable,newBirth);
         }
         else if(variable == "death" || variable == "Death" || variable == "4")

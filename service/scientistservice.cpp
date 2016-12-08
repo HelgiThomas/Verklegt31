@@ -222,16 +222,23 @@ bool ScientistService::validSex(string sex)
  */
 bool ScientistService::validYear(string strYear)
 {
+
     int year = atoi(strYear.c_str());
+    bool valid = false;
     for(unsigned int i = 0; i < strYear.size(); i++)
     {
-        if(!(isdigit(strYear.at(i))) || year > 2016)
+        if(isdigit(strYear.at(i)) || year < 2016)
         {
-            return false;
+            valid = true;
         }
 
+        if(!(isdigit(strYear.at(i))) || year > 2016)
+        {
+            valid = false;
+            return valid;
+        }
     }
-    return true;
+    return valid;
 }
 
 /**
