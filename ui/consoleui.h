@@ -64,6 +64,7 @@ private:
     // ekki gleyma ad kommenta below helgi
     void removeEverySci();
 
+    void removeComp();
     /**
      * @brief Function to call the system commands to clear the screen.
      * Works for both windows and apple computer.

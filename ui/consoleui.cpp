@@ -74,18 +74,23 @@ void ConsoleUI::run()
             string choice;
             cout << "What would you like to remove? " << endl;
             cout << "1. Person" << endl;
-            cout << "2. Everyone" << endl;
-            cout << "3. Back" << endl << endl << "=> ";
+            cout << "2. Computer" << endl;
+            cout << "3. Everyone" << endl;
+            cout << "4. Back" << endl << endl << "=> ";
             cin >> choice;
             if (choice == "person" || choice == "Person" || choice == "1")
             {
                 removeSci();
             }
-            else if (choice == "everyone" || choice == "Everyone" || choice == "2")
+            else if(choice == "computer" || choice == "Computer" || choice == "2")
+            {
+                removeComp();
+            }
+            else if (choice == "everyone" || choice == "Everyone" || choice == "3")
             {
                  removeEverySci();
             }
-            else if(choice == "back" || choice == "Back" || choice == "3")
+            else if(choice == "back" || choice == "Back" || choice == "4")
             {
                 clearScreen();
                 run();
@@ -618,11 +623,71 @@ void ConsoleUI::removeEverySci()
 
 }
 
+
+void ConsoleUI::removeComp()
+{
+    bool exist = false;
+    int temp;
+    string removeComp;
+    string insert;
+    string nameOf;
+
+    cout << "Which computer would you like to remove? " << endl << endl << "=> ";
+    std::getline(cin, insert);
+    std::getline(cin, insert);
+
+
+    vector <Computer> checkIfreal = _serviceComp.getComputers();
+    for (unsigned int i = 0; i < checkIfreal.size(); i++)
+    {
+        if ((insert == checkIfreal[i].getName()))
+        {
+            exist = true;
+            temp = i;
+        }
+    }
+
+    if (exist == false)
+    {
+        cout << "There is no such computer in the list! " << endl << endl;
+    }
+
+    else
+    {
+        cout << endl << "Remove: "
+             << checkIfreal[temp].getName()
+             << " " <<  checkIfreal [temp].getBuildYear()
+             << " " << checkIfreal [temp].getCompType()
+             << " ?" << endl;
+
+        cout << "(Y/N) ";
+        cin >> removeComp;
+
+        while(removeComp != "Y" && removeComp != "y" && removeComp != "n" && removeComp != "N")
+        {
+            cout << "Invalid input!" << endl;
+            cout << "Type either Y or N: ";
+            cin >> removeComp;
+        }
+        if(removeComp == "y" || removeComp == "Y")
+        {
+            _serviceComp.removeComputer (insert);
+            cout << endl << "Computer removed " << endl << endl;
+        }
+        else if (removeComp == "n" || removeComp == "N")
+        {
+            cout << "Computer not removed " << endl;
+        }
+    }
+}
+
 /**
  * @brief This is the function that's called when the user selects the sort command.
  * It sorts the list of scientists by either Name, Sex, Birth or Death. Depending
  * the the command the user selects.
  */
+
+
 void ConsoleUI::sortSci()
 {
     clearScreen();
