@@ -32,7 +32,7 @@ public:
     vector<Computer> readFromDatabase();
 
 
-    void removelist(string nameOf);
+    void removelist(int nameOf);
     void removeAll();
 
     void editString(string nameOf, string variable, string newElement);

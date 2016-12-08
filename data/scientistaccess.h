@@ -26,7 +26,7 @@ public:
     vector<Scientist> readFromDatabase();
 
 
-    void removelist(string name);
+    void removelist(int nameOf);
     void removeAll();
 
     void editString(string nameOf, string variable, string newElement);

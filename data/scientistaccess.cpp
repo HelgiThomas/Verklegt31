@@ -93,7 +93,7 @@ void ScientistAccess::readToDatabase(Scientist scientist)
     m_db.close();
 }
 
-void ScientistAccess::removelist(string name)
+void ScientistAccess::removelist(int nameOf)
 {
     int number = 0;
 
@@ -102,9 +102,9 @@ void ScientistAccess::removelist(string name)
     QSqlQuery query;
 
     QString qStatus = QString::number(number);
-    QString qName = QString::fromStdString(name);
-    query.prepare("UPDATE Scientists SET Status = 0 WHERE Name = (:name)");
-    query.bindValue(":name", qName);
+    QString qName = QString::number(nameOf);
+    query.prepare("UPDATE Scientists SET Status = 0 WHERE ID = (:nameOf)");
+    query.bindValue(":nameOf", qName);
     query.bindValue(":status", qStatus);
 
     query.exec();
@@ -115,7 +115,7 @@ void ScientistAccess::removeAll()
     connect();
 
     QSqlQuery query;
-    query.prepare("TRUNCATE TABLE Scientists");
+    query.prepare("UPDATE Scientists SET Status = 0");
     query.exec();
 }
 void ScientistAccess::editString(string nameOf, string variable, string newElement)
@@ -126,13 +126,13 @@ void ScientistAccess::editString(string nameOf, string variable, string newEleme
     QString qNameOf = QString::fromStdString(nameOf);
     QString qNewElement = QString::fromStdString(newElement);
 
-    if (variable == "Name" || variable == "name" || variable == "1")
+    if (variable == "Name" || variable == "name")
     {
         query.prepare("UPDATE Scientists SET Name = :newElement WHERE Name = :name");
         query.bindValue(":newElement", qNewElement);
         query.bindValue(":name", qNameOf);
     }
-    else if (variable == "Sex" || variable == "sex" || variable == "2")
+    else if (variable == "Sex" || variable == "sex")
     {
         query.prepare("UPDATE Scientists SET Sex = :newElement WHERE Name = :name");
         query.bindValue(":newElement", qNewElement);
@@ -154,13 +154,13 @@ void ScientistAccess::editInt(string nameOf, string variable, int newElement)
     QString qNameOf = QString::fromStdString(nameOf);
     QString qNewElement = QString::number(newElement);
 
-    if (variable == "Birth" || variable == "birth" || variable == "3")
+    if (variable == "Birth" || variable == "birth")
     {
         query.prepare("UPDATE Scientists SET Birth = :newElement WHERE Name = :name");
         query.bindValue(":name", qNameOf);
         query.bindValue(":newElement", qNewElement);
     }
-    else if (variable == "Death" || variable == "death" || variable == "4")
+    else if (variable == "Death" || variable == "death")
     {
         query.prepare("UPDATE Scientists SET Death = :newElement WHERE Name = :name");
         query.bindValue(":name", qNameOf);

@@ -38,7 +38,7 @@ void ComputerService::addComputer(Computer newComputer)
  * @brief This function removes a computer from the .txt file.
  * @param nameOf
  */
-void ComputerService::removeComputer (string nameOf)
+void ComputerService::removeComputer (int nameOf)
 {
 
    _ComAccess.removelist(nameOf);
@@ -253,6 +253,19 @@ int ComputerService::lengthOfLongestName(vector<Computer> computers)
     return temp.getName().size();
 }
 
+int ComputerService::lengthOfLongestType(vector<Computer> computers)
+{
+    Computer temp;
+    for(unsigned int i = 0; i < computers.size(); i++)
+    {
+        if(temp.getCompType().size() < computers[i].getCompType().size())
+        {
+            temp = computers[i];
+        }
+    }
+    return temp.getCompType().size();
+}
+
 /**
  * @brief ComputerService::validCommand -> checks if the input from user is valid.
  * @param string command.
@@ -264,19 +277,4 @@ bool ComputerService::validCommand(string command)
         return true;
     else
         return false;
-}
-string ComputerService::makeFirstLetterBig(string name)
-{
-    if(name[0] >= 97)
-    {
-        name[0] -= 32;
-    }
-    for(unsigned int i = 0; i < name.size(); i++)
-    {
-        if(name[i] == 32 && name[i+1] >= 97)
-        {
-            name[i+1] -= 32;
-        }
-    }
-    return name;
 }

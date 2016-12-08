@@ -35,9 +35,9 @@ void ScientistService::addScientist(Scientist newScientist)
  * @brief This function removes a scientist from the .txt file.
  * @param nameOf
  */
-void ScientistService::removeScientist (string name)
+void ScientistService::removeScientist (int nameOf)
 {
-   _SciAccess.removelist(name);
+   _SciAccess.removelist(nameOf);
 }
 
 /**

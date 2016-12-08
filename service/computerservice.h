@@ -66,7 +66,7 @@ public:
      * @brief Function to remove a computer from the list.
      * @param string name.
      */
-    void removeComputer (string name);
+    void removeComputer (int nameOf);
     //comment below helgi
     void removeEverycomputer ();
 
@@ -90,7 +90,7 @@ public:
      * @return integer
      */
     int lengthOfLongestName(vector<Computer> computers);
-    string makeFirstLetterBig(string name);
+    int lengthOfLongestType(vector<Computer> computers);
 
 private:
     vector<Computer> listOfComputer;

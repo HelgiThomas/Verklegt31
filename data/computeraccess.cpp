@@ -91,18 +91,18 @@ void ComputerAccess::readToDatabase(Computer computer)
 }
 
 
-void ComputerAccess::removelist(string name)
+void ComputerAccess::removelist(int nameOf)
 {
     int number = 0;
-
+    cout << nameOf;
     connect();
 
-    QSqlQuery query(m_db);
+    QSqlQuery query;
 
     QString qStatus = QString::number(number);
-    QString qName = QString::fromStdString(name);
-    query.prepare("UPDATE Computers SET Status = 0 WHERE Name = (:name)");
-    query.bindValue(":name", qName);
+    QString qName = QString::number(nameOf);
+    query.prepare("UPDATE Computers SET Status = 0 WHERE ID = (:nameOf)");
+    query.bindValue(":nameOf", qName);
     query.bindValue(":status", qStatus);
 
     query.exec();
@@ -114,7 +114,7 @@ void ComputerAccess::removeAll()
     connect();
 
     QSqlQuery query;
-    query.prepare("TRUNCATE TABLE Computers");
+     query.prepare("UPDATE Computers SET Status = 0");
     query.exec();
 }
 void ComputerAccess::editString(string nameOf, string variable, string newElement)
@@ -125,19 +125,19 @@ void ComputerAccess::editString(string nameOf, string variable, string newElemen
     QString qNameOf = QString::fromStdString(nameOf);
     QString qNewElement = QString::fromStdString(newElement);
 
-    if (variable == "Name" || variable == "name" || variable == "1")
+    if (variable == "Name" || variable == "name")
     {
         query.prepare("UPDATE Computers SET Name = :newElement WHERE Name = :name");
         query.bindValue(":newElement", qNewElement);
         query.bindValue(":name", qNameOf);
     }
-    else if (variable == "Type" || variable == "type" || variable == "3")
+    else if (variable == "Type" || variable == "type")
     {
         query.prepare("UPDATE Computers SET type = :newElement WHERE Name = :name");
         query.bindValue(":newElement", qNewElement);
         query.bindValue(":name", qNameOf);
     }
-    else if (variable == "Built" || variable == "built" || variable == "4")
+    else if (variable == "Built" || variable == "built")
     {
         query.prepare("UPDATE Computers SET wasBuilt = :newElement WHERE Name = :name");
         query.bindValue(":newElement", qNewElement);
@@ -158,7 +158,7 @@ void ComputerAccess::editInt(string nameOf, string variable, int newElement)
     QString qNameOf = QString::fromStdString(nameOf);
     QString qNewElement = QString::number(newElement);
 
-    if (variable == "Year" || variable == "year" || variable == "2")
+    if (variable == "Year" || variable == "year")
     {
         query.prepare("UPDATE Computers SET year = :newElement WHERE Name = :name");
         query.bindValue(":name", qNameOf);
@@ -266,6 +266,7 @@ vector<Computer> ComputerAccess::searchQueryString(string variable,string comman
     }
     else if (variable == "wasbuilt" || variable == "wasBuilt" || variable == "WasBuilt" || variable == "Wasbuilt")
     {
+        cout << variable << " " << command;
         string query_string = "SELECT * FROM Computers WHERE wasBuilt LIKE '" + command + "%'";
         QString qCommand (query_string.c_str());
         query.exec(qCommand);
