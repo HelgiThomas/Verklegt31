@@ -6,14 +6,15 @@
 
 using namespace std;
 
+void clearScreen();
 void frontPage();
-/*
+/**
  * The main function of the program which only calles the first menu function.
  */
 int main()
 {
+    clearScreen();
     frontPage();
-
     ConsoleUI ui;
     ui.run();
 
@@ -54,4 +55,13 @@ void frontPage()
         getline(cin, input);
         cout << RESET;
 
+}
+void clearScreen()
+{
+#ifdef _WIN32
+    system ("cls");
+#endif
+#ifdef __APPLE__
+    system("clear");
+#endif
 }
