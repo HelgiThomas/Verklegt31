@@ -47,7 +47,8 @@ void ConsoleUI::run()
             cout << "What would you like to add? " << endl;
             cout << "1. Scientist" << endl;
             cout << "2. Computer" << endl;
-            cout << "3. Back" << endl << endl << "=> ";
+            cout << "3. Relation" << endl;
+            cout << "4. Back" << endl << endl << "=> ";
             cin >> choice;
             if (choice == "scientist" || choice == "Scientist" || choice == "1")
             {
@@ -57,7 +58,11 @@ void ConsoleUI::run()
             {
                 addComp();
             }
-            else if(choice == "back" || choice == "Back" || choice == "3")
+            else if(choice == "relation" || choice == "Relation" || choice == "3")
+            {
+                addRelation();
+            }
+            else if(choice == "back" || choice == "Back" || choice == "4")
             {
                 clearScreen();
                 run();
@@ -75,8 +80,9 @@ void ConsoleUI::run()
             cout << "What would you like to remove? " << endl;
             cout << "1. Person" << endl;
             cout << "2. Computer" << endl;
-            cout << "3. Everyone" << endl;
-            cout << "4. Back" << endl << endl << "=> ";
+            cout << "3. Relation" << endl;
+            cout << "4. Everyone" << endl;
+            cout << "5. Back" << endl << endl << "=> ";
             cin >> choice;
             if (choice == "person" || choice == "Person" || choice == "1")
             {
@@ -86,11 +92,15 @@ void ConsoleUI::run()
             {
                 removeComp();
             }
-            else if (choice == "everyone" || choice == "Everyone" || choice == "3")
+            else if(choice == "relation" || choice == "Relation" || choice == "3")
+            {
+                //removeRelation();
+            }
+            else if (choice == "everyone" || choice == "Everyone" || choice == "4")
             {
                 removeEverySci();
             }
-            else if(choice == "back" || choice == "Back" || choice == "4")
+            else if(choice == "back" || choice == "Back" || choice == "5")
             {
                 clearScreen();
                 run();
@@ -119,7 +129,11 @@ void ConsoleUI::run()
             {
                 listComp();
             }
-            else if(choice == "back" || choice == "Back" || choice == "3")
+            else if(choice == "relation" || choice == "Relation" || choice == "3")
+            {
+                listRelation();
+            }
+            else if(choice == "back" || choice == "Back" || choice == "4")
             {
                 clearScreen();
                 run();
@@ -420,6 +434,90 @@ void ConsoleUI::addComp()
 
     clearScreen();
 }
+
+void ConsoleUI::addRelation()
+{
+    clearScreen();
+    unsigned int sci;
+    unsigned int com;
+    vector<Scientist> s;
+    vector<Computer> c;
+
+
+    cout << "List of Scientist:" << endl;
+    vector<Scientist> Scientists = _serviceSci.getScientists();
+    displayListOfScientists(Scientists);
+
+    string YoN1 = "y";
+    while(YoN1 == "y" || YoN1 == "Y" || YoN1 == "yes" || YoN1 == "Yes"){
+
+        cout << endl;
+        cout << "Pick a scientists you would like to add a relation to (their ID): ";
+
+        cin >> sci;
+        while(sci > Scientists.size() || sci < 1)
+        {
+            cout << "Invalid input!" << endl;
+            cout << "Try again: ";
+            cin >> sci;
+        }
+
+        cout << endl;
+        cout << "You picked " << Scientists[sci-1].getName() << endl;
+
+        s.push_back(Scientists[sci-1]);
+
+
+        cout << "Would you like to add another scientist to a computer?" << endl;
+        cin >> YoN1;
+    }
+
+    cout << "List of Computers:" << endl;
+    vector<Computer> Computers = _serviceComp.getComputers();
+    displayListOfComputers(Computers);
+
+    int counter2 = 0;
+    string YoN2 = "y";
+    while(YoN2 == "y" || YoN2 == "Y" || YoN2 == "yes" || YoN2 == "Yes"){
+
+        cout << endl;
+        cout << "Pick computers you want to relate to that scientists(their IDs): ";
+
+        cin >> com;
+
+        while(com > Computers.size() || com < 1)
+        {
+            cout << "Invalid input!" << endl;
+            cout << "Try again: ";
+            cin >> com;
+        }
+
+        string choice;
+        cout << "Do you want to add another relation to a computer? ";
+        cin >> choice;
+
+        cout << "You picked " << Computers[com-1].getName() << endl;
+
+        c.push_back(Computers[com-1]);
+
+        cout << "Would you like to add another computer? ";
+        cin >> YoN2;
+    }
+
+    for (unsigned int i = 0; i < s.size(); i++)
+    {
+        for (unsigned int j = 0; j < c.size(); j++)
+        {
+            _serviceGen.link(s[i].getId(), c[j].getId());
+        }
+    }
+}
+
+void ConsoleUI::listRelation()
+{
+
+}
+
 
 void ConsoleUI::editSci()
 {

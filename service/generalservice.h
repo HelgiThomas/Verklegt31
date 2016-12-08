@@ -9,6 +9,11 @@ class GeneralService
 {
 public:
     GeneralService();
+
+    void link(int sciId, int compId);
+
+private:
+    LinkAccess _link;
 };
 
 #endif // GENERALSERVICE_H

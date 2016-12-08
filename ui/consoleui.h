@@ -2,6 +2,7 @@
 #define CONSOLEUI_H
 #include "service/scientistservice.h"
 #include "service/computerservice.h"
+#include "service/generalservice.h"
 
 /**
  * @brief ConsoleUI class, handles the interface/menu for the program.
@@ -34,8 +35,10 @@ private:
     void displayListOfComputers(vector<Computer> Computer);
     void listSci();
     void listComp();
+    void listRelation();
     void addSci();
     void addComp();
+    void addRelation();
     void editSci ();
     void editComp ();
     void sortSci();
@@ -72,6 +75,8 @@ private:
 
     void removeComp();
 
+    void removeRelation();
+
 
     /**
      * @brief Function to check if the person is still alive.
@@ -82,6 +87,7 @@ private:
 
     ScientistService _serviceSci;
     ComputerService _serviceComp;
+    GeneralService _serviceGen;
 
     int score;
 };
