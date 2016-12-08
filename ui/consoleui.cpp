@@ -1,6 +1,6 @@
 #include "ui/consoleui.h"
 #include "model/scientist.h"
-
+#include "model/computer.h"
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -88,7 +88,7 @@ void ConsoleUI::run()
             }
             else if (choice == "everyone" || choice == "Everyone" || choice == "3")
             {
-                 removeEverySci();
+                removeEverySci();
             }
             else if(choice == "back" || choice == "Back" || choice == "4")
             {
@@ -542,7 +542,7 @@ void ConsoleUI::editComp()
             clearScreen();
             cout << "Invalid edit!" << endl << endl;
         }
-     }
+    }
 }
 
 /**
@@ -895,8 +895,8 @@ void ConsoleUI::searchScientistList ()
             cout << "Which sex would you like to search for? " << endl << endl << "=> ";
             cin >> sexOf;
             sexOf = _serviceSci.mOrF(sexOf);
-            vector<Scientist> names = _serviceSci.searchSex (sexOf);
-            validateSearch(names);
+            vector<Scientist> sex = _serviceSci.searchSex (sexOf);
+            validateSearch(sex);
 
         }
         else if(command == "birth" || command == "Birth" || command == "3")
@@ -906,22 +906,23 @@ void ConsoleUI::searchScientistList ()
             string operatorOf;
             cout << "Which year of birth would you like to search for? " << endl << endl << "=> ";
             cin >> birthOf;
-            cout << "Would you like to choose greate, less or equal ";
+            clearScreen();
+            cout << "Would you like to choose greater, less or equal ";
             cin >> operatorOf;
-            vector<Scientist> names = _serviceSci.searchBirth (operatorOf,birthOf);
-            validateSearch(names);
+            vector<Scientist> birth = _serviceSci.searchBirth (operatorOf,birthOf);
+            validateSearch(birth);
         }
         else if(command == "death" || command == "Death" || command == "4")
         {
             clearScreen();
             int deathOf;
             string operatorOf;
-            cout << "Which date of death would you like to serach for? " << endl << endl << "=> ";
+            cout << "Which year of death would you like to serach for? " << endl << endl << "=> ";
             cin >> deathOf;
             cout << "Would you like to choose greate, less or equal ";
             cin >> operatorOf;
-            vector<Scientist> names =_serviceSci.searchDeath(operatorOf,deathOf);
-            validateSearch(names);
+            vector<Scientist> death =_serviceSci.searchDeath(operatorOf,deathOf);
+            validateSearch(death);
         }
         else
         {
@@ -932,7 +933,69 @@ void ConsoleUI::searchScientistList ()
 }
 void ConsoleUI::searchComputerList()
 {
+    clearScreen();
+    string command;
+    while(!_serviceSci.validCommand(command))
+    {
+        cout << "By what would you like to search for? " << endl;
+        cout << "1. Name" << endl;
+        cout << "2. Build year" << endl;
+        cout << "3. Computer type" << endl;
+        cout << "4. If it was built" << endl << endl;
+        cout << "=> ";
+        cin >> command;
 
+
+        if(command == "name" || command == "Name" || command == "1")
+        {
+            clearScreen();
+            string nameOf;
+            cout << "Which name would you like to search for? " << endl << endl << "=> ";
+            std::getline(cin, nameOf);
+            std::getline(cin, nameOf);
+            vector<Computer> name = _serviceComp.searchName(nameOf);
+            validateSearch(name);
+        }
+        else if(command == "build year" || command == "Build year" || command == "Year" || command == "year" || command == "2")
+        {
+            clearScreen();
+            int yearOf;
+            string operatorOf;
+            cout << "What build year would you like to search for? " << endl << endl << "=> ";
+            cin >> yearOf;
+            clearScreen();
+            cout << "Would you like to choose greater, less or equal ";
+            cin >> operatorOf;
+            vector<Computer> year = _serviceComp.searchYear(operatorOf,yearOf);
+            validateSearch(year);
+
+        }
+        else if(command == "type" || command == "Type" || command == "Computer type" || command == "computer type" || command == "3")
+        {
+            clearScreen();
+            string typeOf;
+            cout << "Which type would you like to search for? " << endl << endl << "=> ";
+            cin >> typeOf;
+            clearScreen();
+            vector<Computer> types = _serviceComp.searchType(typeOf);
+            validateSearch(types);
+        }
+        else if(command == "was built" || command == "Was built" || command == "built" || command == "Built" || command == "4")
+        {
+            clearScreen();
+            string builtOf;
+            string operatorOf;
+            cout << "Which would you like to search for (Y/N)? " << endl << endl << "=> ";
+            cin >> builtOf;
+            vector<Computer> built =_serviceComp.searchwasBuilt(builtOf, operatorOf);
+            validateSearch(built);
+        }
+        else
+        {
+            clearScreen();
+            cout << "Invalid command!" << endl << endl;
+        }
+    }
 }
 
 /**
@@ -1050,12 +1113,12 @@ void ConsoleUI::playGame(){
  */
 void ConsoleUI::clearScreen()
 {
-    #ifdef _WIN32
-        system ("cls");
-    #endif
-    #ifdef __APPLE__
-        system("clear");
-    #endif
+#ifdef _WIN32
+    system ("cls");
+#endif
+#ifdef __APPLE__
+    system("clear");
+#endif
 }
 
 /*
@@ -1066,7 +1129,7 @@ void ConsoleUI::clearScreen()
 bool ConsoleUI::isPersonAlive()
 {
     string input;
-    cout << "Is this person alive? (Y/N): ";
+    cout << "Is this person alive? (Y/N) ";
     cin >> input;
 
     if(input == "Y" || input == "y")
@@ -1088,11 +1151,23 @@ bool ConsoleUI::isPersonAlive()
  * @brief A function to validate if the list of scientists contains any names to display.
  * Vector of Scientists.
  */
-void ConsoleUI::validateSearch(vector<Scientist>names)
+void ConsoleUI::validateSearch(vector<Scientist>search)
 {
-    if (names.size() > 0)
+    if (search.size() > 0)
     {
-        displayListOfScientists(names);
+        displayListOfScientists(search);
+    }
+    else
+    {
+        cout << "Nothing found in the list." << endl;
+    }
+    cout << endl;
+}
+void ConsoleUI::validateSearch(vector<Computer>search)
+{
+    if (search.size() > 0)
+    {
+        displayListOfComputers(search);
     }
     else
     {
@@ -1133,7 +1208,7 @@ bool ConsoleUI::askIfCitation()
 bool ConsoleUI::askIfBuilt()
 {
     string input;
-    cout << "Was the computer built? (Y/N)";
+    cout << "Was the computer built? (Y/N) ";
 
     getline(cin, input);
     getline(cin, input);
@@ -1154,3 +1229,4 @@ bool ConsoleUI::askIfBuilt()
         return false;
     }
 }
+

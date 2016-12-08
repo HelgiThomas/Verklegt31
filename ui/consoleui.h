@@ -18,6 +18,11 @@ public:
      * @brief First function which calls the various other menu functions.
      */
     void run();
+    /**
+     * @brief Function to call the system commands to clear the screen.
+     * Works for both windows and apple computer.
+     */
+    void clearScreen();
 
 private:
     /**
@@ -46,7 +51,8 @@ private:
      * @brief Function to see if the object you are searching for exists or not.
      * @param vector<Scientist> names
      */
-    void validateSearch(vector<Scientist>names);
+    void validateSearch(vector<Scientist>search);
+    void validateSearch(vector<Computer> search);
 
     /**
      * @brief Function which asks the user if he wants to add a citation or not.
@@ -65,11 +71,7 @@ private:
     void removeEverySci();
 
     void removeComp();
-    /**
-     * @brief Function to call the system commands to clear the screen.
-     * Works for both windows and apple computer.
-     */
-    void clearScreen();
+
 
     /**
      * @brief Function to check if the person is still alive.
