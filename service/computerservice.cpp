@@ -265,3 +265,18 @@ bool ComputerService::validCommand(string command)
     else
         return false;
 }
+string ComputerService::makeFirstLetterBig(string name)
+{
+    if(name[0] >= 97)
+    {
+        name[0] -= 32;
+    }
+    for(unsigned int i = 0; i < name.size(); i++)
+    {
+        if(name[i] == 32 && name[i+1] >= 97)
+        {
+            name[i+1] -= 32;
+        }
+    }
+    return name;
+}

@@ -387,7 +387,7 @@ void ConsoleUI::addComp()
     std::getline(cin, name);
     std::getline(cin, name);
 
-    //name = _serviceComp.makeFirstLetterBig(name);
+    name = _serviceComp.makeFirstLetterBig(name);
 
     cout << "Build year: ";
     cin >> strBuiltYear;
