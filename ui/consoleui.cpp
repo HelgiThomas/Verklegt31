@@ -650,41 +650,42 @@ void ConsoleUI::removeSci ()
 {
     bool exist;
     unsigned int temp;
+    string strTemp;
     string removePerson;
     string insert;
     int idOf;
     listSci();
+
     vector <Scientist> checkIfreal = _serviceSci.getScientists();
     do
     {
+
         exist = true;
         cout << "Which No. Scientist would you like to remove?? " << endl << endl << "=> ";
-        cin >> temp;
-
-        if (temp > 0 && temp <= checkIfreal.size())
+        cin >> strTemp;
+        if (_serviceSci.validYear(strTemp))
         {
-            exist = true;
+            temp = atoi(strTemp.c_str());
+            if (temp > 0 && temp <= checkIfreal.size())
+            {
+                exist = true;
+            }
+            else
+            {
+                exist = false;
+                clearScreen();
+                cout << "Invalid number! " << endl;
+            }
+
         }
         else
         {
-            exist = false;
-             cout << "Invalid number! " << endl;
+           cout << "Invalid number! " << endl;
+           run();
         }
-    } while (!exist);
-    /*
-    if(isdigit(insert) &&)
-    {
-    temp = atoi(insert) - 1;
-    exist = true;
-    }
-    if (exist == false)
-    {
-        cout << "There is no such scientist in the list! " << endl << endl;
-    }
 
-    else
-    {
-    */
+    } while (!exist);
+
     temp = temp - 1;
         cout << endl << "Remove: " << checkIfreal [temp].getName () << " " <<  checkIfreal [temp].getSex() << " " <<  checkIfreal [temp].getBirth() << " " << checkIfreal [temp].getDeath() << " ?" << endl;
         cout << "(Y/N) ";
@@ -714,19 +715,26 @@ void ConsoleUI::removeEverySci()
     string choice;
     cout << "Are you absolutely sure?  (Y/N)" << endl;
     cin >> choice;
+    clearScreen();
 
-
-    if (choice == "y" || choice == "Yes" || choice == "yes" || choice == "Yes")
+    while(choice != "Y" && choice != "y" && choice != "n" && choice != "N")
+    {
+        cout << "Invalid input!" << endl;
+        cout << "Type either Y or N: ";
+        cin >> choice;
+        clearScreen();
+    }
+    if (choice == "y" || choice == "Y")
     {
         _serviceSci.removeEveryscientist();
         clearScreen();
-        cout << "Everybody has been removed " << endl << endl << endl << endl;
+        cout << "Everybody has been removed! " << endl << endl << endl << endl;
     }
-    else
+    else if (choice == "n" || choice == "N")
     {
+        cout << "Nobody has been removed! " << endl << endl;
 
     }
-
 }
 
 
@@ -736,6 +744,7 @@ void ConsoleUI::removeComp()
     unsigned int temp;
     string removePerson;
     string insert;
+    string strTemp;
     int idOf;
     listComp();
     vector <Computer> checkIfreal = _serviceComp.getComputers();
@@ -743,32 +752,30 @@ void ConsoleUI::removeComp()
     {
         exist = true;
         cout << "Which No. Computer would you like to remove?? " << endl << endl << "=> ";
-        cin >> temp;
-
-        if (temp > 0 && temp <= checkIfreal.size())
+        cin >> strTemp;
+        if (_serviceSci.validYear(strTemp))
         {
-            exist = true;
+            temp = atoi(strTemp.c_str());
+            if (temp > 0 && temp <= checkIfreal.size())
+            {
+                exist = true;
+            }
+            else
+            {
+                exist = false;
+                clearScreen();
+                cout << "Invalid number! " << endl;
+            }
+
         }
         else
         {
-            exist = false;
-             cout << "Invalid number! " << endl;
+           cout << "Invalid number! " << endl;
+           run();
         }
-    } while (!exist);
-    /*
-    if(isdigit(insert) &&)
-    {
-    temp = atoi(insert) - 1;
-    exist = true;
-    }
-    if (exist == false)
-    {
-        cout << "There is no such scientist in the list! " << endl << endl;
-    }
 
-    else
-    {
-    */
+    } while (!exist);
+
     temp = temp - 1;
         cout << endl << "Remove: " << checkIfreal [temp].getName () << " " <<  checkIfreal [temp].getBuildYear() << " " <<  checkIfreal [temp].getCompType() << " ?" << endl;
         cout << "(Y/N) ";
@@ -784,11 +791,11 @@ void ConsoleUI::removeComp()
         {
             idOf = checkIfreal[temp].getId ();
             _serviceComp.removeComputer(idOf);
-            cout << endl << "Scientist removed " << endl << endl;
+            cout << endl << "Computer removed " << endl << endl;
         }
         else if (removePerson == "n" || removePerson == "N")
         {
-            cout << "Scientist not removed " << endl;
+            cout << "Computer not removed " << endl;
         }
 }
 
@@ -1117,10 +1124,9 @@ void ConsoleUI::searchComputerList()
 void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 {
     clearScreen();
-    cout << "No." << "\t\t";
+    cout << "No." << "\t";
     cout << "Name" << "\t\t";
     cout << setw(_serviceSci.lengthOfLongestName(Scientist)-17) << left;
-    cout << "               ";
     cout << "Sex" << " \t\t";
     cout << "Birth" << "\t\t";
     cout << "Death" << "\t\t";
