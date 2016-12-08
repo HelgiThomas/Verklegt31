@@ -90,6 +90,7 @@ public:
      * @return integer
      */
     int lengthOfLongestName(vector<Computer> computers);
+    string makeFirstLetterBig(string name);
 
 private:
     vector<Computer> listOfComputer;
