@@ -221,7 +221,7 @@ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
     return sci;
 }
 
-vector<Scientist> ScientistAccess::searchQueryString(string variable,string command)
+vector<Scientist> ScientistAccess::searchQueryString(string command)
 {
     vector<Scientist> sci;
 
@@ -235,7 +235,7 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
 }
 
 
-vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operatorOf, int command)
+vector<Scientist> ScientistAccess::searchQueryInt(int command)
 {
     vector<Scientist> sci;
 

@@ -29,8 +29,10 @@ private:
     void displayListOfComputers(vector<Computer> Computer);
     void listSci();
     void listComp();
+    void listRelation();
     void addSci();
     void addComp();
+    void addRelation();
     void editSci ();
     void editComp ();
     void sortSci();
