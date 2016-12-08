@@ -40,172 +40,144 @@ void ScientistService::removeScientist (string name)
    _SciAccess.removelist(name);
 }
 
+/**
+ * @brief ScientistService::removeEveryscientist
+ */
 void ScientistService::removeEveryscientist()
 {
     _SciAccess.removeAll();
 }
+
+/**
+ * @brief ScientistService::editScientistString
+ * @param nameOf
+ * @param variable
+ * @param newElement
+ */
 void ScientistService::editScientistString(string nameOf, string variable, string newElement)
 {
     _SciAccess.editString (nameOf,variable,newElement);
 }
+
+/**
+ * @brief ScientistService::editScientistInt
+ * @param nameOf
+ * @param variable
+ * @param newElement
+ */
 void ScientistService::editScientistInt (string nameOf, string variable, int newElement)
 {
     _SciAccess.editInt (nameOf,variable,newElement);
 }
 
 /**
- * @brief Compares the name and returns true if the second parameter is higher.
- * @param Scientist variable.
- * @param Scientist variable.
- * @return true/false
+ * @brief ScientistService::searchName
+ * @param command
+ * @return
  */
-struct ScientistCompareName
-{
-    bool operator() (Scientist i,Scientist j) { return (i.getName()<j.getName());}
-};
-
-/**
- * @brief Compares the sex and returns true if the second parameter is higher.
- * @param Scientist variable.
- * @param Scientist variable.
- * @return true/false
- */
-struct ScientistCompareSex
-{
-    bool operator() (Scientist i,Scientist j) { return (i.getSex()<j.getSex());}
-};
-
-/**
- * @brief Compares the birth years and returns true if the second parameter is higher.
- * @param Scientist variable.
- * @param Scientist variable.
- * @return true/false
- */
-struct ScientistCompareBirth
-{
-    bool operator() (Scientist i,Scientist j) { return (i.getBirth()<j.getBirth());}
-};
-
-/**
- * @brief Compares the death years and returns true if the second parameter is higher.
- * @param Scientist variable.
- * @param Scientist variable.
- * @return true/false
- */
-struct ScientistCompareDeath
-{
-    bool operator() (Scientist i,Scientist j) { return (i.getDeath()<j.getDeath());}
-};
-
-/**
- * @brief Compares the name and returns true if the first parameter is higher.
- * @param Scientist variable.
- * @param Scientist variable.
- * @return true/false
- */
-struct ScientistCompareNameReverse
-{
-    bool operator() (Scientist i,Scientist j) { return (i.getName()>j.getName());}
-};
-
-/**
- * @brief Compares the sex and returns true if the first parameter is higher.
- * @param Scientist variable.
- * @param Scientist variable.
- * @return true/false
- */
-struct ScientistCompareSexReverse
-{
-    bool operator() (Scientist i,Scientist j) { return (i.getSex()>j.getSex());}
-};
-
-/**
- * @brief Comapares the birth years and returns true if the first parameter is higher.
- * @param Scientist variable.
- * @param Scientist variable.
- * @return true/false
- */
-struct ScientistCompareBirthReverse
-{
-    bool operator() (Scientist i,Scientist j) { return (i.getBirth()>j.getBirth());}
-};
-
-/**
- * @brief Compares the death years and returns true if the first parameter is higher.
- * @param Scientist variable.
- * @param Scientist variable.
- * @return true/false.
- */
-struct ScientistCompareDeathReverse
-{
-    bool operator() (Scientist i,Scientist j) { return (i.getDeath()>j.getDeath());}
-};
-
-
 vector<Scientist> ScientistService::searchName(string command)
 {
     return _SciAccess.searchQueryString(command);
 }
 
+/**
+ * @brief ScientistService::searchSex
+ * @param command
+ * @return
+ */
 vector<Scientist> ScientistService::searchSex(string command)
 {
     return _SciAccess.searchQueryString(command);
 }
 
+/**
+ * @brief ScientistService::searchBirth
+ * @param command
+ * @return
+ */
 vector<Scientist> ScientistService::searchBirth(int command)
 {
     return _SciAccess.searchQueryInt(command);
 }
 
+/**
+ * @brief ScientistService::searchDeath
+ * @param command
+ * @return
+ */
 vector<Scientist> ScientistService::searchDeath(int command)
 {
     return _SciAccess.searchQueryInt(command);
 }
 
-
+/**
+ * @brief ScientistService::sortByName
+ * @return
+ */
 vector<Scientist> ScientistService::sortByName()
 {
     return _SciAccess.sortQuery("name", "ASC");
 }
-
+/**
+ * @brief ScientistService::sortBySex
+ * @return
+ */
 vector<Scientist> ScientistService::sortBySex()
 {
     return _SciAccess.sortQuery("sex", "ASC");
 }
-
+/**
+ * @brief ScientistService::sortByBirth
+ * @return
+ */
 vector<Scientist> ScientistService::sortByBirth()
 {
     return _SciAccess.sortQuery("birth", "ASC");
 }
 
+/**
+ * @brief ScientistService::sortByDeath
+ * @return
+ */
 vector<Scientist> ScientistService::sortByDeath()
 {
     return _SciAccess.sortQuery("death", "ASC");
 }
 
-
+/**
+ * @brief ScientistService::sortByNameReverse
+ * @return
+ */
 vector<Scientist> ScientistService::sortByNameReverse()
 {
     return _SciAccess.sortQuery("name", "DESC");
 }
 
+/**
+ * @brief ScientistService::sortBySexReverse
+ * @return
+ */
 vector<Scientist> ScientistService::sortBySexReverse()
 {
     return _SciAccess.sortQuery("sex", "DESC");
 }
-
+/**
+ * @brief ScientistService::sortByBirthReverse
+ * @return
+ */
 vector<Scientist> ScientistService::sortByBirthReverse()
 {
     return _SciAccess.sortQuery("birth", "DESC");
 }
 
+/**
+ * @brief ScientistService::sortByDeathReverse
+ * @return
+ */
 vector<Scientist> ScientistService::sortByDeathReverse()
 {
     return _SciAccess.sortQuery("death", "DESC");
 }
-
-
-
 
 /**
  * @brief A function that validates if the name which the user asks to input is valid.
@@ -279,7 +251,6 @@ bool ScientistService::validDeath(int birth, string strDeath)
     }
     else return true;
 }
-
 
 /**
  * @brief A function which returns the length of the longest name in the database.

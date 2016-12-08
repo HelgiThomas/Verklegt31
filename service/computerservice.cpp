@@ -45,103 +45,107 @@ void ComputerService::removeComputer (string nameOf)
 
 }
 
+/**
+ * @brief This function removes all computers from the list
+ */
 void ComputerService::removeEverycomputer ()
 {
     _ComAccess.removeAll();
 }
 
+/**
+ * @brief ComputerService::editComputerString
+ * @param nameOf
+ * @param variable
+ * @param newElement
+ */
 void ComputerService::editComputerString(string nameOf, string variable, string newElement)
 {
     _ComAccess.editString (nameOf,variable,newElement);
 }
+
+/**
+ * @brief ComputerService::editComputerInt
+ * @param nameOf
+ * @param variable
+ * @param newElement
+ */
 void ComputerService::editComputerInt(string nameOf, string variable, int newElement)
 {
     _ComAccess.editInt (nameOf,variable,newElement);
 }
 
 /**
- * @brief Compares the name and returns true if the second parameter is higher.
- * @param Computer variable.
- * @param Computer variable.
- * @return true/false
+ * @brief This function sorts the computers name
+ * @return
  */
-struct ComputerCompareName
-{
-    bool operator() (Computer i,Computer j) { return (i.getName()<j.getName());}
-};
-
-/**
- * @brief Compares the build years and returns true if the second parameter is higher.
- * @param Computer variable.
- * @param Computer variable.
- * @return true/false
- */
-struct ComputerCompareBuildYear
-{
-    bool operator() (Computer i,Computer j) { return (i.getBuildYear()<j.getBuildYear());}
-};
-
-/**
- * @brief Compares the name and returns true if the first parameter is higher.
- * @param Computer variable.
- * @param Computer variable.
- * @return true/false
- */
-struct ComputerCompareNameReverse
-{
-    bool operator() (Computer i,Computer j) { return (i.getName()>j.getName());}
-};
-
-/**
- * @brief Comapares the build years and returns true if the first parameter is higher.
- * @param Computer variable.
- * @param Computer variable.
- * @return true/false
- */
-struct ComputerCompareBirthReverse
-{
-    bool operator() (Computer i,Computer j) { return (i.getBuildYear()>j.getBuildYear());}
-};
-
-
 vector<Computer> ComputerService::sortByName()
 {
     return _ComAccess.sortQuery("name", "ASC");
 }
 
+/**
+ * @brief This function sorts from the computers build year
+ * @return
+ */
 vector<Computer> ComputerService::sortByBuildYear()
 {
     return _ComAccess.sortQuery("year", "ASC");
 }
 
+/**
+ * @brief ComputerService::sortByCompType
+ * @return
+ */
 vector<Computer> ComputerService::sortByCompType()
 {
     return _ComAccess.sortQuery("type", "ASC");
 
 }
+
+/**
+ * @brief ComputerService::sortBywasBuilt
+ * @return
+ */
 vector<Computer> ComputerService::sortBywasBuilt()
 {
     return _ComAccess.sortQuery("wasBuilt", "ASC");
 }
 
-
+/**
+ * @brief ComputerService::sortByNameReverse
+ * @return
+ */
 vector<Computer> ComputerService::sortByNameReverse()
 {
     return _ComAccess.sortQuery("name", "ASC");
 
 }
 
+/**
+ * @brief ComputerService::sortByBuildYearReverse
+ * @return
+ */
 vector<Computer> ComputerService::sortByBuildYearReverse()
 {
     return _ComAccess.sortQuery("year", "DESC");
 
 }
 
+/**
+ * @brief ComputerService::sortByCompTypeReverse
+ * @return
+ */
 vector<Computer> ComputerService::sortByCompTypeReverse()
 {
     return _ComAccess.sortQuery("type", "DESC");
 
 }
+
+/**
+ * @brief ComputerService::sortBywasBuiltReverse
+ * @return
+ */
 vector<Computer> ComputerService::sortBywasBuiltReverse()
 {
     return _ComAccess.sortQuery("wasBuilt", "DESC");
@@ -169,6 +173,11 @@ bool ComputerService::validName(string name)
     return valid;
 }
 
+/**
+ * @brief ComputerService::validCompType
+ * @param compType
+ * @return
+ */
 bool ComputerService::validCompType(string compType)
 {
     bool valid = false;
