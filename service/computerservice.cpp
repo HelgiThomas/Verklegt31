@@ -75,25 +75,25 @@ void ComputerService::editComputerInt(string nameOf, string variable, int newEle
     _ComAccess.editInt (nameOf,variable,newElement);
 }
 
-vector<Scientist> ComputerService::searchName(string command)
+vector<Computer> ComputerService::searchName(string command)
 {
-    return _SciAccess.searchQueryString("Name",command);
+    return _ComAccess.searchQueryString("Name",command);
 }
 
-vector<Scientist> ComputerService::searchYear(string operatorOf, int command)
+vector<Computer> ComputerService::searchYear(string operatorOf, int command)
 {
-    return _SciAccess.searchQueryInt("year",operatorOf,command);
+    return _ComAccess.searchQueryInt("year",operatorOf,command);
 }
 
-vector<Scientist> ComputerService::searchType(string command)
+vector<Computer> ComputerService::searchType(string command)
 {
-    return _SciAccess.searchQueryString("Type",command);
+    return _ComAccess.searchQueryString("Type",command);
 }
 
 
-vector<Scientist> ComputerService::searchwasBuilt(string builtOf)
+vector<Computer> ComputerService::searchwasBuilt(string builtOf,string operatorOf)
 {
-    return _SciAccess.searchQueryInt("wasBuilt",operatorOf);
+    return _ComAccess.searchQueryString("wasBuilt",operatorOf);
 }
 
 /**

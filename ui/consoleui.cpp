@@ -903,18 +903,24 @@ void ConsoleUI::searchScientistList ()
         {
             clearScreen();
             int birthOf;
+            string operatorOf;
             cout << "Which year of birth would you like to search for? " << endl << endl << "=> ";
             cin >> birthOf;
-            vector<Scientist> names = _serviceSci.searchBirth (birthOf);
+            cout << "Would you like to choose greate, less or equal ";
+            cin >> operatorOf;
+            vector<Scientist> names = _serviceSci.searchBirth (operatorOf,birthOf);
             validateSearch(names);
         }
         else if(command == "death" || command == "Death" || command == "4")
         {
             clearScreen();
             int deathOf;
+            string operatorOf;
             cout << "Which date of death would you like to serach for? " << endl << endl << "=> ";
             cin >> deathOf;
-            vector<Scientist> names =_serviceSci.searchDeath (deathOf);
+            cout << "Would you like to choose greate, less or equal ";
+            cin >> operatorOf;
+            vector<Scientist> names =_serviceSci.searchDeath(operatorOf,deathOf);
             validateSearch(names);
         }
         else
