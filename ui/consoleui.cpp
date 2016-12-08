@@ -681,7 +681,7 @@ void ConsoleUI::removeSci ()
         else
         {
            cout << "Invalid number! " << endl;
-           run();
+           removeSci();
         }
 
     } while (!exist);
