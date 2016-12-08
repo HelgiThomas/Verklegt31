@@ -125,19 +125,19 @@ void ComputerAccess::editString(string nameOf, string variable, string newElemen
     QString qNameOf = QString::fromStdString(nameOf);
     QString qNewElement = QString::fromStdString(newElement);
 
-    if (variable == "Name" || variable == "name")
+    if (variable == "Name" || variable == "name" || variable == "1")
     {
         query.prepare("UPDATE Computers SET Name = :newElement WHERE Name = :name");
         query.bindValue(":newElement", qNewElement);
         query.bindValue(":name", qNameOf);
     }
-    else if (variable == "Type" || variable == "type")
+    else if (variable == "Type" || variable == "type" || variable == "3")
     {
         query.prepare("UPDATE Computers SET type = :newElement WHERE Name = :name");
         query.bindValue(":newElement", qNewElement);
         query.bindValue(":name", qNameOf);
     }
-    else if (variable == "Built" || variable == "built")
+    else if (variable == "Built" || variable == "built" || variable == "4")
     {
         query.prepare("UPDATE Computers SET wasBuilt = :newElement WHERE Name = :name");
         query.bindValue(":newElement", qNewElement);
@@ -158,7 +158,7 @@ void ComputerAccess::editInt(string nameOf, string variable, int newElement)
     QString qNameOf = QString::fromStdString(nameOf);
     QString qNewElement = QString::number(newElement);
 
-    if (variable == "Year" || variable == "year")
+    if (variable == "Year" || variable == "year" || variable == "2")
     {
         query.prepare("UPDATE Computers SET year = :newElement WHERE Name = :name");
         query.bindValue(":name", qNameOf);

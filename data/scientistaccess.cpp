@@ -126,13 +126,13 @@ void ScientistAccess::editString(string nameOf, string variable, string newEleme
     QString qNameOf = QString::fromStdString(nameOf);
     QString qNewElement = QString::fromStdString(newElement);
 
-    if (variable == "Name" || variable == "name")
+    if (variable == "Name" || variable == "name" || variable == "1")
     {
         query.prepare("UPDATE Scientists SET Name = :newElement WHERE Name = :name");
         query.bindValue(":newElement", qNewElement);
         query.bindValue(":name", qNameOf);
     }
-    else if (variable == "Sex" || variable == "sex")
+    else if (variable == "Sex" || variable == "sex" || variable == "2")
     {
         query.prepare("UPDATE Scientists SET Sex = :newElement WHERE Name = :name");
         query.bindValue(":newElement", qNewElement);
@@ -154,13 +154,13 @@ void ScientistAccess::editInt(string nameOf, string variable, int newElement)
     QString qNameOf = QString::fromStdString(nameOf);
     QString qNewElement = QString::number(newElement);
 
-    if (variable == "Birth" || variable == "birth")
+    if (variable == "Birth" || variable == "birth" || variable == "3")
     {
         query.prepare("UPDATE Scientists SET Birth = :newElement WHERE Name = :name");
         query.bindValue(":name", qNameOf);
         query.bindValue(":newElement", qNewElement);
     }
-    else if (variable == "Death" || variable == "death")
+    else if (variable == "Death" || variable == "death" || variable == "4")
     {
         query.prepare("UPDATE Scientists SET Death = :newElement WHERE Name = :name");
         query.bindValue(":name", qNameOf);
