@@ -76,6 +76,8 @@ private:
 
     void removeComp();
 
+    void removeEveryComp();
+
     void removeRelation();
 
     void removerelation ();
