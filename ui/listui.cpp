@@ -65,7 +65,7 @@ void ListUI::listAllRelations()
     _util.clearScreen();
     cout << setw(4) << right << "No."<< "  | ";
     cout << setw(16) << right << "ScientistID"<< "  | ";
-    cout << setw(16) << right << "ComputerID" << "  | " << endl;
+    cout << setw(16) << right << "ComputerID" << endl;
 
     cout << endl << "-----------------------------------------------------------------------------------------------------" << endl;
     for (unsigned int i = 0 ; i < lengthScientist.size(); i++)
@@ -78,7 +78,7 @@ void ListUI::listAllRelations()
     cout << endl;
 }
 
-void ListUI::listCompRelation(string Sci)
+void ListUI::listCompRelation(string Comp)
 {
     vector<int>ScientistID = _serviceSci.allScientistID();
     vector<int>ComputerID = _serviceComp.allComputerID();
@@ -127,7 +127,7 @@ void ListUI::listCompRelation(string Sci)
     cout << endl;
 }
 
-void ListUI::listSciRelation(string Comp)
+void ListUI::listSciRelation(string Sci)
 {
     vector<int>ScientistID = _serviceSci.allScientistID();
     vector<int>ComputerID = _serviceComp.allComputerID();
@@ -163,7 +163,7 @@ void ListUI::listSciRelation(string Comp)
     _util.clearScreen();
     cout << setw(4) << right << "No."<< "  | ";
     cout << setw(16) << right << "ScientistID"<< "  | ";
-    cout << setw(16) << right << "ComputerID" << "  | " << endl;
+    cout << setw(16) << right << "ComputerID" << endl;
 
     cout << endl << "-----------------------------------------------------------------------------------------------------" << endl;
     for (unsigned int i = 0 ; i < lengthScientist.size(); i++)

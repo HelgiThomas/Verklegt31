@@ -53,6 +53,10 @@ public:
     void editSci(int changeID,int newSciID);
     void editComp(int changeID,int newCompID);
 
+    /**
+     * @brief getSciComps,
+     * @param Sci
+     */
     void getSciComps(string Sci);
     void getCompScis(string Comp);
 

@@ -180,7 +180,7 @@ void EditUI::editComp()
      vector <Scientist> temp1 = _serviceSci.getScientists();
      _util.clearScreen();
      int nrID , sciID, compID;
-     _list.listRelation();
+     _list.listAllRelations();
      cout << endl << "No. which relation would you like to edit? " << endl << endl << "=> ";
      cin >> nrID;
 

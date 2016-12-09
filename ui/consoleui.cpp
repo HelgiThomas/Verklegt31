@@ -228,7 +228,7 @@ void ConsoleUI::consoleList()
     }
     else if(choice == "relations" || choice == "Relations" || choice == "3")
     {
-        _list.listRelation();
+        listRelation();
     }
     else if(choice == "back" || choice == "Back" || choice == "4")
     {
@@ -247,7 +247,7 @@ void ConsoleUI::consoleList()
  * It lists out all the relations between scientists and computers
  * in the order they were put into the program.
  */
-void ListUI::listRelation()
+void ConsoleUI::listRelation()
 {
     _util.clearScreen();
     string choice;
@@ -263,11 +263,23 @@ void ListUI::listRelation()
     }
     else if(choice == "scientist" || choice == "Scientists" || choice == "2")
     {
-        _list.listSciRelation(string Sci);
+        vector<Scientist> Scientists = _serviceSci.getScientists();
+        _util.displayListOfScientists(Scientists);
+        string Sci;
+        cout << "Which scientist do you want to see?" << endl;
+        cin >> Sci;
+
+        _list.listSciRelation(Sci);
     }
     else if(choice == "computer" || choice == "Computer" || choice == "3")
     {
-        _list.listCompRelation(string comp);
+        vector<Computer> Computers = _serviceComp.getComputers();
+        _util.displayListOfComputers(Computers);
+        string Comp;
+        cout << "Which computer do you want to see?" << endl;
+        cin >> Comp;
+
+        _list.listCompRelation(Comp);
     }
     else if(choice == "back" || choice == "Back" || choice == "4")
     {

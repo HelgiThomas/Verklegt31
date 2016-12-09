@@ -13,7 +13,7 @@ RemoveUI::RemoveUI()
  void RemoveUI::removeRelation()
  {
      _util.clearScreen();
-     _list.listRelation();
+     _list.listAllRelations();
      int nrID;
 
      cout << "Which relation would you like to remove? " << endl << endl << "=> ";

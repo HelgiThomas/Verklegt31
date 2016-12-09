@@ -25,8 +25,8 @@ public:
     void listComp();
 
     void listAllRelations();
-    void listCompRelation();
-    void listSciRelation();
+    void listCompRelation(string Comp);
+    void listSciRelation(string Sci);
 
 private:
     UtilityUI _util;
