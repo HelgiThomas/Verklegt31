@@ -389,6 +389,9 @@ void ConsoleUI::addSci()
     clearScreen();
 }
 
+/**
+ * @brief ConsoleUI::addComp
+ */
 void ConsoleUI::addComp()
 {
     clearScreen();
@@ -402,7 +405,7 @@ void ConsoleUI::addComp()
     std::getline(cin, name);
     std::getline(cin, name);
 
-    //name = _serviceComp.makeFirstLetterBig(name);
+    name = _serviceSci.makeFirstLetterBig(name);
 
     cout << "Build year: ";
     cin >> strBuiltYear;
@@ -415,6 +418,8 @@ void ConsoleUI::addComp()
     builtYear = atoi(strBuiltYear.c_str());
     cout << "Computer type: ";
     cin >> compType;
+
+    compType = _serviceSci.makeFirstLetterBig(compType);
 
     if(askIfBuilt())
     {
@@ -436,6 +441,9 @@ void ConsoleUI::addComp()
     clearScreen();
 }
 
+/**
+ * @brief ConsoleUI::addRelation
+ */
 void ConsoleUI::addRelation()
 {
     clearScreen();
@@ -516,55 +524,54 @@ void ConsoleUI::addRelation()
 
 void ConsoleUI::listRelation()
 {
-    bool isValid = true;
-    vector<int> temp;
-    int tempa = 0;
-    int tempb = 0;
     vector<int>ScientistID = _serviceSci.allScientistID ();
     vector<int>ComputerID = _serviceComp.allComputerID ();
 
     vector<Computer> Computers = _serviceComp.getComputers();
     vector<Scientist> Scientists = _serviceSci.getScientists();
+    vector<Computer> lengthComputer;
+    vector <Scientist> lengthScientist;
     vector<Scientist> tempSci;
 
+    for (unsigned int i = 0 ; i < ComputerID.size(); i++)
+    {
+        for (unsigned int k = 0; k < Computers.size(); k++)
+        {
+            if(ComputerID[i] == Computers[k].getId())
+            {
+                lengthComputer.push_back(Computers[k]);
+                break;
+            }
+        }
+    }
+
+    for (unsigned int i = 0 ; i < ScientistID.size(); i++)
+    {
+        for (unsigned int k = 0; k < Scientists.size();k++)
+        {
+            if(ScientistID[i] == Scientists[k].getId())
+            {
+                lengthScientist.push_back(Scientists[k]);
+            }
+        }
+    }
+    clearScreen();
     cout << "No." << "\t";
+    cout << setw(_serviceSci.lengthOfLongestName(lengthScientist)) << left;
     cout << "ScientistID" << "\t\t";
     cout << "ComputerID" << " \t\t";
 
-        cout << endl << "-----------------------------------------------------------------------------------------------------" << endl;
-
-        for (int i = 0 ; i < ComputerID.size(); i++)
-         {
-             for (int k = 0; k < Computers.size(); k++)
-             {
-                if(ComputerID[i] == Computers[k].getId())
-                {
-                   temp.push_back(k);
-                   break;
-                }
-             }
-         }
-
-         for (int i = 0 ; i < ScientistID.size(); i++)
-         {
-             cout << i + 1<< ". | ";
-             for (int k = 0; k < Scientists.size();k++)
-             {
-                if(ScientistID[i] == Scientists[k].getId())
-                {
-                    tempb = temp[tempa];
-                    cout << Scientists[k].getName() << "\t\t" << Computers[tempb].getName() << endl;
-                    tempa++;
-                    break;
-
-                }
-             }
-         }
-
-
+    cout << endl << "-----------------------------------------------------------------------------------------------------" << endl;
+    for (unsigned int i = 0 ; i < lengthScientist.size(); i++)
+    {
+        cout << i + 1 << ". | " << "\t";
+        cout << setw(_serviceSci.lengthOfLongestName(lengthScientist)) << left;
+        cout << lengthScientist[i].getName();
+        cout << "\t | \t";
+        cout << lengthComputer[i].getName();
+        cout << endl;
+    }
     cout << endl;
-
-
 }
 
 
@@ -671,6 +678,10 @@ void ConsoleUI::editComp()
 
         if( variable == "name" || variable == "Name" || variable == "1")
         {
+            if(variable == "1")
+            {
+                variable = "name";
+            }
             string newName;
             cout << endl << "What would you like to change the name too? " << endl << endl << "=> ";
             std::getline(cin, newName);
@@ -679,6 +690,10 @@ void ConsoleUI::editComp()
         }
         else if(variable == "year" || variable == "Year" || variable == "2")
         {
+            if(variable == "2")
+            {
+                variable = "year";
+            }
             int newYear;
             cout << endl << "What would you like to change the year too? " << endl << endl << "=> ";
             cin >> newYear;
@@ -686,6 +701,10 @@ void ConsoleUI::editComp()
         }
         else if(variable == "type" || variable == "Type" || variable == "3")
         {
+            if(variable == "3")
+            {
+                variable = "type";
+            }
             string newType;
             cout << endl << "What would you like to change the type too? " << endl << endl << "=> ";
             std::getline(cin, newType);
@@ -694,6 +713,10 @@ void ConsoleUI::editComp()
         }
         else if(variable == "built" || variable == "Built" || variable == "4")
         {
+            if(variable == "4")
+            {
+                variable = "built";
+            }
             string newBuilt;
             cout << endl << "What would you like to change the built too? " << endl << endl << "=> ";
             std::getline(cin, newBuilt);
