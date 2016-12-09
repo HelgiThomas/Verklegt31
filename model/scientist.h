@@ -6,7 +6,7 @@
 using namespace std;
 
 /**
- * @brief The Scientist class to create the abstract data type Scientist.
+ * @brief The Scientist class, to create the abstract data type Scientist.
  */
 class Scientist
 {

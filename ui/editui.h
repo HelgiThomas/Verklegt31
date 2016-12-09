@@ -8,11 +8,21 @@
 #include "ui/utilityui.h"
 #include "ui/listui.h"
 
+/**
+ * @brief The EditUI class,
+ */
 class EditUI
 {
 public:
+
+    /**
+     * @brief EditUI,
+     */
     EditUI();
 
+    /**
+     * @brief editSci/Comp/Relation,
+     */
     void editSci();
     void editComp();
     void editRelation();

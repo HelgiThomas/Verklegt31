@@ -29,13 +29,13 @@ public:
 
     /**
      * @brief addComputer, adds a new computer to the database.
-     * @param newComputer
+     * @param Computer newComputer
      */
     void addComputer(Computer newComputer);
 
     /**
      * @brief searchName/Year/Type/wasBuilt, search functions to search for all the specified inputs.
-     * @param command
+     * @param string command
      * @return
      */
     vector<Computer> searchName(string command);

@@ -7,11 +7,20 @@
 
 #include "ui/utilityui.h"
 
+/**
+ * @brief The SearchUI class,
+ */
 class SearchUI
 {
 public:
+    /**
+     * @brief SearchUI,
+     */
     SearchUI();
 
+    /**
+     * @brief searchScientistList/Computer,
+     */
     void searchScientistList();
     void searchComputerList ();
 

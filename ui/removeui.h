@@ -9,11 +9,20 @@
 
 #include "ui/utilityui.h"
 
+/**
+ * @brief The RemoveUI class
+ */
 class RemoveUI
 {
 public:
+    /**
+     * @brief RemoveUI
+     */
     RemoveUI();
 
+    /**
+     * @brief removeSci/EverySci/Comp/EveryComp/Relation,
+     */
     void removeSci();
     void removeEverySci();
     void removeComp();

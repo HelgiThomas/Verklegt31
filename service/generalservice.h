@@ -17,36 +17,36 @@ public:
     GeneralService();
 
     /**
-     * @brief link
-     * @param sciId
-     * @param compId
+     * @brief link,
+     * @param int sciId
+     * @param int compId
      */
     void link(int sciId, int compId);
     
     /**
      * @brief validRelation
-     * @param sci
-     * @param num
+     * @param int sci
+     * @param vector num
      * @return
      */
     bool validRelation(int sci, vector<int> num);
 
     /**
      * @brief removeRelation
-     * @param nrId
+     * @param int nrId
      */
     void removeRelation (int nrId);
 
     /**
-     * @brief editRelation
-     * @param nrID
-     * @param sciID
-     * @param compID
+     * @brief editRelation,
+     * @param int nrID
+     * @param int sciID
+     * @param int compID
      */
     void editRelation(int nrID,int sciID,int compID);
 
     /**
-     * @brief allRelationID
+     * @brief allRelationID,
      * @return
      */
     vector<int> allRelationID();

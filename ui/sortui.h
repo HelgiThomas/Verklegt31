@@ -6,14 +6,26 @@
 
 #include "ui/utilityui.h"
 
+/**
+ * @brief The SortUI class,
+ */
 class SortUI
 {
 public:
+    /**
+     * @brief SortUI,
+     */
     SortUI();
 
+    /**
+     * @brief sortSci/Comp,
+     */
     void sortSci();
     void sortComp();
 
+    /**
+     * @brief reversedSortSci/Comp,
+     */
     void reversedSortSci();
     void reversedSortComp();
 

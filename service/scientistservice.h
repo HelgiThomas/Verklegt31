@@ -16,24 +16,24 @@ class ScientistService
 {
 public:
     /**
-     * @brief Default constructor for the class ScientistsService.
+     * @brief ScientistService, Default constructor for the class ScientistsService.
      */
     ScientistService();
 
     /**
-     * @brief Function to return a vector of all the Scientists.
+     * @brief getScientists, Function to return a vector of all the Scientists.
      * @return vector<Scientist>.
      */
     vector<Scientist> getScientists();
 
     /**
-     * @brief Function to add a new scientist.
+     * @brief addScientist, Function to add a new scientist.
      * @param Scientist newScientist.
      */
     void addScientist(Scientist newScientist);
 
     /**
-     * @brief Functions to search for different things.
+     * @brief searchName/Sex/Birth/Death, Functions to search for different things.
      * @param string/int command.
      * @return vector <Scientist>.
      */
@@ -43,7 +43,7 @@ public:
     vector<Scientist> searchDeath (string operatorOf, int command);
 
     /**
-     * @brief Functions to sort by different means.
+     * @brief sortByName/Sex/Birth/Death, Functions to sort by different means.
      * @return vector<Scientist>.
      */
     vector<Scientist> sortByName();
@@ -52,7 +52,7 @@ public:
     vector<Scientist> sortByDeath();
 
     /**
-     * @brief Functions to sort in reverse order by various different means.
+     * @brief sortByName/Sex/Birth/Death in reverse, Functions to sort in reverse order by various different means.
      * @return vector<Scientist>.
      */
     vector<Scientist> sortByNameReverse();
@@ -61,18 +61,23 @@ public:
     vector<Scientist> sortByDeathReverse();
 
     /**
-     * @brief Function to remove a scientist from the list.
+     * @brief removeScientist/Every, Function to remove a scientist from the list.
      * @param string name.
      */
     void removeScientist (int nameOf);
     void removeEveryscientist ();
 
-
+    /**
+     * @brief editScientistString/int, Function edits the scientists.
+     * @param string nameOf
+     * @param string variable
+     * @param string/int newElement
+     */
     void editScientistString(string nameOf, string variable, string newElement);
     void editScientistInt (string nameOf, string variable, int newElement);
 
     /**
-     * @brief Functions to validate if the entries when input by the user.
+     * @brief validName/Sex/Year/Number/Death/Command, Functions to validate if the entries when input by the user.
      * @param name, sex, year, (birth, str death), command.
      * @return true/false.
      */
@@ -84,7 +89,7 @@ public:
     bool validCommand(string command);
 
     /**
-     * @brief Functions to return the longest name/citaton to make the UI look nice.
+     * @brief lengthOfLongestName/Citation, Functions to return the longest name/citaton to make the UI look nice.
      * @param vector<Scientist> scientists
      * @return integer
      */
@@ -92,7 +97,7 @@ public:
     int lengthOfLongestCitation (vector<Scientist> scientists);
 
     /**
-     * @brief Functions to check and verify inputs by the user, male_or_female() and
+     * @brief mOrF/makeFirstLetterBig, Functions to check and verify inputs by the user, male_or_female() and
      * make the first letter of each name a capital letter.
      * @param sex, name
      * @return string
