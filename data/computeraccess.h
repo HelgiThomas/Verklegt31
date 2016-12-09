@@ -44,6 +44,7 @@ public:
     vector<Computer> searchQueryInt(string variable, string operatorOf, int command);
 
 
+
     void connect();
 
 private:

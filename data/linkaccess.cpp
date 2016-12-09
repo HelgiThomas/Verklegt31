@@ -17,10 +17,12 @@ bool LinkAccess::link(int scientistId, int computerId)
     QSqlQuery query;
     QString qSci = QString::number(scientistId);
     QString qComp = QString::number(computerId);
+    QString qStatus = QString::number(number);
 
-    query.prepare("INSERT INTO SciComp (SciID, CompID) VALUES (:sci, :comp)");
+    query.prepare("INSERT INTO SciComp (SciID, CompID, Status) VALUES (:sci, :comp , :status)");
     query.bindValue(":sci", qSci);
     query.bindValue(":comp", qComp);
+    query.bindValue(":status", number);
 
     query.exec();
 }
@@ -36,15 +38,24 @@ vector<int>LinkAccess::ScientistId ()
     query.exec(qCommand);
 
     int SciID = query.record().indexOf("SciID");
+    int idStatus = query.record().indexOf("status");
+
+
     while (query.next())
     {
 
        QString qSciID = query.value(SciID).toString();
+       QString qStatus = query.value(idStatus).toString();
 
        int id = qSciID.toInt();
-
-        scientistsID.push_back(id);
+       int status = qStatus.toInt();
+       if (status == 1)
+       {
+             scientistsID.push_back(id);
        }
+
+
+      }
 
     return scientistsID;
 }
@@ -61,17 +72,34 @@ vector<int> LinkAccess::ComputerId ()
         query.exec(qCommand);
 
         int CompID = query.record().indexOf("CompID");
+        int idStatus = query.record().indexOf("status");
+
         while (query.next())
         {
 
-           QString qComoID = query.value(CompID).toString();
+           QString qCompID = query.value(CompID).toString();
+           QString qStatus = query.value(idStatus).toString();
 
-           int id = qComoID.toInt();
+           int id = qCompID.toInt();
+           int status = qStatus.toInt();
 
-            computersID.push_back(id);
+           if (status == 1)
+           {
+                 computersID.push_back(id);
+           }
+
+
          }
 
         return computersID;
+}
+void LinkAccess::editRelation (int nrID, int SciID, int CompID)
+{
+
+}
+void LinkAccess::removeRelation (int nrID)
+{
+
 }
 
 void LinkAccess::connect()
