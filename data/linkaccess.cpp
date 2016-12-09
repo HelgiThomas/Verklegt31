@@ -98,6 +98,39 @@ vector<int> LinkAccess::ComputerId ()
        }
         return computersID;
 }
+vector<int> LinkAccess::RelationId()
+{
+    connect();
+    vector<int> relationID;
+
+    QSqlQuery query;
+
+    string query_string = "SELECT * FROM SciComp";
+    QString qCommand (query_string.c_str());
+    query.exec(qCommand);
+
+    int idID = query.record().indexOf("ID");
+    int idStatus = query.record().indexOf("status");
+
+    while (query.next())
+    {
+
+       QString qID = query.value(idID).toString();
+       QString qStatus = query.value(idStatus).toString();
+
+       int relationId = qID.toInt();
+       int status = qStatus.toInt();
+
+       if (status == 1)
+       {
+             relationID.push_back(relationId);
+       }
+   }
+
+    return relationID;
+
+}
+
 /**
  * @brief edits the selected ID and putss the new science ID and new computer Id in that relation
  * @param int nrID, int SciID, int CompID
@@ -112,6 +145,21 @@ void LinkAccess::editRelation (int nrID, int SciID, int CompID)
  */
 void LinkAccess::removeRelation (int nrID)
 {
+
+    vector<int> allID = RelationId();
+
+    int IDremove = allID[nrID-1];
+    connect();
+
+    QSqlQuery query;
+
+    QString qID = QString::number(IDremove);
+    query.prepare("UPDATE SciComp SET Status = 0 WHERE ID = (:IDremove)");
+    query.bindValue(":IDremove", qID);
+
+    query.exec();
+
+
 
 }
 /**
