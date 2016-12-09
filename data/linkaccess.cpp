@@ -140,7 +140,7 @@ void LinkAccess::editRelation (int nrID, int SciID, int CompID)
 
 }
 /**
- * @brief This function puts the status = 0 for the selcted relation
+ * @brief This function puts the status = 0 for the selcted re++lation
  * @param int nr ID
  */
 void LinkAccess::removeRelation (int nrID)

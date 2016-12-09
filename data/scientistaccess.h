@@ -37,7 +37,8 @@ public:
     vector<Scientist> searchQueryString(string variable,string command);
     vector<Scientist> searchQueryInt(string variable, string operatorOf, int command);
 
-
+    void updateRelation (int nameOf);
+    void updateRelationall();
 
     void connect();
 

@@ -104,6 +104,7 @@ void ComputerAccess::removelist(int nameOf)
 {
     int number = 0;
     connect();
+    updateRelation (nameOf);
 
     QSqlQuery query;
 
@@ -115,12 +116,39 @@ void ComputerAccess::removelist(int nameOf)
 
     query.exec();
 }
+void ComputerAccess::updateRelation(int nameOf)
+{
+    int number = 0;
+    connect();
+
+    QSqlQuery query;
+
+    QString qStatus = QString::number(number);
+    QString qName = QString::number(nameOf);
+
+    query.prepare("UPDATE SciComp SET Status = 0 WHERE CompID = (:nameOf)");
+    query.bindValue(":nameOf", qName);
+    query.bindValue(":status", qStatus);
+
+    query.exec();
+}
+void ComputerAccess::updateRelationall()
+{
+    connect();
+
+    QSqlQuery query;
+    query.prepare("UPDATE SciComp SET Status = 0");
+    query.exec();
+}
+
 /**
  * @brief This function sets the status = 0 for all Computers in the SQL database
  */
 void ComputerAccess::removeAll()
 {
     connect();
+
+    updateRelationall();
 
     QSqlQuery query;
      query.prepare("UPDATE Computers SET Status = 0");

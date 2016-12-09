@@ -108,6 +108,8 @@ void ScientistAccess::removelist(int nameOf)
 
     connect();
 
+    updateRelation(nameOf);
+
     QSqlQuery query;
 
     QString qStatus = QString::number(number);
@@ -118,12 +120,40 @@ void ScientistAccess::removelist(int nameOf)
 
     query.exec();
 }
+void ScientistAccess::updateRelation(int nameOf)
+{
+    int number = 0;
+    connect();
+
+    QSqlQuery query;
+
+    QString qStatus = QString::number(number);
+    QString qName = QString::number(nameOf);
+
+    query.prepare("UPDATE SciComp SET Status = 0 WHERE SciID = (:nameOf)");
+    query.bindValue(":nameOf", qName);
+    query.bindValue(":status", qStatus);
+
+    query.exec();
+}
+void ScientistAccess::updateRelationall()
+{
+    connect();
+
+    QSqlQuery query;
+    query.prepare("UPDATE SciComp SET Status = 0");
+    query.exec();
+}
+
+
 /**
  * @brief This function sets status = 0 for all the Scientist in the SQL database
  */
 void ScientistAccess::removeAll()
 {
     connect();
+
+    updateRelationall();
 
     QSqlQuery query;
     query.prepare("UPDATE Scientists SET Status = 0");
@@ -220,7 +250,6 @@ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
     string query_string = "SELECT * FROM Scientists ORDER BY " + var + " " + command;
     QString qCommand (query_string.c_str());
     query.exec(qCommand);
-
 
     int idId = query.record().indexOf("id");
     int idName = query.record().indexOf("name");
