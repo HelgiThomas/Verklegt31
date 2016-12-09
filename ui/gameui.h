@@ -13,7 +13,8 @@ class GameUI
 public:
     GameUI();
 
-    void playGame();
+    void playCitation();
+    void playRelation();
 
 private:
     UtilityUI _util;

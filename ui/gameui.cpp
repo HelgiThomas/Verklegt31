@@ -10,7 +10,7 @@ GameUI::GameUI()
 /**
  * @brief plays a game with the user, guessing who owns the citation.
  */
-void GameUI::playGame(){
+void GameUI::playCitation(){
 
     _util.clearScreen();
 
@@ -45,3 +45,10 @@ void GameUI::playGame(){
     }
 }
 
+void GameUI::playRelation()
+{
+    _util.clearScreen();
+    
+    //vector<Scientist>
+    
+}
