@@ -1,21 +1,26 @@
 #ifndef COMPUTER_H
 #define COMPUTER_H
+
 #include <iostream>
 
 using namespace std;
 
+/**
+ * @brief The Computer class.
+ */
 class Computer
 {
 public:
     /**
      * @brief Default constructors for the class Computer.
+     * @param int id, string name, int buildYear, string compType, string wasBuilt
      */
     Computer();
     Computer(int id, string name, int buildYear, string compType, string wasBuilt);
 
     /**
      * @brief Get functions for the class to return the private variables of the class.
-     * @return name, buildYear, compType, wasBuilt.
+     * @return id, name, buildYear, compType, wasBuilt, description.
      */
     int getId() const;
     string getName() const;
@@ -26,7 +31,7 @@ public:
 
     /**
      * @brief Set functions for the class to return the private variables of the class.
-     * @param name, buildYear, compType, wasBuilt.
+     * @param int id, string name, int buildYear, string compType, string wasBuilt, string description
      */
     void setId(int id);
     void setName(string name);
@@ -36,6 +41,9 @@ public:
     void setDescription(string description);
 
 private:
+    /**
+     * @brief _id
+     */
     int _id;
     string _name;
     int _buildYear;

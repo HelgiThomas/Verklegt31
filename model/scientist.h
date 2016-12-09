@@ -1,5 +1,6 @@
 #ifndef SCIENTIST_H
 #define SCIENTIST_H
+
 #include <string>
 
 using namespace std;
@@ -18,7 +19,7 @@ public:
 
     /**
      * @brief Get functions for the class to return the private variables of the class.
-     * @return name, sex, citation, birth and death.
+     * @return int id, string name, string sex, string citation, int birth and int death.
      */
     int getId() const;
     string getName () const;
@@ -29,7 +30,7 @@ public:
 
     /**
      * @brief Set functions for the class to return the private variables of the class.
-     * @param name, sex, citation, birth, death.
+     * @param int id, string name, string sex, string citation, int birth, int death.
      */
     void setId(int id);
     void setName (string name);
@@ -39,6 +40,9 @@ public:
     void setDeath (int death);
 
 private:
+    /**
+     * @brief _id
+     */
     int _id;
     string _name;
     string _sex;
