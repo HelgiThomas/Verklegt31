@@ -50,15 +50,15 @@ vector<int>LinkAccess::ScientistId ()
     while (query.next())
     {
 
-       QString qSciID = query.value(SciID).toString();
-       QString qStatus = query.value(idStatus).toString();
+        QString qSciID = query.value(SciID).toString();
+        QString qStatus = query.value(idStatus).toString();
 
-       int id = qSciID.toInt();
-       int status = qStatus.toInt();
-       if (status == 1)
-       {
-             scientistsID.push_back(id);
-       }
+        int id = qSciID.toInt();
+        int status = qStatus.toInt();
+        if (status == 1)
+        {
+            scientistsID.push_back(id);
+        }
     }
 
     return scientistsID;
@@ -70,33 +70,33 @@ vector<int>LinkAccess::ScientistId ()
 vector<int> LinkAccess::ComputerId ()
 {
 
-        connect();
-        vector<int> computersID;
+    connect();
+    vector<int> computersID;
 
-        QSqlQuery query;
+    QSqlQuery query;
 
-        string query_string = "SELECT * FROM SciComp";
-        QString qCommand (query_string.c_str());
-        query.exec(qCommand);
+    string query_string = "SELECT * FROM SciComp";
+    QString qCommand (query_string.c_str());
+    query.exec(qCommand);
 
-        int CompID = query.record().indexOf("CompID");
-        int idStatus = query.record().indexOf("status");
+    int CompID = query.record().indexOf("CompID");
+    int idStatus = query.record().indexOf("status");
 
-        while (query.next())
+    while (query.next())
+    {
+
+        QString qCompID = query.value(CompID).toString();
+        QString qStatus = query.value(idStatus).toString();
+
+        int id = qCompID.toInt();
+        int status = qStatus.toInt();
+
+        if (status == 1)
         {
-
-           QString qCompID = query.value(CompID).toString();
-           QString qStatus = query.value(idStatus).toString();
-
-           int id = qCompID.toInt();
-           int status = qStatus.toInt();
-
-           if (status == 1)
-           {
-                 computersID.push_back(id);
-           }
-       }
-        return computersID;
+            computersID.push_back(id);
+        }
+    }
+    return computersID;
 }
 
 /**
@@ -120,17 +120,17 @@ vector<int> LinkAccess::RelationId()
     while (query.next())
     {
 
-       QString qID = query.value(idID).toString();
-       QString qStatus = query.value(idStatus).toString();
+        QString qID = query.value(idID).toString();
+        QString qStatus = query.value(idStatus).toString();
 
-       int relationId = qID.toInt();
-       int status = qStatus.toInt();
+        int relationId = qID.toInt();
+        int status = qStatus.toInt();
 
-       if (status == 1)
-       {
-             relationID.push_back(relationId);
-       }
-   }
+        if (status == 1)
+        {
+            relationID.push_back(relationId);
+        }
+    }
 
     return relationID;
 

@@ -32,34 +32,34 @@ vector<Scientist> ScientistAccess::readFromDatabase()
 
     while (query.next())
     {
-       Scientist pl;
+        Scientist pl;
 
-       QString qId = query.value(idId).toString();
-       QString qName = query.value(idName).toString();
-       QString qSex = query.value(idSex).toString();
-       QString qBirth = query.value(idBirth).toString();
-       QString qDeath = query.value(idDeath).toString();
-       QString qCitation = query.value(idCitation).toString();
-       QString qStatus = query.value(idStatus).toString();
+        QString qId = query.value(idId).toString();
+        QString qName = query.value(idName).toString();
+        QString qSex = query.value(idSex).toString();
+        QString qBirth = query.value(idBirth).toString();
+        QString qDeath = query.value(idDeath).toString();
+        QString qCitation = query.value(idCitation).toString();
+        QString qStatus = query.value(idStatus).toString();
 
-       int id = qId.toInt();
-       std::string name = qName.toStdString();
-       std::string sex =  qSex.toStdString();
-       int birth = qBirth.toInt();
-       int death = qDeath.toInt();
-       std::string citation = qCitation.toStdString();
-       int status = qStatus.toInt();
-       if (status == 1)
-       {
-           pl.setId(id);
-           pl.setName(name);
-           pl.setSex(sex);
-           pl.setBirth(birth);
-           pl.setDeath(death);
-           pl.setCitation(citation);
+        int id = qId.toInt();
+        std::string name = qName.toStdString();
+        std::string sex =  qSex.toStdString();
+        int birth = qBirth.toInt();
+        int death = qDeath.toInt();
+        std::string citation = qCitation.toStdString();
+        int status = qStatus.toInt();
+        if (status == 1)
+        {
+            pl.setId(id);
+            pl.setName(name);
+            pl.setSex(sex);
+            pl.setBirth(birth);
+            pl.setDeath(death);
+            pl.setCitation(citation);
 
-           sci.push_back(pl);
-       }
+            sci.push_back(pl);
+        }
     }
     m_db.close();
 
@@ -268,34 +268,34 @@ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
 
     while (query.next())
     {
-       Scientist pl;
+        Scientist pl;
 
-       QString qId = query.value(idId).toString();
-       QString qName = query.value(idName).toString();
-       QString qSex = query.value(idSex).toString();
-       QString qBirth = query.value(idBirth).toString();
-       QString qDeath = query.value(idDeath).toString();
-       QString qCitation = query.value(idCitation).toString();
-       QString qStatus = query.value(idStatus).toString();
+        QString qId = query.value(idId).toString();
+        QString qName = query.value(idName).toString();
+        QString qSex = query.value(idSex).toString();
+        QString qBirth = query.value(idBirth).toString();
+        QString qDeath = query.value(idDeath).toString();
+        QString qCitation = query.value(idCitation).toString();
+        QString qStatus = query.value(idStatus).toString();
 
-       int id = qId.toInt();
-       std::string name = qName.toStdString();
-       std::string sex =  qSex.toStdString();
-       int birth = qBirth.toInt();
-       int death = qDeath.toInt();
-       std::string citation = qCitation.toStdString();
-       int status = qStatus.toInt();
-       if (status == 1)
-       {
-           pl.setId(id);
-           pl.setName(name);
-           pl.setSex(sex);
-           pl.setBirth(birth);
-           pl.setDeath(death);
-           pl.setCitation(citation);
+        int id = qId.toInt();
+        std::string name = qName.toStdString();
+        std::string sex =  qSex.toStdString();
+        int birth = qBirth.toInt();
+        int death = qDeath.toInt();
+        std::string citation = qCitation.toStdString();
+        int status = qStatus.toInt();
+        if (status == 1)
+        {
+            pl.setId(id);
+            pl.setName(name);
+            pl.setSex(sex);
+            pl.setBirth(birth);
+            pl.setDeath(death);
+            pl.setCitation(citation);
 
-           sci.push_back(pl);
-       }
+            sci.push_back(pl);
+        }
     }
     m_db.close();
 
@@ -338,34 +338,34 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
 
     while (query.next())
     {
-       Scientist pl;
+        Scientist pl;
 
-       QString qId = query.value(idId).toString();
-       QString qName = query.value(idName).toString();
-       QString qSex = query.value(idSex).toString();
-       QString qBirth = query.value(idBirth).toString();
-       QString qDeath = query.value(idDeath).toString();
-       QString qCitation = query.value(idCitation).toString();
-       QString qStatus = query.value(idStatus).toString();
+        QString qId = query.value(idId).toString();
+        QString qName = query.value(idName).toString();
+        QString qSex = query.value(idSex).toString();
+        QString qBirth = query.value(idBirth).toString();
+        QString qDeath = query.value(idDeath).toString();
+        QString qCitation = query.value(idCitation).toString();
+        QString qStatus = query.value(idStatus).toString();
 
-       int id = qId.toInt();
-       std::string name = qName.toStdString();
-       std::string sex =  qSex.toStdString();
-       int birth = qBirth.toInt();
-       int death = qDeath.toInt();
-       std::string citation = qCitation.toStdString();
-       int status = qStatus.toInt();
-       if (status == 1)
-       {
-           pl.setId(id);
-           pl.setName(name);
-           pl.setSex(sex);
-           pl.setBirth(birth);
-           pl.setDeath(death);
-           pl.setCitation(citation);
+        int id = qId.toInt();
+        std::string name = qName.toStdString();
+        std::string sex =  qSex.toStdString();
+        int birth = qBirth.toInt();
+        int death = qDeath.toInt();
+        std::string citation = qCitation.toStdString();
+        int status = qStatus.toInt();
+        if (status == 1)
+        {
+            pl.setId(id);
+            pl.setName(name);
+            pl.setSex(sex);
+            pl.setBirth(birth);
+            pl.setDeath(death);
+            pl.setCitation(citation);
 
-           sci.push_back(pl);
-       }
+            sci.push_back(pl);
+        }
     }
     m_db.close();
 
@@ -437,34 +437,34 @@ vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operat
 
     while (query.next())
     {
-       Scientist pl;
+        Scientist pl;
 
-       QString qId = query.value(idId).toString();
-       QString qName = query.value(idName).toString();
-       QString qSex = query.value(idSex).toString();
-       QString qBirth = query.value(idBirth).toString();
-       QString qDeath = query.value(idDeath).toString();
-       QString qCitation = query.value(idCitation).toString();
-       QString qStatus = query.value(idStatus).toString();
+        QString qId = query.value(idId).toString();
+        QString qName = query.value(idName).toString();
+        QString qSex = query.value(idSex).toString();
+        QString qBirth = query.value(idBirth).toString();
+        QString qDeath = query.value(idDeath).toString();
+        QString qCitation = query.value(idCitation).toString();
+        QString qStatus = query.value(idStatus).toString();
 
-       int id = qId.toInt();
-       std::string name = qName.toStdString();
-       std::string sex =  qSex.toStdString();
-       int birth = qBirth.toInt();
-       int death = qDeath.toInt();
-       std::string citation = qCitation.toStdString();
-       int status = qStatus.toInt();
-       if (status == 1)
-       {
-           pl.setId(id);
-           pl.setName(name);
-           pl.setSex(sex);
-           pl.setBirth(birth);
-           pl.setDeath(death);
-           pl.setCitation(citation);
+        int id = qId.toInt();
+        std::string name = qName.toStdString();
+        std::string sex =  qSex.toStdString();
+        int birth = qBirth.toInt();
+        int death = qDeath.toInt();
+        std::string citation = qCitation.toStdString();
+        int status = qStatus.toInt();
+        if (status == 1)
+        {
+            pl.setId(id);
+            pl.setName(name);
+            pl.setSex(sex);
+            pl.setBirth(birth);
+            pl.setDeath(death);
+            pl.setCitation(citation);
 
-           sci.push_back(pl);
-       }
+            sci.push_back(pl);
+        }
     }
     m_db.close();
 
@@ -499,11 +499,11 @@ bool ScientistAccess::checkEntry(Scientist scientist)
         QString qDeath = query.value(idDeath).toString();
         QString qStatus = query.value(idStatus).toString();
 
-       if (Name == qName && Sex == qSex && Birth == qBirth && Death == qDeath)
-       {
-          cout << "This person already exist! ";
-          return false;
-       }
+        if (Name == qName && Sex == qSex && Birth == qBirth && Death == qDeath)
+        {
+            cout << "This person already exist! ";
+            return false;
+        }
     }
     return true;
 }

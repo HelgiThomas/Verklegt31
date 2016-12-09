@@ -7,11 +7,11 @@ using namespace std;
  */
 Computer::Computer()
 {
-   _id = 0;
-   _name = "";
-   _buildYear = 0;
-   _compType = "";
-   _wasBuilt = "";
+    _id = 0;
+    _name = "";
+    _buildYear = 0;
+    _compType = "";
+    _wasBuilt = "";
 }
 
 /**

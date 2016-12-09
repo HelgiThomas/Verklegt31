@@ -13,12 +13,12 @@ UtilityUI::UtilityUI()
  */
 void UtilityUI::clearScreen()
 {
-    #ifdef _WIN32
-        system ("cls");
-    #endif
-    #ifdef __APPLE__
-        system("clear");
-    #endif
+#ifdef _WIN32
+    system ("cls");
+#endif
+#ifdef __APPLE__
+    system("clear");
+#endif
 }
 
 /**

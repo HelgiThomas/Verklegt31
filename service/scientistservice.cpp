@@ -37,7 +37,7 @@ void ScientistService::addScientist(Scientist newScientist)
  */
 void ScientistService::removeScientist (int nameOf)
 {
-   _SciAccess.removelist(nameOf);
+    _SciAccess.removelist(nameOf);
 }
 
 /**
@@ -194,6 +194,7 @@ bool ScientistService::validName(string name)
         {
             valid = true;
         }
+
     }
     return valid;
 }

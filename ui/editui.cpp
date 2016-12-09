@@ -50,9 +50,9 @@ void EditUI::editSci()
             std::getline(cin,newSex);
             while((!_serviceSci.validSex(newSex)))
             {
-                  cout << "Not valid!" << endl;
-                  cout << endl << "What would you like to change the sex too? " << endl << endl << "=> ";
-                  std::getline(cin, newSex);
+                cout << "Not valid!" << endl;
+                cout << endl << "What would you like to change the sex too? " << endl << endl << "=> ";
+                std::getline(cin, newSex);
             }
             newSex = _serviceSci.mOrF(newSex);
             _serviceSci.editScientistString(nameOf,variable,newSex);
@@ -84,31 +84,31 @@ void EditUI::editSci()
             }
         }
         else if(variable == "death" || variable == "Death" || variable == "4")
+        {
+            int birth;
+            int newDeath;
+            cout << endl << "What would you like to change the death too? " << endl << endl << "=> ";
+            cin >> newDeath;
+
+
+            for (unsigned int i = 0; i < Scientist.size(); i++)
+            {
+                if(Scientist[i].getName() == nameOf)
                 {
-                    int birth;
-                    int newDeath;
-                    cout << endl << "What would you like to change the death too? " << endl << endl << "=> ";
-                    cin >> newDeath;
-
-
-                    for (unsigned int i = 0; i < Scientist.size(); i++)
+                    birth = Scientist[i].getBirth();
+                    while(newDeath < birth && newDeath != 0)
                     {
-                        if(Scientist[i].getName() == nameOf)
-                        {
-                            birth = Scientist[i].getBirth();
-                            while(newDeath < birth && newDeath != 0)
-                            {
 
-                                cout << "Invalid death!" << endl << endl;
-                                cout << "It's not possible to die before you are born!" << endl;
-                                cout <<  "What would you like to change the death too? " << endl << endl << "=> ";
-                                cin >> newDeath;
+                        cout << "Invalid death!" << endl << endl;
+                        cout << "It's not possible to die before you are born!" << endl;
+                        cout <<  "What would you like to change the death too? " << endl << endl << "=> ";
+                        cin >> newDeath;
 
-                        }
                     }
-                     _serviceSci.editScientistInt(nameOf,variable,newDeath);
-                     _util.clearScreen();
                 }
+                _serviceSci.editScientistInt(nameOf,variable,newDeath);
+                _util.clearScreen();
+            }
         }
         else
         {
@@ -204,25 +204,25 @@ void EditUI::editComp()
  * @brief This function is called when the edit command is selected by the user.
  * It gives you the option to edit any input the user put in about the relation.
  */
- void EditUI::editRelation()
- {
-     vector <Computer> temp = _serviceComp.getComputers();
-     vector <Scientist> temp1 = _serviceSci.getScientists();
-     _util.clearScreen();
-     int nrID , sciID, compID;
-     _list.listAllRelations();
-     cout << endl << "No. which relation would you like to edit? " << endl << endl << "=> ";
-     cin >> nrID;
+void EditUI::editRelation()
+{
+    vector <Computer> temp = _serviceComp.getComputers();
+    vector <Scientist> temp1 = _serviceSci.getScientists();
+    _util.clearScreen();
+    int nrID , sciID, compID;
+    _list.listAllRelations();
+    cout << endl << "No. which relation would you like to edit? " << endl << endl << "=> ";
+    cin >> nrID;
 
-     _util.clearScreen();
-     _util.displayListOfScientists(temp1);
-     cout << endl << "No. which Scientist would you like to be the new one " << endl << endl << "=> ";
-     cin >> sciID;
+    _util.clearScreen();
+    _util.displayListOfScientists(temp1);
+    cout << endl << "No. which Scientist would you like to be the new one " << endl << endl << "=> ";
+    cin >> sciID;
 
-     _util.clearScreen();
-     _util.displayListOfComputers(temp);
-     cout << endl << "No. which Scientist would you like to be the new one " << endl << endl << "=> ";
-     cin >> compID;
+    _util.clearScreen();
+    _util.displayListOfComputers(temp);
+    cout << endl << "No. which Scientist would you like to be the new one " << endl << endl << "=> ";
+    cin >> compID;
 
-     _serviceGen.editRelation (nrID, sciID, compID);
- }
+    _serviceGen.editRelation (nrID, sciID, compID);
+}

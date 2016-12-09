@@ -31,34 +31,34 @@ vector<Computer> ComputerAccess::readFromDatabase()
 
     while (query.next())
     {
-       Computer pl;
+        Computer pl;
 
-       QString qId = query.value(idId).toString();
-       QString qName = query.value(idName).toString();
-       QString qYear = query.value(idYear).toString();
-       QString qType = query.value(idType).toString();
-       QString qBuilt = query.value(idBuilt).toString();
-       QString qDescription = query.value(idDescription).toString();
-       QString qStatus = query.value(idStatus).toString();
+        QString qId = query.value(idId).toString();
+        QString qName = query.value(idName).toString();
+        QString qYear = query.value(idYear).toString();
+        QString qType = query.value(idType).toString();
+        QString qBuilt = query.value(idBuilt).toString();
+        QString qDescription = query.value(idDescription).toString();
+        QString qStatus = query.value(idStatus).toString();
 
-       int id = qId.toInt();
-       std::string name = qName.toStdString();
-       int year = qYear.toInt();
-       std::string type =  qType.toStdString();
-       std::string built = qBuilt.toStdString();
-       std::string description = qDescription.toStdString();
-       int status = qStatus.toInt();
-       if (status == 1)
-       {
-           pl.setId(id);
-           pl.setName(name);
-           pl.setBuildYear(year);
-           pl.setCompType(type);
-           pl.setWasBuilt(built);
-           pl.setDescription(description);
+        int id = qId.toInt();
+        std::string name = qName.toStdString();
+        int year = qYear.toInt();
+        std::string type =  qType.toStdString();
+        std::string built = qBuilt.toStdString();
+        std::string description = qDescription.toStdString();
+        int status = qStatus.toInt();
+        if (status == 1)
+        {
+            pl.setId(id);
+            pl.setName(name);
+            pl.setBuildYear(year);
+            pl.setCompType(type);
+            pl.setWasBuilt(built);
+            pl.setDescription(description);
 
-           com.push_back(pl);
-       }
+            com.push_back(pl);
+        }
     }
     m_db.close();
 
@@ -96,7 +96,7 @@ void ComputerAccess::readToDatabase(Computer computer)
 
         query.exec();
     }
-        m_db.close();
+    m_db.close();
 }
 
 /**
@@ -128,7 +128,7 @@ void ComputerAccess::removeAll()
     connect();
 
     QSqlQuery query;
-     query.prepare("UPDATE Computers SET Status = 0");
+    query.prepare("UPDATE Computers SET Status = 0");
     query.exec();
 }
 
@@ -234,36 +234,36 @@ vector<Computer> ComputerAccess::sortQuery(string var, string command)
 
     while (query.next())
     {
-       Computer pl;
+        Computer pl;
 
-       QString qId = query.value(idId).toString();
-       QString qName = query.value(idName).toString();
-       QString qYear = query.value(idYear).toString();
-       QString qType = query.value(idType).toString();
-       QString qBuilt = query.value(idBuilt).toString();
-       QString qDescription = query.value(idDescription).toString();
-       QString qStatus = query.value(idStatus).toString();
+        QString qId = query.value(idId).toString();
+        QString qName = query.value(idName).toString();
+        QString qYear = query.value(idYear).toString();
+        QString qType = query.value(idType).toString();
+        QString qBuilt = query.value(idBuilt).toString();
+        QString qDescription = query.value(idDescription).toString();
+        QString qStatus = query.value(idStatus).toString();
 
-       int id = qId.toInt();
-       std::string name = qName.toStdString();
-       int year = qYear.toInt();
-       std::string type =  qType.toStdString();
-       std::string built = qBuilt.toStdString();
-       std::string description = qDescription.toStdString();
-       int status = qStatus.toInt();
-       if (status == 1)
-       {
-           pl.setId(id);
-           pl.setName(name);
-           pl.setBuildYear(year);
-           pl.setCompType(type);
-           pl.setWasBuilt(built);
-           pl.setDescription(description);
+        int id = qId.toInt();
+        std::string name = qName.toStdString();
+        int year = qYear.toInt();
+        std::string type =  qType.toStdString();
+        std::string built = qBuilt.toStdString();
+        std::string description = qDescription.toStdString();
+        int status = qStatus.toInt();
+        if (status == 1)
+        {
+            pl.setId(id);
+            pl.setName(name);
+            pl.setBuildYear(year);
+            pl.setCompType(type);
+            pl.setWasBuilt(built);
+            pl.setDescription(description);
 
-           comp.push_back(pl);
-       }
+            comp.push_back(pl);
+        }
     }
-        m_db.close();
+    m_db.close();
     return comp;
 }
 
@@ -311,36 +311,36 @@ vector<Computer> ComputerAccess::searchQueryString(string variable,string comman
 
     while (query.next())
     {
-       Computer pl;
+        Computer pl;
 
-       QString qId = query.value(idId).toString();
-       QString qName = query.value(idName).toString();
-       QString qYear = query.value(idYear).toString();
-       QString qType = query.value(idType).toString();
-       QString qBuilt = query.value(idBuilt).toString();
-       QString qDescription = query.value(idDescription).toString();
-       QString qStatus = query.value(idStatus).toString();
+        QString qId = query.value(idId).toString();
+        QString qName = query.value(idName).toString();
+        QString qYear = query.value(idYear).toString();
+        QString qType = query.value(idType).toString();
+        QString qBuilt = query.value(idBuilt).toString();
+        QString qDescription = query.value(idDescription).toString();
+        QString qStatus = query.value(idStatus).toString();
 
-       int id = qId.toInt();
-       std::string name = qName.toStdString();
-       int year = qYear.toInt();
-       std::string type =  qType.toStdString();
-       std::string built = qBuilt.toStdString();
-       std::string description = qDescription.toStdString();
-       int status = qStatus.toInt();
-       if (status == 1)
-       {
-           pl.setId(id);
-           pl.setName(name);
-           pl.setBuildYear(year);
-           pl.setCompType(type);
-           pl.setWasBuilt(built);
-           pl.setDescription(description);
+        int id = qId.toInt();
+        std::string name = qName.toStdString();
+        int year = qYear.toInt();
+        std::string type =  qType.toStdString();
+        std::string built = qBuilt.toStdString();
+        std::string description = qDescription.toStdString();
+        int status = qStatus.toInt();
+        if (status == 1)
+        {
+            pl.setId(id);
+            pl.setName(name);
+            pl.setBuildYear(year);
+            pl.setCompType(type);
+            pl.setWasBuilt(built);
+            pl.setDescription(description);
 
-           comp.push_back(pl);
-       }
+            comp.push_back(pl);
+        }
     }
-        m_db.close();
+    m_db.close();
 
     return comp;
 }
@@ -390,36 +390,36 @@ vector<Computer> ComputerAccess::searchQueryInt(string variable, string operator
 
     while (query.next())
     {
-       Computer pl;
+        Computer pl;
 
-       QString qId = query.value(idId).toString();
-       QString qName = query.value(idName).toString();
-       QString qYear = query.value(idYear).toString();
-       QString qType = query.value(idType).toString();
-       QString qBuilt = query.value(idBuilt).toString();
-       QString qDescription = query.value(idDescription).toString();
-       QString qStatus = query.value(idStatus).toString();
+        QString qId = query.value(idId).toString();
+        QString qName = query.value(idName).toString();
+        QString qYear = query.value(idYear).toString();
+        QString qType = query.value(idType).toString();
+        QString qBuilt = query.value(idBuilt).toString();
+        QString qDescription = query.value(idDescription).toString();
+        QString qStatus = query.value(idStatus).toString();
 
-       int id = qId.toInt();
-       std::string name = qName.toStdString();
-       int year = qYear.toInt();
-       std::string type =  qType.toStdString();
-       std::string built = qBuilt.toStdString();
-       std::string description = qDescription.toStdString();
-       int status = qStatus.toInt();
-       if (status == 1)
-       {
-           pl.setId(id);
-           pl.setName(name);
-           pl.setBuildYear(year);
-           pl.setCompType(type);
-           pl.setWasBuilt(built);
-           pl.setDescription(description);
+        int id = qId.toInt();
+        std::string name = qName.toStdString();
+        int year = qYear.toInt();
+        std::string type =  qType.toStdString();
+        std::string built = qBuilt.toStdString();
+        std::string description = qDescription.toStdString();
+        int status = qStatus.toInt();
+        if (status == 1)
+        {
+            pl.setId(id);
+            pl.setName(name);
+            pl.setBuildYear(year);
+            pl.setCompType(type);
+            pl.setWasBuilt(built);
+            pl.setDescription(description);
 
-           comp.push_back(pl);
-       }
+            comp.push_back(pl);
+        }
     }
-        m_db.close();
+    m_db.close();
 
     return comp;
 }
@@ -451,12 +451,11 @@ bool ComputerAccess::checkEntry(Computer computer)
         QString qDescription = query.value(idDescription).toString();
         QString qStatus = query.value(idStatus).toString();
 
-       if (Name == qName && Type == qType && Built == qBuilt && Description == qDescription)
-       {
-           // ATH ATH ATH THETTA MA EKKI VERA HER
-          cout << "This person already exist! ";
-          return false;
-       }
+        if (Name == qName && Type == qType && Built == qBuilt && Description == qDescription)
+        {
+            cout << "This person already exist! ";
+            return false;
+        }
     }
     return true;
 }

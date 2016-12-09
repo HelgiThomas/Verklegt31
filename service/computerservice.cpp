@@ -41,7 +41,7 @@ void ComputerService::addComputer(Computer newComputer)
 void ComputerService::removeComputer (int nameOf)
 {
 
-   _ComAccess.removelist(nameOf);
+    _ComAccess.removelist(nameOf);
 
 }
 

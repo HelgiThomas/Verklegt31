@@ -10,18 +10,18 @@ RemoveUI::RemoveUI()
   * It gives you the option to remove a relation from the list.
   * The relation will still exist in the database.
   */
- void RemoveUI::removeRelation()
- {
-     _util.clearScreen();
-     _list.listAllRelations();
-     int nrID;
+void RemoveUI::removeRelation()
+{
+    _util.clearScreen();
+    _list.listAllRelations();
+    int nrID;
 
-     cout << "Which relation would you like to remove? " << endl << endl << "=> ";
-     cin >> nrID;
+    cout << "Which relation would you like to remove? " << endl << endl << "=> ";
+    cin >> nrID;
 
-     _serviceGen.removeRelation(nrID);
+    _serviceGen.removeRelation(nrID);
 
- }
+}
 
 /**
  * @brief This function is called when the remove command is selected.
@@ -62,33 +62,33 @@ void RemoveUI::removeSci ()
         }
         else
         {
-           cout << "Invalid number! " << endl;
-           removeSci();
+            cout << "Invalid number! " << endl;
+            removeSci();
         }
 
     } while (!exist);
 
     temp = temp - 1;
-        cout << endl << "Remove: " << checkIfreal [temp].getName () << " " <<  checkIfreal [temp].getSex() << " " <<  checkIfreal [temp].getBirth() << " " << checkIfreal [temp].getDeath() << " ?" << endl;
-        cout << "(Y/N) ";
-        cin >> removePerson;
+    cout << endl << "Remove: " << checkIfreal [temp].getName () << " " <<  checkIfreal [temp].getSex() << " " <<  checkIfreal [temp].getBirth() << " " << checkIfreal [temp].getDeath() << " ?" << endl;
+    cout << "(Y/N) ";
+    cin >> removePerson;
 
-        while(removePerson != "Y" && removePerson != "y" && removePerson != "n" && removePerson != "N")
-        {
-            cout << "Invalid input!" << endl;
-            cout << "Type either Y or N: ";
-            cin >> removePerson;
-        }
-        if(removePerson == "y" || removePerson == "Y")
-        {
-            idOf = checkIfreal[temp].getId ();
-            _serviceSci.removeScientist (idOf);
-            cout << endl << "Scientist removed " << endl << endl;
-        }
-        else if (removePerson == "n" || removePerson == "N")
-        {
-            cout << "Scientist not removed " << endl;
-        }
+    while(removePerson != "Y" && removePerson != "y" && removePerson != "n" && removePerson != "N")
+    {
+        cout << "Invalid input!" << endl;
+        cout << "Type either Y or N: ";
+        cin >> removePerson;
+    }
+    if(removePerson == "y" || removePerson == "Y")
+    {
+        idOf = checkIfreal[temp].getId ();
+        _serviceSci.removeScientist (idOf);
+        cout << endl << "Scientist removed " << endl << endl;
+    }
+    else if (removePerson == "n" || removePerson == "N")
+    {
+        cout << "Scientist not removed " << endl;
+    }
 }
 
 /**
@@ -194,31 +194,31 @@ void RemoveUI::removeComp()
         }
         else
         {
-           cout << "Invalid number! " << endl;
-           //run();
+            cout << "Invalid number! " << endl;
+            //run();
         }
 
     } while (!exist);
 
     temp = temp - 1;
-        cout << endl << "Remove: " << checkIfreal [temp].getName () << " " <<  checkIfreal [temp].getBuildYear() << " " <<  checkIfreal [temp].getCompType() << " ?" << endl;
-        cout << "(Y/N) ";
-        cin >> removePerson;
+    cout << endl << "Remove: " << checkIfreal [temp].getName () << " " <<  checkIfreal [temp].getBuildYear() << " " <<  checkIfreal [temp].getCompType() << " ?" << endl;
+    cout << "(Y/N) ";
+    cin >> removePerson;
 
-        while(removePerson != "Y" && removePerson != "y" && removePerson != "n" && removePerson != "N")
-        {
-            cout << "Invalid input!" << endl;
-            cout << "Type either Y or N: ";
-            cin >> removePerson;
-        }
-        if(removePerson == "y" || removePerson == "Y")
-        {
-            idOf = checkIfreal[temp].getId ();
-            _serviceComp.removeComputer(idOf);
-            cout << endl << "Computer removed " << endl << endl;
-        }
-        else if (removePerson == "n" || removePerson == "N")
-        {
-            cout << "Computer not removed " << endl;
-        }
+    while(removePerson != "Y" && removePerson != "y" && removePerson != "n" && removePerson != "N")
+    {
+        cout << "Invalid input!" << endl;
+        cout << "Type either Y or N: ";
+        cin >> removePerson;
+    }
+    if(removePerson == "y" || removePerson == "Y")
+    {
+        idOf = checkIfreal[temp].getId ();
+        _serviceComp.removeComputer(idOf);
+        cout << endl << "Computer removed " << endl << endl;
+    }
+    else if (removePerson == "n" || removePerson == "N")
+    {
+        cout << "Computer not removed " << endl;
+    }
 }

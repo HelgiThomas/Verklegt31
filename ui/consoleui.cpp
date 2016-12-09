@@ -65,7 +65,7 @@ void ConsoleUI::run()
         }
         else if (command == "search" || command == "Search" || command == "7")
         {
-           consoleSearch();
+            consoleSearch();
         }
         else if(command == "game" || command == "Game" || command == "8")
         {
@@ -431,29 +431,29 @@ void ConsoleUI::consoleSearch()
  */
 void ConsoleUI::consoleGame()
 {
+    _util.clearScreen();
+    string choice;
+    cout << "Which game do you want to play? " << endl;
+    cout << "1. Citation Game" << endl;
+    cout << "2. Computer-Scientist Relation" << endl;
+    cout << "3. Back" << endl << endl << "=> ";
+    cin >> choice;
+    if(choice == "citation" || choice == "Citation" || choice == "1")
+    {
+        _game.playCitation();
+    }
+    else if(choice == "relation" || choice == "Relation" || choice == "2")
+    {
+        _game.playRelation();
+    }
+    else if(choice == "back" || choice == "Back" || choice == "3")
+    {
         _util.clearScreen();
-        string choice;
-        cout << "Which game do you want to play? " << endl;
-        cout << "1. Citation Game" << endl;
-        cout << "2. Computer-Scientist Relation" << endl;
-        cout << "3. Back" << endl << endl << "=> ";
-        cin >> choice;
-        if(choice == "citation" || choice == "Citation" || choice == "1")
-        {
-            _game.playCitation();
-        }
-        else if(choice == "relation" || choice == "Relation" || choice == "2")
-        {
-            _game.playRelation();
-        }
-        else if(choice == "back" || choice == "Back" || choice == "3")
-        {
-            _util.clearScreen();
-            run();
-        }
-        else
-        {
-            _util.clearScreen();
-            cout << "Invalid command!" << endl << endl;
-        }
+        run();
+    }
+    else
+    {
+        _util.clearScreen();
+        cout << "Invalid command!" << endl << endl;
+    }
 }
