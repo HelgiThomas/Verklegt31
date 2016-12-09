@@ -97,7 +97,7 @@ void SortUI::sortComp()
 
 /**
  * @brief This function works exactly the same as the function the sortSci() function but
- * reverses the sorting. It can sort by either Name, Sex, Birth and Death.
+ * reverses the sorting. It can sort by either Name, Sex, Birth or Death.
  */
 void SortUI::reversedSortSci()
 {
@@ -140,7 +140,10 @@ void SortUI::reversedSortSci()
     }
 }
 
-
+/**
+ * @brief This function works exactly the same as the function the sortComp() function but
+ * reverses the sorting. It can sort by either Name, Year, Type or if it was built.
+ */
 void SortUI::reversedSortComp()
 {
     _util.clearScreen();

@@ -204,9 +204,8 @@ bool ComputerService::validName(string name)
     for(unsigned int i = 0; i < name.size(); i++)
     {
 
-        if(0) //<--------!IsNullOrWhitespace(name.at(i))
+        if(0)
         {
-                //TODO: Laga eitthvað með þessa if setningu..
             valid = true;
         }
 

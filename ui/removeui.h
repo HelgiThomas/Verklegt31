@@ -21,7 +21,7 @@ public:
     RemoveUI();
 
     /**
-     * @brief removeSci/EverySci/Comp/EveryComp/Relation,
+     * @brief removeSci/EverySci/Comp/EveryComp/Relation.
      */
     void removeSci();
     void removeEverySci();

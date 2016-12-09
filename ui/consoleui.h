@@ -31,6 +31,9 @@ public:
     void run();
 
 private:
+    /**
+     * @brief These functions call the correct class for the command the user put in.
+     */
     void consoleAdd();
     void consoleRemove();
     void consoleList();

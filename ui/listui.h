@@ -8,18 +8,18 @@
 #include "ui/utilityui.h"
 
 /**
- * @brief The ListUI class,
+ * @brief The ListUI class.
  */
 class ListUI
 {
 public:
     /**
-     * @brief ListUI,
+     * @brief ListUI.
      */
     ListUI();
 
     /**
-     * @brief listSci/Comp/Relation,
+     * @brief listSci/Comp/AllRelations, CompRelation, SciRelation.
      */
     void listSci();
     void listComp();

@@ -9,19 +9,19 @@
 #include "ui/listui.h"
 
 /**
- * @brief The EditUI class,
+ * @brief The EditUI class.
  */
 class EditUI
 {
 public:
 
     /**
-     * @brief EditUI,
+     * @brief EditUI.
      */
     EditUI();
 
     /**
-     * @brief editSci/Comp/Relation,
+     * @brief editSci/Comp/Relation.
      */
     void editSci();
     void editComp();
@@ -34,6 +34,7 @@ private:
     ScientistService _serviceSci;
     ComputerService _serviceComp;
     GeneralService _serviceGen;
+    Scientist _scientist;
 };
 
 #endif // EDITUI_H

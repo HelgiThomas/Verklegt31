@@ -120,6 +120,11 @@ void ScientistAccess::removelist(int nameOf)
 
     query.exec();
 }
+
+/**
+ * @brief This function updates the relation for a scientist.
+ * @param int nameOf
+ */
 void ScientistAccess::updateRelation(int nameOf)
 {
     int number = 0;
@@ -136,6 +141,10 @@ void ScientistAccess::updateRelation(int nameOf)
 
     query.exec();
 }
+
+/**
+ * @brief This function updates all the relations for all the scientists.
+ */
 void ScientistAccess::updateRelationall()
 {
     connect();

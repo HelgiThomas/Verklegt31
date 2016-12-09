@@ -8,18 +8,18 @@
 #include "ui/utilityui.h"
 
 /**
- * @brief The SearchUI class,
+ * @brief The SearchUI class.
  */
 class SearchUI
 {
 public:
     /**
-     * @brief SearchUI,
+     * @brief SearchUI.
      */
     SearchUI();
 
     /**
-     * @brief searchScientistList/Computer,
+     * @brief searchScientistList/Computer.
      */
     void searchScientistList();
     void searchComputerList ();

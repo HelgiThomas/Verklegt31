@@ -29,6 +29,9 @@ void ListUI::listComp()
     cout << endl;
 }
 
+/**
+ * @brief This function lists all the relations between scientists and computers.
+ */
 void ListUI::listAllRelations()
 {
     vector<int>ScientistID = _serviceSci.allScientistID();
@@ -77,6 +80,10 @@ void ListUI::listAllRelations()
     cout << endl;
 }
 
+/**
+ * @brief This function lists all the computer relations.
+ * @param string Comp
+ */
 void ListUI::listCompRelation(string Comp)
 {
     vector<int>ScientistID = _serviceSci.allScientistID();
@@ -135,6 +142,10 @@ void ListUI::listCompRelation(string Comp)
     cout << endl;
 }
 
+/**
+ * @brief This function lists all the scientist relations.
+ * @param string Sci
+ */
 void ListUI::listSciRelation(string Sci)
 {
     vector<int>ScientistID = _serviceSci.allScientistID();

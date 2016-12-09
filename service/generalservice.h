@@ -27,7 +27,7 @@ public:
      * @brief validRelation
      * @param int sci
      * @param vector num
-     * @return
+     * @return true/false
      */
     bool validRelation(int sci, vector<int> num);
 
@@ -46,8 +46,7 @@ public:
     void editRelation(int nrID,int sciID,int compID);
 
     /**
-     * @brief allRelationID,
-     * @return
+     * @brief allRelationIDs
      */
     vector<int> allRelationID();
 

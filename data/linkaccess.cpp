@@ -64,7 +64,7 @@ vector<int>LinkAccess::ScientistId ()
     return scientistsID;
 }
 /**
- * @brief This function puts all Computer ID that are in the relations in the SQL Database in a vector
+ * @brief This function puts all Computers ID that are in the relations in the SQL Database in a vector
  * @return vector of Computer ID numbers
  */
 vector<int> LinkAccess::ComputerId ()
@@ -98,6 +98,11 @@ vector<int> LinkAccess::ComputerId ()
        }
         return computersID;
 }
+
+/**
+ * @brief This function puts all Relation ID that are in the relations in the SQL Database in a vector
+ * @return vector of Relation ID numbers
+ */
 vector<int> LinkAccess::RelationId()
 {
     connect();
@@ -132,7 +137,7 @@ vector<int> LinkAccess::RelationId()
 }
 
 /**
- * @brief edits the selected ID and putss the new science ID and new computer Id in that relation
+ * @brief edits the selected ID and puts the new scientist ID and new computer Id in that relation
  * @param int nrID, int SciID, int CompID
  */
 void LinkAccess::editRelation (int changeID, int newSciID,int newCompID)
@@ -140,6 +145,11 @@ void LinkAccess::editRelation (int changeID, int newSciID,int newCompID)
     editSci(changeID,newSciID);
     editComp(changeID,newCompID);
 }
+
+/**
+ * @brief edits the selected ID and puts the new scientist ID and new computer Id in that relation
+ * @param int nrID, int SciID, int CompID
+ */
 void LinkAccess::editSci (int changeID, int newSciID)
 {
     connect();
@@ -157,6 +167,11 @@ void LinkAccess::editSci (int changeID, int newSciID)
     query.exec();
 
 }
+
+/**
+ * @brief edits the selected ID and puts the new scientist ID and new computer Id in that relation
+ * @param int nrID, int SciID, int CompID
+ */
 void LinkAccess::editComp (int changeID, int newCompID)
 {
     cout << "This is comp number: " << newCompID <<  endl << endl;
@@ -172,16 +187,6 @@ void LinkAccess::editComp (int changeID, int newCompID)
     query.bindValue(":changeID", qID);
 
     query.exec();
-}
-
-void getSciComps(string Sci)
-{
-
-}
-
-void getCompScis(string Comp)
-{
-
 }
 
 /**

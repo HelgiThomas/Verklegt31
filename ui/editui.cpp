@@ -17,7 +17,7 @@ void EditUI::editSci()
     vector<Scientist> Scientist = _serviceSci.getScientists();
     _util.displayListOfScientists(Scientist);
 
-    cout << "Which scientist would you like to edit? " << endl << endl << "=> ";
+    cout << "Which scientist would you like to edit? (Write in the correct name) " << endl << endl << "=> ";
 
     std::getline(cin, nameOf);
     std::getline(cin,nameOf);
@@ -59,26 +59,56 @@ void EditUI::editSci()
         }
         else if(variable == "birth" || variable == "Birth" || variable == "3")
         {
+            int death;
             int newBirth;
-            string strNewBirth;
             cout << endl << "What would you like to change the birth too? " << endl << endl << "=> ";
-            getline(cin, strNewBirth);
-            getline(cin, strNewBirth);
-            while(!_serviceSci.validYear(strNewBirth))
+            cin >> newBirth;
+
+
+            for (unsigned int i = 0; i < Scientist.size(); i++)
             {
-                cout << "Not valid!" << endl;
-                cout << endl << "What would you like to change the birth too? " << endl << endl << "=> ";
-                getline(cin, strNewBirth);
+                if(Scientist[i].getName() == nameOf)
+                {
+                    death = Scientist[i].getDeath();
+                    while(newBirth > death)
+                    {
+                        cout << "Invalid birth!" << endl << endl;
+                        cout << "It's not possible to be born after you die!" << endl;
+                        cout <<  "What would you like to change the birth too? " << endl << endl << "=> ";
+                        cin >> newBirth;
+
+                    }
+                }
+                _serviceSci.editScientistInt(nameOf,variable,newBirth);
+                _util.clearScreen();
             }
-            newBirth = atoi(strNewBirth.c_str());
-            _serviceSci.editScientistInt(nameOf,variable,newBirth);
         }
         else if(variable == "death" || variable == "Death" || variable == "4")
-        {
-            int newDeath;
-            cout << endl << "What would you like to change the death too? " << endl << endl << "=> ";
-            cin >> newDeath;
-            _serviceSci.editScientistInt(nameOf,variable,newDeath);
+                {
+                    int birth;
+                    int newDeath;
+                    cout << endl << "What would you like to change the death too? " << endl << endl << "=> ";
+                    cin >> newDeath;
+
+
+                    for (unsigned int i = 0; i < Scientist.size(); i++)
+                    {
+                        if(Scientist[i].getName() == nameOf)
+                        {
+                            birth = Scientist[i].getBirth();
+                            while(newDeath < birth && newDeath != 0)
+                            {
+
+                                cout << "Invalid death!" << endl << endl;
+                                cout << "It's not possible to die before you are born!" << endl;
+                                cout <<  "What would you like to change the death too? " << endl << endl << "=> ";
+                                cin >> newDeath;
+
+                        }
+                    }
+                     _serviceSci.editScientistInt(nameOf,variable,newDeath);
+                     _util.clearScreen();
+                }
         }
         else
         {

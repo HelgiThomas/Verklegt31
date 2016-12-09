@@ -49,13 +49,21 @@ void GeneralService::removeRelation(int nrId)
     _link.removeRelation(nrId);
 }
 
-
+/**
+ * @brief This function calls a function that edits relations.
+ * @param int changeID
+ * @param int newSciID
+ * @param int newCompID
+ */
 void GeneralService::editRelation(int changeID,int newSciID,int newCompID)
 {
     _link.editRelation(changeID, newSciID,newCompID);
 }
 
-
+/**
+ * @brief This function calls a function that gets all the realtion IDs.
+ * @return int relationID
+ */
 vector <int> GeneralService::allRelationID()
 {
     return _link.RelationId();

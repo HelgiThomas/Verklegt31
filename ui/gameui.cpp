@@ -8,7 +8,7 @@ GameUI::GameUI()
 }
 
 /**
- * @brief plays a game with the user, guessing who owns the citation.
+ * @brief This function plays a game where you can guess the correct scientist for the citation displayed.
  */
 void GameUI::playCitation(){
 
@@ -45,6 +45,9 @@ void GameUI::playCitation(){
     }
 }
 
+/**
+ * @brief This function calls a game where you can play with the relations between scientists and computers.
+ */
 void GameUI::playRelation()
 {
     _util.clearScreen();
@@ -88,9 +91,11 @@ void GameUI::playRelation()
     string question2 = lengthComputer[comp].getName();
     string guess, choice;
 
-    cout << "Do you want to guess a particular scientist or computer?? " << endl;
+    cout << "Do you want to guess a: " << endl;
+    cout << "1. Scientist " << endl;
+    cout << "2. Computer " << endl;
     cin >> choice;
-    if(choice == "scientists" || choice == "Scientists" || choice == "1")
+    if(choice == "scientist" || choice == "Scientist" || choice == "1")
     {
         cout << "------------------------------------------------------------------------" << endl;
         cout << "Let's play a little game, which scientist is connected to this computer!" << endl;
@@ -103,7 +108,7 @@ void GameUI::playRelation()
 
         if (guess == lengthScientist[sci].getName())
         {
-            cout << "You Guessed Correctly!!" << endl;
+            cout << "You guessed correctly!!" << endl;
             score++;
             cout << "Your score is: " << score << endl;
             cout << endl;
@@ -128,7 +133,7 @@ void GameUI::playRelation()
 
         if (guess == lengthComputer[comp].getName())
         {
-            cout << "You Guessed Correctly!!" << endl;
+            cout << "You guessed correctly!!" << endl;
             score++;
             cout << "Your score is: " << score << endl;
             cout << endl;
