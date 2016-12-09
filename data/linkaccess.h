@@ -21,10 +21,13 @@ class LinkAccess
 public:
     LinkAccess();
 
-    bool link(int scientistId, int computerId);
+    void link(int scientistId, int computerId);
+
     vector<int> ScientistId ();
     vector<int> ComputerId ();
+
     void editRelation (int nrID, int SciID, int CompID);
+
     void removeRelation (int nrID);
 
     void connect();

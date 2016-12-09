@@ -8,7 +8,10 @@ ComputerAccess::ComputerAccess()
 {
     _temp = 0;
 }
-
+/**
+ * @brief This function reads all the Computrs from SQL database that have status = 1 and adds them to a vector.
+ * @return vector of Computers
+ */
 vector<Computer> ComputerAccess::readFromDatabase()
 {
     vector<Computer> com;
@@ -59,6 +62,10 @@ vector<Computer> ComputerAccess::readFromDatabase()
         m_db.close();
     return com;
 }
+/**
+ * @brief This function reads the new Computer to the SQL database and adds them to a vector.
+ * @param vector of Computers
+ */
 
 void ComputerAccess::readToDatabase(Computer computer)
 {
@@ -89,12 +96,13 @@ void ComputerAccess::readToDatabase(Computer computer)
     }
         m_db.close();
 }
-
-
+/**
+ * @brief This function sets status = 0 for the selected Computer from the SQL database
+ * @param int nameOf
+ */
 void ComputerAccess::removelist(int nameOf)
 {
     int number = 0;
-    cout << nameOf;
     connect();
 
     QSqlQuery query;
@@ -107,8 +115,9 @@ void ComputerAccess::removelist(int nameOf)
 
     query.exec();
 }
-
-
+/**
+ * @brief This function sets the status = 0 for all Computers in the SQL database
+ */
 void ComputerAccess::removeAll()
 {
     connect();
@@ -117,6 +126,10 @@ void ComputerAccess::removeAll()
      query.prepare("UPDATE Computers SET Status = 0");
     query.exec();
 }
+/**
+ * @brief This function lets the User edit the string elements in the selected entry of Computer in the SQL Datbase
+ * @param int nameOf, string variable, string newElement
+ */
 void ComputerAccess::editString(string nameOf, string variable, string newElement)
 {
     connect();
@@ -146,7 +159,10 @@ void ComputerAccess::editString(string nameOf, string variable, string newElemen
 
     query.exec();
 }
-
+/**
+ * @brief This function lets the User edit the int elements in the selected entry of Computer in the SQL Datbase
+ * @param int nameOf, string variable, int newElement
+ */
 void ComputerAccess::editInt(string nameOf, string variable, int newElement)
 {
     connect();
@@ -166,7 +182,9 @@ void ComputerAccess::editInt(string nameOf, string variable, int newElement)
     }
     query.exec();
 }
-
+/**
+ * @brief This function connects QT to the SQL database
+ */
 void ComputerAccess::connect()
 {
     m_db = QSqlDatabase::addDatabase("QSQLITE");
@@ -174,17 +192,18 @@ void ComputerAccess::connect()
 
     if (!m_db.open())
     {
-        // ATH ATH ATH THETTA MA EKKI VERA HER
-       qDebug() << "Error: connection with database fail";
+
     }
     else
     {
-        // ATH ATH ATH THETTA MA EKKI VERA HER
-       qDebug() << "Database: connection ok";
+
     }
 }
-
-
+/**
+ * @brief This function sorts the Computersin an vector according the the selected variable and selected command ("ASC" or "DESC")
+ * @param string var, string command
+ * @return vector of Computers
+ */
 vector<Computer> ComputerAccess::sortQuery(string var, string command)
 {
     connect();
@@ -237,12 +256,12 @@ vector<Computer> ComputerAccess::sortQuery(string var, string command)
     }
         m_db.close();
     return comp;
-
-
-    //comp = computerQuery(query);
 }
-
-
+/**
+ * @brief This function searches the Computers in the SQL Database after the selcted variable (String) and the newCommand ("new name, new sex...") and puts them in a vector
+ * @param string variable, string command
+ * @return vector of Computers
+ */
 vector<Computer> ComputerAccess::searchQueryString(string variable,string command)
 {
     connect();
@@ -315,7 +334,11 @@ vector<Computer> ComputerAccess::searchQueryString(string variable,string comman
 
     return comp;
 }
-
+/**
+ * @brief This function searches the Computers in the SQL Database after the selcted variable (Int) and the newCommand ("new year...") and puts them in a vector
+ * @param string variable, string operatorOf, string command
+ * @return vector of Computers
+ */
 vector<Computer> ComputerAccess::searchQueryInt(string variable, string operatorOf, int command)
 {
     connect();
@@ -389,7 +412,10 @@ vector<Computer> ComputerAccess::searchQueryInt(string variable, string operator
 
     return comp;
 }
-
+/**
+ * @brief This function checks if the new Computer is already in the list
+ * @return true or false
+ */
 bool ComputerAccess::checkEntry(Computer computer)
 {
     QSqlQuery query("SELECT * FROM Computers");

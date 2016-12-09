@@ -6,9 +6,11 @@ LinkAccess::LinkAccess()
 {
 
 }
-
-
-bool LinkAccess::link(int scientistId, int computerId)
+/**
+ * @brief This function adds the selected scientist and the selected computer to the SQL database relation and sets status = 1
+ * @param int scientistId, int ComputerId
+ */
+void LinkAccess::link(int scientistId, int computerId)
 {
     int number = 1;
 
@@ -26,6 +28,10 @@ bool LinkAccess::link(int scientistId, int computerId)
 
     query.exec();
 }
+/**
+ * @brief This function puts all Scientists ID that are in the relations in the SQL Database in a vector
+ * @return vector of Scientist ID numbers
+ */
 vector<int>LinkAccess::ScientistId ()
 {
     connect();
@@ -53,12 +59,14 @@ vector<int>LinkAccess::ScientistId ()
        {
              scientistsID.push_back(id);
        }
-
-
-      }
+    }
 
     return scientistsID;
 }
+/**
+ * @brief This function puts all Computer ID that are in the relations in the SQL Database in a vector
+ * @return vector of Computer ID numbers
+ */
 vector<int> LinkAccess::ComputerId ()
 {
 
@@ -87,21 +95,29 @@ vector<int> LinkAccess::ComputerId ()
            {
                  computersID.push_back(id);
            }
-
-
-         }
-
+       }
         return computersID;
 }
+/**
+ * @brief edits the selected ID and putss the new science ID and new computer Id in that relation
+ * @param int nrID, int SciID, int CompID
+ */
 void LinkAccess::editRelation (int nrID, int SciID, int CompID)
 {
 
 }
+/**
+ * @brief This function puts the status = 0 for the selcted relation
+ * @param int nr ID
+ */
 void LinkAccess::removeRelation (int nrID)
 {
 
 }
-
+/**
+ * @brief This function adds the selected scientist and the selected computer to the SQL database relation
+ * @param int scientistId, int ComputerId
+ */
 void LinkAccess::connect()
 {
     m_db = QSqlDatabase::addDatabase("QSQLITE");
@@ -109,10 +125,10 @@ void LinkAccess::connect()
 
     if (!m_db.open())
     {
-       qDebug() << "Error: connection with database fail";
+
     }
     else
     {
-       qDebug() << "Database: connection ok";
+
     }
 }

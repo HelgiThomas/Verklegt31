@@ -10,7 +10,10 @@ ScientistAccess::ScientistAccess()
 {
     _temp = 0;
 }
-
+/**
+ * @brief This function reads all the Scientists from SQL database that have status = 1 and adds them to a vector.
+ * @return vector of Scientists
+ */
 vector<Scientist> ScientistAccess::readFromDatabase()
 {
     vector<Scientist> sci;
@@ -62,7 +65,10 @@ vector<Scientist> ScientistAccess::readFromDatabase()
 
     return sci;
 }
-
+/**
+ * @brief This function reads the new Scientist to the SQL database and adds them to a vector.
+ * @param vector of Scientist
+ */
 void ScientistAccess::readToDatabase(Scientist scientist)
 {
     int number = 1;
@@ -92,7 +98,10 @@ void ScientistAccess::readToDatabase(Scientist scientist)
     }
     m_db.close();
 }
-
+/**
+ * @brief This function sets the status = 0 for selected Scientist in the SQL database
+ * @param int nameOf
+ */
 void ScientistAccess::removelist(int nameOf)
 {
     int number = 0;
@@ -109,7 +118,9 @@ void ScientistAccess::removelist(int nameOf)
 
     query.exec();
 }
-
+/**
+ * @brief This function sets status = 0 for all the Scientist in the SQL database
+ */
 void ScientistAccess::removeAll()
 {
     connect();
@@ -118,6 +129,10 @@ void ScientistAccess::removeAll()
     query.prepare("UPDATE Scientists SET Status = 0");
     query.exec();
 }
+/**
+ * @brief This function lets the User edit the string elements selected entry of Scientist in the SQL Datbase
+ * @param int nameOf, string variable, string newElement
+ */
 void ScientistAccess::editString(string nameOf, string variable, string newElement)
 {
     connect();
@@ -140,9 +155,11 @@ void ScientistAccess::editString(string nameOf, string variable, string newEleme
     }
 
     query.exec();
-
 }
-
+/**
+ * @brief This function lets the User edit the int elements in the selected entry of Scientists in the SQL Datbase
+ * @param int nameOf, string variable, int newElement
+ */
 void ScientistAccess::editInt(string nameOf, string variable, int newElement)
 {
     connect();
@@ -169,27 +186,30 @@ void ScientistAccess::editInt(string nameOf, string variable, int newElement)
 
     query.exec();
 }
+/**
+ * @brief This function connects QT to the SQL database
+ */
 void ScientistAccess::connect()
 {
     QString name = "database";
 
-
-
     m_db = QSqlDatabase::addDatabase("QSQLITE");
     m_db.setDatabaseName("DB_vika2.sqlite");
 
-
     if (!m_db.open())
     {
-       qDebug() << "Error: connection with database fail";
+
     }
     else
     {
-       qDebug() << "Database: connection ok";
+
     }
 }
-
-
+/**
+ * @brief This function sorts the Scientists in an vector according the the selected variable and selected command ("ASC" or "DESC")
+ * @param string var, string command
+ * @return vector of Scientists
+ */
 vector<Scientist> ScientistAccess::sortQuery(string var, string command)
 {
     connect();
@@ -245,7 +265,11 @@ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
 
     return sci;
 }
-
+/**
+ * @brief This function searches the Computers in the SQL Database after the selcted variable (String) and the newCommand ("new name, new type...") and puts them in a vector
+ * @param string variable, string command
+ * @return vector of Scientists
+ */
 vector<Scientist> ScientistAccess::searchQueryString(string variable,string command)
 {
     connect();
@@ -309,12 +333,13 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
     }
     m_db.close();
 
-
-
     return sci;
 }
-
-
+/**
+ * @brief This function searches the Scientists in the SQL Database after the selcted variable (Int) and the newCommand ("new year, new death...") and puts them in a vector
+ * @param string variable, string operatorOf, string command
+ * @return vector of Scientists
+ */
 vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operatorOf, int command)
 {
     connect();
@@ -411,7 +436,10 @@ vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operat
 
     return sci;
 }
-
+/**
+ * @brief This function checks if the new Scientist is already in the list
+ * @return true or false
+ */
 bool ScientistAccess::checkEntry(Scientist scientist)
 {
     QSqlQuery query("SELECT * FROM Scientists");
@@ -442,8 +470,4 @@ bool ScientistAccess::checkEntry(Scientist scientist)
        }
     }
     return true;
-}
-void ScientistAccess::queryShortcut ()
-{
-
 }
