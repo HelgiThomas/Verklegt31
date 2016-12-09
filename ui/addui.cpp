@@ -120,18 +120,36 @@ void AddUI::addComp()
 
     name = _serviceSci.makeFirstLetterBig(name);
 
-    cout << "Build year: ";
-    cin >> strBuiltYear;
-    while(_serviceComp.validYear(strBuiltYear) == false)
+    string choice;
+    cout << "Computer type: " << endl;
+    cout << "1. Electronic " << endl;
+    cout << "2. Mechanic" << endl;
+    cout << "3. Transistor machine" << endl;
+    cout << "4. Other" << endl << endl << "=>";
+    cin >> choice;
+    if(choice == "1" || choice == "electronic" || choice == "Electronic")
+    {
+        compType = "Electronic";
+    }
+    else if(choice == "2" || choice == "Mechanic" || choice == "mechanic")
+    {
+        compType = "Mechanic";
+    }
+    else if(choice == "3" || choice == "Transistor" || choice == "transistor")
+    {
+        compType = "Transistor machine";
+    }
+    else if(choice == "4" || choice == "Other" || choice == "other")
+    {
+        cout << "Write the type: " << endl;
+        cin >> compType;
+    }
+    while(!_serviceSci.validName(compType))
     {
         cout << "Invalid input!" << endl;
-        cout << "Build year: ";
-        cin >> strBuiltYear;
+        cout << "Write the type: " << endl;
+        cin >> compType;
     }
-    builtYear = atoi(strBuiltYear.c_str());
-    cout << "Computer type: ";
-    cin >> compType;
-
     compType = _serviceSci.makeFirstLetterBig(compType);
 
     if(_util.askIfBuilt())
@@ -142,7 +160,23 @@ void AddUI::addComp()
     {
         wasBuilt = "No";
     }
+    if(wasBuilt == "Yes")
+    {
+        cout << "Build year: ";
+        cin >> strBuiltYear;
+        while(_serviceComp.validYear(strBuiltYear) == false)
+        {
+            cout << "Invalid input!" << endl;
+            cout << "Build year: ";
+            cin >> strBuiltYear;
+        }
+    }
+    else if(wasBuilt == "No")
+    {
+        strBuiltYear = "0";
+    }
 
+    builtYear = atoi(strBuiltYear.c_str());
     int id = 0;
     Computer newComputer (id, name, builtYear, compType, wasBuilt);
     _serviceComp.addComputer(newComputer);
