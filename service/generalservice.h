@@ -17,6 +17,8 @@ public:
     void removeRelation (int nrId);
     void editRelation(int nrID,int sciID,int compID);
 
+    vector <int> allRelationID ();
+
 private:
     LinkAccess _link;
 };

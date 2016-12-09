@@ -848,23 +848,41 @@ void ConsoleUI::editComp()
  {
      vector <Computer> temp = _serviceComp.getComputers();
      vector <Scientist> temp1 = _serviceSci.getScientists();
+
+     vector <int> realCompId = _serviceComp.allComputerID();
+     vector <int> realSciId= _serviceSci.allScientistID();
+     vector <int> realId = _serviceGen.allRelationID();
+
      clearScreen();
      int nrID , sciID, compID;
      listRelation();
+     cout << endl;
+
      cout << endl << "No. which relation would you like to edit? " << endl << endl << "=> ";
      cin >> nrID;
 
      clearScreen();
      displayListOfScientists(temp1);
+     cout << endl;
+
+     vector<Scientist> s = _serviceSci.getScientists();
+
      cout << endl << "No. which Scientist would you like to be the new one " << endl << endl << "=> ";
      cin >> sciID;
 
      clearScreen();
      displayListOfComputers(temp);
-     cout << endl << "No. which Scientist would you like to be the new one " << endl << endl << "=> ";
+     cout << endl;
+
+     vector<Computer> c = _serviceComp.getComputers();
+     cout << endl << "No. which Computers would you like to be the new one " << endl << endl << "=> ";
      cin >> compID;
 
-     _serviceGen.editRelation (nrID, sciID, compID);
+     int changeID = realId[nrID - 1];
+     int sId = s[sciID - 1].getId();
+     int cId = c[compID - 1].getId();
+
+     _serviceGen.editRelation(changeID, sId, cId);
  }
 
  /**

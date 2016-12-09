@@ -135,10 +135,45 @@ vector<int> LinkAccess::RelationId()
  * @brief edits the selected ID and putss the new science ID and new computer Id in that relation
  * @param int nrID, int SciID, int CompID
  */
-void LinkAccess::editRelation (int nrID, int sciID, int compID)
+void LinkAccess::editRelation (int changeID, int newSciID,int newCompID)
 {
-    cout << nrID << " " << sciID << " " << compID;
+    editSci(changeID,newSciID);
+    editComp(changeID,newCompID);
 }
+void LinkAccess::editSci (int changeID, int newSciID)
+{
+    connect();
+    QSqlQuery query;
+    cout << "This is sci number: " << newSciID <<  endl << endl;
+
+    QString qID = QString::number(changeID+1);
+    QString qSciID = QString::number(newSciID);
+
+
+    query.prepare("UPDATE SciComp SET SciID = :newSciID WHERE ID = :changeID");
+    query.bindValue(":newSciID", qSciID);
+    query.bindValue(":changeID", qID);
+
+    query.exec();
+
+}
+void LinkAccess::editComp (int changeID, int newCompID)
+{
+    cout << "This is comp number: " << newCompID <<  endl << endl;
+
+    connect();
+    QSqlQuery query;
+
+    QString qID = QString::number(changeID);
+    QString qcompID = QString::number(newCompID);
+
+    query.prepare("UPDATE SciComp SET CompID = :newCompID WHERE ID = :changeID");
+    query.bindValue(":newCompID", qcompID);
+    query.bindValue(":changeID", qID);
+
+    query.exec();
+}
+
 /**
  * @brief This function puts the status = 0 for the selcted re++lation
  * @param int nr ID
@@ -158,9 +193,6 @@ void LinkAccess::removeRelation (int nrID)
     query.bindValue(":IDremove", qID);
 
     query.exec();
-
-
-
 }
 /**
  * @brief This function adds the selected scientist and the selected computer to the SQL database relation

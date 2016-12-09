@@ -48,7 +48,15 @@ void GeneralService::removeRelation(int nrId)
 {
     _link.removeRelation(nrId);
 }
-void GeneralService::editRelation(int nrID,int sciID,int compID)
+
+
+void GeneralService::editRelation(int changeID,int newSciID,int newCompID)
 {
-    _link.editRelation(nrID, sciID,compID);
+    _link.editRelation(changeID, newSciID,newCompID);
+}
+
+
+vector <int> GeneralService::allRelationID ()
+{
+    return _link.RelationId();
 }
