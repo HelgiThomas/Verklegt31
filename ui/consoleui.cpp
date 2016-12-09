@@ -508,7 +508,10 @@ void ConsoleUI::addRelation()
 
         s.push_back(Scientists[sci-1]);
         sc.push_back(sci);
-
+        if(sc.size() == Scientists.size())
+        {
+            break;
+        }
 
         cout << "Would you like to add another scientist (Y/N)?" << endl;
         cin >> YoN1;
@@ -551,8 +554,11 @@ void ConsoleUI::addRelation()
         cout << "You picked " << Computers[com-1].getName() << endl;
         c.push_back(Computers[com-1]);
         co.push_back(com);
-
-        cout << "Would you like to add another computer? ";
+        if(co.size() == Computers.size())
+        {
+            break;
+        }
+        cout << "Would you like to add another computer (Y/N)? ";
         cin >> YoN2;
         count++;
     }
