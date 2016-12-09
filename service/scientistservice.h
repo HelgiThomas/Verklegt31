@@ -76,6 +76,7 @@ public:
     bool validName(string name);
     bool validSex(string sex);
     bool validYear(string year);
+    bool validNumber(string strNum);
     bool validDeath(int birth, string strDeath);
     bool validCommand(string command);
 

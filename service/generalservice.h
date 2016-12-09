@@ -15,6 +15,7 @@ public:
     bool validRelation(int sci, vector<int> num);
 
     void removeRelation (int nrId);
+    void editRelation(int nrID,int sciID,int compID);
 
 private:
     LinkAccess _link;

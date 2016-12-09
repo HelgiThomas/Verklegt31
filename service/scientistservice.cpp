@@ -239,6 +239,34 @@ bool ScientistService::validYear(string strYear)
 }
 
 /**
+ * @brief ScientistService::validNumber
+ * @param strNum
+ * @return
+ */
+
+bool ScientistService::validNumber(string strNum)
+{
+
+    int num = atoi(strNum.c_str());
+    bool valid = false;
+    for(unsigned int i = 0; i < strNum.size(); i++)
+    {
+        if(isdigit(strNum.at(i)))
+        {
+            valid = true;
+        }
+
+        if(!(isdigit(strNum.at(i))))
+        {
+            valid = false;
+            return valid;
+        }
+    }
+    return valid;
+}
+
+
+/**
  * @brief A function which validates the death of the scientist when the user inputs it
  * into the program.
  * @param int birth year.

@@ -499,6 +499,8 @@ void ConsoleUI::addRelation()
     clearScreen();
     unsigned int sci;
     unsigned int com;
+    string strSci;
+    string strCom;
     vector<Scientist> s;
     vector<Computer> c;
     vector<int> sc;
@@ -516,15 +518,23 @@ void ConsoleUI::addRelation()
         cout << endl;
         cout << "Pick a scientist you would like to add a relation to (their ID): ";
 
-        cin >> sci;
-
+        getline(cin, strSci);
+        getline(cin, strSci);
+        while(!_serviceSci.validNumber(strSci))
+        {
+            cout << "Invalid input!" << endl;
+            cout << "Try again: ";
+            getline(cin, strSci);
+        }
+        sci = atoi(strSci.c_str());
         if(count == 0)
         {
             while(sci > Scientists.size() || sci < 1)
             {
                 cout << "Invalid input!" << endl;
                 cout << "Try again: ";
-                cin >> sci;
+                getline(cin, strSci);
+                sci = atoi(strSci.c_str());
             }
         }
 
@@ -534,7 +544,8 @@ void ConsoleUI::addRelation()
             {
                 cout << "Invalid input!" << endl;
                 cout << "Try again: ";
-                cin >> sci;
+                getline(cin, strSci);
+                sci = atoi(strSci.c_str());
             }
         }
 
@@ -835,7 +846,25 @@ void ConsoleUI::editComp()
  */
  void ConsoleUI::editRelation()
  {
+     vector <Computer> temp = _serviceComp.getComputers();
+     vector <Scientist> temp1 = _serviceSci.getScientists();
+     clearScreen();
+     int nrID , sciID, compID;
+     listRelation();
+     cout << endl << "No. which relation would you like to edit? " << endl << endl << "=> ";
+     cin >> nrID;
 
+     clearScreen();
+     displayListOfScientists(temp1);
+     cout << endl << "No. which Scientist would you like to be the new one " << endl << endl << "=> ";
+     cin >> sciID;
+
+     clearScreen();
+     displayListOfComputers(temp);
+     cout << endl << "No. which Scientist would you like to be the new one " << endl << endl << "=> ";
+     cin >> compID;
+
+     _serviceGen.editRelation (nrID, sciID, compID);
  }
 
  /**

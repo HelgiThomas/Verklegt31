@@ -135,9 +135,9 @@ vector<int> LinkAccess::RelationId()
  * @brief edits the selected ID and putss the new science ID and new computer Id in that relation
  * @param int nrID, int SciID, int CompID
  */
-void LinkAccess::editRelation (int nrID, int SciID, int CompID)
+void LinkAccess::editRelation (int nrID, int sciID, int compID)
 {
-
+    cout << nrID << " " << sciID << " " << compID;
 }
 /**
  * @brief This function puts the status = 0 for the selcted re++lation

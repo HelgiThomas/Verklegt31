@@ -27,7 +27,7 @@ public:
     vector<int> ComputerId ();
     vector<int> RelationId ();
 
-    void editRelation (int nrID, int SciID, int CompID);
+    void editRelation (int nrID, int sciID, int compID);
 
     void removeRelation (int nrID);
 
