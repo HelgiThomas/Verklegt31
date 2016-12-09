@@ -33,8 +33,7 @@ void ConsoleUI::run()
         cout << "5. Sort" << endl;
         cout << "6. Reversed sort" << endl;
         cout << "7. Search " << endl;
-        cout << "8. Game" << endl;
-        cout << "9. Quit" << endl << endl << "=> ";
+        cout << "8. Quit" << endl << endl << "=> ";
 
         string command;
         cin >> command;
@@ -149,20 +148,20 @@ void ConsoleUI::run()
             clearScreen();
             string choice;
             cout << "What would you like to list? " << endl;
-            cout << "1. Scientist" << endl;
-            cout << "2. Computer" << endl;
-            cout << "3. Relation" << endl;
+            cout << "1. Scientists" << endl;
+            cout << "2. Computers" << endl;
+            cout << "3. Relations" << endl;
             cout << "4. Back" << endl << endl << "=> ";
             cin >> choice;
-            if(choice == "scientist" || choice == "Scientist" || choice == "1")
+            if(choice == "scientists" || choice == "Scientists" || choice == "1")
             {
                 listSci();
             }
-            else if(choice == "computer" || choice == "Computer" || choice == "2")
+            else if(choice == "computers" || choice == "Computers" || choice == "2")
             {
                 listComp();
             }
-            else if(choice == "relation" || choice == "Relation" || choice == "3")
+            else if(choice == "relations" || choice == "Relations" || choice == "3")
             {
                 listRelation();
             }
@@ -214,21 +213,21 @@ void ConsoleUI::run()
         {
             clearScreen();
             string choice;
-            cout << "Would you like to Sort by, Scientist or Computer?? " << endl;
-            cout << "1. Scientist" << endl;
-            cout << "2. Computer" << endl;
-            cout << "3. Relation" << endl;
+            cout << "What would you like to sort? " << endl;
+            cout << "1. Scientists" << endl;
+            cout << "2. Computers" << endl;
+            cout << "3. Relations" << endl;
             cout << "4. Back" << endl << endl << "=> ";
             cin >> choice;
-            if(choice == "scientist" || choice == "Scientist" || choice == "1")
+            if(choice == "scientists" || choice == "Scientists" || choice == "1")
             {
                 sortSci();
             }
-            else if(choice == "computer" || choice == "Computer" || choice == "2")
+            else if(choice == "computers" || choice == "Computers" || choice == "2")
             {
                 sortComp();
             }
-            else if(choice == "relation" || choice == "Relation" || choice == "3")
+            else if(choice == "relations" || choice == "Relations" || choice == "3")
             {
                 //sortRelation();
             }
@@ -247,21 +246,21 @@ void ConsoleUI::run()
         {
             clearScreen();
             string choice;
-            cout << "Would you like to Reverse Sort by, Scientist or Computer?? " << endl;
-            cout << "1. Scientist" << endl;
-            cout << "2. Computer" << endl;
-            cout << "3. Relation" << endl;
+            cout << "What would you like to reverse sort? " << endl;
+            cout << "1. Scientists" << endl;
+            cout << "2. Computers" << endl;
+            cout << "3. Relations" << endl;
             cout << "4. Back" << endl << endl << "=> ";
             cin >> choice;
-            if(choice == "scientist" || choice == "Scientist" || choice == "1")
+            if(choice == "scientists" || choice == "Scientists" || choice == "1")
             {
                 reversedSortSci();
             }
-            else if(choice == "computer" || choice == "Computer" || choice == "2")
+            else if(choice == "computers" || choice == "Computers" || choice == "2")
             {
                 reversedSortComp();
             }
-            else if(choice == "relation" || choice == "Relation" || choice == "3")
+            else if(choice == "relations" || choice == "Relations" || choice == "3")
             {
                 //reversedSortRelation();
             }
@@ -280,7 +279,7 @@ void ConsoleUI::run()
         {
             clearScreen();
             string choice;
-            cout << "Would you like to Search by, Scientist or Computer?? " << endl;
+            cout << "What do you want to search for? " << endl;
             cout << "1. Scientist" << endl;
             cout << "2. Computer" << endl;
             cout << "3. Back" << endl << endl << "=> ";
@@ -306,11 +305,7 @@ void ConsoleUI::run()
 
 
         }
-        else if(command == "Game" || command == "game" || command == "8")
-        {
-            playGame();
-        }
-        else if (command == "quit" || command == "Quit" || command == "9")
+        else if (command == "quit" || command == "Quit" || command == "8")
         {
             exit(1);
         }
@@ -324,7 +319,7 @@ void ConsoleUI::run()
 
 /**
  * @brief This function is called when the list command is selected by the user.
- * It lists out all the users in the order they were put into the program.
+ * It lists out all the scientists in the order they were put into the program.
  */
 void ConsoleUI::listSci()
 {
@@ -333,6 +328,10 @@ void ConsoleUI::listSci()
     cout << endl;
 }
 
+/**
+ * @brief This function is called when the list command is selected by the user.
+ * It lists out all the computers in the order they were put into the program.
+ */
 void ConsoleUI::listComp()
 {
     vector <Computer> Computer = _serviceComp.getComputers();
@@ -343,7 +342,7 @@ void ConsoleUI::listComp()
 
 /**
  * @brief This function is called when the user chooses the add command.
- * It asks the user to put in the correct information to add an new scientist.
+ * It asks the user to put in the correct information to add a new scientist.
  * Also handles errors if the user puts the wrong information into a certain field.
  */
 void ConsoleUI::addSci()
@@ -437,7 +436,9 @@ void ConsoleUI::addSci()
 }
 
 /**
- * @brief ConsoleUI::addComp
+ * @brief This function is called when the user chooses the add command.
+ * It asks the user to put in the correct information to add a new computer.
+ * Also handles errors if the user puts the wrong information into a certain field.
  */
 void ConsoleUI::addComp()
 {
@@ -489,7 +490,9 @@ void ConsoleUI::addComp()
 }
 
 /**
- * @brief ConsoleUI::addRelation
+ * @brief This function is called when the user chooses the add command.
+ * It asks the user to put in the correct information to add a new relation between computer/s and scientist/s.
+ * Also handles errors if the user puts the wrong information into a certain field.
  */
 void ConsoleUI::addRelation()
 {
@@ -511,7 +514,7 @@ void ConsoleUI::addRelation()
     while(YoN1 == "y" || YoN1 == "Y" || YoN1 == "yes" || YoN1 == "Yes")
     {
         cout << endl;
-        cout << "Pick a scientists you would like to add a relation to (their ID): ";
+        cout << "Pick a scientist you would like to add a relation to (their ID): ";
 
         cin >> sci;
 
@@ -559,7 +562,7 @@ void ConsoleUI::addRelation()
     while(YoN2 == "y" || YoN2 == "Y" || YoN2 == "yes" || YoN2 == "Yes")
     {
         cout << endl;
-        cout << "Pick computers you want to relate to that/those scientist/s (their IDs): ";
+        cout << "Pick a computer you want to relate to that/those scientist/s (their IDs): ";
 
         cin >> com;
 
@@ -604,6 +607,11 @@ void ConsoleUI::addRelation()
     }
 }
 
+/**
+ * @brief This function is called when the list command is selected by the user.
+ * It lists out all the relations between scientists and computers
+ * in the order they were put into the program.
+ */
 void ConsoleUI::listRelation()
 {
     vector<int>ScientistID = _serviceSci.allScientistID ();
@@ -656,7 +664,10 @@ void ConsoleUI::listRelation()
     cout << endl;
 }
 
-
+/**
+ * @brief This function is called when the edit command is selected by the user.
+ * It gives you the option to edit any input the user put in about the scientist.
+ */
 void ConsoleUI::editSci()
 {
     string nameOf;
@@ -665,7 +676,7 @@ void ConsoleUI::editSci()
     vector<Scientist> Scientist = _serviceSci.getScientists();
     displayListOfScientists(Scientist);
 
-    cout << "Which Scientist would you like to edit? " << endl << endl << "=> ";
+    cout << "Which scientist would you like to edit? " << endl << endl << "=> ";
 
     std::getline(cin, nameOf);
     std::getline(cin,nameOf);
@@ -735,6 +746,11 @@ void ConsoleUI::editSci()
         }
     }
 }
+
+/**
+ * @brief This function is called when the edit command is selected by the user.
+ * It gives you the option to edit any input the user put in about the computer.
+ */
 void ConsoleUI::editComp()
 {
     string nameOf;
@@ -743,7 +759,7 @@ void ConsoleUI::editComp()
     vector <Computer> Computer = _serviceComp.getComputers();
     displayListOfComputers(Computer);
 
-    cout << "Which Computer would you like to edit? " << endl << endl << "=> ";
+    cout << "Which computer would you like to edit? " << endl << endl << "=> ";
     std::getline(cin, nameOf);
     std::getline(cin,nameOf);
     cout << endl;
@@ -812,11 +828,21 @@ void ConsoleUI::editComp()
         }
     }
 }
+
+/**
+ * @brief This function is called when the edit command is selected by the user.
+ * It gives you the option to edit any input the user put in about the relation.
+ */
  void ConsoleUI::editRelation()
  {
 
  }
 
+ /**
+  * @brief This function is called when the remove command is selected.
+  * It gives you the option to remove a relation from the list.
+  * The relation will still exist in the database.
+  */
  void ConsoleUI::removeRelation()
  {
      clearScreen();
@@ -831,7 +857,9 @@ void ConsoleUI::editComp()
  }
 
 /**
- * @brief Removes a scientist from the list
+ * @brief This function is called when the remove command is selected.
+ * It gives you the option to remove a scientist from the list.
+ * The scientist will still exist in the database.
  */
 void ConsoleUI::removeSci ()
 {
@@ -895,7 +923,12 @@ void ConsoleUI::removeSci ()
             cout << "Scientist not removed " << endl;
         }
 }
-//komment below helgi
+
+/**
+ * @brief This function is called when the remove command is selected.
+ * It gives you the option to remove all scientists from the list.
+ * The scientists will still exist in the database.
+ */
 void ConsoleUI::removeEverySci()
 {
     clearScreen();
@@ -924,6 +957,11 @@ void ConsoleUI::removeEverySci()
     }
 }
 
+/**
+ * @brief This function is called when the remove command is selected.
+ * It gives you the option to remove all computers from the list.
+ * The computers will still exist in the database.
+ */
 void ConsoleUI::removeEveryComp()
 {
     clearScreen();
@@ -952,7 +990,11 @@ void ConsoleUI::removeEveryComp()
     }
 }
 
-
+/**
+ * @brief This function is called when the remove command is selected.
+ * It gives you the option to remove a computer from the list.
+ * The computer will still exist in the database.
+ */
 void ConsoleUI::removeComp()
 {
     bool exist;
@@ -1015,12 +1057,10 @@ void ConsoleUI::removeComp()
 }
 
 /**
- * @brief This is the function that's called when the user selects the sort command.
- * It sorts the list of scientists by either Name, Sex, Birth or Death. Depending
+ * @brief This function is called when the user selects the sort command.
+ * It sorts the list of scientists by either name, sex, birth or death. Depending
  * the the command the user selects.
  */
-
-
 void ConsoleUI::sortSci()
 {
     clearScreen();
@@ -1062,6 +1102,12 @@ void ConsoleUI::sortSci()
         }
     }
 }
+
+/**
+ * @brief This function is called when the user selects the sort command.
+ * It sorts the list of computers by either name, build year, type or if it was built.
+ * Depending the on command the user selects.
+ */
 void ConsoleUI::sortComp()
 {
     clearScreen();
@@ -1105,8 +1151,8 @@ void ConsoleUI::sortComp()
 }
 
 /**
- * @brief This function works exactly the same as the function the sortSci() function but
- * reverses the sorting. It can sort by either Name, Sex, Birth and Death.
+ * @brief This function works exactly the same as the sortSci() function but
+ * reverses the sorting. It can sort by either name, sex, birth and death.
  */
 void ConsoleUI::reversedSortSci()
 {
@@ -1149,7 +1195,10 @@ void ConsoleUI::reversedSortSci()
     }
 }
 
-
+/**
+ * @brief This function works exactly the same as the sortComp() function but
+ * reverses the sorting. It can sort by either name, build year, type or if it was built.
+ */
 void ConsoleUI::reversedSortComp()
 {
     clearScreen();
@@ -1193,8 +1242,8 @@ void ConsoleUI::reversedSortComp()
 }
 
 /**
- * @brief This function search the list of scientists and you can choose to sort by either
- * Name, Sex, Birth and Death.
+ * @brief This function searches the list of scientists and you can choose to search by either
+ * name, sex, birth or death.
  */
 void ConsoleUI::searchScientistList ()
 {
@@ -1264,6 +1313,11 @@ void ConsoleUI::searchScientistList ()
         }
     }
 }
+
+/**
+ * @brief This function searches the list of computers and you can choose to search by either
+ * name, build year, type or if it was built.
+ */
 void ConsoleUI::searchComputerList()
 {
     clearScreen();
@@ -1333,8 +1387,8 @@ void ConsoleUI::searchComputerList()
 
 /**
  * @brief This function displays the list of scientists and is called when the user
- * calls for the list option the menu.
- * @param vector Scientists.
+ * calls for the list option in the menu.
+ * @param vector scientists.
  */
 void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
 {
@@ -1373,6 +1427,11 @@ void ConsoleUI::displayListOfScientists (vector<Scientist> Scientist)
     cout << endl;
 }
 
+/**
+ * @brief This function displays the list of computers and is called when the user
+ * calls for the list option in the menu.
+ * @param vector computers.
+ */
 void ConsoleUI::displayListOfComputers(vector<Computer> Computer)
 {
     clearScreen();
@@ -1408,43 +1467,6 @@ void ConsoleUI::displayListOfComputers(vector<Computer> Computer)
     cout << endl;
 }
 
-/**
- * @brief plays a game with the user, guessing who owns the citation.
- */
-void ConsoleUI::playGame(){
-
-    clearScreen();
-
-    vector<Scientist> Scientist = _serviceSci.getScientists();
-
-    int r = rand() % (Scientist.size()) + 1;
-
-    string guess;
-    string quote = Scientist[r].getCitation();
-
-    cout << "----------------------------------------------------------------" << endl;
-    cout << "Let's play a little game, guess who owns the following citation!" << endl;
-    cout << "----------------------------------------------------------------" << endl;
-    cout << quote << endl;
-    cout << "Answer: ";
-    getline (cin,guess);
-    getline (cin,guess);
-    cout << endl;
-
-    if (guess == Scientist[r].getName())
-    {
-        cout << "You Guessed Correctly!!" << endl;
-        score++;
-        cout << "Your score is: " << score << endl;
-        cout << endl;
-    }
-    else
-    {
-        cout << "Wrong answer!" << endl;
-        cout << "The correct answer is: " << Scientist[r].getName() << endl;
-        cout << endl;
-    }
-}
 
 /**
  * @brief clears the screen to make the menu look clean and beautiful.
@@ -1460,8 +1482,8 @@ void ConsoleUI::clearScreen()
 #endif
 }
 
-/*
- * A function which returns true if the scientist is alive or false if the scientist
+/**
+ * This function returns true if the scientist is alive or false if the scientist
  * is dead.
  * @return: true/false.
  */
@@ -1488,7 +1510,7 @@ bool ConsoleUI::isPersonAlive()
 
 /**
  * @brief A function to validate if the list of scientists contains any names to display.
- * Vector of Scientists.
+ * @param vector scientists.
  */
 void ConsoleUI::validateSearch(vector<Scientist>search)
 {
@@ -1502,6 +1524,11 @@ void ConsoleUI::validateSearch(vector<Scientist>search)
     }
     cout << endl;
 }
+
+/**
+ * @brief A function to validate if the list of computers contains any names to display.
+ * @param vector computers.
+ */
 void ConsoleUI::validateSearch(vector<Computer>search)
 {
     if (search.size() > 0)
@@ -1544,6 +1571,10 @@ bool ConsoleUI::askIfCitation()
     }
 }
 
+/**
+ * @brief A function to ask the user if the computer was built.
+ * @return true/false
+ */
 bool ConsoleUI::askIfBuilt()
 {
     string input;
