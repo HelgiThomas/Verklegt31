@@ -94,7 +94,7 @@ void ConsoleUI::run()
             }
             else if(choice == "relation" || choice == "Relation" || choice == "3")
             {
-                //removeRelation();
+                removeRelation();
             }
             else if (choice == "everyone" || choice == "Everyone" || choice == "4")
             {
@@ -165,7 +165,7 @@ void ConsoleUI::run()
             }
             else if(choice == "relation" || choice == "Relation" || choice == "3")
             {
-                //editRelation();
+                editRelation();
             }
             else if(choice == "back" || choice == "Back" || choice == "4")
             {
@@ -774,6 +774,23 @@ void ConsoleUI::editComp()
         }
     }
 }
+ void ConsoleUI::editRelation()
+ {
+
+ }
+
+ void ConsoleUI::removeRelation()
+ {
+     clearScreen();
+     listRelation();
+     int nrID;
+
+     cout << "Which relation would you like to remove? " << endl << endl << "=> ";
+     cin >> nrID;
+
+     _serviceGen.removeRelation(nrID);
+
+ }
 
 /**
  * @brief Removes a scientist from the list

@@ -25,3 +25,7 @@ bool GeneralService::validRelation(int sci, vector<int> num)
     }
     return valid;
 }
+void GeneralService::removeRelation(int nrId)
+{
+    _link.removeRelation(nrId);
+}

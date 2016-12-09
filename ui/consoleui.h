@@ -41,6 +41,7 @@ private:
     void addRelation();
     void editSci ();
     void editComp ();
+    void editRelation ();
     void sortSci();
     void sortComp();
     void reversedSortSci();
@@ -76,6 +77,8 @@ private:
     void removeComp();
 
     void removeRelation();
+
+    void removerelation ();
 
 
     /**
