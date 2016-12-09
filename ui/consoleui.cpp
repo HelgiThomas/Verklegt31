@@ -78,29 +78,61 @@ void ConsoleUI::run()
             clearScreen();
             string choice;
             cout << "What would you like to remove? " << endl;
-            cout << "1. Person" << endl;
+            cout << "1. Scientist" << endl;
             cout << "2. Computer" << endl;
             cout << "3. Relation" << endl;
-            cout << "4. Everyone" << endl;
-            cout << "5. Back" << endl << endl << "=> ";
+            cout << "4. Back" << endl << endl << "=> ";
             cin >> choice;
-            if (choice == "person" || choice == "Person" || choice == "1")
+            if (choice == "scientist" || choice == "Scientist" || choice == "1")
             {
-                removeSci();
+                clearScreen();
+                string removeChoice;
+                cout << "Do you want to remove?" << endl;
+                cout << "1. One scientist" << endl;
+                cout << "2. All scientists" << endl;
+                cin >> removeChoice;
+                if(removeChoice == "one" || removeChoice == "One" || removeChoice == "1")
+                {
+                    removeSci();
+                }
+                else if(removeChoice == "all" || removeChoice == "All" || removeChoice == "2")
+                {
+                    removeEverySci();
+                }
+                else
+                {
+                    clearScreen();
+                    cout << "Invalid command!" << endl << endl;
+                }
             }
             else if(choice == "computer" || choice == "Computer" || choice == "2")
             {
-                removeComp();
+                clearScreen();
+                string removeChoice;
+                cout << "Do you want to remove?" << endl;
+                cout << "1. One computer" << endl;
+                cout << "2. All computers" << endl;
+                cin >> removeChoice;
+                if(removeChoice == "one" || removeChoice == "One" || removeChoice == "1")
+                {
+                    removeComp();
+                }
+                else if(removeChoice == "all" || removeChoice == "All" || removeChoice == "2")
+                {
+                    removeEveryComp();
+                }
+                else
+                {
+                    clearScreen();
+                    cout << "Invalid command!" << endl << endl;
+                }
+
             }
             else if(choice == "relation" || choice == "Relation" || choice == "3")
             {
                 removeRelation();
             }
-            else if (choice == "everyone" || choice == "Everyone" || choice == "4")
-            {
-                removeEverySci();
-            }
-            else if(choice == "back" || choice == "Back" || choice == "5")
+            else if(choice == "back" || choice == "Back" || choice == "4")
             {
                 clearScreen();
                 run();
@@ -888,6 +920,34 @@ void ConsoleUI::removeEverySci()
     else if (choice == "n" || choice == "N")
     {
         cout << "Nobody has been removed! " << endl << endl;
+
+    }
+}
+
+void ConsoleUI::removeEveryComp()
+{
+    clearScreen();
+    string choice;
+    cout << "Are you absolutely sure?  (Y/N)" << endl;
+    cin >> choice;
+    clearScreen();
+
+    while(choice != "Y" && choice != "y" && choice != "n" && choice != "N")
+    {
+        cout << "Invalid input!" << endl;
+        cout << "Type either Y or N: ";
+        cin >> choice;
+        clearScreen();
+    }
+    if (choice == "y" || choice == "Y")
+    {
+        _serviceComp.removeEverycomputer();
+        clearScreen();
+        cout << "All computers have been removed! " << endl << endl << endl << endl;
+    }
+    else if (choice == "n" || choice == "N")
+    {
+        cout << "No computer has been removed! " << endl << endl;
 
     }
 }
