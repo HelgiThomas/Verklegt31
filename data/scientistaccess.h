@@ -17,7 +17,8 @@
 using namespace std;
 
 /**
- * @brief The ScientistAccess class.
+ * @brief The ScientistAccess class, handles operations within the data layer
+ * related to Scientists.
  */
 class ScientistAccess
 {
@@ -28,21 +29,21 @@ public:
     ScientistAccess();
 
     /**
-     * @brief readToDatabase
+     * @brief readToDatabase, readFromDatabase, functions to read into and write out of the SQL database.
      * @param scientist
      */
     void readToDatabase(Scientist scientist);
     vector<Scientist> readFromDatabase();
 
     /**
-     * @brief removelist
-     * @param nameOf
+     * @brief removelist/All, removes a single computer or all of the scientists.
+     * @param int nameOf
      */
     void removelist(int nameOf);
     void removeAll();
 
     /**
-     * @brief editString
+     * @brief editString/Int, edits a field within the Scientist model.
      * @param string nameOf
      * @param string variable
      * @param string/int newElement, two function - one for int and one for string.
@@ -51,57 +52,54 @@ public:
     void editInt(string nameOf, string variable, int newElement);
 
     /**
-     * @brief sortQuery
-     * @param string var
-     * @param string command
-     * @param
-     */
-    vector<Scientist> sortQuery(string var, string command);
-    vector<Scientist> searchQueryString(string variable,string command);
-    vector<Scientist> searchQueryInt(string variable, string operatorOf, int command);
-
-    /**
-     * @brief updateRelation
+     * @brief updateRelation/all, updates the relation to scientist/s.
      * @param int nameOf
      */
     void updateRelation (int nameOf);
     void updateRelationall();
 
     /**
-     * @brief connect
+     * @brief sortQuery/String/Int, pulls out of the database the list of scientists sorted by the appropriate variable.
+     * @param string var
+     * @param string command
+     * @return vector of scientists sorted
+     */
+    vector<Scientist> sortQuery(string var, string command);
+    vector<Scientist> searchQueryString(string variable,string command);
+    vector<Scientist> searchQueryInt(string variable, string operatorOf, int command);
+
+    /**
+     * @brief connect, connects the SQL database.
      */
     void connect();
 
 private:
 
     /**
-     * @brief fileWork
+     * @brief fileWork, helper function that writes into the file.
      * @param scientist
      */
     void fileWork(Scientist scientist);
 
     /**
-     * @brief queryShortcut
+     * @brief queryShortcut, for pull out of the database.
      */
     void queryShortcut ();
 
     /**
-     * @brief edit
-     * @param id
-     * @param command
+     * @brief edit, helper function for the edit functionality.
+     * @param int id
+     * @param string command
      */
     void edit(int id, string command);
 
     /**
-     * @brief checkEntry
-     * @param scientist
+     * @brief checkEntry, checks whether the entry already exists.
+     * @param Scientist scientist
      * @return
      */
     bool checkEntry(Scientist scientist);
 
-    /**
-     * @brief m_db
-     */
     QSqlDatabase m_db;
     vector<Scientist> theList;
     int _temp;

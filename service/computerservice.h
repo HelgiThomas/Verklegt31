@@ -10,7 +10,7 @@
 using namespace std;
 
 /**
- * @brief The ComputerService class, Handles Business level operations for Computers.
+ * @brief The ComputerService class, handles Business level operations for Computers.
  */
 class ComputerService
 {

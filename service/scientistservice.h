@@ -9,6 +9,9 @@
 
 using namespace std;
 
+/**
+ * @brief The ScientistService class, handles Business level operations for Scientists.
+ */
 class ScientistService
 {
 public:

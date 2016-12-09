@@ -17,7 +17,8 @@
 using namespace std;
 
 /**
- * @brief The LinkAccess class
+ * @brief The LinkAccess class, handles operations within the data layer
+ * related to links between Scientists and Computer.
  */
 class LinkAccess
 {
@@ -26,19 +27,22 @@ public:
      * @brief LinkAccess, default constructor.
      */
     LinkAccess();
+
     /**
      * @brief This function will link the scientistID and computerID
      * @param int scientistId
      * @param int computerId
      */
     void link(int scientistId, int computerId);
+
     /**
      * @brief ScientistId
-     * @return
+     * @return vector of ints containing Ids,
      */
     vector<int> ScientistId ();
     vector<int> ComputerId ();
     vector<int> RelationId ();
+
     /**
      * @brief editRelation
      * @param int nrID
@@ -46,20 +50,19 @@ public:
      * @param int compID
      */
     void editRelation (int nrID, int sciID, int compID);
+
     /**
      * @brief removeRelation
      * @param int nrID
      */
     void removeRelation (int nrID);
+
     /**
-     * @brief connect
+     * @brief connect, connects the SQL database.
      */
     void connect();
 
 private:
-    /**
-     * @brief m_db
-     */
     QSqlDatabase m_db;
 };
 
