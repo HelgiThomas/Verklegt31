@@ -62,10 +62,9 @@ public:
      * @param string name.
      */
     void removeScientist (int nameOf);
-    //comment below helgi
     void removeEveryscientist ();
 
-    //comment below helgi
+
     void editScientistString(string nameOf, string variable, string newElement);
     void editScientistInt (string nameOf, string variable, int newElement);
     /**
@@ -97,7 +96,7 @@ public:
     string mOrF(string sex);
     string makeFirstLetterBig(string name);
 
-     vector <int> allScientistID ();
+    vector<int> allScientistID();
 
 
 private:

@@ -361,7 +361,7 @@ string ScientistService::makeFirstLetterBig(string name)
 }
 
 /**
- * @brief ScientistService::validCommand -> checks if the input from user is valid.
+ * @brief ScientistService::validCommand, checks if the input from user is valid.
  * @param string command.
  * @return true/false.
  */
@@ -374,7 +374,7 @@ bool ScientistService::validCommand(string command)
 }
 
 /**
- * @brief This function connects the ID in linkaccess to the ConsoleUI.
+ * @brief ScientistService::allScientistID, This function connects the ID in linkaccess to the ConsoleUI.
  * @return vector scientist.
  */
 vector <int> ScientistService::allScientistID ()
