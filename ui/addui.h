@@ -7,11 +7,20 @@
 
 #include "ui/utilityui.h"
 
+/**
+ * @brief The AddUI class,
+ */
 class AddUI
 {
 public:
+    /**
+     * @brief AddUI,
+     */
     AddUI();
 
+    /**
+     * @brief addSci/Comp/Relation,
+     */
     void addSci();
     void addComp();
     void addRelation();

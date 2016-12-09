@@ -8,11 +8,20 @@
 
 #include "ui/utilityui.h"
 
+/**
+ * @brief The GameUI class,
+ */
 class GameUI
 {
 public:
+    /**
+     * @brief GameUI,
+     */
     GameUI();
 
+    /**
+     * @brief playCitation/Relation,
+     */
     void playCitation();
     void playRelation();
 

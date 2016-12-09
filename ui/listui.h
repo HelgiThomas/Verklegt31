@@ -7,11 +7,20 @@
 
 #include "ui/utilityui.h"
 
+/**
+ * @brief The ListUI class,
+ */
 class ListUI
 {
 public:
+    /**
+     * @brief ListUI,
+     */
     ListUI();
 
+    /**
+     * @brief listSci/Comp/Relation,
+     */
     void listSci();
     void listComp();
     void listRelation();
