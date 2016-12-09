@@ -41,7 +41,7 @@ void ScientistService::removeScientist (int nameOf)
 }
 
 /**
- * @brief ScientistService::removeEveryscientist
+ * @brief This funtions removes all scientists.
  */
 void ScientistService::removeEveryscientist()
 {
@@ -49,10 +49,10 @@ void ScientistService::removeEveryscientist()
 }
 
 /**
- * @brief ScientistService::editScientistString
- * @param nameOf
- * @param variable
- * @param newElement
+ * @brief This function connects the edit string function in scientistaccess to the concoleUI.
+ * @param string nameOf
+ * @param string variable
+ * @param string newElement
  */
 void ScientistService::editScientistString(string nameOf, string variable, string newElement)
 {
@@ -60,10 +60,10 @@ void ScientistService::editScientistString(string nameOf, string variable, strin
 }
 
 /**
- * @brief ScientistService::editScientistInt
- * @param nameOf
- * @param variable
- * @param newElement
+ * @brief This function connects the edit int function in scientistaccess to the concoleUI.
+ * @param string nameOf
+ * @param string variable
+ * @param int newElement
  */
 void ScientistService::editScientistInt (string nameOf, string variable, int newElement)
 {
@@ -71,9 +71,9 @@ void ScientistService::editScientistInt (string nameOf, string variable, int new
 }
 
 /**
- * @brief ScientistService::searchName
- * @param command
- * @return
+ * @brief This function connects the search name in scientistaccess to the concoleUI.
+ * @param string command
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::searchName(string command)
 {
@@ -81,9 +81,9 @@ vector<Scientist> ScientistService::searchName(string command)
 }
 
 /**
- * @brief ScientistService::searchSex
- * @param command
- * @return
+ * @brief This function connects the search sex in scientistaccess to the concoleUI.
+ * @param string command
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::searchSex(string command)
 {
@@ -91,9 +91,9 @@ vector<Scientist> ScientistService::searchSex(string command)
 }
 
 /**
- * @brief ScientistService::searchBirth
- * @param command
- * @return
+ * @brief This function connects the search birth in scientistaccess to the concoleUI.
+ * @param int command
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::searchBirth(string operatorOf, int command)
 {
@@ -101,9 +101,9 @@ vector<Scientist> ScientistService::searchBirth(string operatorOf, int command)
 }
 
 /**
- * @brief ScientistService::searchDeath
- * @param command
- * @return
+ * @brief This function connects the search death in scientistaccess to the concoleUI.
+ * @param int command
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::searchDeath(string operatorOf,int command)
 {
@@ -111,24 +111,24 @@ vector<Scientist> ScientistService::searchDeath(string operatorOf,int command)
 }
 
 /**
- * @brief ScientistService::sortByName
- * @return
+ * @brief This function connects the sorts by name in scientistaccess to the concoleUI.
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::sortByName()
 {
     return _SciAccess.sortQuery("name", "ASC");
 }
 /**
- * @brief ScientistService::sortBySex
- * @return
+ * @brief This function connects the sorts by sex in scientistaccess to the concoleUI.
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::sortBySex()
 {
     return _SciAccess.sortQuery("sex", "ASC");
 }
 /**
- * @brief ScientistService::sortByBirth
- * @return
+ * @brief This function connects the sorts by birth in scientistaccess to the concoleUI.
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::sortByBirth()
 {
@@ -136,8 +136,8 @@ vector<Scientist> ScientistService::sortByBirth()
 }
 
 /**
- * @brief ScientistService::sortByDeath
- * @return
+ * @brief This function connects the sorts by death in scientistaccess to the concoleUI.
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::sortByDeath()
 {
@@ -145,8 +145,8 @@ vector<Scientist> ScientistService::sortByDeath()
 }
 
 /**
- * @brief ScientistService::sortByNameReverse
- * @return
+ * @brief This function connects the reversed sorts by name in scientistaccess to the concoleUI.
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::sortByNameReverse()
 {
@@ -154,16 +154,16 @@ vector<Scientist> ScientistService::sortByNameReverse()
 }
 
 /**
- * @brief ScientistService::sortBySexReverse
- * @return
+ * @brief This function connects the reversed sorts by sex in scientistaccess to the concoleUI.
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::sortBySexReverse()
 {
     return _SciAccess.sortQuery("sex", "DESC");
 }
 /**
- * @brief ScientistService::sortByBirthReverse
- * @return
+ * @brief This function connects the reversed sorts by birth in scientistaccess to the concoleUI.
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::sortByBirthReverse()
 {
@@ -171,8 +171,8 @@ vector<Scientist> ScientistService::sortByBirthReverse()
 }
 
 /**
- * @brief ScientistService::sortByDeathReverse
- * @return
+ * @brief This function connects the reversed sorts by death in scientistaccess to the concoleUI.
+ * @return vector scientist.
  */
 vector<Scientist> ScientistService::sortByDeathReverse()
 {
@@ -194,12 +194,9 @@ bool ScientistService::validName(string name)
         {
             valid = true;
         }
-
-
     }
     return valid;
 }
-
 
 /**
  * @brief A function to validate if the input sex from the users is valid.
@@ -259,8 +256,6 @@ bool ScientistService::validDeath(int birth, string strDeath)
     else return true;
 }
 
-
-
 /**
  * @brief A function which returns the length of the longest name in the database.
  * @param vector of Scientist variables.
@@ -280,7 +275,7 @@ int ScientistService::lengthOfLongestName(vector<Scientist> scientists)
 }
 
 /**
- * @brief A function which returns the length of the longest citation the database.
+ * @brief A function which returns the length of the longest citation in the database.
  * @param A vector of Scientists.
  * @return int variable.
  */
@@ -349,6 +344,11 @@ bool ScientistService::validCommand(string command)
     else
         return false;
 }
+
+/**
+ * @brief This function connects the ID in linkaccess to the ConsoleUI.
+ * @return vector scientist.
+ */
 vector <int> ScientistService::allScientistID ()
 {
     return _link.ScientistId();

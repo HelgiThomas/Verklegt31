@@ -36,7 +36,7 @@ void ComputerService::addComputer(Computer newComputer)
 
 /**
  * @brief This function removes a computer from the .txt file.
- * @param nameOf
+ * @param int nameOf
  */
 void ComputerService::removeComputer (int nameOf)
 {
@@ -54,10 +54,10 @@ void ComputerService::removeEverycomputer ()
 }
 
 /**
- * @brief ComputerService::editComputerString
- * @param nameOf
- * @param variable
- * @param newElement
+ * @brief This function connects the edit string function in computeraccess to the concoleUI.
+ * @param string nameOf
+ * @param string variable
+ * @param string newElement
  */
 void ComputerService::editComputerString(string nameOf, string variable, string newElement)
 {
@@ -65,40 +65,61 @@ void ComputerService::editComputerString(string nameOf, string variable, string 
 }
 
 /**
- * @brief ComputerService::editComputerInt
- * @param nameOf
- * @param variable
- * @param newElement
+ * @brief This function connects the edit int function in computeraccess to the concoleUI.
+ * @param string nameOf
+ * @param string variable
+ * @param int newElement
  */
 void ComputerService::editComputerInt(string nameOf, string variable, int newElement)
 {
     _ComAccess.editInt (nameOf,variable,newElement);
 }
 
+/**
+ * @brief This function connects the search name in computeraccess to the concoleUI.
+ * @param string command
+ * @return vector computer.
+ */
 vector<Computer> ComputerService::searchName(string command)
 {
     return _ComAccess.searchQueryString("Name",command);
 }
 
+/**
+ * @brief This function connects the search year in computeraccess to the concoleUI.
+ * @param string operatorOf
+ * @param int command
+ * @return vector computer.
+ */
 vector<Computer> ComputerService::searchYear(string operatorOf, int command)
 {
     return _ComAccess.searchQueryInt("year",operatorOf,command);
 }
 
+/**
+ * @brief This function connects the search type in computeraccess to the concoleUI.
+ * @param string command
+ * @return vector computer.
+ */
 vector<Computer> ComputerService::searchType(string command)
 {
     return _ComAccess.searchQueryString("Type",command);
 }
 
-
+/**
+ * @brief This function connects the search was built in computeraccess to the concoleUI.
+ * @param string builtOf
+ * @param string operatorOf
+ * @return vector computer.
+ */
 vector<Computer> ComputerService::searchwasBuilt(string builtOf,string operatorOf)
 {
     return _ComAccess.searchQueryString("wasBuilt",operatorOf);
 }
 
 /**
- * @brief This function sorts the computers name
- * @return
+ * @brief This function connects the reversed sorts by name in computeraccess to the concoleUI.
+ * @return vector computer.
  */
 vector<Computer> ComputerService::sortByName()
 {
@@ -106,8 +127,8 @@ vector<Computer> ComputerService::sortByName()
 }
 
 /**
- * @brief This function sorts from the computers build year
- * @return
+ * @brief This function connects the reversed sorts by build year in computeraccess to the concoleUI.
+ * @return vector computer.
  */
 vector<Computer> ComputerService::sortByBuildYear()
 {
@@ -115,8 +136,8 @@ vector<Computer> ComputerService::sortByBuildYear()
 }
 
 /**
- * @brief ComputerService::sortByCompType
- * @return
+ * @brief This function connects the reversed sorts by comp type in computeraccess to the concoleUI.
+ * @return vector computer.
  */
 vector<Computer> ComputerService::sortByCompType()
 {
@@ -125,8 +146,8 @@ vector<Computer> ComputerService::sortByCompType()
 }
 
 /**
- * @brief ComputerService::sortBywasBuilt
- * @return
+ * @brief This function connects the reversed sorts by was built in computeraccess to the concoleUI.
+ * @return vector computer.
  */
 vector<Computer> ComputerService::sortBywasBuilt()
 {
@@ -134,8 +155,8 @@ vector<Computer> ComputerService::sortBywasBuilt()
 }
 
 /**
- * @brief ComputerService::sortByNameReverse
- * @return
+ * @brief This function connects the reversed sorts by name in computeraccess to the concoleUI.
+ * @return vector computer.
  */
 vector<Computer> ComputerService::sortByNameReverse()
 {
@@ -144,8 +165,8 @@ vector<Computer> ComputerService::sortByNameReverse()
 }
 
 /**
- * @brief ComputerService::sortByBuildYearReverse
- * @return
+ * @brief This function connects the reversed sorts by build year in computeraccess to the concoleUI.
+ * @return vector computer.
  */
 vector<Computer> ComputerService::sortByBuildYearReverse()
 {
@@ -154,8 +175,8 @@ vector<Computer> ComputerService::sortByBuildYearReverse()
 }
 
 /**
- * @brief ComputerService::sortByCompTypeReverse
- * @return
+ * @brief This function connects the reversed sorts by comp type in computeraccess to the concoleUI.
+ * @return vector computer.
  */
 vector<Computer> ComputerService::sortByCompTypeReverse()
 {
@@ -164,8 +185,8 @@ vector<Computer> ComputerService::sortByCompTypeReverse()
 }
 
 /**
- * @brief ComputerService::sortBywasBuiltReverse
- * @return
+ * @brief This function connects the reversed sorts by was built in computeraccess to the concoleUI.
+ * @return vector computer.
  */
 vector<Computer> ComputerService::sortBywasBuiltReverse()
 {
@@ -230,11 +251,9 @@ bool ComputerService::validYear(string strYear)
         {
             return false;
         }
-
     }
     return true;
 }
-
 
 /**
  * @brief A function which returns the length of the longest name in the database.
@@ -254,6 +273,11 @@ int ComputerService::lengthOfLongestName(vector<Computer> computers)
     return temp.getName().size();
 }
 
+/**
+ * @brief A function which returns the length of the longest type in the database.
+ * @param A vector of computers.
+ * @return int variable.
+ */
 int ComputerService::lengthOfLongestType(vector<Computer> computers)
 {
     Computer temp;
@@ -279,6 +303,11 @@ bool ComputerService::validCommand(string command)
     else
         return false;
 }
+
+/**
+ * @brief This function connects the ID in linkaccess to the ConsoleUI.
+ * @return vector computer.
+ */
 vector <int> ComputerService::allComputerID ()
 {
     return _link.ComputerId();
