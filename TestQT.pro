@@ -20,7 +20,15 @@ SOURCES += main.cpp \
     data/scientistaccess.cpp \
     data/computeraccess.cpp \
     data/linkaccess.cpp \
-    service/generalservice.cpp
+    service/generalservice.cpp \
+    ui/addui.cpp \
+    ui/removeui.cpp \
+    ui/listui.cpp \
+    ui/editui.cpp \
+    ui/searchui.cpp \
+    ui/gameui.cpp \
+    ui/utilityui.cpp \
+    ui/sortui.cpp
 
 HEADERS += \
     ui/consoleui.h \
@@ -31,4 +39,12 @@ HEADERS += \
     data/scientistaccess.h \
     data/computeraccess.h \
     data/linkaccess.h \
-    service/generalservice.h
+    service/generalservice.h \
+    ui/addui.h \
+    ui/removeui.h \
+    ui/listui.h \
+    ui/editui.h \
+    ui/searchui.h \
+    ui/gameui.h \
+    ui/utilityui.h \
+    ui/sortui.h
