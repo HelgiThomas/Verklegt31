@@ -83,6 +83,9 @@ void ConsoleUI::run()
     } while (1 < 2);
 }
 
+/**
+ * @brief ConsoleUI::consoleAdd, interface for adding into the program.
+ */
 void ConsoleUI::consoleAdd()
 {
     _util.clearScreen ();
@@ -117,6 +120,9 @@ void ConsoleUI::consoleAdd()
     }
 }
 
+/**
+ * @brief ConsoleUI::consoleRemove, interface for removing something from the program.
+ */
 void ConsoleUI::consoleRemove()
 {
     _util.clearScreen();
@@ -134,6 +140,7 @@ void ConsoleUI::consoleRemove()
         cout << "Do you want to remove?" << endl;
         cout << "1. One scientist" << endl;
         cout << "2. All scientists" << endl;
+        cout << "3. Back" << endl << endl << "=>";
         cin >> removeChoice;
         if(removeChoice == "one" || removeChoice == "One" || removeChoice == "1")
         {
@@ -142,6 +149,10 @@ void ConsoleUI::consoleRemove()
         else if(removeChoice == "all" || removeChoice == "All" || removeChoice == "2")
         {
             _remove.removeEverySci();
+        }
+        else if(removeChoice == "back" || removeChoice == "Back" || removeChoice == "3")
+        {
+            consoleRemove();
         }
         else
         {
@@ -156,6 +167,7 @@ void ConsoleUI::consoleRemove()
         cout << "Do you want to remove?" << endl;
         cout << "1. One computer" << endl;
         cout << "2. All computers" << endl;
+        cout << "3. Back" << endl << endl << "=>";
         cin >> removeChoice;
         if(removeChoice == "one" || removeChoice == "One" || removeChoice == "1")
         {
@@ -164,6 +176,10 @@ void ConsoleUI::consoleRemove()
         else if(removeChoice == "all" || removeChoice == "All" || removeChoice == "2")
         {
             _remove.removeEveryComp();
+        }
+        else if(removeChoice == "back" || removeChoice == "Back" || removeChoice == "3")
+        {
+            consoleRemove();
         }
         else
         {
@@ -189,6 +205,9 @@ void ConsoleUI::consoleRemove()
 
 }
 
+/**
+ * @brief ConsoleUI::consoleList, interface for listing the program.
+ */
 void ConsoleUI::consoleList()
 {
     _util.clearScreen();
@@ -223,6 +242,9 @@ void ConsoleUI::consoleList()
     }
 }
 
+/**
+ * @brief ConsoleUI::consoleEdit, interface for editing the program.
+ */
 void ConsoleUI::consoleEdit()
 {
     _util.clearScreen ();
@@ -257,6 +279,9 @@ void ConsoleUI::consoleEdit()
     }
 }
 
+/**
+ * @brief ConsoleUI::consoleSort, interface for sorting the program.
+ */
 void ConsoleUI::consoleSort()
 {
     _util.clearScreen();
@@ -291,6 +316,9 @@ void ConsoleUI::consoleSort()
     }
 }
 
+/**
+ * @brief ConsoleUI::consoleRevSort, interface for reversed sorting the program.
+ */
 void ConsoleUI::consoleRevSort()
 {
     _util.clearScreen();
@@ -325,6 +353,9 @@ void ConsoleUI::consoleRevSort()
     }
 }
 
+/**
+ * @brief ConsoleUI::consoleSearch, interface for searching in the program.
+ */
 void ConsoleUI::consoleSearch()
 {
     _util.clearScreen();
@@ -354,9 +385,10 @@ void ConsoleUI::consoleSearch()
     }
 }
 
+/**
+ * @brief ConsoleUI::consoleGame, interface for the game in the program.
+ */
 void ConsoleUI::consoleGame()
 {
-    _game.playGame();
+    _game.playRelation();
 }
-
-
