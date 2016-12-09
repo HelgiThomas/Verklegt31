@@ -83,7 +83,6 @@ public:
     bool validWasBuilt(string wasBuilt);
     bool validYear(string year);
     bool validCommand(string command);
-
     /**
      * @brief Functions to return the longest name to make the UI look nice.
      * @param vector<Computer> computers

@@ -259,6 +259,8 @@ bool ScientistService::validDeath(int birth, string strDeath)
     else return true;
 }
 
+
+
 /**
  * @brief A function which returns the length of the longest name in the database.
  * @param vector of Scientist variables.

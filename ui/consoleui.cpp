@@ -466,6 +466,9 @@ void ConsoleUI::addRelation()
     unsigned int com;
     vector<Scientist> s;
     vector<Computer> c;
+    vector<int> sc;
+    vector<int> co;
+    int count = 0;
 
 
     cout << "List of Scientist:" << endl;
@@ -473,59 +476,85 @@ void ConsoleUI::addRelation()
     displayListOfScientists(Scientists);
 
     string YoN1 = "y";
-    while(YoN1 == "y" || YoN1 == "Y" || YoN1 == "yes" || YoN1 == "Yes"){
-
+    while(YoN1 == "y" || YoN1 == "Y" || YoN1 == "yes" || YoN1 == "Yes")
+    {
         cout << endl;
         cout << "Pick a scientists you would like to add a relation to (their ID): ";
 
         cin >> sci;
-        while(sci > Scientists.size() || sci < 1)
+
+        if(count == 0)
         {
-            cout << "Invalid input!" << endl;
-            cout << "Try again: ";
-            cin >> sci;
+            while(sci > Scientists.size() || sci < 1)
+            {
+                cout << "Invalid input!" << endl;
+                cout << "Try again: ";
+                cin >> sci;
+            }
+        }
+
+        else
+        {
+            while(!_serviceGen.validRelation(sci, sc) || sci > Scientists.size() || sci < 1)
+            {
+                cout << "Invalid input!" << endl;
+                cout << "Try again: ";
+                cin >> sci;
+            }
         }
 
         cout << endl;
         cout << "You picked " << Scientists[sci-1].getName() << endl;
 
         s.push_back(Scientists[sci-1]);
+        sc.push_back(sci);
 
 
-        cout << "Would you like to add another scientist to a computer?" << endl;
+        cout << "Would you like to add another scientist (Y/N)?" << endl;
         cin >> YoN1;
+        count++;
     }
 
+    count = 0;
     cout << "List of Computers:" << endl;
     vector<Computer> Computers = _serviceComp.getComputers();
     displayListOfComputers(Computers);
-
-    int counter2 = 0;
     string YoN2 = "y";
-    while(YoN2 == "y" || YoN2 == "Y" || YoN2 == "yes" || YoN2 == "Yes"){
 
+    while(YoN2 == "y" || YoN2 == "Y" || YoN2 == "yes" || YoN2 == "Yes")
+    {
         cout << endl;
-        cout << "Pick computers you want to relate to that scientists(their IDs): ";
+        cout << "Pick computers you want to relate to that/those scientist/s (their IDs): ";
 
         cin >> com;
 
-        while(com > Computers.size() || com < 1)
+        if(count == 0)
         {
-            cout << "Invalid input!" << endl;
-            cout << "Try again: ";
-            cin >> com;
+            while(com > Computers.size() || com < 1)
+            {
+                cout << "Invalid input!" << endl;
+                cout << "Try again: ";
+                cin >> com;
+            }
         }
 
-        string choice;
-        cout << "Do you want to add another relation to a computer? ";
-        cin >> choice;
+        else
+        {
+            while(!_serviceGen.validRelation(com, co) || com > Computers.size() || com < 1)
+            {
+                cout << "Invalid input!" << endl;
+                cout << "Try again: ";
+                cin >> com;
+            }
+        }
 
         cout << "You picked " << Computers[com-1].getName() << endl;
-
         c.push_back(Computers[com-1]);
+        co.push_back(com);
 
         cout << "Would you like to add another computer? ";
         cin >> YoN2;
+        count++;
     }
 
     for (unsigned int i = 0; i < s.size(); i++)
