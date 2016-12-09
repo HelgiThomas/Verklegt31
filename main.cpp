@@ -8,8 +8,9 @@ using namespace std;
 
 void clearScreen();
 void frontPage();
+
 /**
- * The main function of the program which only calles the first menu function.
+ * The main function of the program calles the menu function.
  */
 int main()
 {
@@ -20,6 +21,9 @@ int main()
     return 0;
 }
 
+/**
+ * @brief This is the frontpage of our program.
+ */
 void frontPage()
 {
     system("Color");
@@ -55,6 +59,9 @@ void frontPage()
         cout << RESET;
 
 }
+/**
+ * @brief this clears the screen.
+ */
 void clearScreen()
 {
 #ifdef _WIN32

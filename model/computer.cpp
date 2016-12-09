@@ -17,9 +17,9 @@ Computer::Computer()
 /**
  * @brief This function is a constructor that sets the information about
  * each computer.
- * @param id id, sets the id.
+ * @param int id, sets the id.
  * @param string name, sets the name.
- * @param int buildYear, sets the year computer was built (if it was built, else 0).
+ * @param int buildYear, sets the year when the computer was built.
  * @param string compType, sets the computer type.
  * @param string wasBuilt, sets either "Yes" or "No" whether the computer was built or not.
  */
@@ -33,8 +33,8 @@ Computer::Computer(int id, string name, int buildYear, string compType, string w
 }
 
 /**
- * @brief Computer::getID
- * @return
+ * @brief This function returns the computer id.
+ * @return int id.
  */
 int Computer::getId() const
 {
@@ -51,7 +51,7 @@ string Computer::getName () const
 }
 
 /**
- * @brief This function returns the year the computer was built.
+ * @brief This function returns the year when the computer was built.
  * @return int buildYear.
  */
 int Computer::getBuildYear () const
@@ -87,8 +87,8 @@ string Computer::getDescription() const
 }
 
 /**
- * @brief Computer::setId, set the id for the computer
- * @param int id
+ * @brief This function sets the computer id.
+ * @param int id.
  */
 void Computer::setId(int id)
 {

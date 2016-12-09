@@ -35,8 +35,8 @@ Scientist::Scientist(int id, string name,string sex, int birth, int death , stri
 }
 
 /**
- * @brief Scientist::getId, returns the id of the scientist.
- * @return
+ * @brief This function returns the scientists id.
+ * @return int id.
  */
 int Scientist::getId() const
 {
@@ -89,7 +89,7 @@ string Scientist:: getCitation() const
 }
 
 /**
- * @brief Scientist::setId, sets the id of the scientist.
+ * @brief This function sets the scientists id.
  * @param int id.
  */
 void Scientist::setId(int id)
