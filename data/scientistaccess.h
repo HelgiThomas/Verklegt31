@@ -55,7 +55,7 @@ public:
      * @brief updateRelation/all, updates the relation to scientist/s.
      * @param int nameOf
      */
-    void updateRelation (int nameOf);
+    void updateRelation(int nameOf);
     void updateRelationall();
 
     /**

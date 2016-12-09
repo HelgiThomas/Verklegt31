@@ -40,6 +40,8 @@ private:
     void consoleSearch();
     void consoleGame();
 
+    void listRelation();
+
     AddUI _add;
     EditUI _edit;
     ListUI _list;

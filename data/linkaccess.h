@@ -44,12 +44,17 @@ public:
     vector<int> RelationId ();
 
     /**
-     * @brief editRelation
+     * @brief editRelation/sci/comp,
      * @param int nrID
      * @param int sciID
      * @param int compID
      */
     void editRelation (int nrID, int sciID, int compID);
+    void editSci(int changeID,int newSciID);
+    void editComp(int changeID,int newCompID);
+
+    void getSciComps(string Sci);
+    void getCompScis(string Comp);
 
     /**
      * @brief removeRelation

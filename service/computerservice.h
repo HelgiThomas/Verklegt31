@@ -26,6 +26,7 @@ public:
      */
     vector<Computer> getComputers();
     vector<int> allComputerID ();
+
     /**
      * @brief addComputer, adds a new computer to the database.
      * @param newComputer

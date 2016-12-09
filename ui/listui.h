@@ -14,7 +14,10 @@ public:
 
     void listSci();
     void listComp();
-    void listRelation();
+
+    void listAllRelations();
+    void listCompRelation();
+    void listSciRelation();
 
 private:
     UtilityUI _util;

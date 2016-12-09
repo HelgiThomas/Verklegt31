@@ -28,15 +28,13 @@ void UtilityUI::clearScreen()
  */
 void UtilityUI::displayListOfScientists (vector<Scientist> Scientist)
 {
-    //TODO: LAGA SETW
     clearScreen();
-    cout << setw(4) << "No.";
-    cout << setw(40) << "Name";
-    cout << setw(_serviceSci.lengthOfLongestName(Scientist)-17) << left;
-    cout << setw(10) << "Sex";
-    cout << setw(10) << "Birth";
-    cout << setw(10) << "Death";
-    cout << setw(64) << "Citation" << endl;
+    cout << setw(4) << right << "No." << "  | ";
+    cout << setw(30) << right << "Name" << " | ";
+    cout << setw(6) << right << "Sex" << " | ";
+    cout << setw(6) << right << "Birth" << " | ";
+    cout << setw(6) << right << "Death" << " | ";
+    cout << setw(52) << right << "Citation" << endl;
 
     for(int i = 0; i < (_serviceSci.lengthOfLongestName(Scientist) + 50); i++)
     {
@@ -51,13 +49,12 @@ void UtilityUI::displayListOfScientists (vector<Scientist> Scientist)
 
     for (unsigned int i = 0 ; i < Scientist.size();i++)
     {
-        cout << i + 1<< ". | ";
-        cout << setw(_serviceSci.lengthOfLongestName(Scientist)) << left;
-        cout << Scientist [i].getName () << "\t | \t";
-        cout << Scientist [i].getSex () << "\t | \t";
-        cout << Scientist [i].getBirth () << "\t | \t";
-        cout << Scientist [i].getDeath () << "\t | \t";
-        cout << Scientist [i].getCitation () << "\t\t" << endl;
+        cout << setw(4) << right << i + 1 << ". | ";
+        cout << setw(30) << right << Scientist [i].getName () << " | ";
+        cout << setw(6) << right << Scientist [i].getSex () << " | ";
+        cout << setw(6) << right << Scientist [i].getBirth () << " | ";
+        cout << setw(6) << right << Scientist [i].getDeath () << " | ";
+        cout << setw(64) << right << Scientist [i].getCitation () << endl;
     }
     cout << endl;
 }
@@ -70,13 +67,11 @@ void UtilityUI::displayListOfScientists (vector<Scientist> Scientist)
 void UtilityUI::displayListOfComputers(vector<Computer> Computer)
 {
     clearScreen();
-    cout << "No." << "\t";
-    cout << setw(_serviceComp.lengthOfLongestName(Computer)) << left;
-    cout << "Name" << "\t\t";
-    cout << "Year" << " \t\t";
-    cout << setw(_serviceComp.lengthOfLongestType(Computer)) << left;
-    cout << "Type" << "\t\t";
-    cout << "Built" << "\t\t" << endl;
+    cout << setw(4) << right  << "No." << "  | ";
+    cout << setw(30) << right << "Name" << " | ";
+    cout << setw(6) << right << "Year" << " | ";
+    cout << setw(14) << right << "Type" << " | ";
+    cout << setw(6) << right << "Built" << endl;
 
     for(int i = 0; i < (_serviceComp.lengthOfLongestName(Computer) + 30); i++)
     {
@@ -91,13 +86,11 @@ void UtilityUI::displayListOfComputers(vector<Computer> Computer)
 
     for (unsigned int i = 0 ; i < Computer.size();i++)
     {
-        cout << i + 1 << ". | " << "\t";
-        cout << setw(_serviceComp.lengthOfLongestName(Computer)) << left;
-        cout << Computer [i].getName () << "\t | \t";
-        cout << Computer [i].getBuildYear () << "\t | \t";
-        cout << setw(_serviceComp.lengthOfLongestType(Computer)) << left;
-        cout << Computer [i].getCompType () << "\t | \t";
-        cout << Computer [i].getWasBuilt () << "\t\t" << endl;
+        cout << setw(4) << right << i + 1 << ". | "  << " | ";
+        cout << setw(30) << right << Computer [i].getName ()  << " | ";
+        cout << setw(6) << right << Computer [i].getBuildYear ()  << " | ";
+        cout << setw(14) << right << Computer [i].getCompType ()  << " | ";
+        cout << setw(6) << right << Computer [i].getWasBuilt () << endl;
     }
     cout << endl;
 }

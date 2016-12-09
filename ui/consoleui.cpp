@@ -243,6 +243,45 @@ void ConsoleUI::consoleList()
 }
 
 /**
+ * @brief This function is called when the list command is selected by the user.
+ * It lists out all the relations between scientists and computers
+ * in the order they were put into the program.
+ */
+void ListUI::listRelation()
+{
+    _util.clearScreen();
+    string choice;
+    cout << "What would you like to list? " << endl;
+    cout << "1. All relations" << endl;
+    cout << "2. Single scientist relation" << endl;
+    cout << "3. Single computer relation" << endl;
+    cout << "4. Back" << endl << endl << "=> ";
+    cin >> choice;
+    if(choice == "all" || choice == "All" || choice == "1")
+    {
+        _list.listAllRelations();
+    }
+    else if(choice == "scientist" || choice == "Scientists" || choice == "2")
+    {
+        _list.listSciRelation(string Sci);
+    }
+    else if(choice == "computer" || choice == "Computer" || choice == "3")
+    {
+        _list.listCompRelation(string comp);
+    }
+    else if(choice == "back" || choice == "Back" || choice == "4")
+    {
+        _util.clearScreen();
+        run();
+    }
+    else
+    {
+        _util.clearScreen();
+        cout << "Invalid command!" << endl << endl;
+    }
+}
+
+/**
  * @brief ConsoleUI::consoleEdit, interface for editing the program.
  */
 void ConsoleUI::consoleEdit()
