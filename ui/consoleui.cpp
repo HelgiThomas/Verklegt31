@@ -266,7 +266,7 @@ void ConsoleUI::listRelation()
         vector<Scientist> Scientists = _serviceSci.getScientists();
         _util.displayListOfScientists(Scientists);
         string Sci;
-        cout << "Which scientist do you want to see?" << endl;
+        cout << "Which scientist do you want to see (Write in the correct name)? ";
         cin >> Sci;
 
         _list.listSciRelation(Sci);
@@ -276,7 +276,7 @@ void ConsoleUI::listRelation()
         vector<Computer> Computers = _serviceComp.getComputers();
         _util.displayListOfComputers(Computers);
         string Comp;
-        cout << "Which computer do you want to see?" << endl;
+        cout << "Which computer do you want to see (Write in the correct name)? ";
         cin >> Comp;
 
         _list.listCompRelation(Comp);
@@ -340,8 +340,7 @@ void ConsoleUI::consoleSort()
     cout << "What would you like to sort? " << endl;
     cout << "1. Scientists" << endl;
     cout << "2. Computers" << endl;
-    cout << "3. Relations" << endl;
-    cout << "4. Back" << endl << endl << "=> ";
+    cout << "3. Back" << endl << endl << "=> ";
     cin >> choice;
     if(choice == "scientists" || choice == "Scientists" || choice == "1")
     {
@@ -351,11 +350,7 @@ void ConsoleUI::consoleSort()
     {
         _sort.sortComp();
     }
-    else if(choice == "relations" || choice == "Relations" || choice == "3")
-    {
-        //sortRelation();
-    }
-    else if(choice == "back" || choice == "Back" || choice == "4")
+    else if(choice == "back" || choice == "Back" || choice == "3")
     {
         _util.clearScreen();
         run();
@@ -377,8 +372,7 @@ void ConsoleUI::consoleRevSort()
     cout << "What would you like to reverse sort? " << endl;
     cout << "1. Scientists" << endl;
     cout << "2. Computers" << endl;
-    cout << "3. Relations" << endl;
-    cout << "4. Back" << endl << endl << "=> ";
+    cout << "3. Back" << endl << endl << "=> ";
     cin >> choice;
     if(choice == "scientists" || choice == "Scientists" || choice == "1")
     {
@@ -388,11 +382,7 @@ void ConsoleUI::consoleRevSort()
     {
         _sort.reversedSortComp();
     }
-    else if(choice == "relations" || choice == "Relations" || choice == "3")
-    {
-        //reversedSortRelation();
-    }
-    else if(choice == "back" || choice == "Back" || choice == "4")
+    else if(choice == "back" || choice == "Back" || choice == "3")
     {
         _util.clearScreen();
         run();
@@ -441,5 +431,29 @@ void ConsoleUI::consoleSearch()
  */
 void ConsoleUI::consoleGame()
 {
-    _game.playRelation();
+        _util.clearScreen();
+        string choice;
+        cout << "Which game do you want to play? " << endl;
+        cout << "1. Citation Game" << endl;
+        cout << "2. Computer-Scientist Relation" << endl;
+        cout << "3. Back" << endl << endl << "=> ";
+        cin >> choice;
+        if(choice == "citation" || choice == "Citation" || choice == "1")
+        {
+            _game.playCitation();
+        }
+        else if(choice == "relation" || choice == "Relation" || choice == "2")
+        {
+            _game.playRelation();
+        }
+        else if(choice == "back" || choice == "Back" || choice == "3")
+        {
+            _util.clearScreen();
+            run();
+        }
+        else
+        {
+            _util.clearScreen();
+            cout << "Invalid command!" << endl << endl;
+        }
 }

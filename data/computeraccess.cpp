@@ -56,7 +56,8 @@ vector<Computer> ComputerAccess::readFromDatabase()
            com.push_back(pl);
        }
     }
-        m_db.close();
+    m_db.close();
+
     return com;
 }
 
@@ -117,6 +118,7 @@ void ComputerAccess::removeAll()
      query.prepare("UPDATE Computers SET Status = 0");
     query.exec();
 }
+
 void ComputerAccess::editString(string nameOf, string variable, string newElement)
 {
     connect();
@@ -169,18 +171,16 @@ void ComputerAccess::editInt(string nameOf, string variable, int newElement)
 
 void ComputerAccess::connect()
 {
-    m_db = QSqlDatabase::addDatabase("QSQLITE");
-    m_db.setDatabaseName("DB_vika2.sqlite");
-
-    if (!m_db.open())
+    if (!m_db.isOpen())
     {
-        // ATH ATH ATH THETTA MA EKKI VERA HER
-       qDebug() << "Error: connection with database fail";
+        m_db = QSqlDatabase::addDatabase("QSQLITE");
+        m_db.setDatabaseName("DB_vika2.sqlite");
+
+        m_db.open();
     }
     else
     {
-        // ATH ATH ATH THETTA MA EKKI VERA HER
-       qDebug() << "Database: connection ok";
+        m_db.open();
     }
 }
 

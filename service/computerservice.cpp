@@ -225,13 +225,10 @@ bool ComputerService::validCompType(string compType)
     bool valid = false;
     for(unsigned int i = 0; i < compType.size(); i++)
     {
-
         if(isalpha(compType.at(i)))
         {
             valid = true;
         }
-
-
     }
     return valid;
 }

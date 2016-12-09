@@ -70,7 +70,7 @@ void UtilityUI::displayListOfComputers(vector<Computer> Computer)
     cout << setw(4) << right  << "No." << "  | ";
     cout << setw(30) << right << "Name" << " | ";
     cout << setw(6) << right << "Year" << " | ";
-    cout << setw(14) << right << "Type" << " | ";
+    cout << setw(20) << right << "Type" << " | ";
     cout << setw(6) << right << "Built" << endl;
 
     for(int i = 0; i < (_serviceComp.lengthOfLongestName(Computer) + 30); i++)
@@ -86,10 +86,10 @@ void UtilityUI::displayListOfComputers(vector<Computer> Computer)
 
     for (unsigned int i = 0 ; i < Computer.size();i++)
     {
-        cout << setw(4) << right << i + 1 << ". | "  << " | ";
+        cout << setw(4) << right << i + 1 << ". | ";
         cout << setw(30) << right << Computer [i].getName ()  << " | ";
         cout << setw(6) << right << Computer [i].getBuildYear ()  << " | ";
-        cout << setw(14) << right << Computer [i].getCompType ()  << " | ";
+        cout << setw(20) << right << Computer [i].getCompType ()  << " | ";
         cout << setw(6) << right << Computer [i].getWasBuilt () << endl;
     }
     cout << endl;

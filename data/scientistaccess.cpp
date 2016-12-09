@@ -221,18 +221,16 @@ void ScientistAccess::editInt(string nameOf, string variable, int newElement)
  */
 void ScientistAccess::connect()
 {
-    QString name = "database";
-
-    m_db = QSqlDatabase::addDatabase("QSQLITE");
-    m_db.setDatabaseName("DB_vika2.sqlite");
-
-    if (!m_db.open())
+    if (!m_db.isOpen())
     {
+        m_db = QSqlDatabase::addDatabase("QSQLITE");
+        m_db.setDatabaseName("DB_vika2.sqlite");
 
+        m_db.open();
     }
     else
     {
-
+        m_db.open();
     }
 }
 /**

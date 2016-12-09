@@ -63,17 +63,16 @@ void ListUI::listAllRelations()
         }
     }
     _util.clearScreen();
-    cout << setw(4) << right << "No."<< "  | ";
-    cout << setw(16) << right << "ScientistID"<< "  | ";
-    cout << setw(16) << right << "ComputerID" << endl;
+    cout << setw(4) << right << "No."<< " | ";
+    cout << setw(32) << right << "ScientistID"<< "  | ";
+    cout << setw(32) << right << "ComputerID" << endl;
 
-    cout << endl << "-----------------------------------------------------------------------------------------------------" << endl;
+    cout << "-----------------------------------------------------------------------------------------------------" << endl;
     for (unsigned int i = 0 ; i < lengthScientist.size(); i++)
     {
         cout << setw(4) << right << i + 1 << " | ";
-        cout << setw(4) << right << lengthScientist[i].getName() << "  | ";
-        cout << setw(4) << right << " | ";
-        cout << setw(4) << right << lengthComputer[i].getName() << endl;
+        cout << setw(32) << right << lengthScientist[i].getName() << " | ";
+        cout << setw(32) << right << lengthComputer[i].getName() << endl;
     }
     cout << endl;
 }
@@ -111,18 +110,27 @@ void ListUI::listCompRelation(string Comp)
             }
         }
     }
-    _util.clearScreen();
-    cout << setw(4) << right << "No."<< "  | ";
-    cout << setw(16) << right << "ScientistID"<< "  | ";
-    cout << setw(16) << right << "ComputerID" << "  | " << endl;
 
-    cout << endl << "-----------------------------------------------------------------------------------------------------" << endl;
-    for (unsigned int i = 0 ; i < lengthScientist.size(); i++)
+    vector<Scientist> s;
+    for (unsigned int i = 0; i < Computers.size(); i++)
+    {
+        if (lengthComputer[i].getName() == Comp)
+        {
+            s.push_back(lengthScientist[i]);
+        }
+    }
+
+    _util.clearScreen();
+    cout << setw(4) << right << "No."<< " | ";
+    cout << setw(32) << right << "ScientistID"<< "  | ";
+    cout << setw(32) << right << "ComputerID" << "  | " << endl;
+
+    cout << "-----------------------------------------------------------------------------------------------------" << endl;
+    for (unsigned int i = 0 ; i < s.size(); i++)
     {
         cout << setw(4) << right << i + 1 << " | ";
-        cout << setw(4) << right << lengthScientist[i].getName() << "  | ";
-        cout << setw(4) << right << " | ";
-        cout << setw(4) << right << lengthComputer[i].getName() << endl;
+        cout << setw(32) << right << Comp << " | ";
+        cout << setw(32) << right << s[i].getName() << endl;
     }
     cout << endl;
 }
@@ -156,22 +164,34 @@ void ListUI::listSciRelation(string Sci)
         {
             if(ScientistID[i] == Scientists[k].getId())
             {
-                lengthScientist.push_back(Scientists[k]);
+                if (Sci == Scientists[k].getName())
+                {
+                    lengthScientist.push_back(Scientists[k]);
+                }
             }
         }
     }
-    _util.clearScreen();
-    cout << setw(4) << right << "No."<< "  | ";
-    cout << setw(16) << right << "ScientistID"<< "  | ";
-    cout << setw(16) << right << "ComputerID" << endl;
 
-    cout << endl << "-----------------------------------------------------------------------------------------------------" << endl;
+    vector<Computer> c;
+    for (unsigned int i = 0; i < Scientists.size(); i++)
+    {
+        if (lengthScientist[i].getName() == Sci)
+        {
+            c.push_back(lengthComputer[i]);
+        }
+    }
+
+    _util.clearScreen();
+    cout << setw(4) << right << "No."<< " | ";
+    cout << setw(32) << right << "ScientistID"<< "  | ";
+    cout << setw(32) << right << "ComputerID" << endl;
+
+    cout << "-----------------------------------------------------------------------------------------------------" << endl;
     for (unsigned int i = 0 ; i < lengthScientist.size(); i++)
     {
         cout << setw(4) << right << i + 1 << " | ";
-        cout << setw(4) << right << lengthScientist[i].getName() << "  | ";
-        cout << setw(4) << right << " | ";
-        cout << setw(4) << right << lengthComputer[i].getName() << endl;
+        cout << setw(32) << right << Sci << " | ";
+        cout << setw(32) << right << c[i].getName() << endl;
     }
     cout << endl;
 }
