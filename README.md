@@ -116,17 +116,22 @@ The brackets behind each command below contain possible input to enter each comm
                See: 3. Birth - same output, but for years that scientists died.</br></br>
       2. Computer ("computer", "Computer", "2")</br></br>
           1. Name ("name", "Name", "1")</br></br></br>
-          2. Build year ("", "", "2")</br></br></br>
-          3. Computer type ("", "", "3")</br></br></br>
-          4. If it was built ("", "", "4")</br></br></br>
+          2. Build year ("year", "Year", "2")</br></br></br>
+          3. Computer type ("type", "Type", "3")</br></br></br>
+          4. If it was built ("built", "Built", "4")</br></br></br>
           
       3. Back ("back", "Back", "3")</br></br>
           Takes user back to the main menu.</br></br></br>
           
           
-                
-      
-8. Quit ("quit", "Quit", "8")</br>
+8. Game ("game", "Game", "8")</br>  
+     User can play two different games, one that lets you connect a scientist to a citation. And the other lets you connect computers and scientists.</br></br>
+     1. Citation game("citation", "Citation", "1")</br></br>
+          User plays a game where a citation is shown and the user has to connect the correct scientist to that citation. If he puts in the wrong answer, they correct answer will be shown.</br>
+     2. Computer-Scientist Relation("relation", "Relation", "2")</br></br>
+          User plays a game where he can connect the correct scientist to a computer or the correct computer to a scientist.</br>
+               
+9. Quit ("quit", "Quit", "9")</br>
       Exits the program.</br></br>
 
 
