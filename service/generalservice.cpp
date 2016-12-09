@@ -56,7 +56,7 @@ void GeneralService::editRelation(int changeID,int newSciID,int newCompID)
 }
 
 
-vector <int> GeneralService::allRelationID ()
+vector <int> GeneralService::allRelationID()
 {
     return _link.RelationId();
 }

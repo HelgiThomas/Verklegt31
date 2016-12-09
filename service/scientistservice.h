@@ -67,6 +67,7 @@ public:
 
     void editScientistString(string nameOf, string variable, string newElement);
     void editScientistInt (string nameOf, string variable, int newElement);
+
     /**
      * @brief Functions to validate if the entries when input by the user.
      * @param name, sex, year, (birth, str death), command.

@@ -12,14 +12,15 @@ class Computer
 {
 public:
     /**
-     * @brief Default constructors for the class Computer.
+     * @brief Computer, Default constructors for the class Computer.
      * @param int id, string name, int buildYear, string compType, string wasBuilt
      */
     Computer();
     Computer(int id, string name, int buildYear, string compType, string wasBuilt);
 
     /**
-     * @brief Get functions for the class to return the private variables of the class.
+     * @brief getId/Name/BuildYear/CompType/WasBuilt/Desctipion, Get functions for the class to
+     * return the private variables of the class.
      * @return id, name, buildYear, compType, wasBuilt, description.
      */
     int getId() const;
@@ -30,7 +31,7 @@ public:
     string getDescription() const;
 
     /**
-     * @brief Set functions for the class to return the private variables of the class.
+     * @brief setId/NAme/BuildYear/WasBuilt/Description, set functions for the class to return the private variables of the class.
      * @param int id, string name, int buildYear, string compType, string wasBuilt, string description
      */
     void setId(int id);
@@ -41,9 +42,6 @@ public:
     void setDescription(string description);
 
 private:
-    /**
-     * @brief _id
-     */
     int _id;
     string _name;
     int _buildYear;

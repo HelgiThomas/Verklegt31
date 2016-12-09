@@ -12,7 +12,7 @@ class Scientist
 {
 public:
     /**
-     * @brief Default constructors for the class Scientist.
+     * @brief Scientist, Default constructors for the class Scientist.
      */
     Scientist();
     Scientist(int id, string name, string sex, int birth, int death, string citation);
@@ -40,9 +40,6 @@ public:
     void setDeath (int death);
 
 private:
-    /**
-     * @brief _id
-     */
     int _id;
     string _name;
     string _sex;

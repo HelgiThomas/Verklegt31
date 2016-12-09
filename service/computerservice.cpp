@@ -112,7 +112,7 @@ vector<Computer> ComputerService::searchType(string command)
  * @param string operatorOf
  * @return vector computer.
  */
-vector<Computer> ComputerService::searchwasBuilt(string operatorOf)
+vector<Computer> ComputerService::searchwasBuilt(string builtOf, string operatorOf)
 {
     return _ComAccess.searchQueryString("wasBuilt",operatorOf);
 }

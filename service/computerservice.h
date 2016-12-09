@@ -9,6 +9,9 @@
 
 using namespace std;
 
+/**
+ * @brief The ComputerService class, Handles Business level operations for Computers.
+ */
 class ComputerService
 {
 public:
@@ -22,7 +25,7 @@ public:
      * @return vector<Computer>.
      */
     vector<Computer> getComputers();
-
+    vector<int> allComputerID ();
     /**
      * @brief addComputer, adds a new computer to the database.
      * @param newComputer
@@ -37,7 +40,7 @@ public:
     vector<Computer> searchName(string command);
     vector<Computer> searchYear(string operatorOf, int command);
     vector<Computer> searchType(string command);
-    vector<Computer> searchwasBuilt(string operatorOf);
+    vector<Computer> searchwasBuilt(string builtOf, string operatorOf);
 
     /**
      * @brief SortByName/BuildYear/CompType/WasBuilt, sort by for all the specified fields.
@@ -61,8 +64,8 @@ public:
      * @brief removeComputer/EveryComputer, removes either a single computer or the whole list.
      * @param string name.
      */
-    void removeComputer (int nameOf);
-    void removeEverycomputer ();
+    void removeComputer(int nameOf);
+    void removeEverycomputer();
 
     /**
      * @brief editComputerString/Int, edits a field in Computer.
@@ -92,13 +95,13 @@ public:
     int lengthOfLongestName(vector<Computer> computers);
     int lengthOfLongestType(vector<Computer> computers);
 
+
 private:
     vector<Computer> listOfComputer;
     ScientistAccess _SciAccess;
     ComputerAccess _ComAccess;
     LinkAccess _link;
 
-    vector <int> allComputerID ();
 };
 
 #endif // COMPUTERSERVICE_H

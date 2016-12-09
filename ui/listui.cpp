@@ -37,13 +37,13 @@ void ListUI::listComp()
  */
 void ListUI::listRelation()
 {
-    vector<int>ScientistID = _serviceSci.allScientistID ();
-    vector<int>ComputerID = _serviceComp.allComputerID ();
+    vector<int>ScientistID = _serviceSci.allScientistID();
+    vector<int>ComputerID = _serviceComp.allComputerID();
 
     vector<Computer> Computers = _serviceComp.getComputers();
     vector<Scientist> Scientists = _serviceSci.getScientists();
     vector<Computer> lengthComputer;
-    vector <Scientist> lengthScientist;
+    vector<Scientist> lengthScientist;
     vector<Scientist> tempSci;
 
     for (unsigned int i = 0 ; i < ComputerID.size(); i++)

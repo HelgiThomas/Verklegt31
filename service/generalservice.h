@@ -11,11 +11,13 @@ public:
     GeneralService();
 
     void link(int sciId, int compId);
-
+    
     bool validRelation(int sci, vector<int> num);
 
     void removeRelation (int nrId);
     void editRelation(int nrID,int sciID,int compID);
+
+    vector<int> allRelationID();
 
 private:
     LinkAccess _link;

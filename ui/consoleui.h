@@ -31,6 +31,14 @@ public:
     void run();
 
 private:
+    void consoleAdd();
+    void consoleRemove();
+    void consoleEdit();
+    void consoleSort();
+    void consoleRevSort();
+    void consoleSearch();
+    void consoleGame();
+
     AddUI _add;
     EditUI _edit;
     ListUI _list;
