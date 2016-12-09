@@ -33,6 +33,7 @@ public:
 private:
     void consoleAdd();
     void consoleRemove();
+    void consoleList();
     void consoleEdit();
     void consoleSort();
     void consoleRevSort();

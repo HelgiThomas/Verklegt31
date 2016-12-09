@@ -28,14 +28,15 @@ void UtilityUI::clearScreen()
  */
 void UtilityUI::displayListOfScientists (vector<Scientist> Scientist)
 {
+    //TODO: LAGA SETW
     clearScreen();
-    cout << "No." << "\t";
-    cout << "Name" << "\t\t";
+    cout << setw(4) << "No.";
+    cout << setw(40) << "Name";
     cout << setw(_serviceSci.lengthOfLongestName(Scientist)-17) << left;
-    cout << "Sex" << " \t\t";
-    cout << "Birth" << "\t\t";
-    cout << "Death" << "\t\t";
-    cout << "Citation" << "\t\t" << endl;
+    cout << setw(10) << "Sex";
+    cout << setw(10) << "Birth";
+    cout << setw(10) << "Death";
+    cout << setw(64) << "Citation" << endl;
 
     for(int i = 0; i < (_serviceSci.lengthOfLongestName(Scientist) + 50); i++)
     {
