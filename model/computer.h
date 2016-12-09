@@ -6,7 +6,7 @@
 using namespace std;
 
 /**
- * @brief The Computer class.
+ * @brief The Computer class, creates a computer model.
  */
 class Computer
 {

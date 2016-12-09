@@ -247,7 +247,7 @@ bool ScientistService::validYear(string strYear)
 bool ScientistService::validNumber(string strNum)
 {
 
-    int num = atoi(strNum.c_str());
+    unsigned int num = atoi(strNum.c_str());
     bool valid = false;
     for(unsigned int i = 0; i < strNum.size(); i++)
     {

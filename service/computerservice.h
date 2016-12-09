@@ -13,37 +13,34 @@ class ComputerService
 {
 public:
     /**
-     * @brief Default constructor for the class ComputerService.
+     * @brief ComputerService, default constructor.
      */
     ComputerService();
 
     /**
-     * @brief Function to return a vector of all the Computers.
+     * @brief getComputers, returns a vector of all computers.
      * @return vector<Computer>.
      */
     vector<Computer> getComputers();
 
     /**
-     * @brief Function to add a new computer.
-     * @param Computer newComputer.
+     * @brief addComputer, adds a new computer to the database.
+     * @param newComputer
      */
     void addComputer(Computer newComputer);
 
     /**
-     * @brief Functions to search for different things.
-     * @param string/int command.
-     * @return vector <Computer>.
+     * @brief searchName/Year/Type/wasBuilt, search functions to search for all the specified inputs.
+     * @param command
+     * @return
      */
     vector<Computer> searchName(string command);
-
     vector<Computer> searchYear(string operatorOf, int command);
-
     vector<Computer> searchType(string command);
-
-    vector<Computer> searchwasBuilt(string builtOf,string operatorOf);
+    vector<Computer> searchwasBuilt(string operatorOf);
 
     /**
-     * @brief Functions to sort by different means.
+     * @brief SortByName/BuildYear/CompType/WasBuilt, sort by for all the specified fields.
      * @return vector<Computer>.
      */
     vector<Computer> sortByName();
@@ -51,10 +48,8 @@ public:
     vector<Computer> sortByCompType();
     vector<Computer> sortBywasBuilt();
 
-    //Adda tannig ad tad se haegt sorta eftir wasBuilt
-
     /**
-     * @brief Functions to sort in reverse order by various different means.
+     * @brief  sortByName/BuildYear/ComptType/wasBuilt, sort in reverse order by for all the specified fields.
      * @return vector<Computer>.
      */
     vector<Computer> sortByNameReverse();
@@ -63,18 +58,23 @@ public:
     vector<Computer> sortBywasBuiltReverse ();
 
     /**
-     * @brief Function to remove a computer from the list.
+     * @brief removeComputer/EveryComputer, removes either a single computer or the whole list.
      * @param string name.
      */
     void removeComputer (int nameOf);
-    //comment below helgi
     void removeEverycomputer ();
 
+    /**
+     * @brief editComputerString/Int, edits a field in Computer.
+     * @param string nameOf
+     * @param string variable
+     * @param string/int newElement
+     */
     void editComputerString(string nameOf, string variable, string newElement);
     void editComputerInt(string nameOf, string variable, int newElement);
 
     /**
-     * @brief Functions to validate if the entries when input by the user.
+     * @brief validName/CompType/WasBuilt/Year/Command, validate the entries input by the user.
      * @param name, wasBuilt, year, command.
      * @return true/false.
      */
@@ -83,21 +83,22 @@ public:
     bool validWasBuilt(string wasBuilt);
     bool validYear(string year);
     bool validCommand(string command);
+
     /**
-     * @brief Functions to return the longest name to make the UI look nice.
+     * @brief lengthOfLongestName/Type, return the longest name/type to make the UI look nice.
      * @param vector<Computer> computers
      * @return integer
      */
     int lengthOfLongestName(vector<Computer> computers);
     int lengthOfLongestType(vector<Computer> computers);
 
-    vector <int> allComputerID ();
-
 private:
     vector<Computer> listOfComputer;
     ScientistAccess _SciAccess;
     ComputerAccess _ComAccess;
     LinkAccess _link;
+
+    vector <int> allComputerID ();
 };
 
 #endif // COMPUTERSERVICE_H
