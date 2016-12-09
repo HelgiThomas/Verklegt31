@@ -152,7 +152,8 @@ void ConsoleUI::run()
             cout << "What would you like to edit? " << endl;
             cout << "1. Scientist" << endl;
             cout << "2. Computer" << endl;
-            cout << "3. Back" << endl << endl << "=> ";
+            cout << "3. Relation" << endl;
+            cout << "4. Back" << endl << endl << "=> ";
             cin >> choice;
             if (choice == "scientist" || choice == "Scientist" || choice == "1")
             {
@@ -162,7 +163,11 @@ void ConsoleUI::run()
             {
                 editComp();
             }
-            else if(choice == "back" || choice == "Back" || choice == "3")
+            else if(choice == "relation" || choice == "Relation" || choice == "3")
+            {
+                //editRelation();
+            }
+            else if(choice == "back" || choice == "Back" || choice == "4")
             {
                 clearScreen();
                 run();
@@ -180,7 +185,8 @@ void ConsoleUI::run()
             cout << "Would you like to Sort by, Scientist or Computer?? " << endl;
             cout << "1. Scientist" << endl;
             cout << "2. Computer" << endl;
-            cout << "3. Back" << endl << endl << "=> ";
+            cout << "3. Relation" << endl;
+            cout << "4. Back" << endl << endl << "=> ";
             cin >> choice;
             if(choice == "scientist" || choice == "Scientist" || choice == "1")
             {
@@ -190,7 +196,11 @@ void ConsoleUI::run()
             {
                 sortComp();
             }
-            else if(choice == "back" || choice == "Back" || choice == "3")
+            else if(choice == "relation" || choice == "Relation" || choice == "3")
+            {
+                //sortRelation();
+            }
+            else if(choice == "back" || choice == "Back" || choice == "4")
             {
                 clearScreen();
                 run();
@@ -208,7 +218,8 @@ void ConsoleUI::run()
             cout << "Would you like to Reverse Sort by, Scientist or Computer?? " << endl;
             cout << "1. Scientist" << endl;
             cout << "2. Computer" << endl;
-            cout << "3. Back" << endl << endl << "=> ";
+            cout << "3. Relation" << endl;
+            cout << "4. Back" << endl << endl << "=> ";
             cin >> choice;
             if(choice == "scientist" || choice == "Scientist" || choice == "1")
             {
@@ -218,7 +229,11 @@ void ConsoleUI::run()
             {
                 reversedSortComp();
             }
-            else if(choice == "back" || choice == "Back" || choice == "3")
+            else if(choice == "relation" || choice == "Relation" || choice == "3")
+            {
+                //reversedSortRelation();
+            }
+            else if(choice == "back" || choice == "Back" || choice == "4")
             {
                 clearScreen();
                 run();
