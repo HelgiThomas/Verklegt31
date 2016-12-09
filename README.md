@@ -116,9 +116,9 @@ The brackets behind each command below contain possible input to enter each comm
                See: 3. Birth - same output, but for years that scientists died.</br></br>
       2. Computer ("computer", "Computer", "2")</br></br>
           1. Name ("name", "Name", "1")</br></br></br>
-          2. Build year ("", "", "2")</br></br></br>
-          3. Computer type ("", "", "3")</br></br></br>
-          4. If it was built ("", "", "4")</br></br></br>
+          2. Build year ("year", "Year", "2")</br></br></br>
+          3. Computer type ("type", "Type", "3")</br></br></br>
+          4. If it was built ("built", "Built", "4")</br></br></br>
           
       3. Back ("back", "Back", "3")</br></br>
           Takes user back to the main menu.</br></br></br>
