@@ -3,6 +3,11 @@
 
 #include <QDialog>
 
+#include "service/scientistservice.h"
+#include "service/computerservice.h"
+#include "service/generalservice.h"
+
+
 namespace Ui {
 class mainwindow;
 }
@@ -17,6 +22,8 @@ public:
 
 private:
     Ui::mainwindow *ui;
+    //addgui _add;
+
 };
 
 #endif // MAINWINDOW_H

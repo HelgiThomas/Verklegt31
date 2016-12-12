@@ -3,6 +3,10 @@
 
 #include <QDialog>
 
+#include "service/scientistservice.h"
+#include "service/computerservice.h"
+#include "service/generalservice.h"
+
 namespace Ui {
 class gamegui;
 }

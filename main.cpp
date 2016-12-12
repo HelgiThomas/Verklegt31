@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #define RESET   "\033[0m"   //We define the colors here.
 #define LIGHTBLUE   "\033[96m"
+#include <QApplication>
 
 using namespace std;
 
@@ -12,16 +13,13 @@ void frontPage();
 /**
  * The main function of the program calles the menu function.
  */
-int main()
+int main(int argc, char *argv[])
 {
-   /* clearScreen();
-    frontPage();
-    ConsoleUI ui;
-    ui.run(); */
+    QApplication app(argc, argv);
+    consolegui w;
+    w.show();
 
-
-
-    return 0;
+    return app.exec();
 }
 
 /**

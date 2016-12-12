@@ -12,3 +12,8 @@ consolegui::~consolegui()
 {
     delete ui;
 }
+
+void consolegui::on_button_add_clicked()
+{
+    _add.show();
+}
