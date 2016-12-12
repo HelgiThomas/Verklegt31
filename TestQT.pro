@@ -1,18 +1,19 @@
-QT += core
+QT += core gui
 QT += sql
 QT += core sql
-QT -= gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
 
 TARGET = TestQT
-CONFIG += console
+CONFIG -= console
 CONFIG -= app_bundle
 
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    ui/consoleui.cpp \
+    gui/mainwindow.cpp \
     service/scientistservice.cpp \
     model/scientist.cpp \
     service/computerservice.cpp \
@@ -21,17 +22,19 @@ SOURCES += main.cpp \
     data/computeraccess.cpp \
     data/linkaccess.cpp \
     service/generalservice.cpp \
-    ui/addui.cpp \
-    ui/removeui.cpp \
-    ui/listui.cpp \
-    ui/editui.cpp \
-    ui/searchui.cpp \
-    ui/gameui.cpp \
-    ui/utilityui.cpp \
-    ui/sortui.cpp
+    gui/listgui.cpp \
+    gui/editgui.cpp \
+    gui/removegui.cpp \
+    gui/sortgui.cpp \
+    gui/searchgui.cpp \
+    gui/consolegui.cpp \
+    gui/gamegui.cpp \
+    gui/utilitygui.cpp \
+    gui/addgui.cpp
+
 
 HEADERS += \
-    ui/consoleui.h \
+    gui/mainwindow.h \
     service/scientistservice.h \
     model/scientist.h \
     service/computerservice.h \
@@ -40,11 +43,26 @@ HEADERS += \
     data/computeraccess.h \
     data/linkaccess.h \
     service/generalservice.h \
-    ui/addui.h \
-    ui/removeui.h \
-    ui/listui.h \
-    ui/editui.h \
-    ui/searchui.h \
-    ui/gameui.h \
-    ui/utilityui.h \
-    ui/sortui.h
+    gui/listgui.h \
+    gui/editgui.h \
+    gui/removegui.h \
+    gui/sortgui.h \
+    gui/searchgui.h \
+    gui/consolegui.h \
+    gui/gamegui.h \
+    gui/utilitygui.h \
+    gui/addgui.h
+
+FORMS += \
+    gui/mainwindow.ui \
+    gui/listgui.ui \
+    gui/editgui.ui \
+    gui/removegui.ui \
+    gui/sortgui.ui \
+    gui/searchgui.ui \
+    gui/consolegui.ui \
+    gui/gamegui.ui \
+    gui/utilitygui.ui \
+    gui/addgui.ui
+
+

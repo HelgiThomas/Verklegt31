@@ -1,4 +1,4 @@
-#include "ui/consoleui.h"
+#include "gui/consolegui.h"
 #include <iostream>
 #include <stdlib.h>
 #define RESET   "\033[0m"   //We define the colors here.
@@ -14,10 +14,13 @@ void frontPage();
  */
 int main()
 {
-    clearScreen();
+   /* clearScreen();
     frontPage();
     ConsoleUI ui;
-    ui.run();
+    ui.run(); */
+
+
+
     return 0;
 }
 
