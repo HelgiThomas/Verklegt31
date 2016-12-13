@@ -23,7 +23,6 @@ SOURCES += main.cpp \
     data/linkaccess.cpp \
     service/generalservice.cpp \
     gui/listgui.cpp \
-    gui/editgui.cpp \
     gui/sortgui.cpp \
     gui/searchgui.cpp \
     gui/consolegui.cpp \
@@ -32,7 +31,10 @@ SOURCES += main.cpp \
     gui/add/addcomp.cpp \
     gui/add/addsci.cpp \
     gui/removescigui.cpp \
-    gui/removecomp.cpp
+    gui/removecomp.cpp \
+    gui/edit/editcomp.cpp \
+    gui/edit/editrelation.cpp \
+    gui/edit/editsci.cpp
 
 
 HEADERS += \
@@ -46,7 +48,6 @@ HEADERS += \
     data/linkaccess.h \
     service/generalservice.h \
     gui/listgui.h \
-    gui/editgui.h \
     gui/sortgui.h \
     gui/searchgui.h \
     gui/consolegui.h \
@@ -55,12 +56,14 @@ HEADERS += \
     gui/add/addcomp.h \
     gui/add/addsci.h \
     gui/removescigui.h \
-    gui/removecomp.h
+    gui/removecomp.h \
+    gui/edit/editcomp.h \
+    gui/edit/editrelation.h \
+    gui/edit/editsci.h
 
 FORMS += \
     gui/mainwindow.ui \
     gui/listgui.ui \
-    gui/editgui.ui \
     gui/sortgui.ui \
     gui/searchgui.ui \
     gui/consolegui.ui \
@@ -69,6 +72,9 @@ FORMS += \
     gui/add/addcomp.ui \
     gui/add/addsci.ui \
     gui/removescigui.ui \
-    gui/removecomp.ui
+    gui/removecomp.ui \
+    gui/edit/editcomp.ui \
+    gui/edit/editrelation.ui \
+    gui/edit/editsci.ui
 
 

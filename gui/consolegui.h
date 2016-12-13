@@ -9,7 +9,9 @@
 
 #include "gui/add/addsci.h"
 #include "gui/add/addcomp.h"
-#include "gui/editgui.h"
+#include "gui/edit/editcomp.h"
+#include "gui/edit/editrelation.h"
+#include "gui/edit/editsci.h"
 #include "gui/gamegui.h"
 #include "gui/listgui.h"
 #include "gui/removescigui.h"
@@ -45,7 +47,9 @@ private:
     Ui::consolegui *ui;
     addsci _addsci;
     addcomp _addcomp;
-    editgui _edit;
+    editscigui _editsci;
+    editcompgui _editcomp;
+    editrelationgui _editrelation;
     gamegui _game;
     listgui _list;
     removescigui _removeSci;
