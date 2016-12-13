@@ -31,8 +31,6 @@ public:
     ~consolegui();
 
 private slots:
-
-
     void on_button_addSci_clicked();
     void on_button_addComp_clicked();
 
