@@ -14,7 +14,7 @@ void frontPage();
  * The main function of the program calles the menu function.
  */
 int main(int argc, char *argv[])
-{
+{   
     QApplication app(argc, argv);
     consolegui w;
     w.show();

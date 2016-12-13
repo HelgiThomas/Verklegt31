@@ -2,7 +2,6 @@
 #define REMOVESCIGUI_H
 
 #include "service/scientistservice.h"
-#include "gui/listgui.h"
 #include <QDialog>
 
 namespace Ui {
@@ -20,10 +19,12 @@ public:
 private slots:
     void on_button_removeSci_clicked();
 
+    void on_table_all_clicked(const QModelIndex &index);
+
 private:
     Ui::removescigui *ui;
     ScientistService _serviceSci;
-    listgui _list;
+    void displayScientists();
 };
 
 #endif // REMOVESCIGUI_H
