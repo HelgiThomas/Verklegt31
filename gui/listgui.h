@@ -17,10 +17,18 @@ class listgui : public QDialog
 
 public:
     explicit listgui(QWidget *parent = 0);
+
+    void displayScientists  ();
+    void displayComputers ();
+    void displayRelations ();
     ~listgui();
 
 private:
     Ui::listgui *ui;
+
+    ScientistService _serviceSci;
+    ComputerService _serviceComp;
+    GeneralService _serviceGen;
 };
 
 #endif // LISTGUI_H
