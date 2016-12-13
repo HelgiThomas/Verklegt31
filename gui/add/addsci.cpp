@@ -38,7 +38,7 @@ void addsci::on_button_addSci_clicked()
 
     int addId = 0;
     string addName = ui->line_sciName->text().toStdString();
-    string addSex = isMaleOrFemale();
+    string addSex = _sex;
     birthNum = _sciBirth;
     deathNum = _sciDeath;
     QString QaddCitation = ui->line_sciCitation->toPlainText();
@@ -54,6 +54,10 @@ void addsci::on_button_addSci_clicked()
         //TODO: error message:
         QMessageBox::about(this, "Error!", "The name is invalid!");
     }
+    else if(!isMaleOrFemale())
+    {
+         QMessageBox::about(this, "Error!", "Please choose sex!");
+    }
     else
     {
         Scientist newSci(addId, addName, addSex, birthNum, deathNum, addCitation);
@@ -63,19 +67,26 @@ void addsci::on_button_addSci_clicked()
 
 }
 
-string addsci::isMaleOrFemale()
+bool addsci::isMaleOrFemale()
 {
-    string sex;
+    bool valid = true;
+
     if(ui->radio_male->isChecked())
     {
-        sex = "Male";
+        _sex = "Male";
     }
     else if(ui->radio_female->isChecked())
     {
-        sex = "Female";
+        _sex = "Female";
+    }
+    else
+    {
+        valid = false;
     }
 
-    return sex;
+
+
+    return valid;
 }
 
 void addsci::on_combobox_birthYears_currentIndexChanged(int index)

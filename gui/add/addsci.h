@@ -26,7 +26,7 @@ class addsci : public QDialog
 
 public:
     explicit addsci(QWidget *parent = 0);
-    string isMaleOrFemale();
+    bool isMaleOrFemale();
     ~addsci();
 
 
@@ -45,6 +45,7 @@ private:
     GeneralService _serviceGen;
     int _sciBirth;
     int _sciDeath;
+    string _sex;
 
 };
 

@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <QDialog>
+#include <QMessageBox>
 
 using namespace std;
 
@@ -21,14 +22,21 @@ class addcomp : public QDialog
 public:
     explicit addcomp(QWidget *parent = 0);
     ~addcomp();
+    bool isValidType();
+    bool isValidWasBuilt();
 
 private slots:
 
     void on_button_addComp_clicked();
 
+    void on_combobox_buildYear_currentIndexChanged(int index);
+
 private:
     Ui::addcomp *ui;
     ComputerService _serviceComp;
+    string _type;
+    string _wasBuilt;
+    int _buildYear;
 };
 
 #endif // ADDCOMP_H

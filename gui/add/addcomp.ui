@@ -29,8 +29,8 @@
   <widget class="QLineEdit" name="line_compName">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>50</y>
+     <x>10</x>
+     <y>30</y>
      <width>191</width>
      <height>21</height>
     </rect>
@@ -39,50 +39,11 @@
     <string>Name</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="line_compType">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>80</y>
-     <width>191</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Computer type</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="line_compWasBuilt">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>110</y>
-     <width>191</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Was the computer built? (Y/N)</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="line_compBuildYear">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>140</y>
-     <width>191</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Build year</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="button_addComp">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>190</y>
+     <x>270</x>
+     <y>260</y>
      <width>113</width>
      <height>32</height>
     </rect>
@@ -90,6 +51,151 @@
    <property name="text">
     <string>Add</string>
    </property>
+  </widget>
+  <widget class="QComboBox" name="combobox_buildYear">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>91</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>170</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Build year:</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>371</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Type</string>
+   </property>
+   <widget class="QRadioButton" name="radio_mech">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mechanic</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radio_elec">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>30</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Electronic</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radio_oth">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>30</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Other</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radio_trans">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>30</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Transistor</string>
+    </property>
+   </widget>
+   <zorder>combobox_buildYear</zorder>
+   <zorder>radio_mech</zorder>
+   <zorder>radio_elec</zorder>
+   <zorder>radio_oth</zorder>
+   <zorder>radio_trans</zorder>
+   <zorder>label_2</zorder>
+   <zorder>radio_mech</zorder>
+   <zorder>radio_elec</zorder>
+   <zorder>radio_oth</zorder>
+   <zorder>radio_trans</zorder>
+   <zorder>radio_mech</zorder>
+   <zorder>radio_elec</zorder>
+   <zorder>radio_oth</zorder>
+   <zorder>radio_trans</zorder>
+   <zorder>radio_mech</zorder>
+   <zorder>radio_elec</zorder>
+   <zorder>radio_oth</zorder>
+   <zorder>radio_trans</zorder>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Was the computer built?</string>
+   </property>
+   <widget class="QRadioButton" name="radio_no">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>20</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radio_yes">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Yes</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
