@@ -24,7 +24,7 @@ void consolegui::on_button_addComp_clicked()
     _addcomp.show();
 }
 
-void consolegui::on_button_removeSci_clicked()
+void consolegui::on_button_sciRemove_clicked()
 {
     _removeSci.show();
 }
@@ -38,3 +38,5 @@ void consolegui::on_button_list_clicked()
 {
     _list.show();
 }
+
+

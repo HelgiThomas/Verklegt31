@@ -36,7 +36,7 @@ private slots:
     void on_button_addSci_clicked();
     void on_button_addComp_clicked();
 
-    void on_button_removeSci_clicked();
+    void on_button_sciRemove_clicked();
     void on_button_removeComp_clicked();
 
     void on_button_list_clicked();

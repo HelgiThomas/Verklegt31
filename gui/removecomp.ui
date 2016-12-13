@@ -16,24 +16,14 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>10</y>
      <width>331</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Enter the number of the computer you want to remove</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="line_numOfComp">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>40</y>
-     <width>61</width>
-     <height>21</height>
-    </rect>
+    <string>Select the computer you want to remove</string>
    </property>
   </widget>
   <widget class="QPushButton" name="button_removeComp">
@@ -48,6 +38,31 @@
    <property name="text">
     <string>Remove</string>
    </property>
+  </widget>
+  <widget class="QTableWidget" name="table_comp">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>341</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string>Name</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Year</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Type</string>
+    </property>
+   </column>
   </widget>
  </widget>
  <resources/>
