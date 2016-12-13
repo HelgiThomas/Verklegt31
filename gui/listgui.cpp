@@ -3,6 +3,7 @@
 
 listgui::listgui(QWidget *parent) :
     QDialog(parent),
+
     ui(new Ui::listgui)
 {
     ui->setupUi(this);
@@ -11,4 +12,19 @@ listgui::listgui(QWidget *parent) :
 listgui::~listgui()
 {
     delete ui;
+}
+
+void listgui::displayScientists()
+{
+
+}
+
+void listgui::displayComputers()
+{
+
+}
+
+void listgui::displayRelations()
+{
+
 }

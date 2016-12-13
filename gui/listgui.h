@@ -21,6 +21,9 @@ public:
 
 private:
     Ui::listgui *ui;
+    void displayScientists  ();
+    void displayComputers ();
+    void displayRelations ();
 };
 
 #endif // LISTGUI_H
