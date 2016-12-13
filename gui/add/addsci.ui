@@ -29,45 +29,6 @@
     <string>Name</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="line_sciSex">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>80</y>
-     <width>241</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Sex</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="line_sciBirth">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>110</y>
-     <width>241</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Year of birth</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="line_sciDeath">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>140</y>
-     <width>241</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Year of death (leave blank if still alive)</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="line_sciCitation">
    <property name="geometry">
     <rect>
@@ -105,6 +66,55 @@
    </property>
    <property name="text">
     <string>Add scientist</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radio_male">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Male</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radio_female">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>80</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Female</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="combobox_birthYears">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>110</y>
+     <width>111</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="currentText">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="combobox_deathYear">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>111</width>
+     <height>26</height>
+    </rect>
    </property>
   </widget>
  </widget>

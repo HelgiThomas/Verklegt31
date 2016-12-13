@@ -8,6 +8,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <QDialog>
+#include <QtCore>
+#include <QtGui>
 
 using namespace std;
 
@@ -21,6 +23,7 @@ class addsci : public QDialog
 
 public:
     explicit addsci(QWidget *parent = 0);
+    string isMaleOrFemale();
     ~addsci();
 
 
@@ -28,11 +31,15 @@ private slots:
 
     void on_button_addSci_clicked();
 
+
+    void on_combobox_birthYears_activated(int index);
+
 private:
     Ui::addsci *ui;
     ScientistService _serviceSci;
     ComputerService _serviceComp;
     GeneralService _serviceGen;
+    int _sciBirth;
 
 };
 
