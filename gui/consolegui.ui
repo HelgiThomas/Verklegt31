@@ -38,7 +38,7 @@
      <string>Relation</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="button_removeSci">
     <property name="geometry">
      <rect>
       <x>10</x>
