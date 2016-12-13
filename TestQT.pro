@@ -29,18 +29,13 @@ SOURCES += main.cpp \
     gui/gamegui.cpp \
     gui/utilitygui.cpp \
     gui/add/addsci.cpp \
-<<<<<<< HEAD
-    gui/removescigui.cpp \
-    gui/removecomp.cpp \
-    gui/edit/editcomp.cpp \
-    gui/edit/editrelation.cpp \
-    gui/edit/editsci.cpp
-=======
     gui/add/addcomp.cpp \
     gui/add/addrel.cpp \
     gui/removecomp.cpp \
-    gui/removescigui.cpp
->>>>>>> f99de35a28c932a3448fc4b973aeb449b08b2af9
+    gui/removescigui.cpp \
+    gui/edit/editcomp.cpp \
+    gui/edit/editrelation.cpp \
+    gui/edit/editsci.cpp
 
 
 HEADERS += \
@@ -61,17 +56,12 @@ HEADERS += \
     gui/utilitygui.h \
     gui/add/addcomp.h \
     gui/add/addsci.h \
-<<<<<<< HEAD
-    gui/removescigui.h \
+    gui/add/addrel.h \
     gui/removecomp.h \
+    gui/removescigui.h \
     gui/edit/editcomp.h \
     gui/edit/editrelation.h \
     gui/edit/editsci.h
-=======
-    gui/add/addrel.h \
-    gui/removecomp.h \
-    gui/removescigui.h
->>>>>>> f99de35a28c932a3448fc4b973aeb449b08b2af9
 
 FORMS += \
     gui/mainwindow.ui \
@@ -89,5 +79,3 @@ FORMS += \
     gui/edit/editcomp.ui \
     gui/edit/editrelation.ui \
     gui/edit/editsci.ui
-
-
