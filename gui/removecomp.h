@@ -20,10 +20,13 @@ public:
 private slots:
     void on_button_removeComp_clicked();
 
+    void on_table_comp_clicked(const QModelIndex &index);
+
 private:
     Ui::removecomp *ui;
     ComputerService _serviceComp;
     listgui _list;
+    void displayComputers();
 };
 
 #endif // REMOVECOMP_H
