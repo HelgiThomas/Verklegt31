@@ -10,6 +10,9 @@
 #include <QDialog>
 #include <QtCore>
 #include <QtGui>
+#include <QTextEdit>
+#include <QMessageBox>
+#include <QTextStream>
 
 using namespace std;
 
@@ -31,8 +34,9 @@ private slots:
 
     void on_button_addSci_clicked();
 
+    void on_combobox_birthYears_currentIndexChanged(int index);
 
-    void on_combobox_birthYears_activated(int index);
+    void on_combobox_deathYear_currentIndexChanged(int index);
 
 private:
     Ui::addsci *ui;
@@ -40,6 +44,7 @@ private:
     ComputerService _serviceComp;
     GeneralService _serviceGen;
     int _sciBirth;
+    int _sciDeath;
 
 };
 
