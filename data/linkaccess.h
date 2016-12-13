@@ -70,6 +70,7 @@ public:
      * @brief connect, connects the SQL database.
      */
     void connect();
+    void closeConn();
 
 private:
     QSqlDatabase m_db;

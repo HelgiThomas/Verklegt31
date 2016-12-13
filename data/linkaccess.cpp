@@ -27,6 +27,8 @@ void LinkAccess::link(int scientistId, int computerId)
     query.bindValue(":status", number);
 
     query.exec();
+
+    closeConn();
 }
 /**
  * @brief This function puts all Scientists ID that are in the relations in the SQL Database in a vector
@@ -60,6 +62,8 @@ vector<int>LinkAccess::ScientistId ()
             scientistsID.push_back(id);
         }
     }
+
+    closeConn();
 
     return scientistsID;
 }
@@ -96,6 +100,8 @@ vector<int> LinkAccess::ComputerId ()
             computersID.push_back(id);
         }
     }
+
+    closeConn();
     return computersID;
 }
 
@@ -131,6 +137,7 @@ vector<int> LinkAccess::RelationId()
             relationID.push_back(relationId);
         }
     }
+    closeConn();
 
     return relationID;
 
@@ -166,6 +173,7 @@ void LinkAccess::editSci (int changeID, int newSciID)
 
     query.exec();
 
+    closeConn();
 }
 
 /**
@@ -187,6 +195,8 @@ void LinkAccess::editComp (int changeID, int newCompID)
     query.bindValue(":changeID", qID);
 
     query.exec();
+
+    closeConn();
 }
 
 /**
@@ -208,6 +218,8 @@ void LinkAccess::removeRelation (int nrID)
     query.bindValue(":IDremove", qID);
 
     query.exec();
+
+    closeConn();
 }
 /**
  * @brief This function adds the selected scientist and the selected computer to the SQL database relation
@@ -227,3 +239,16 @@ void LinkAccess::connect()
         m_db.open();
     }
 }
+
+/**
+ * @brief ComputerAccess::closeConn, close the SQL database connection
+ */
+void LinkAccess::closeConn()
+{
+    QString conn;
+    conn = m_db.connectionName();
+    m_db.close();
+    m_db = QSqlDatabase();
+    m_db.removeDatabase(conn);
+}
+

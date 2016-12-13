@@ -2,7 +2,7 @@
 #define REMOVECOMP_H
 
 #include "service/computerservice.h"
-#include "gui/listgui.h"
+#include "gui/list/listgui.h"
 #include <QDialog>
 
 namespace Ui {

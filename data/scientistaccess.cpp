@@ -61,7 +61,7 @@ vector<Scientist> ScientistAccess::readFromDatabase()
             sci.push_back(pl);
         }
     }
-    m_db.close();
+    closeConn();
 
     return sci;
 }
@@ -96,7 +96,7 @@ void ScientistAccess::readToDatabase(Scientist scientist)
 
         query.exec();
     }
-    m_db.close();
+    closeConn();
 }
 /**
  * @brief This function sets the status = 0 for selected Scientist in the SQL database
@@ -119,6 +119,8 @@ void ScientistAccess::removelist(int nameOf)
     query.bindValue(":status", qStatus);
 
     query.exec();
+
+    closeConn();
 }
 
 /**
@@ -140,6 +142,8 @@ void ScientistAccess::updateRelation(int nameOf)
     query.bindValue(":status", qStatus);
 
     query.exec();
+
+    closeConn();
 }
 
 /**
@@ -152,6 +156,8 @@ void ScientistAccess::updateRelationall()
     QSqlQuery query;
     query.prepare("UPDATE SciComp SET Status = 0");
     query.exec();
+
+    closeConn();
 }
 
 
@@ -167,6 +173,8 @@ void ScientistAccess::removeAll()
     QSqlQuery query;
     query.prepare("UPDATE Scientists SET Status = 0");
     query.exec();
+
+    closeConn();
 }
 /**
  * @brief This function lets the User edit the string elements selected entry of Scientist in the SQL Datbase
@@ -194,6 +202,8 @@ void ScientistAccess::editString(string nameOf, string variable, string newEleme
     }
 
     query.exec();
+
+    closeConn();
 }
 /**
  * @brief This function lets the User edit the int elements in the selected entry of Scientists in the SQL Datbase
@@ -224,24 +234,10 @@ void ScientistAccess::editInt(string nameOf, string variable, int newElement)
     }
 
     query.exec();
-}
-/**
- * @brief This function connects QT to the SQL database
- */
-void ScientistAccess::connect()
-{
-    if (!m_db.isOpen())
-    {
-        m_db = QSqlDatabase::addDatabase("QSQLITE");
-        m_db.setDatabaseName("DB_vika2.sqlite");
 
-        m_db.open();
-    }
-    else
-    {
-        m_db.open();
-    }
+    closeConn();
 }
+
 /**
  * @brief This function sorts the Scientists in an vector according the the selected variable and selected command ("ASC" or "DESC")
  * @param string var, string command
@@ -297,7 +293,7 @@ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
             sci.push_back(pl);
         }
     }
-    m_db.close();
+    closeConn();
 
     return sci;
 }
@@ -367,7 +363,7 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
             sci.push_back(pl);
         }
     }
-    m_db.close();
+    closeConn();
 
     return sci;
 }
@@ -466,7 +462,7 @@ vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operat
             sci.push_back(pl);
         }
     }
-    m_db.close();
+    closeConn();
 
 
 
@@ -506,4 +502,35 @@ bool ScientistAccess::checkEntry(Scientist scientist)
         }
     }
     return true;
+}
+
+
+/**
+ * @brief ComputerAccess::closeConn, close the SQL database connection
+ */
+void ScientistAccess::closeConn()
+{
+    QString conn;
+    conn = m_db.connectionName();
+    m_db.close();
+    m_db = QSqlDatabase();
+    m_db.removeDatabase(conn);
+}
+
+/**
+ * @brief This function connects QT to the SQL database
+ */
+void ScientistAccess::connect()
+{
+    if (!m_db.isOpen())
+    {
+        m_db = QSqlDatabase::addDatabase("QSQLITE");
+        m_db.setDatabaseName("DB_vika2.sqlite");
+
+        m_db.open();
+    }
+    else
+    {
+        m_db.open();
+    }
 }

@@ -12,12 +12,12 @@
 #include "gui/edit/editcomp.h"
 #include "gui/edit/editrelation.h"
 #include "gui/edit/editsci.h"
-#include "gui/gamegui.h"
-#include "gui/listgui.h"
-#include "gui/removescigui.h"
-#include "gui/removecomp.h"
-#include "gui/searchgui.h"
-#include "gui/sortgui.h"
+#include "gui/game/gamegui.h"
+#include "gui/list/listgui.h"
+#include "gui/remove/removescigui.h"
+#include "gui/remove/removecomp.h"
+#include "gui/search/searchgui.h"
+#include "gui/sort/sortgui.h"
 #include "gui/utilitygui.h"
 
 namespace Ui {

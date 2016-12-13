@@ -22,17 +22,17 @@ SOURCES += main.cpp \
     data/computeraccess.cpp \
     data/linkaccess.cpp \
     service/generalservice.cpp \
-    gui/listgui.cpp \
-    gui/sortgui.cpp \
-    gui/searchgui.cpp \
+    gui/list/listgui.cpp \
+    gui/sort/sortgui.cpp \
+    gui/search/searchgui.cpp \
     gui/consolegui.cpp \
-    gui/gamegui.cpp \
+    gui/game/gamegui.cpp \
     gui/utilitygui.cpp \
     gui/add/addsci.cpp \
     gui/add/addcomp.cpp \
     gui/add/addrel.cpp \
-    gui/removecomp.cpp \
-    gui/removescigui.cpp \
+    gui/remove/removecomp.cpp \
+    gui/remove/removescigui.cpp \
     gui/edit/editcomp.cpp \
     gui/edit/editrelation.cpp \
     gui/edit/editsci.cpp
@@ -48,34 +48,34 @@ HEADERS += \
     data/computeraccess.h \
     data/linkaccess.h \
     service/generalservice.h \
-    gui/listgui.h \
-    gui/sortgui.h \
-    gui/searchgui.h \
+    gui/list/listgui.h \
+    gui/sort/sortgui.h \
+    gui/search/searchgui.h \
     gui/consolegui.h \
-    gui/gamegui.h \
+    gui/game/gamegui.h \
     gui/utilitygui.h \
     gui/add/addcomp.h \
     gui/add/addsci.h \
     gui/add/addrel.h \
-    gui/removecomp.h \
-    gui/removescigui.h \
+    gui/remove/removecomp.h \
+    gui/remove/removescigui.h \
     gui/edit/editcomp.h \
     gui/edit/editrelation.h \
     gui/edit/editsci.h
 
 FORMS += \
     gui/mainwindow.ui \
-    gui/listgui.ui \
-    gui/sortgui.ui \
-    gui/searchgui.ui \
+    gui/list/listgui.ui \
+    gui/sort/sortgui.ui \
+    gui/search/searchgui.ui \
     gui/consolegui.ui \
-    gui/gamegui.ui \
+    gui/game/gamegui.ui \
     gui/utilitygui.ui \
     gui/add/addsci.ui \
     gui/add/addcomp.ui \
     gui/add/addrel.ui \
-    gui/removescigui.ui \
-    gui/removecomp.ui \
+    gui/remove/removescigui.ui \
+    gui/remove/removecomp.ui \
     gui/edit/editcomp.ui \
     gui/edit/editrelation.ui \
     gui/edit/editsci.ui

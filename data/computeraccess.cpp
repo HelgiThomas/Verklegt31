@@ -56,7 +56,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
             com.push_back(pl);
         }
     }
-    m_db.close();
+    closeConn();
 
     return com;
 }
@@ -90,7 +90,7 @@ void ComputerAccess::readToDatabase(Computer computer)
 
         query.exec();
     }
-    m_db.close();
+    closeConn();
 }
 
 /**
@@ -112,6 +112,8 @@ void ComputerAccess::removelist(int nameOf)
     query.bindValue(":status", qStatus);
 
     query.exec();
+
+    closeConn();
 }
 
 /**
@@ -124,6 +126,8 @@ void ComputerAccess::removeAll()
     QSqlQuery query;
     query.prepare("UPDATE Computers SET Status = 0");
     query.exec();
+
+    closeConn();
 }
 
 /**
@@ -158,6 +162,8 @@ void ComputerAccess::editString(string nameOf, string variable, string newElemen
     }
 
     query.exec();
+
+    closeConn();
 }
 
 /**
@@ -182,24 +188,8 @@ void ComputerAccess::editInt(string nameOf, string variable, int newElement)
         query.bindValue(":newElement", qNewElement);
     }
     query.exec();
-}
 
-/**
- * @brief This function connects QT to the SQL database
- */
-void ComputerAccess::connect()
-{
-    if (!m_db.isOpen())
-    {
-        m_db = QSqlDatabase::addDatabase("QSQLITE");
-        m_db.setDatabaseName("DB_vika2.sqlite");
-
-        m_db.open();
-    }
-    else
-    {
-        m_db.open();
-    }
+    closeConn();
 }
 
 /**
@@ -257,7 +247,8 @@ vector<Computer> ComputerAccess::sortQuery(string var, string command)
             comp.push_back(pl);
         }
     }
-    m_db.close();
+    closeConn();
+
     return comp;
 }
 
@@ -334,7 +325,7 @@ vector<Computer> ComputerAccess::searchQueryString(string variable,string comman
             comp.push_back(pl);
         }
     }
-    m_db.close();
+    closeConn();
 
     return comp;
 }
@@ -410,7 +401,7 @@ vector<Computer> ComputerAccess::searchQueryInt(string variable, string operator
             comp.push_back(pl);
         }
     }
-    m_db.close();
+   closeConn();;
 
     return comp;
 }
@@ -446,4 +437,34 @@ bool ComputerAccess::checkEntry(Computer computer)
         }
     }
     return true;
+}
+
+/**
+ * @brief This function connects QT to the SQL database
+ */
+void ComputerAccess::connect()
+{
+    if (!m_db.isOpen())
+    {
+        m_db = QSqlDatabase::addDatabase("QSQLITE");
+        m_db.setDatabaseName("DB_vika2.sqlite");
+
+        m_db.open();
+    }
+    else
+    {
+        m_db.open();
+    }
+}
+
+/**
+ * @brief ComputerAccess::closeConn, close the SQL database connection
+ */
+void ComputerAccess::closeConn()
+{
+    QString conn;
+    conn = m_db.connectionName();
+    m_db.close();
+    m_db = QSqlDatabase();
+    m_db.removeDatabase(conn);
 }
