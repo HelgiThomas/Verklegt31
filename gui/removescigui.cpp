@@ -18,5 +18,7 @@ void removescigui::on_button_removeSci_clicked()
     int sciNum;
     string number = ui->line_numOfSci->text().toStdString();
     sciNum = atoi(number.c_str());
-    _serviceSci.removeScientist (sciNum);
+    _serviceSci.removeScientist(sciNum);
+
+    exit(10);
 }

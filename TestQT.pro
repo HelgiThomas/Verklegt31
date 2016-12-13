@@ -31,7 +31,8 @@ SOURCES += main.cpp \
     gui/utilitygui.cpp \
     gui/add/addcomp.cpp \
     gui/add/addsci.cpp \
-    gui/removescigui.cpp
+    gui/removescigui.cpp \
+    gui/removecomp.cpp
 
 
 HEADERS += \
@@ -53,7 +54,8 @@ HEADERS += \
     gui/utilitygui.h \
     gui/add/addcomp.h \
     gui/add/addsci.h \
-    gui/removescigui.h
+    gui/removescigui.h \
+    gui/removecomp.h
 
 FORMS += \
     gui/mainwindow.ui \
@@ -66,6 +68,7 @@ FORMS += \
     gui/utilitygui.ui \
     gui/add/addcomp.ui \
     gui/add/addsci.ui \
-    gui/removescigui.ui
+    gui/removescigui.ui \
+    gui/removecomp.ui
 
 

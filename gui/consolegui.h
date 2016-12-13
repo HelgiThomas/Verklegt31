@@ -13,6 +13,7 @@
 #include "gui/gamegui.h"
 #include "gui/listgui.h"
 #include "gui/removescigui.h"
+#include "gui/removecomp.h"
 #include "gui/searchgui.h"
 #include "gui/sortgui.h"
 #include "gui/utilitygui.h"
@@ -36,6 +37,7 @@ private slots:
     void on_button_addComp_clicked();
 
     void on_button_removeSci_clicked();
+    void on_button_removeComp_clicked();
 
     void on_button_list_clicked();
 
@@ -46,7 +48,8 @@ private:
     editgui _edit;
     gamegui _game;
     listgui _list;
-    removescigui _remove;
+    removescigui _removeSci;
+    removecomp _removeComp;
     searchgui _search;
     sortgui _sort;
     utilitygui _util;
