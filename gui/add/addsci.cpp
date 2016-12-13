@@ -1,24 +1,24 @@
-#include "addgui.h"
-#include "ui_addgui.h"
-#include <iostream>
+#include "addsci.h"
+#include "ui_addsci.h"
+
 
 using namespace std;
 
-addgui::addgui(QWidget *parent) :
+addsci::addsci(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::addgui)
+    ui(new Ui::addsci)
 {
     ui->setupUi(this);
 }
 
-addgui::~addgui()
+addsci::~addsci()
 {
     delete ui;
 }
 
 
 
-void addgui::on_button_addSci_clicked()
+void addsci::on_button_addSci_clicked()
 {
 
     int birthNum = 0;

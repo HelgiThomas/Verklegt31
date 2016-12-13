@@ -13,7 +13,13 @@ consolegui::~consolegui()
     delete ui;
 }
 
-void consolegui::on_button_add_clicked()
+
+void consolegui::on_button_addSci_clicked()
 {
-    _add.show();
+    _addsci.show();
+}
+
+void consolegui::on_button_addComp_clicked()
+{
+    _addcomp.show();
 }

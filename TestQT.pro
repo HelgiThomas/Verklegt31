@@ -30,7 +30,8 @@ SOURCES += main.cpp \
     gui/consolegui.cpp \
     gui/gamegui.cpp \
     gui/utilitygui.cpp \
-    gui/addgui.cpp
+    gui/add/addsci.cpp \
+    gui/add/addcomp.cpp
 
 
 HEADERS += \
@@ -51,7 +52,8 @@ HEADERS += \
     gui/consolegui.h \
     gui/gamegui.h \
     gui/utilitygui.h \
-    gui/addgui.h
+    gui/add/addsci.h \
+    gui/add/addcomp.h
 
 FORMS += \
     gui/mainwindow.ui \
@@ -63,6 +65,7 @@ FORMS += \
     gui/consolegui.ui \
     gui/gamegui.ui \
     gui/utilitygui.ui \
-    gui/addgui.ui
+    gui/add/addsci.ui \
+    gui/add/addcomp.ui
 
 

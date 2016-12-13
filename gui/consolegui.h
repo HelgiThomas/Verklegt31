@@ -7,7 +7,8 @@
 #include "service/computerservice.h"
 #include "service/generalservice.h"
 
-#include "gui/addgui.h"
+#include "gui/add/addsci.h"
+#include "gui/add/addcomp.h"
 #include "gui/editgui.h"
 #include "gui/gamegui.h"
 #include "gui/listgui.h"
@@ -29,11 +30,16 @@ public:
     ~consolegui();
 
 private slots:
-    void on_button_add_clicked();
+
+
+    void on_button_addSci_clicked();
+
+    void on_button_addComp_clicked();
 
 private:
     Ui::consolegui *ui;
-    addgui _add;
+    addsci _addsci;
+    addcomp _addcomp;
     editgui _edit;
     gamegui _game;
     listgui _list;

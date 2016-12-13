@@ -4,21 +4,24 @@
 #include "service/scientistservice.h"
 #include "service/computerservice.h"
 #include "service/generalservice.h"
-#include <stdlib.h>
 
+#include <iostream>
+#include <stdlib.h>
 #include <QDialog>
 
+using namespace std;
+
 namespace Ui {
-class addgui;
+class addsci;
 }
 
-class addgui : public QDialog
+class addsci : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit addgui(QWidget *parent = 0);
-    ~addgui();
+    explicit addsci(QWidget *parent = 0);
+    ~addsci();
 
 
 private slots:
@@ -26,7 +29,7 @@ private slots:
     void on_button_addSci_clicked();
 
 private:
-    Ui::addgui *ui;
+    Ui::addsci *ui;
     ScientistService _serviceSci;
     ComputerService _serviceComp;
     GeneralService _serviceGen;
