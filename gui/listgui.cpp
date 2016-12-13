@@ -18,12 +18,24 @@ listgui::~listgui()
 void listgui::displayScientists()
 {
     vector<Scientist> allScientists = _serviceSci.getScientists();
-    ui -> list_all -> clear ();
+    ui -> table_all -> clearContents();
+    ui -> table_all -> setRowCount(allScientists.size());
 
-    for (unsigned int i = 0 ; i < allScientists.size() ;i++)
+    for (unsigned int row = 0 ; row < allScientists.size() ; row++)
     {
-        Scientist currentScientist = allScientists[i];
-        ui -> list_all -> addItem(QString::fromStdString(currentScientist.getName()));
+        Scientist currentScientist = allScientists[row];
+
+        QString name = QString::fromStdString(currentScientist.getName());
+        QString sex = QString::fromStdString (currentScientist.getSex());
+        QString yearBorn = QString::number(currentScientist.getBirth());
+        QString yearDeath = QString::number(currentScientist.getDeath());
+
+
+        ui -> table_all -> setItem(row, 0, new QTableWidgetItem(name));
+        ui -> table_all -> setItem(row, 1, new QTableWidgetItem(sex));
+        ui -> table_all -> setItem(row, 2, new QTableWidgetItem(yearBorn));
+        ui -> table_all -> setItem(row, 3, new QTableWidgetItem(yearDeath));
+
     }
 }
 

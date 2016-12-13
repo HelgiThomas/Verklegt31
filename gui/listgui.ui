@@ -6,16 +6,56 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>514</width>
-    <height>397</height>
+    <width>596</width>
+    <height>448</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QListWidget" name="list_all"/>
+    <widget class="QComboBox" name="comboBox">
+     <item>
+      <property name="text">
+       <string>Scientists</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Computers</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Relations</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="table_all">
+     <column>
+      <property name="text">
+       <string>New Column</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Sex</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Death</string>
+      </property>
+     </column>
+    </widget>
    </item>
   </layout>
  </widget>
