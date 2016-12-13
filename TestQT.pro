@@ -29,15 +29,11 @@ SOURCES += main.cpp \
     gui/consolegui.cpp \
     gui/gamegui.cpp \
     gui/utilitygui.cpp \
-    gui/add/addcomp.cpp \
     gui/add/addsci.cpp \
-<<<<<<< HEAD
     gui/add/addcomp.cpp \
-    gui/add/addrel.cpp
-=======
-    gui/removescigui.cpp \
-    gui/removecomp.cpp
->>>>>>> be4dfcd33d1f3bd2d6fd42038d6200038ee9dd6b
+    gui/add/addrel.cpp \
+    gui/removecomp.cpp \
+    gui/removescigui.cpp
 
 
 HEADERS += \
@@ -59,13 +55,9 @@ HEADERS += \
     gui/utilitygui.h \
     gui/add/addcomp.h \
     gui/add/addsci.h \
-<<<<<<< HEAD
-    gui/add/addcomp.h \
-    gui/add/addrel.h
-=======
-    gui/removescigui.h \
-    gui/removecomp.h
->>>>>>> be4dfcd33d1f3bd2d6fd42038d6200038ee9dd6b
+    gui/add/addrel.h \
+    gui/removecomp.h \
+    gui/removescigui.h
 
 FORMS += \
     gui/mainwindow.ui \
@@ -76,14 +68,10 @@ FORMS += \
     gui/consolegui.ui \
     gui/gamegui.ui \
     gui/utilitygui.ui \
-    gui/add/addcomp.ui \
     gui/add/addsci.ui \
-<<<<<<< HEAD
     gui/add/addcomp.ui \
-    gui/add/addrel.ui
-=======
+    gui/add/addrel.ui \
     gui/removescigui.ui \
     gui/removecomp.ui
->>>>>>> be4dfcd33d1f3bd2d6fd42038d6200038ee9dd6b
 
 
