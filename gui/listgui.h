@@ -24,6 +24,10 @@ private:
     void displayScientists  ();
     void displayComputers ();
     void displayRelations ();
+
+    ScientistService _serviceSci;
+    ComputerService _serviceComp;
+    GeneralService _serviceGen;
 };
 
 #endif // LISTGUI_H

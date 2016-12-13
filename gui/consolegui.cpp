@@ -28,3 +28,8 @@ void consolegui::on_button_removeSci_clicked()
 {
     _remove.show();
 }
+
+void consolegui::on_button_list_clicked()
+{
+    _list.show();
+}

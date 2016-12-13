@@ -64,6 +64,58 @@
      <string>Computer</string>
     </property>
    </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>351</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Remove</string>
+    </property>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>30</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Relation</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_removeSci_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>91</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Scientist</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>30</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Computer</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
@@ -114,6 +166,32 @@
     </property>
     <property name="text">
      <string>Scientist</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>120</y>
+     <width>351</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>List</string>
+   </property>
+   <widget class="QPushButton" name="button_list">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>List</string>
     </property>
    </widget>
   </widget>

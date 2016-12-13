@@ -37,6 +37,8 @@ private slots:
 
     void on_button_removeSci_clicked();
 
+    void on_button_list_clicked();
+
 private:
     Ui::consolegui *ui;
     addsci _addsci;
