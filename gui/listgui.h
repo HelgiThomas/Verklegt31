@@ -18,10 +18,22 @@ class listgui : public QDialog
 public:
     explicit listgui(QWidget *parent = 0);
 
-    void displayScientists  ();
-    void displayComputers ();
+    void displayAllScientists();
+    void displayScientists  (vector<Scientist>Scientist);
+
+    void displayAllComputers();
+    void displayComputers(vector <Computer> Computers);
+
     void displayRelations ();
+
     ~listgui();
+
+private slots:
+    void on_input_filter_scientists_textChanged(const QString &arg1);
+
+    void on_Relations_tabBarClicked(int index);
+
+    void on_input_filter_computers_textChanged(const QString &arg1);
 
 private:
     Ui::listgui *ui;
