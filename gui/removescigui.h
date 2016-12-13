@@ -2,6 +2,7 @@
 #define REMOVESCIGUI_H
 
 #include "service/scientistservice.h"
+#include "gui/listgui.h"
 #include <QDialog>
 
 namespace Ui {
@@ -22,6 +23,7 @@ private slots:
 private:
     Ui::removescigui *ui;
     ScientistService _serviceSci;
+    listgui _list;
 };
 
 #endif // REMOVESCIGUI_H

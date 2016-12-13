@@ -2,7 +2,7 @@
 #define REMOVECOMP_H
 
 #include "service/computerservice.h"
-#include "gui/consolegui.h"
+#include "gui/listgui.h"
 #include <QDialog>
 
 namespace Ui {
@@ -19,12 +19,11 @@ public:
 
 private slots:
     void on_button_removeComp_clicked();
-    void on_button_goBack_clicked();
 
 private:
     Ui::removecomp *ui;
     ComputerService _serviceComp;
-    consolegui _consolehh;
+    listgui _list;
 };
 
 #endif // REMOVECOMP_H

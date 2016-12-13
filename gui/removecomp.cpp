@@ -23,7 +23,3 @@ void removecomp::on_button_removeComp_clicked()
     exit(10);
 }
 
-void removecomp::on_button:goBack_clicked()
-{
-    _console.show();
-}
