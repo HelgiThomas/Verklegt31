@@ -23,3 +23,5 @@ void removecomp::on_button_removeComp_clicked()
     exit(10);
 }
 
+
+
