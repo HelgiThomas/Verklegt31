@@ -7,6 +7,7 @@ listgui::listgui(QWidget *parent) :
     ui(new Ui::listgui)
 {
     ui->setupUi(this);
+    displayScientists();
 }
 
 listgui::~listgui()
@@ -17,10 +18,12 @@ listgui::~listgui()
 void listgui::displayScientists()
 {
     vector<Scientist> allScientists = _serviceSci.getScientists();
-    ui -> display_all -> clear();
-    for (int i = 0 ; i < allScientists.size();i++)
+    ui -> list_all -> clear ();
+
+    for (unsigned int i = 0 ; i < allScientists.size() ;i++)
     {
-        ui -> display_all -> addItem(QString::fromStdString(allScientists[i].getName));
+        Scientist currentScientist = allScientists[i];
+        ui -> list_all -> addItem(QString::fromStdString(currentScientist.getName()));
     }
 }
 
