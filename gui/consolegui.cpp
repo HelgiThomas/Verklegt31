@@ -26,7 +26,12 @@ void consolegui::on_button_addComp_clicked()
 
 void consolegui::on_button_removeSci_clicked()
 {
-    _remove.show();
+    _removeSci.show();
+}
+
+void consolegui::on_button_removeComp_clicked()
+{
+    _removeComp.show();
 }
 
 void consolegui::on_button_list_clicked()

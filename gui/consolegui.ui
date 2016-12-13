@@ -102,7 +102,7 @@
       <string>Scientist</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_5">
+    <widget class="QPushButton" name="button_removeComp">
      <property name="geometry">
       <rect>
        <x>110</x>
