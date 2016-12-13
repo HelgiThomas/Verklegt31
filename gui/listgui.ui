@@ -60,7 +60,6 @@
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
        <string>Computers</string>
-<<<<<<< HEAD
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
@@ -96,39 +95,6 @@
        </item>
       </layout>
      </widget>
-=======
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Relations</string>
-      </property>
-     </item>
-    </widget>
-   </item>
-   <item>
-    <widget class="QTableWidget" name="table_all">
-     <column>
-      <property name="text">
-       <string>Name</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Sex</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Birth</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Death</string>
-      </property>
-     </column>
->>>>>>> d6bb757de384f48dacb1b0c96ac42a3e12561836
     </widget>
    </item>
   </layout>
