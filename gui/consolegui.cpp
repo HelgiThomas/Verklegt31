@@ -23,3 +23,8 @@ void consolegui::on_button_addComp_clicked()
 {
     _addcomp.show();
 }
+
+void consolegui::on_button_removeSci_clicked()
+{
+    _remove.show();
+}

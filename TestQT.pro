@@ -24,14 +24,14 @@ SOURCES += main.cpp \
     service/generalservice.cpp \
     gui/listgui.cpp \
     gui/editgui.cpp \
-    gui/removegui.cpp \
     gui/sortgui.cpp \
     gui/searchgui.cpp \
     gui/consolegui.cpp \
     gui/gamegui.cpp \
     gui/utilitygui.cpp \
+    gui/add/addcomp.cpp \
     gui/add/addsci.cpp \
-    gui/add/addcomp.cpp
+    gui/removescigui.cpp
 
 
 HEADERS += \
@@ -46,26 +46,26 @@ HEADERS += \
     service/generalservice.h \
     gui/listgui.h \
     gui/editgui.h \
-    gui/removegui.h \
     gui/sortgui.h \
     gui/searchgui.h \
     gui/consolegui.h \
     gui/gamegui.h \
     gui/utilitygui.h \
+    gui/add/addcomp.h \
     gui/add/addsci.h \
-    gui/add/addcomp.h
+    gui/removescigui.h
 
 FORMS += \
     gui/mainwindow.ui \
     gui/listgui.ui \
     gui/editgui.ui \
-    gui/removegui.ui \
     gui/sortgui.ui \
     gui/searchgui.ui \
     gui/consolegui.ui \
     gui/gamegui.ui \
     gui/utilitygui.ui \
+    gui/add/addcomp.ui \
     gui/add/addsci.ui \
-    gui/add/addcomp.ui
+    gui/removescigui.ui
 
 

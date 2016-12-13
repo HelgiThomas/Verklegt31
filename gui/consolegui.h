@@ -12,7 +12,7 @@
 #include "gui/editgui.h"
 #include "gui/gamegui.h"
 #include "gui/listgui.h"
-#include "gui/removegui.h"
+#include "gui/removescigui.h"
 #include "gui/searchgui.h"
 #include "gui/sortgui.h"
 #include "gui/utilitygui.h"
@@ -33,8 +33,9 @@ private slots:
 
 
     void on_button_addSci_clicked();
-
     void on_button_addComp_clicked();
+
+    void on_button_removeSci_clicked();
 
 private:
     Ui::consolegui *ui;
@@ -43,7 +44,7 @@ private:
     editgui _edit;
     gamegui _game;
     listgui _list;
-    removegui _remove;
+    removescigui _remove;
     searchgui _search;
     sortgui _sort;
     utilitygui _util;
