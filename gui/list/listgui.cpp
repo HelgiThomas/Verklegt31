@@ -35,12 +35,10 @@ void listgui::displayScientists(vector <Scientist> Scientists)
         QString yearBorn = QString::number(currentScientist.getBirth());
         QString yearDeath = QString::number(currentScientist.getDeath());
 
-
         ui -> table_scientists -> setItem(row, 0, new QTableWidgetItem(name));
         ui -> table_scientists -> setItem(row, 1, new QTableWidgetItem(sex));
         ui -> table_scientists -> setItem(row, 2, new QTableWidgetItem(yearBorn));
         ui -> table_scientists -> setItem(row, 3, new QTableWidgetItem(yearDeath));
-
     }
 }
 

@@ -12,3 +12,4 @@ editscigui::~editscigui()
 {
     delete ui;
 }
+

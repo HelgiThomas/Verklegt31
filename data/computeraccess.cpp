@@ -26,6 +26,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
     int idYear = query.record().indexOf("year");
     int idType = query.record().indexOf("type");
     int idBuilt = query.record().indexOf("wasbuilt");
+    int idDescription = query.record().indexOf("description");
     int idStatus = query.record().indexOf("status");
 
     while (query.next())
@@ -37,6 +38,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
         QString qYear = query.value(idYear).toString();
         QString qType = query.value(idType).toString();
         QString qBuilt = query.value(idBuilt).toString();
+        QString qDescription = query.value(idDescription).toString();
         QString qStatus = query.value(idStatus).toString();
 
         int id = qId.toInt();
@@ -44,6 +46,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
         int year = qYear.toInt();
         std::string type =  qType.toStdString();
         std::string built = qBuilt.toStdString();
+        std::string description = qDescription.toStdString();
         int status = qStatus.toInt();
         if (status == 1)
         {
@@ -52,6 +55,7 @@ vector<Computer> ComputerAccess::readFromDatabase()
             pl.setBuildYear(year);
             pl.setCompType(type);
             pl.setWasBuilt(built);
+            pl.setDescription(description);
 
             com.push_back(pl);
         }
@@ -80,13 +84,15 @@ void ComputerAccess::readToDatabase(Computer computer)
         QString qYear = QString::number(computer.getBuildYear());
         QString qType = QString::fromStdString(computer.getCompType());
         QString qBuilt = QString::fromStdString(computer.getWasBuilt());
+        QString qDescription = QString::fromStdString(computer.getDescription());
         QString qStatus = QString::number(number);
 
-        query.prepare("INSERT INTO Computers (name, year, type, wasbuilt, status) VALUES (:name, :year, :type, :wasbuilt, :status)");
+        query.prepare("INSERT INTO Computers (name, year, type, wasbuilt, description, status) VALUES (:name, :year, :type, :wasbuilt, :description, :status)");
         query.bindValue(":name", qName);
         query.bindValue(":year", qYear);
         query.bindValue(":type", qType);
         query.bindValue(":wasbuilt", qBuilt);
+        query.bindValue(":description", qDescription);
         query.bindValue(":status", qStatus);
 
         query.exec();
@@ -383,6 +389,7 @@ vector<Computer> ComputerAccess::searchQueryInt(string variable, string operator
         QString qYear = query.value(idYear).toString();
         QString qType = query.value(idType).toString();
         QString qBuilt = query.value(idBuilt).toString();
+        QString qDescription = query.value(idDescription).toString();
         QString qStatus = query.value(idStatus).toString();
 
         int id = qId.toInt();
@@ -390,6 +397,7 @@ vector<Computer> ComputerAccess::searchQueryInt(string variable, string operator
         int year = qYear.toInt();
         std::string type =  qType.toStdString();
         std::string built = qBuilt.toStdString();
+        std::string description = qDescription.toStdString();
         int status = qStatus.toInt();
         if (status == 1)
         {
@@ -398,6 +406,7 @@ vector<Computer> ComputerAccess::searchQueryInt(string variable, string operator
             pl.setBuildYear(year);
             pl.setCompType(type);
             pl.setWasBuilt(built);
+            pl.setDescription(description);
 
             comp.push_back(pl);
         }
@@ -450,10 +459,6 @@ void ComputerAccess::connect()
         m_db = QSqlDatabase::addDatabase("QSQLITE");
         m_db.setDatabaseName("DB_vika2.sqlite");
 
-        m_db.open();
-    }
-    else
-    {
         m_db.open();
     }
 }
