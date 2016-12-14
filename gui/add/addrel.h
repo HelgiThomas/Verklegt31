@@ -25,16 +25,16 @@ public:
 
     void displayRelations();
 
-private slots:
-    void on_button_addSciRel_clicked();
+    void displayScientistandComputers();
 
-    void on_button_addCompRel_clicked();
+private slots:
 
 
 private:
     Ui::addrel *ui;
     vector <int> _sciID;
     vector <int> _compID;
+
     ScientistService _serviceSci;
     ComputerService _serviceComp;
     listgui _list;
