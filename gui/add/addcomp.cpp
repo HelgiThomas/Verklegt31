@@ -43,6 +43,10 @@ void addcomp::on_button_addComp_clicked()
     {
         QMessageBox::about(this, "Error!", "Please say whether the computer was built or not!");
     }
+    else if(!_serviceComp.validName(_type))
+    {
+         QMessageBox::about(this, "Error!", "Please enter a valid other computer type!");
+    }
     else
     {
         addName = ui->line_compName->text().toStdString();
@@ -73,7 +77,8 @@ bool addcomp::isValidType()
     }
     else if(ui->radio_oth->isChecked())
     {
-        _type = "Other";
+        string compType = ui->line_otherType->text().toStdString();
+        _type = compType;
     }
     else
     {

@@ -92,7 +92,7 @@
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>100</width>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
@@ -105,7 +105,7 @@
      <rect>
       <x>100</x>
       <y>30</y>
-      <width>100</width>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
@@ -118,7 +118,7 @@
      <rect>
       <x>280</x>
       <y>30</y>
-      <width>100</width>
+      <width>61</width>
       <height>20</height>
      </rect>
     </property>
@@ -131,7 +131,7 @@
      <rect>
       <x>190</x>
       <y>30</y>
-      <width>100</width>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
@@ -139,24 +139,6 @@
      <string>Transistor</string>
     </property>
    </widget>
-   <zorder>combobox_buildYear</zorder>
-   <zorder>radio_mech</zorder>
-   <zorder>radio_elec</zorder>
-   <zorder>radio_oth</zorder>
-   <zorder>radio_trans</zorder>
-   <zorder>label_2</zorder>
-   <zorder>radio_mech</zorder>
-   <zorder>radio_elec</zorder>
-   <zorder>radio_oth</zorder>
-   <zorder>radio_trans</zorder>
-   <zorder>radio_mech</zorder>
-   <zorder>radio_elec</zorder>
-   <zorder>radio_oth</zorder>
-   <zorder>radio_trans</zorder>
-   <zorder>radio_mech</zorder>
-   <zorder>radio_elec</zorder>
-   <zorder>radio_oth</zorder>
-   <zorder>radio_trans</zorder>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
@@ -196,6 +178,19 @@
      <string>Yes</string>
     </property>
    </widget>
+  </widget>
+  <widget class="QLineEdit" name="line_otherType">
+   <property name="geometry">
+    <rect>
+     <x>232</x>
+     <y>110</y>
+     <width>151</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Other - which type?</string>
+   </property>
   </widget>
  </widget>
  <resources/>
