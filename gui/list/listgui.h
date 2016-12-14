@@ -31,8 +31,6 @@ public:
 private slots:
     void on_input_filter_scientists_textChanged(const QString &arg1);
 
-    void on_Relations_tabBarClicked(int index);
-
     void on_input_filter_computers_textChanged(const QString &arg1);
 
 private:

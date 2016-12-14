@@ -8,6 +8,8 @@ listgui::listgui(QWidget *parent) :
 {
     ui->setupUi(this);
     displayAllScientists();
+    displayAllComputers();
+    displayRelations ();
 }
 
 listgui::~listgui()
@@ -52,10 +54,6 @@ void listgui::on_input_filter_scientists_textChanged(const QString &arg1)
 
 }
 
-void listgui::on_Relations_tabBarClicked(int index)
-{
-    displayAllComputers();
-}
 void listgui::displayAllComputers()
 {
     vector<Computer> Computers = _serviceComp.getComputers();
@@ -81,7 +79,6 @@ void listgui::displayComputers(vector <Computer> Computers)
         ui -> table_computers -> setItem(row, 1, new QTableWidgetItem(year));
         ui -> table_computers -> setItem(row, 2, new QTableWidgetItem(type));
         ui -> table_computers-> setItem(row, 3, new QTableWidgetItem(wasBuilt));
-
     }
 }
 
@@ -96,5 +93,48 @@ void listgui::on_input_filter_computers_textChanged(const QString &arg1)
 
 void listgui::displayRelations()
 {
+    vector<int>ScientistID = _serviceSci.allScientistID();
+    vector<int>ComputerID = _serviceComp.allComputerID();
 
+    vector<Computer> Computers = _serviceComp.getComputers();
+    vector<Scientist> Scientists = _serviceSci.getScientists();
+    vector<Computer> lengthComputer;
+    vector<Scientist> lengthScientist;
+    vector<Scientist> tempSci;
+
+    for (unsigned int i = 0 ; i < ComputerID.size(); i++)
+    {
+        for (unsigned int k = 0; k < Computers.size(); k++)
+        {
+            if(ComputerID[i] == Computers[k].getId())
+            {
+                lengthComputer.push_back(Computers[k]);
+                break;
+            }
+        }
+    }
+    for (unsigned int i = 0 ; i < ScientistID.size(); i++)
+    {
+        for (unsigned int k = 0; k < Scientists.size();k++)
+        {
+            if(ScientistID[i] == Scientists[k].getId())
+            {
+                lengthScientist.push_back(Scientists[k]);
+            }
+        }
+    }
+    ui -> table_relations ->clearContents();
+    ui ->table_relations -> setRowCount( lengthScientist.size());
+
+    for (unsigned int row = 0 ; row < lengthScientist.size(); row++)
+    {
+       Scientist currentScientist = lengthScientist[row];
+       Computer currentComputer = lengthComputer[row];
+       QString Scientistname = QString::fromStdString(currentScientist.getName());
+       QString Computername = QString::fromStdString(currentComputer.getName());
+
+       ui -> table_relations-> setItem(row, 0, new QTableWidgetItem(Scientistname));
+       ui -> table_relations -> setItem(row, 1, new QTableWidgetItem(Computername));
+
+    }
 }
