@@ -226,7 +226,10 @@ bool ComputerService::validCompType(string compType)
     {
         if(isalpha(compType.at(i)))
         {
+            if(compType.at(i) == ' ')
             valid = true;
+            else
+            valid = false;
         }
     }
     return valid;

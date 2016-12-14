@@ -186,13 +186,16 @@ vector<Scientist> ScientistService::sortByDeathReverse()
  */
 bool ScientistService::validName(string name)
 {
-    bool valid = false;
+    bool valid = true;
     for(unsigned int i = 0; i < name.size(); i++)
     {
 
-        if(isalpha(name.at(i)))
+        if(!isalpha(name.at(i)))
         {
+            if(name.at(i) == ' ')
             valid = true;
+            else
+            valid = false;
         }
 
     }
