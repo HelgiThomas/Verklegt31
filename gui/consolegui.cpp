@@ -40,3 +40,8 @@ void consolegui::on_button_list_clicked()
 }
 
 
+
+void consolegui::on_button_addRel_clicked()
+{
+    _addrel.show();
+}

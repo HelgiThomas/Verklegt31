@@ -9,6 +9,7 @@
 
 #include "gui/add/addsci.h"
 #include "gui/add/addcomp.h"
+#include "gui/add/addrel.h"
 #include "gui/edit/editcomp.h"
 #include "gui/edit/editrelation.h"
 #include "gui/edit/editsci.h"
@@ -41,10 +42,13 @@ private slots:
 
     void on_button_list_clicked();
 
+    void on_button_addRel_clicked();
+
 private:
     Ui::consolegui *ui;
     addsci _addsci;
     addcomp _addcomp;
+    addrel _addrel;
     editscigui _editsci;
     editcompgui _editcomp;
     editrelationgui _editrelation;

@@ -129,7 +129,7 @@
    <property name="title">
     <string>Add</string>
    </property>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="button_addRel">
     <property name="geometry">
      <rect>
       <x>220</x>
