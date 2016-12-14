@@ -2,6 +2,9 @@
 #define SORTGUI_H
 
 #include <QDialog>
+#include "service/scientistservice.h"
+#include "service/computerservice.h"
+#include "service/generalservice.h"
 
 namespace Ui {
 class sortgui;
@@ -17,6 +20,7 @@ public:
 
 private:
     Ui::sortgui *ui;
+    ScientistService _serviceSci;
 };
 
 #endif // SORTGUI_H
