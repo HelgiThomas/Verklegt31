@@ -166,3 +166,13 @@ void listgui::on_table_scientists_clicked(const QModelIndex &index)
 {
      ui->button_remove_scientist->setEnabled(true);
 }
+
+void listgui::on_button_add_scientist_clicked()
+{
+    _addsci.show();
+}
+
+void listgui::on_button_add_computer_clicked()
+{
+    _addcomp.show();
+}

@@ -6,6 +6,8 @@
 #include "service/scientistservice.h"
 #include "service/computerservice.h"
 #include "service/generalservice.h"
+#include "gui/add/addsci.h"
+#include "gui/add/addcomp.h"
 
 namespace Ui {
 class listgui;
@@ -41,12 +43,19 @@ private slots:
 
     void on_button_remove_scientist_clicked();
 
+    void on_button_add_scientist_clicked();
+
+    void on_button_add_computer_clicked();
+
 private:
     Ui::listgui *ui;
 
     ScientistService _serviceSci;
     ComputerService _serviceComp;
     GeneralService _serviceGen;
+
+    addsci _addsci;
+    addcomp _addcomp;
 };
 
 #endif // LISTGUI_H
