@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="Relations">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_1">
       <attribute name="title">
@@ -53,6 +53,20 @@
            <string>Death</string>
           </property>
          </column>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="butto_remove_scientist">
+         <property name="text">
+          <string>Remove</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="button_edit_scientist">
+         <property name="text">
+          <string>Edit</string>
+         </property>
         </widget>
        </item>
       </layout>
@@ -91,6 +105,62 @@
            <string>wasBuilt</string>
           </property>
          </column>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="button_remove_computer">
+         <property name="text">
+          <string>Remove</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="button_edit_computer">
+         <property name="text">
+          <string>Edit</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Relations</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="placeholderText">
+          <string>Search...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="table_relations">
+         <column>
+          <property name="text">
+           <string>Scientist Name</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Computer Name</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="button_remove_relation">
+         <property name="text">
+          <string>Remove</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="button_edit_relation">
+         <property name="text">
+          <string>Edit</string>
+         </property>
         </widget>
        </item>
       </layout>
