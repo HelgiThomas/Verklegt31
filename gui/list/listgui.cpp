@@ -138,3 +138,41 @@ void listgui::displayRelations()
 
     }
 }
+
+void listgui::on_button_remove_computer_clicked()
+{
+    vector<Computer> computers = _serviceComp.getComputers();
+    int selectedComputer = ui->table_computers->currentIndex().row();
+    Computer currentlySelected = computers.at(selectedComputer);
+    int id = currentlySelected.getId();
+    _serviceComp.removeComputer(id);
+}
+
+void listgui::on_table_computers_clicked(const QModelIndex &index)
+{
+    ui->button_remove_computer->setEnabled(true);
+}
+
+void listgui::on_button_remove_scientist_clicked()
+{
+    vector<Scientist> scientists = _serviceSci.getScientists();
+    int selectedScientist = ui->table_scientists->currentIndex().row();
+    Scientist currentlySelected = scientists.at(selectedScientist);
+    int id = currentlySelected.getId();
+    _serviceSci.removeScientist(id);
+}
+
+void listgui::on_table_scientists_clicked(const QModelIndex &index)
+{
+     ui->button_remove_scientist->setEnabled(true);
+}
+
+void listgui::on_button_add_scientist_clicked()
+{
+    _addsci.show();
+}
+
+void listgui::on_button_add_computer_clicked()
+{
+    _addcomp.show();
+}

@@ -6,6 +6,8 @@
 #include "service/scientistservice.h"
 #include "service/computerservice.h"
 #include "service/generalservice.h"
+#include "gui/add/addsci.h"
+#include "gui/add/addcomp.h"
 
 namespace Ui {
 class listgui;
@@ -29,9 +31,21 @@ public:
     ~listgui();
 
 private slots:
+    void on_table_scientists_clicked(const QModelIndex &index);
+
+    void on_table_computers_clicked(const QModelIndex &index);
+
     void on_input_filter_scientists_textChanged(const QString &arg1);
 
     void on_input_filter_computers_textChanged(const QString &arg1);
+
+    void on_button_remove_computer_clicked();
+
+    void on_button_remove_scientist_clicked();
+
+    void on_button_add_scientist_clicked();
+
+    void on_button_add_computer_clicked();
 
 private:
     Ui::listgui *ui;
@@ -39,6 +53,9 @@ private:
     ScientistService _serviceSci;
     ComputerService _serviceComp;
     GeneralService _serviceGen;
+
+    addsci _addsci;
+    addcomp _addcomp;
 };
 
 #endif // LISTGUI_H
