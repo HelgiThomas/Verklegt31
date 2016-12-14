@@ -107,9 +107,9 @@ void ScientistAccess::removelist(int nameOf)
     int number = 0;
 
     connect();
-
+    cout << "penis";
     updateRelation(nameOf);
-
+    cout << "cervix";
     QSqlQuery query;
 
     QString qStatus = QString::number(number);
@@ -130,7 +130,7 @@ void ScientistAccess::removelist(int nameOf)
 void ScientistAccess::updateRelation(int nameOf)
 {
     int number = 0;
-    connect();
+    //connect();
 
     QSqlQuery query;
 
@@ -143,7 +143,7 @@ void ScientistAccess::updateRelation(int nameOf)
 
     query.exec();
 
-    closeConn();
+    //closeConn();
 }
 
 /**

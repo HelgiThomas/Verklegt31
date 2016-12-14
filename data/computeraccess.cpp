@@ -107,7 +107,6 @@ void ComputerAccess::readToDatabase(Computer computer)
 void ComputerAccess::removelist(int nameOf)
 {
     int number = 0;
-    cout << nameOf;
     connect();
 
     QSqlQuery query;
