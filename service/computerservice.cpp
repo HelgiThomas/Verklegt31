@@ -200,13 +200,13 @@ vector<Computer> ComputerService::sortBywasBuiltReverse()
  */
 bool ComputerService::validName(string name)
 {
-    bool valid = false;
+    bool valid = true;
     for(unsigned int i = 0; i < name.size(); i++)
     {
 
-        if(0)
+        if(!isalpha(name.at(i)))
         {
-            valid = true;
+            valid = false;
         }
 
 
