@@ -26,6 +26,7 @@ void addcomp::on_button_addComp_clicked()
     string addCompType;
     string addWasBuilt;
     int addBuildYear;
+    string addDescription;
     if(ui->radio_yes->isChecked())
     {
         addBuildYear = _buildYear;
@@ -52,7 +53,7 @@ void addcomp::on_button_addComp_clicked()
         addName = ui->line_compName->text().toStdString();
         addCompType = _type;
         addWasBuilt = _wasBuilt;
-        Computer newComp(addId, addName, addBuildYear, addCompType, addWasBuilt);
+        Computer newComp(addId, addName, addBuildYear, addCompType, addWasBuilt, addDescription);
         _serviceComp.addComputer(newComp);
     }
 

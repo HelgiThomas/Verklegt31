@@ -12,6 +12,7 @@ Computer::Computer()
     _buildYear = 0;
     _compType = "";
     _wasBuilt = "";
+    _description = "";
 }
 
 /**
@@ -23,13 +24,14 @@ Computer::Computer()
  * @param string compType, sets the computer type.
  * @param string wasBuilt, sets either "Yes" or "No" whether the computer was built or not.
  */
-Computer::Computer(int id, string name, int buildYear, string compType, string wasBuilt)
+Computer::Computer(int id, string name, int buildYear, string compType, string wasBuilt, string description)
 {
     _id = id;
     _name = name;
     _buildYear = buildYear;
     _compType = compType;
     _wasBuilt = wasBuilt;
+    _description = description;
 }
 
 /**

@@ -15,7 +15,7 @@ public:
      * @param int id, string name, int buildYear, string compType, string wasBuilt
      */
     Computer();
-    Computer(int id, string name, int buildYear, string compType, string wasBuilt);
+    Computer(int id, string name, int buildYear, string compType, string wasBuilt, string Description);
 
     /**
      * @brief getId/Name/BuildYear/CompType/WasBuilt/Desctipion, Get functions for the class to
