@@ -113,6 +113,7 @@ void listgui::displayRelations()
             }
         }
     }
+
     for (unsigned int i = 0 ; i < ScientistID.size(); i++)
     {
         for (unsigned int k = 0; k < Scientists.size();k++)
@@ -122,9 +123,11 @@ void listgui::displayRelations()
                 lengthScientist.push_back(Scientists[k]);
             }
         }
+        cout << endl;
     }
     ui -> table_relations ->clearContents();
-    ui ->table_relations -> setRowCount( lengthScientist.size());
+    ui ->table_relations -> setRowCount(lengthScientist.size());
+
 
     for (unsigned int row = 0 ; row < lengthScientist.size(); row++)
     {
@@ -138,7 +141,6 @@ void listgui::displayRelations()
 
     }
 }
-
 void listgui::on_button_remove_computer_clicked()
 {
     vector<Computer> computers = _serviceComp.getComputers();
@@ -176,3 +178,4 @@ void listgui::on_button_add_computer_clicked()
 {
     _addcomp.show();
 }
+
