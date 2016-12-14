@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "service/scientistservice.h"
+
 namespace Ui {
 class editscigui;
 }
@@ -15,8 +17,12 @@ public:
     explicit editscigui(QWidget *parent = 0);
     ~editscigui();
 
+private slots:
+    //void on_pushButton_editSci_clicked();
+
 private:
     Ui::editscigui *ui;
+    ScientistService _serviceSci;
 };
 
 #endif // EDITSCIGUI_H
