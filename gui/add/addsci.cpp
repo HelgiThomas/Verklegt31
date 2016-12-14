@@ -28,8 +28,6 @@ addsci::~addsci()
     delete ui;
 }
 
-
-
 void addsci::on_button_addSci_clicked()
 {
 

@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="Relations">
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_1">
       <attribute name="title">
@@ -79,6 +79,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="button_edit_scientist">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>Edit</string>
            </property>
@@ -145,6 +148,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="button_edit_computer">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>Edit</string>
            </property>
@@ -201,6 +207,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="button_edit_relation">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>Edit</string>
            </property>

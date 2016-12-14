@@ -44,16 +44,6 @@ void listgui::displayScientists(vector <Scientist> Scientists)
     }
 }
 
-void listgui::on_input_filter_scientists_textChanged(const QString &arg1)
-{
-    string userInput = ui ->input_filter_scientists->text().toStdString();
-
-    vector <Scientist> allScientists =_serviceSci.searchName(userInput);
-
-    displayScientists(allScientists);
-
-}
-
 void listgui::displayAllComputers()
 {
     vector<Computer> Computers = _serviceComp.getComputers();
@@ -80,15 +70,6 @@ void listgui::displayComputers(vector <Computer> Computers)
         ui -> table_computers -> setItem(row, 2, new QTableWidgetItem(type));
         ui -> table_computers-> setItem(row, 3, new QTableWidgetItem(wasBuilt));
     }
-}
-
-void listgui::on_input_filter_computers_textChanged(const QString &arg1)
-{
-    string userInput = ui ->input_filter_computers->text().toStdString();
-
-    vector <Computer> allComputers =_serviceComp.searchName(userInput);
-
-    displayComputers(allComputers);
 }
 
 void listgui::displayRelations()
@@ -141,32 +122,36 @@ void listgui::displayRelations()
 
     }
 }
-void listgui::on_button_remove_computer_clicked()
+
+void listgui::on_input_filter_scientists_textChanged(const QString &arg1)
 {
-    vector<Computer> computers = _serviceComp.getComputers();
-    int selectedComputer = ui->table_computers->currentIndex().row();
-    Computer currentlySelected = computers.at(selectedComputer);
-    int id = currentlySelected.getId();
-    _serviceComp.removeComputer(id);
+    string userInput = ui ->input_filter_scientists->text().toStdString();
+
+    vector <Scientist> allScientists =_serviceSci.searchName(userInput);
+
+    displayScientists(allScientists);
+
+}
+
+void listgui::on_input_filter_computers_textChanged(const QString &arg1)
+{
+    string userInput = ui ->input_filter_computers->text().toStdString();
+
+    vector <Computer> allComputers =_serviceComp.searchName(userInput);
+
+    displayComputers(allComputers);
 }
 
 void listgui::on_table_computers_clicked(const QModelIndex &index)
 {
     ui->button_remove_computer->setEnabled(true);
-}
-
-void listgui::on_button_remove_scientist_clicked()
-{
-    vector<Scientist> scientists = _serviceSci.getScientists();
-    int selectedScientist = ui->table_scientists->currentIndex().row();
-    Scientist currentlySelected = scientists.at(selectedScientist);
-    int id = currentlySelected.getId();
-    _serviceSci.removeScientist(id);
+    ui->button_edit_computer->setEnabled(true);
 }
 
 void listgui::on_table_scientists_clicked(const QModelIndex &index)
 {
      ui->button_remove_scientist->setEnabled(true);
+     ui->button_edit_scientist->setEnabled(true);
 }
 
 void listgui::on_button_add_scientist_clicked()
@@ -179,3 +164,61 @@ void listgui::on_button_add_computer_clicked()
     _addcomp.show();
 }
 
+void listgui::on_button_edit_scientist_clicked()
+{
+    vector<Scientist> scientist = _serviceSci.getScientists();
+    int selectedScientist = ui->table_scientists->currentIndex().row();
+    Scientist currentlySelected = scientist.at(selectedScientist);
+
+    //SETJA INN ÞANNIG ÞAÐ MEGI EKKI VELJA FLEIRI EN 1
+
+    editscigui edit(currentlySelected, this);
+
+
+    _editSci.show();
+}
+
+void listgui::on_button_edit_computer_clicked()
+{
+    vector<Computer> computer = _serviceComp.getComputers();
+    int selectedComputer = ui->table_computers->currentIndex().row();
+    Computer currentlySelected = computer.at(selectedComputer);
+
+    //SETJA INN ÞANNIG ÞAÐ MEGI EKKI VELJA FLEIRI EN 1
+
+    editcompgui edit(currentlySelected, this);
+
+    _editComp.show();
+}
+
+void listgui::on_button_remove_scientist_clicked()
+{
+    vector<Scientist> scientist;
+
+    QModelIndexList selection = ui->table_scientists->selectionModel()->selectedRows();
+
+    for(int i = 0; i < selection.count(); i++)
+    {
+    //    scientist[i] = selection.at(i);
+    }
+
+    //removecomp remove(scientist, this);
+
+    _removeSci.show();
+}
+
+void listgui::on_button_remove_computer_clicked()
+{
+    vector<Computer> computer;
+
+    QModelIndexList selection = ui->table_computers->selectionModel()->selectedRows();
+
+    for(int i = 0; i < selection.count(); i++)
+    {
+    //    computer[i] = selection.at(i);
+    }
+
+    //removescigui remove(computer, this);
+
+    _removeComp.show();
+}

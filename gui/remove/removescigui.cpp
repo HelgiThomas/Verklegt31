@@ -9,12 +9,23 @@ removescigui::removescigui(QWidget *parent) :
     displayScientists();
 }
 
+removescigui::removescigui(vector<Scientist> sci, QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::removescigui)
+{
+    ui->setupUi(this);
+    _sci = sci;
+
+    //displayScientists();
+}
+
 removescigui::~removescigui()
 {
     delete ui;
 }
 
-void removescigui::on_button_removeSci_clicked()
+
+/*void removescigui::on_button_removeSci_clicked()
 {
     vector<Scientist> scientists = _serviceSci.getScientists();
     int selectedScientist = ui->table_all->currentIndex().row();
@@ -22,17 +33,16 @@ void removescigui::on_button_removeSci_clicked()
     int id = currentlySelected.getId();
     _serviceSci.removeScientist(id);
 
-}
+}*/
 
 void removescigui::displayScientists()
 {
-    vector<Scientist> allScientists = _serviceSci.getScientists();
     ui -> table_all -> clearContents();
-    ui -> table_all -> setRowCount(allScientists.size());
+    ui -> table_all -> setRowCount(_sci.size());
 
-    for (unsigned int row = 0 ; row < allScientists.size() ; row++)
+    for (unsigned int row = 0 ; row < _sci.size() ; row++)
     {
-        Scientist currentScientist = allScientists[row];
+        Scientist currentScientist = _sci[row];
 
         QString name = QString::fromStdString(currentScientist.getName());
         QString sex = QString::fromStdString (currentScientist.getSex());
@@ -49,7 +59,11 @@ void removescigui::displayScientists()
 }
 
 
-void removescigui::on_table_all_clicked(const QModelIndex &index)
+void removescigui::on_button_removeSci_clicked()
 {
-     ui->button_removeSci->setEnabled(true);
+    for (unsigned int i = 0 ; i < _sci.size() ; i++)
+    {
+        int id = _sci[i].getId();
+        _serviceSci.removeScientist(id);
+    }
 }

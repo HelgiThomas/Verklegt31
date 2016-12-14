@@ -2,7 +2,7 @@
 #define REMOVECOMP_H
 
 #include "service/computerservice.h"
-#include "gui/list/listgui.h"
+
 #include <QDialog>
 
 namespace Ui {
@@ -15,18 +15,23 @@ class removecomp : public QDialog
 
 public:
     explicit removecomp(QWidget *parent = 0);
+    explicit removecomp(vector<Computer> comp, QWidget *parent = 0);
     ~removecomp();
 
 private slots:
+    /*void on_button_removeComp_clicked();
+
+    void on_table_comp_clicked(const QModelIndex &index);*/
+
     void on_button_removeComp_clicked();
 
-    void on_table_comp_clicked(const QModelIndex &index);
-
 private:
+    void displayComputers();
+
     Ui::removecomp *ui;
     ComputerService _serviceComp;
-    listgui _list;
-    void displayComputers();
+
+    vector<Computer> _comp;
 };
 
 #endif // REMOVECOMP_H

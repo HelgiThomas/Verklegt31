@@ -35,7 +35,8 @@ SOURCES += main.cpp \
     gui/remove/removescigui.cpp \
     gui/edit/editcomp.cpp \
     gui/edit/editrelation.cpp \
-    gui/edit/editsci.cpp
+    gui/edit/editsci.cpp \
+    gui/remove/removerelation.cpp
 
 
 HEADERS += \
@@ -61,7 +62,8 @@ HEADERS += \
     gui/remove/removescigui.h \
     gui/edit/editcomp.h \
     gui/edit/editrelation.h \
-    gui/edit/editsci.h
+    gui/edit/editsci.h \
+    gui/remove/removerelation.h
 
 FORMS += \
     gui/mainwindow.ui \
@@ -78,4 +80,5 @@ FORMS += \
     gui/remove/removecomp.ui \
     gui/edit/editcomp.ui \
     gui/edit/editrelation.ui \
-    gui/edit/editsci.ui
+    gui/edit/editsci.ui \
+    gui/remove/removerelation.ui
