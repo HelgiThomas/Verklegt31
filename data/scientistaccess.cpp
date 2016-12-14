@@ -151,13 +151,10 @@ void ScientistAccess::updateRelation(int nameOf)
  */
 void ScientistAccess::updateRelationall()
 {
-    connect();
-
     QSqlQuery query;
     query.prepare("UPDATE SciComp SET Status = 0");
     query.exec();
 
-    closeConn();
 }
 
 
