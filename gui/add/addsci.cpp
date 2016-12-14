@@ -60,8 +60,6 @@ void addsci::on_button_addSci_clicked()
     }
     else
     {
-        addSex = "Male";
-        cout << addSex;
         Scientist newSci(addId, addName, addSex, birthNum, deathNum, addCitation);
         _serviceSci.addScientist(newSci);
         this->hide();
