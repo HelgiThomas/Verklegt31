@@ -27,6 +27,7 @@ class addsci : public QDialog
 public:
     explicit addsci(QWidget *parent = 0);
     bool isMaleOrFemale();
+    string chooseSex();
     ~addsci();
 
 

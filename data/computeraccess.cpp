@@ -73,6 +73,7 @@ void ComputerAccess::readToDatabase(Computer computer)
 
     if (checkEntry(computer))
     {
+        cout << computer.getBuildYear();
         // you should check if args are ok first...
         QSqlQuery query;
         QString qName = QString::fromStdString(computer.getName());

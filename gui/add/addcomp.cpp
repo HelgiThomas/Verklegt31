@@ -22,9 +22,9 @@ addcomp::~addcomp()
 void addcomp::on_button_addComp_clicked()
 {
     int addId = 0;
-    string addName = ui->line_compName->text().toStdString();
-    string addCompType = _type;
-    string addWasBuilt = _wasBuilt;
+    string addName;
+    string addCompType;
+    string addWasBuilt;
     int addBuildYear;
     if(ui->radio_yes->isChecked())
     {
@@ -45,7 +45,9 @@ void addcomp::on_button_addComp_clicked()
     }
     else
     {
-        cout << addId << endl << addName << endl << addBuildYear << endl<< addCompType << endl << addWasBuilt;
+        addName = ui->line_compName->text().toStdString();
+        addCompType = _type;
+        addWasBuilt = _wasBuilt;
         Computer newComp(addId, addName, addBuildYear, addCompType, addWasBuilt);
         _serviceComp.addComputer(newComp);
         exit(10);
@@ -103,6 +105,7 @@ bool addcomp::isValidWasBuilt()
 
 void addcomp::on_combobox_buildYear_currentIndexChanged(int index)
 {
-    _buildYear = index;
-    cout << _buildYear;
+    QString qstrBuildYear = ui->combobox_buildYear->currentText() ;
+    string strBuildYear = qstrBuildYear.toStdString();
+    _buildYear = atoi(strBuildYear.c_str());
 }

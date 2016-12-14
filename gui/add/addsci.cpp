@@ -38,7 +38,7 @@ void addsci::on_button_addSci_clicked()
 
     int addId = 0;
     string addName = ui->line_sciName->text().toStdString();
-    string addSex = _sex;
+    string addSex = chooseSex();
     birthNum = _sciBirth;
     deathNum = _sciDeath;
     QString QaddCitation = ui->line_sciCitation->toPlainText();
@@ -60,6 +60,8 @@ void addsci::on_button_addSci_clicked()
     }
     else
     {
+        addSex = "Male";
+        cout << addSex;
         Scientist newSci(addId, addName, addSex, birthNum, deathNum, addCitation);
         _serviceSci.addScientist(newSci);
         exit(10);
@@ -67,26 +69,36 @@ void addsci::on_button_addSci_clicked()
 
 }
 
-bool addsci::isMaleOrFemale()
+string addsci::chooseSex()
 {
-    bool valid = true;
-
+    string sex;
     if(ui->radio_male->isChecked())
     {
-        _sex = "Male";
+        sex = "Male";
     }
     else if(ui->radio_female->isChecked())
     {
-        _sex = "Female";
+        sex = "Female";
+    }
+
+    return sex;
+}
+
+bool addsci::isMaleOrFemale()
+{
+
+    if(ui->radio_male->isChecked())
+    {
+        return true;
+    }
+    else if(ui->radio_female->isChecked())
+    {
+        return true;
     }
     else
     {
-        valid = false;
+        return false;
     }
-
-
-
-    return valid;
 }
 
 void addsci::on_combobox_birthYears_currentIndexChanged(int index)
