@@ -54,7 +54,6 @@ void addcomp::on_button_addComp_clicked()
         addWasBuilt = _wasBuilt;
         Computer newComp(addId, addName, addBuildYear, addCompType, addWasBuilt);
         _serviceComp.addComputer(newComp);
-        exit(10);
     }
 
 

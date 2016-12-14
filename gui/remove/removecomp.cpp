@@ -21,8 +21,6 @@ void removecomp::on_button_removeComp_clicked()
     Computer currentlySelected = computers.at(selectedComputer);
     int id = currentlySelected.getId();
     _serviceComp.removeComputer(id);
-
-    exit(10);
 }
 
 void removecomp::displayComputers()

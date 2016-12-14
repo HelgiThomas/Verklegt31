@@ -22,7 +22,6 @@ void removescigui::on_button_removeSci_clicked()
     int id = currentlySelected.getId();
     _serviceSci.removeScientist(id);
 
-    exit(10);
 }
 
 void removescigui::displayScientists()
