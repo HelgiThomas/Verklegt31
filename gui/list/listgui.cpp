@@ -1,5 +1,7 @@
 #include "listgui.h"
 #include "ui_listgui.h"
+#include "infosci.h"
+#include "infocomp.h"
 
 listgui::listgui(QWidget *parent) :
     QDialog(parent),
@@ -221,4 +223,16 @@ void listgui::on_button_remove_computer_clicked()
     //removescigui remove(computer, this);
 
     _removeComp.show();
+}
+
+void listgui::on_button_info_scientist_clicked()
+{
+    //infosci::setText();
+    _infoSci.show();
+}
+
+void listgui::on_button_info_comp_clicked()
+{
+    //infocomp::setText();
+    _infoComp.show();
 }

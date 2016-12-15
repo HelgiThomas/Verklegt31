@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="Relations">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_1">
       <attribute name="title">
@@ -65,6 +65,17 @@
            <property name="text">
             <string>Add</string>
            </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icons/icons/add_icon.png</normaloff>:/icons/icons/add_icon.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="button_info_scientist">
+           <property name="text">
+            <string>Information</string>
+           </property>
           </widget>
          </item>
          <item>
@@ -75,6 +86,10 @@
            <property name="text">
             <string>Remove</string>
            </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icons/icons/remove.png</normaloff>:/icons/icons/remove.png</iconset>
+           </property>
           </widget>
          </item>
          <item>
@@ -84,6 +99,10 @@
            </property>
            <property name="text">
             <string>Edit</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icons/icons/editshit.png</normaloff>:/icons/icons/editshit.png</iconset>
            </property>
           </widget>
          </item>
@@ -136,6 +155,13 @@
           <widget class="QPushButton" name="button_add_computer">
            <property name="text">
             <string>Add</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="button_info_comp">
+           <property name="text">
+            <string>Information</string>
            </property>
           </widget>
          </item>
@@ -229,6 +255,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
