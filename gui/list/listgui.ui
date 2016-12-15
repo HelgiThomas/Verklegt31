@@ -17,9 +17,13 @@
    <item>
     <widget class="QTabWidget" name="Relations">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_1">
+      <attribute name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/icons/scientist_icon.png</normaloff>:/icons/icons/scientist_icon.png</iconset>
+      </attribute>
       <attribute name="title">
        <string>Scientists</string>
       </attribute>
@@ -76,6 +80,10 @@
            <property name="text">
             <string>Information</string>
            </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icons/icons/info_icon.png</normaloff>:/icons/icons/info_icon.png</iconset>
+           </property>
           </widget>
          </item>
          <item>
@@ -111,6 +119,10 @@
       </layout>
      </widget>
      <widget class="QWidget" name="tab_2">
+      <attribute name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/icons/computer_icon.png</normaloff>:/icons/icons/computer_icon.png</iconset>
+      </attribute>
       <attribute name="title">
        <string>Computers</string>
       </attribute>
@@ -156,12 +168,20 @@
            <property name="text">
             <string>Add</string>
            </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icons/icons/add_icon.png</normaloff>:/icons/icons/add_icon.png</iconset>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="button_info_comp">
            <property name="text">
             <string>Information</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icons/icons/info_icon.png</normaloff>:/icons/icons/info_icon.png</iconset>
            </property>
           </widget>
          </item>
@@ -173,6 +193,10 @@
            <property name="text">
             <string>Remove</string>
            </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icons/icons/remove.png</normaloff>:/icons/icons/remove.png</iconset>
+           </property>
           </widget>
          </item>
          <item>
@@ -183,6 +207,10 @@
            <property name="text">
             <string>Edit</string>
            </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icons/icons/editshit.png</normaloff>:/icons/icons/editshit.png</iconset>
+           </property>
           </widget>
          </item>
         </layout>
@@ -190,6 +218,10 @@
       </layout>
      </widget>
      <widget class="QWidget" name="tab">
+      <attribute name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/icons/relation.jpg</normaloff>:/icons/icons/relation.jpg</iconset>
+      </attribute>
       <attribute name="title">
        <string>Relations</string>
       </attribute>
@@ -225,6 +257,10 @@
            <property name="text">
             <string>Add</string>
            </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icons/icons/add_icon.png</normaloff>:/icons/icons/add_icon.png</iconset>
+           </property>
           </widget>
          </item>
          <item>
@@ -235,6 +271,10 @@
            <property name="text">
             <string>Remove</string>
            </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icons/icons/remove.png</normaloff>:/icons/icons/remove.png</iconset>
+           </property>
           </widget>
          </item>
          <item>
@@ -244,6 +284,10 @@
            </property>
            <property name="text">
             <string>Edit</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icons/icons/editshit.png</normaloff>:/icons/icons/editshit.png</iconset>
            </property>
           </widget>
          </item>
