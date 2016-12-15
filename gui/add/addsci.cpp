@@ -61,7 +61,7 @@ void addsci::on_button_addSci_clicked()
     }
     else
     {
-        Scientist newSci(addId, addName, addSex, birthNum, deathNum, addCitation);
+        Scientist newSci(addId, addName, addSex, birthNum, deathNum, addCitation, addImage);
         _serviceSci.addScientist(newSci);
         this->hide();
     }
