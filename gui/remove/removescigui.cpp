@@ -39,11 +39,18 @@ void removescigui::on_button_removeSci_clicked()
 void removescigui::displayScientists()
 {
     vector<Scientist> allScientists = _serviceSci.getScientists();
-    int tempID = 3;
-    cout << "the ID is: " << tempID;
-    ui -> table_all -> clearContents();
+    int tempaID = _ID;
+    int tempID;
+    ui -> table_all -> clear();
     ui -> table_all -> setRowCount(1);
 
+    for (int i = 0; i < allScientists.size(); i++)
+    {
+        if (tempaID == allScientists[i].getId())
+        {
+            tempID = i;
+        }
+    }
     for (unsigned int row = 0 ; row < 1; row++)
     {
         QString name = QString::fromStdString(allScientists[tempID].getName());
@@ -66,3 +73,8 @@ void removescigui::displayScientists()
         _serviceSci.removeScientist(id);
     }
 }*/
+
+void removescigui::on_button_removeSci_2_clicked()
+{
+   // ~removescigui;
+}

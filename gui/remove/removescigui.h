@@ -26,6 +26,8 @@ private slots:
     void on_button_removeSci_clicked();
 
 
+    void on_button_removeSci_2_clicked();
+
 private:
     void displayScientists();
     int _ID;
