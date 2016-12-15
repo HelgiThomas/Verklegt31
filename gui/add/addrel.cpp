@@ -78,3 +78,60 @@ void addrel::displayScientistandComputers()
     }
 }
 
+
+void addrel::on_button_confirmSel_clicked()
+{
+    vector <Scientist> scientists = _serviceSci.getScientists();
+    vector <Computer> computers = _serviceComp.getComputers();
+    int row = ui->table_sciAndComp->currentIndex().row();
+    int col = ui->table_sciAndComp->currentIndex().column();
+    int sciId, compId;
+
+    //cout << row << " " << col << " " << endl;
+    if(col == 0)
+    {
+        if(row > (scientists.size() - 1))
+        {
+            QMessageBox::about(this, "Error!", "This scientist item is empty, please choose a valid item!" );
+        }
+        else
+        {
+        sciId = scientists.at(row).getId();
+        _sciID.push_back(sciId);
+        }
+
+    }
+    else if(col == 1)
+    {
+        if(row > (computers.size() - 1))
+        {
+            QMessageBox::about(this, "Error!", "This computer item is empty, please choose a valid item!");
+        }
+        else
+        {
+        compId = computers.at(row).getId();
+        _compID.push_back(compId);
+        }
+
+    }
+
+}
+
+void addrel::on_button_addRel_clicked()
+{
+    int compSize = _compID.size();
+    int sciSize = _sciID.size();
+
+    for (int i = 0 ; i < sciSize; i++)
+    {
+        int scientistID = _sciID.at(i);
+        for (int k = 0; k < compSize; k++)
+        {
+
+            int computerID = _compID.at(k);
+            _serviceGen.link(scientistID, computerID);
+        }
+    }
+    this->hide();
+
+}
