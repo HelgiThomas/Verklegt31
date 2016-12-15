@@ -53,6 +53,7 @@ private:
     Scientist _sci;
     int _sciBirth;
     int _sciDeath;
+    int _ID;
 };
 
 #endif // EDITSCIGUI_H

@@ -14,17 +14,12 @@ class removescigui : public QDialog
 
 public:
     explicit removescigui(QWidget *parent = 0);
-    explicit removescigui(vector<Scientist> sci, QWidget *parent = 0);
     ~removescigui();
     int setID();
     void setID(int id);
 private slots:
-    /*void on_button_removeSci_clicked();
-
-    void on_table_all_clicked(const QModelIndex &index);*/
 
     void on_button_removeSci_clicked();
-
 
 private:
     void displayScientists();
