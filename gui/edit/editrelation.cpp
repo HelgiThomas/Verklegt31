@@ -2,7 +2,7 @@
 #include "ui_editrelation.h"
 
 editrelationgui::editrelationgui(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::editrelationgui)
 {
     ui->setupUi(this);

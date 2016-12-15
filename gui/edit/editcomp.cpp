@@ -2,10 +2,11 @@
 #include "ui_editcomp.h"
 
 editcompgui::editcompgui(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::editcompgui)
 {
     ui->setupUi(this);
+
     setText();
 }
 
@@ -16,24 +17,44 @@ editcompgui::~editcompgui()
 
 void editcompgui::setId(int id)
 {
-    _ID = id;
+    _id = id;
+}
+
+void editcompgui::setName(string name)
+{
+    _name = name;
+}
+
+void editcompgui::setType(string type)
+{
+    _type = type;
+}
+
+void editcompgui::setWasBuilt(string wasBuilt)
+{
+    _wasBuilt = wasBuilt;
+}
+
+void editcompgui::setYear(int year)
+{
+    _year = year;
 }
 
 void editcompgui::setText()
 {
-    QString name = QString::fromStdString(_comp.getName());
+    QString name = QString::fromStdString(_name);
 
     ui->lineEdit_2->setText(name);
 
-    if (_comp.getCompType() == "Mechanical")
+    if (_type == "Mechanical")
     {
         ui->radioButton->setChecked(true);
     }
-    else if (_comp.getCompType() == "Transistor")
+    else if (_type == "Transistor")
     {
         ui->radioButton_2->setChecked(true);
     }
-    else if (_comp.getCompType() == "Electronic")
+    else if (_type == "Electronic")
     {
         ui->radioButton_3->setChecked(true);
     }
@@ -42,7 +63,7 @@ void editcompgui::setText()
         ui->radioButton_4->setChecked(true);
     }
 
-    if (_comp.getWasBuilt() == "Yes")
+    if (_wasBuilt == "Yes")
     {
         ui->radioButton_5->setChecked(true);
     }
@@ -51,10 +72,10 @@ void editcompgui::setText()
         ui->radioButton_6->setChecked(true);
     }
 
-    if (_comp.getWasBuilt() != "No")
+    if (_wasBuilt != "No")
     {
-        QString year = QString::number(_comp.getBuildYear());
-        ui->comboBox_2->activated(year);
+        QString year = QString::number(_year);
+        ui->lineEdit_4->setText(year);
     }
 }
 
@@ -80,7 +101,7 @@ void editcompgui::on_radioButton_wasBuilt_clicked()
 
 void editcompgui::on_radioButton_year_clicked()
 {
-    ui->comboBox_2->setEnabled(true);
+    ui->lineEdit_4->setEnabled(true);
 }
 
 void editcompgui::on_radioButton_4_clicked()
@@ -90,6 +111,8 @@ void editcompgui::on_radioButton_4_clicked()
 
 void editcompgui::on_pushButton_editComp_clicked()
 {
+    string oldName = "";
+
     this->hide();
 }
 

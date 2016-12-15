@@ -16,31 +16,52 @@ removecomp::~removecomp()
 
 void removecomp::setId(int id)
 {
-    _ID = id;
+    _id = id;
+}
+
+void removecomp::setName(string name)
+{
+    _name = name;
+}
+
+void removecomp::setType(string type)
+{
+    _type = type;
+}
+
+void removecomp::setWasBuilt(string wasBuilt)
+{
+    _wasBuilt = wasBuilt;
+}
+
+void removecomp::setYear(int year)
+{
+    _year = year;
 }
 
 void removecomp::on_button_removeComp_clicked()
 {
+    _serviceComp.removeComputer(_id);
     this->hide();
 }
 
 void removecomp::displayComputers()
 {
-    vector<Computer> allComputer = _serviceComp.getComputers();
-
     ui -> table_comp -> clearContents();
     ui -> table_comp -> setRowCount(1);
 
-    for (unsigned int row = 0 ; row < 1; row++)
-    {
-        QString name = QString::fromStdString(allComputer[_ID].getName());
-        QString sex = QString::fromStdString (allComputer[_ID].getCompType());
-        QString yearBorn = QString::fromStdString(allComputer[_ID].getWasBuilt());
-        QString yearDeath = QString::number(allComputer[_ID].getBuildYear());
+    QString name = QString::fromStdString(_name);
+    QString type = QString::fromStdString (_type);
+    QString wasBuilt = QString::fromStdString(_wasBuilt);
+    QString year = QString::number(_year);
 
-        ui -> table_comp-> setItem(row, 0, new QTableWidgetItem(name));
-        ui -> table_comp -> setItem(row, 1, new QTableWidgetItem(sex));
-        ui -> table_comp -> setItem(row, 2, new QTableWidgetItem(yearBorn));
-        ui -> table_comp -> setItem(row, 3, new QTableWidgetItem(yearDeath));
-    }
+    ui -> table_comp-> setItem(0, 0, new QTableWidgetItem(name));
+    ui -> table_comp -> setItem(0, 1, new QTableWidgetItem(type));
+    ui -> table_comp -> setItem(0, 2, new QTableWidgetItem(wasBuilt));
+    ui -> table_comp -> setItem(0, 3, new QTableWidgetItem(year));
+}
+
+void removecomp::on_pushButton_clicked()
+{
+    this->hide();
 }

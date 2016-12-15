@@ -11,7 +11,6 @@ addcomp::addcomp(QWidget *parent) :
     {
         ui->combobox_buildYear->addItem(QString::number(i));
     }
-
 }
 
 addcomp::~addcomp()

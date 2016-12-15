@@ -3,10 +3,11 @@
 #include "service/scientistservice.h"
 
 editscigui::editscigui(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::editscigui)
 {
     ui->setupUi(this);
+
     setText();
 }
 
@@ -17,16 +18,38 @@ editscigui::~editscigui()
 
 void editscigui::setId(int id)
 {
-    _ID = id;
+    _id = id;
+}
+
+void editscigui::setName(string name)
+{
+    _name = name;
+}
+
+void editscigui::setSex(string sex)
+{
+    _sex = sex;
+}
+
+void editscigui::setBirth(int birth)
+{
+    _birth = birth;
+}
+
+void editscigui::setDeath(int death)
+{
+    _death = death;
 }
 
 void editscigui::setText()
 {
-    QString name = QString::fromStdString(_sci.getName());
+
+    cout << "loooool" << endl;
+    QString name = QString::fromStdString(_name);
 
     ui->eName->setText(name);
 
-    if (_sci.getSex() == "Male")
+    if (_sex == "Male")
     {
         ui->radioButton->setChecked(true);
     }
@@ -35,13 +58,13 @@ void editscigui::setText()
         ui->radioButton_2->setChecked(true);
     }
 
-    QString birth = QString::number(_sci.getBirth());
-    ui->comboBox->activated(birth);
+    QString birth = QString::number(_birth);
+    ui->eName_2->setText(birth);
 
-    if (_sci.getDeath() != 0)
+    if (_death != 0)
     {
-        QString death = QString::number(_sci.getDeath());
-        ui->comboBox_2->activated(death);
+        QString death = QString::number(_death);
+        ui->eName_3->setText(death);
     }
 }
 
@@ -59,12 +82,12 @@ void editscigui::on_radioButton_sex_clicked()
 
 void editscigui::on_radioButton_birth_clicked()
 {
-    ui->comboBox->setEnabled(true);
+    ui->eName_2->setEnabled(true);
 }
 
 void editscigui::on_radioButton_death_clicked()
 {
-    ui->comboBox_2->setEnabled(true);
+    ui->eName_3->setEnabled(true);
 }
 
 
@@ -83,35 +106,23 @@ string editscigui::chooseSex()
     return sex;
 }
 
-void editscigui::on_combobox_birthYears_currentIndexChanged(int index)
-{
-     QString qstrBirth = ui->comboBox->currentText() ;
-     string strBirth = qstrBirth.toStdString();
-     _sciBirth = atoi(strBirth.c_str());
-}
-
-void editscigui::on_combobox_deathYear_currentIndexChanged(int index)
-{
-    QString qstrDeath = ui->comboBox_2->currentText();
-    string strDeath = qstrDeath.toStdString();
-    _sciDeath = atoi(strDeath.c_str());
-}
-
 void editscigui::on_pushButton_editSci_clicked()
 {
-    string oldName = _sci.getName();
+    string oldName = _name;
 
     vector<Scientist> Scientist = _sciService.getScientists();
 
     string newName = ui->eName->text().toStdString();
     string newSex = chooseSex();
-    int newBirth = _sciBirth;
-    int newDeath = _sciDeath;
+    int newBirth = ui->eName_2->text().toInt();
+    int newDeath = ui->eName_3->text().toInt();
 
     _sciService.editScientistString(oldName, "name", newName);
     _sciService.editScientistString(oldName, "sex", newSex);
     _sciService.editScientistInt(oldName, "birth", newBirth);
     _sciService.editScientistInt(oldName,"death",newDeath);
+
+    this->hide();
 }
 
 void editscigui::on_pushButton_back_clicked()

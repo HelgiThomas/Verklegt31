@@ -1,13 +1,13 @@
 #ifndef EDITRELATIONGUI_H
 #define EDITRELATIONGUI_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class editrelationgui;
 }
 
-class editrelationgui : public QWidget
+class editrelationgui : public QDialog
 {
     Q_OBJECT
 

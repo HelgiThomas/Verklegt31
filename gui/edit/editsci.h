@@ -1,12 +1,7 @@
 #ifndef EDITSCIGUI_H
 #define EDITSCIGUI_H
 
-#include <QWidget>
-#include <QtCore>
-#include <QtGui>
-#include <QTextEdit>
-#include <QMessageBox>
-#include <QTextStream>
+#include <QDialog>
 #include <string>
 
 #include "model/scientist.h"
@@ -17,7 +12,7 @@ namespace Ui {
 class editscigui;
 }
 
-class editscigui : public QWidget
+class editscigui : public QDialog
 {
     Q_OBJECT
 
@@ -26,6 +21,11 @@ public:
     ~editscigui();
 
     void setId(int id);
+    void setName(string name);
+    void setSex(string sex);
+    void setBirth(int birth);
+    void setDeath(int death);
+
     void setText();
     string chooseSex();
 
@@ -40,10 +40,6 @@ private slots:
 
     void on_pushButton_editSci_clicked();
 
-    void on_combobox_birthYears_currentIndexChanged(int index);
-
-    void on_combobox_deathYear_currentIndexChanged(int index);
-
     void on_pushButton_back_clicked();
 
 private:
@@ -51,10 +47,14 @@ private:
 
     ScientistService _sciService;
 
-    Scientist _sci;
     int _sciBirth;
     int _sciDeath;
-    int _ID;
+
+    int _id;
+    string _name;
+    string _sex;
+    int _birth;
+    int _death;
 };
 
 #endif // EDITSCIGUI_H

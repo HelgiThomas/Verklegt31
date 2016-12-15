@@ -3,7 +3,7 @@
 #include "service/computerservice.h"
 
 infocomp::infocomp(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::infocomp)
 {
     ui->setupUi(this);

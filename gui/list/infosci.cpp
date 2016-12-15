@@ -3,7 +3,7 @@
 #include "service/scientistservice.h"
 
 infosci::infosci(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::infosci)
 {
     ui->setupUi(this);
@@ -13,6 +13,7 @@ infosci::~infosci()
 {
     delete ui;
 }
+
 void infosci::setText()
 {
     QString name = QString::fromStdString(_sci.getName());

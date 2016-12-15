@@ -1,7 +1,7 @@
 #ifndef EDITCOMPGUI_H
 #define EDITCOMPGUI_H
 
-#include <QWidget>
+#include <QDialog>
 
 #include "model/computer.h"
 
@@ -9,7 +9,7 @@ namespace Ui {
 class editcompgui;
 }
 
-class editcompgui : public QWidget
+class editcompgui : public QDialog
 {
     Q_OBJECT
 
@@ -18,6 +18,11 @@ public:
     ~editcompgui();
 
     void setId(int id);
+    void setName(string name);
+    void setType(string type);
+    void setWasBuilt(string wasBuilt);
+    void setYear(int year);
+
     void setText();
 
 private slots:
@@ -37,8 +42,11 @@ private slots:
 private:
     Ui::editcompgui *ui;
 
-    Computer _comp;
-    int _ID;
+    int _id;
+    string _name;
+    string _type;
+    string _wasBuilt;
+    int _year;
 };
 
 #endif // EDITCOMPGUI_H

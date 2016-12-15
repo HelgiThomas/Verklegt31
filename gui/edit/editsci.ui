@@ -151,32 +151,6 @@
     <string>Death Year</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>190</y>
-     <width>104</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_2">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>190</y>
-     <width>104</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QRadioButton" name="radioButton_sex">
    <property name="enabled">
     <bool>true</bool>
@@ -265,14 +239,40 @@
     <string notr="true">buttonGroup_2</string>
    </attribute>
   </widget>
+  <widget class="QLineEdit" name="eName_2">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>200</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="eName_3">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>200</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup"/>
   <buttongroup name="buttonGroup_2"/>
-  <buttongroup name="buttonGroup_4"/>
   <buttongroup name="buttonGroup_3"/>
+  <buttongroup name="buttonGroup_4"/>
+  <buttongroup name="buttonGroup"/>
   <buttongroup name="buttonGroup_5"/>
  </buttongroups>
 </ui>

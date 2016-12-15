@@ -18,17 +18,27 @@ public:
     ~removecomp();
 
     void setId(int id);
+    void setName(string name);
+    void setType(string type);
+    void setWasBuilt(string wasBuilt);
+    void setYear(int year);
+
+    void displayComputers();
 
 private slots:
     void on_button_removeComp_clicked();
 
-private:
-    void displayComputers();
+    void on_pushButton_clicked();
 
+private:
     Ui::removecomp *ui;
     ComputerService _serviceComp;
 
-    int _ID;
+    int _id;
+    string _name;
+    string _type;
+    string _wasBuilt;
+    int _year;
 };
 
 #endif // REMOVECOMP_H

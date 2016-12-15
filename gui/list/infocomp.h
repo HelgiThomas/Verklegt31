@@ -1,7 +1,7 @@
 #ifndef INFOCOMP_H
 #define INFOCOMP_H
 
-#include <QWidget>
+#include <QDialog>
 #include "service/computerservice.h"
 #include "model/computer.h"
 
@@ -9,7 +9,7 @@ namespace Ui {
 class infocomp;
 }
 
-class infocomp : public QWidget
+class infocomp : public QDialog
 {
     Q_OBJECT
 

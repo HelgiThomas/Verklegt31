@@ -34,15 +34,17 @@ void listgui::displayScientists(vector <Scientist> Scientists)
     {
         Scientist currentScientist = allScientists[row];
 
+        QString id = QString::number(currentScientist.getId());
         QString name = QString::fromStdString(currentScientist.getName());
         QString sex = QString::fromStdString (currentScientist.getSex());
         QString yearBorn = QString::number(currentScientist.getBirth());
         QString yearDeath = QString::number(currentScientist.getDeath());
 
-        ui -> table_scientists -> setItem(row, 0, new QTableWidgetItem(name));
-        ui -> table_scientists -> setItem(row, 1, new QTableWidgetItem(sex));
-        ui -> table_scientists -> setItem(row, 2, new QTableWidgetItem(yearBorn));
-        ui -> table_scientists -> setItem(row, 3, new QTableWidgetItem(yearDeath));
+        ui -> table_scientists -> setItem(row, 0, new QTableWidgetItem(id));
+        ui -> table_scientists -> setItem(row, 1, new QTableWidgetItem(name));
+        ui -> table_scientists -> setItem(row, 2, new QTableWidgetItem(sex));
+        ui -> table_scientists -> setItem(row, 3, new QTableWidgetItem(yearBorn));
+        ui -> table_scientists -> setItem(row, 4, new QTableWidgetItem(yearDeath));
     }
 }
 
@@ -62,15 +64,17 @@ void listgui::displayComputers(vector <Computer> Computers)
     {
         Computer currentComputer = allComputers[row];
 
+        QString id = QString::number(currentComputer.getId());
         QString name = QString::fromStdString(currentComputer.getName());
         QString year = QString::number (currentComputer.getBuildYear());
         QString type = QString::fromStdString(currentComputer.getCompType());
         QString wasBuilt= QString::fromStdString(currentComputer.getWasBuilt());
 
-        ui -> table_computers-> setItem(row, 0, new QTableWidgetItem(name));
-        ui -> table_computers -> setItem(row, 1, new QTableWidgetItem(year));
-        ui -> table_computers -> setItem(row, 2, new QTableWidgetItem(type));
-        ui -> table_computers-> setItem(row, 3, new QTableWidgetItem(wasBuilt));
+        ui -> table_computers -> setItem(row, 0, new QTableWidgetItem(id));
+        ui -> table_computers-> setItem(row, 1, new QTableWidgetItem(name));
+        ui -> table_computers -> setItem(row, 2, new QTableWidgetItem(year));
+        ui -> table_computers -> setItem(row, 3, new QTableWidgetItem(type));
+        ui -> table_computers-> setItem(row, 4, new QTableWidgetItem(wasBuilt));
     }
 }
 
@@ -148,30 +152,86 @@ void listgui::on_table_computers_clicked(const QModelIndex &index)
 {
     vector<Computer> computer = _serviceComp.getComputers();
 
-    int selectedComputer = ui->table_computers->currentIndex().row();
-    Computer currentlySelected = computer.at(selectedComputer);
-    int id = currentlySelected.getId();
+    int row = ui->table_computers->currentRow();
+    int compId = ui->table_computers->item(row,0)->text().toInt();
+
+    int id;
+    string name;
+    string type;
+    string built;
+    int year;
+
+    for (unsigned int i = 0; i < computer.size(); i++)
+    {
+        if (computer[i].getId() == compId)
+        {
+            id = computer[i].getId();
+            name = computer[i].getName();
+            type = computer[i].getCompType();
+            built = computer[i].getWasBuilt();
+            year = computer[i].getBuildYear();
+        }
+    }
 
     _removeComp.setId(id);
+    _removeComp.setName(name);
+    _removeComp.setType(type);
+    _removeComp.setWasBuilt(built);
+    _removeComp.setYear(year);
+
     _editComp.setId(id);
+    _editComp.setName(name);
+    _editComp.setType(type);
+    _editComp.setWasBuilt(built);
+    _editComp.setYear(year);
 
     ui->button_remove_computer->setEnabled(true);
     ui->button_edit_computer->setEnabled(true);
+
+    displayAllComputers();
 }
 
 void listgui::on_table_scientists_clicked(const QModelIndex &index)
 {
     vector<Scientist> scientist = _serviceSci.getScientists();
 
-    int selectedScientist = ui->table_scientists->currentIndex().row();
-    Scientist currentlySelected = scientist.at(selectedScientist);
-    int id = currentlySelected.getId();
+    int row = ui->table_scientists->currentRow();
+    int sciId = ui->table_scientists->item(row,0)->text().toInt();
+
+    int id;
+    string name;
+    string sex;
+    int birth;
+    int death;
+
+    for (unsigned int i = 0; i < scientist.size(); i++)
+    {
+        if (scientist[i].getId() == sciId)
+        {
+            id = scientist[i].getId();
+            name = scientist[i].getName();
+            sex = scientist[i].getSex();
+            birth = scientist[i].getBirth();
+            death = scientist[i].getDeath();
+        }
+    }
 
     _removeSci.setId(id);
+    _removeSci.setName(name);
+    _removeSci.setSex(sex);
+    _removeSci.setBirth(birth);
+    _removeSci.setDeath(death);
+
     _editSci.setId(id);
+    _editSci.setName(name);
+    _editSci.setSex(sex);
+    _editSci.setBirth(birth);
+    _editSci.setDeath(death);
 
     ui->button_remove_scientist->setEnabled(true);
     ui->button_edit_scientist->setEnabled(true);
+
+    displayAllScientists();
 }
 
 void listgui::on_button_add_scientist_clicked()
@@ -183,26 +243,35 @@ void listgui::on_button_add_scientist_clicked()
 void listgui::on_button_add_computer_clicked()
 {
     _addcomp.show();
+    displayAllComputers();
 }
 
 void listgui::on_button_edit_scientist_clicked()
 {
     _editSci.show();
+    displayAllScientists();
+    //_editSci.setText();
 }
 
 void listgui::on_button_edit_computer_clicked()
 {
     _editComp.show();
+    displayAllComputers();
+    //_editSci.setText();
 }
 
 void listgui::on_button_remove_scientist_clicked()
 {
     _removeSci.show();
+    _removeSci.displayScientists();
+    displayAllScientists();
 }
 
 void listgui::on_button_remove_computer_clicked()
 {
     _removeComp.show();
+    _removeComp.displayComputers();
+    displayAllComputers();
 }
 
 void listgui::on_button_info_scientist_clicked()
@@ -218,4 +287,5 @@ void listgui::on_button_info_comp_clicked()
 void listgui::on_button_add_relation_clicked()
 {
     _addrel.show();
+    displayRelations();
 }

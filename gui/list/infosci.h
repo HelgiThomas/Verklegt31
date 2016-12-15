@@ -1,7 +1,7 @@
 #ifndef INFOSCI_H
 #define INFOSCI_H
 
-#include <QWidget>
+#include <QDialog>
 #include "service/scientistservice.h"
 #include "model/scientist.h"
 
@@ -9,7 +9,7 @@ namespace Ui {
 class infosci;
 }
 
-class infosci : public QWidget
+class infosci : public QDialog
 {
     Q_OBJECT
 
