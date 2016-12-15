@@ -146,19 +146,38 @@ void listgui::on_input_filter_computers_textChanged(const QString &arg1)
 
 void listgui::on_table_computers_clicked(const QModelIndex &index)
 {
+    vector<Computer> computer = _serviceComp.getComputers();
+
+    int selectedComputer = ui->table_computers->currentIndex().row();
+    Computer currentlySelected = computer.at(selectedComputer);
+    int id = currentlySelected.getId();
+
+    _removeComp.setId(id);
+    _editComp.setId(id);
+
     ui->button_remove_computer->setEnabled(true);
     ui->button_edit_computer->setEnabled(true);
 }
 
 void listgui::on_table_scientists_clicked(const QModelIndex &index)
 {
-     ui->button_remove_scientist->setEnabled(true);
-     ui->button_edit_scientist->setEnabled(true);
+    vector<Scientist> scientist = _serviceSci.getScientists();
+
+    int selectedScientist = ui->table_scientists->currentIndex().row();
+    Scientist currentlySelected = scientist.at(selectedScientist);
+    int id = currentlySelected.getId();
+
+    _removeSci.setId(id);
+    _editSci.setId(id);
+
+    ui->button_remove_scientist->setEnabled(true);
+    ui->button_edit_scientist->setEnabled(true);
 }
 
 void listgui::on_button_add_scientist_clicked()
 {
     _addsci.show();
+    displayAllScientists();
 }
 
 void listgui::on_button_add_computer_clicked()
@@ -168,54 +187,21 @@ void listgui::on_button_add_computer_clicked()
 
 void listgui::on_button_edit_scientist_clicked()
 {
-    vector<Scientist> scientist = _serviceSci.getScientists();
-    int selectedScientist = ui->table_scientists->currentIndex().row();
-    Scientist currentlySelected = scientist.at(selectedScientist);
-
-    //SETJA INN ÞANNIG ÞAÐ MEGI EKKI VELJA FLEIRI EN 1
-
-    editscigui edit(currentlySelected, this);
-
-
     _editSci.show();
 }
 
 void listgui::on_button_edit_computer_clicked()
 {
-    vector<Computer> computer = _serviceComp.getComputers();
-    int selectedComputer = ui->table_computers->currentIndex().row();
-    Computer currentlySelected = computer.at(selectedComputer);
-
-    //SETJA INN ÞANNIG ÞAÐ MEGI EKKI VELJA FLEIRI EN 1
-
-    editcompgui edit(currentlySelected, this);
-
     _editComp.show();
 }
 
 void listgui::on_button_remove_scientist_clicked()
 {
-    vector<Scientist> scientists = _serviceSci.getScientists();
-    int selectedScientist = ui->table_scientists->currentIndex().row();
-    Scientist currentlySelected = scientists.at(selectedScientist);
-    int id = currentlySelected.getId();
-
     _removeSci.show();
 }
 
 void listgui::on_button_remove_computer_clicked()
 {
-    vector<Computer> computer;
-
-    QModelIndexList selection = ui->table_computers->selectionModel()->selectedRows();
-
-    for(int i = 0; i < selection.count(); i++)
-    {
-    //    computer[i] = selection.at(i);
-    }
-
-    //removescigui remove(computer, this);
-
     _removeComp.show();
 }
 

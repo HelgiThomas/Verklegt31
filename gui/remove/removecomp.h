@@ -15,14 +15,11 @@ class removecomp : public QDialog
 
 public:
     explicit removecomp(QWidget *parent = 0);
-    explicit removecomp(vector<Computer> comp, QWidget *parent = 0);
     ~removecomp();
 
+    void setId(int id);
+
 private slots:
-    /*void on_button_removeComp_clicked();
-
-    void on_table_comp_clicked(const QModelIndex &index);*/
-
     void on_button_removeComp_clicked();
 
 private:
@@ -31,7 +28,7 @@ private:
     Ui::removecomp *ui;
     ComputerService _serviceComp;
 
-    vector<Computer> _comp;
+    int _ID;
 };
 
 #endif // REMOVECOMP_H

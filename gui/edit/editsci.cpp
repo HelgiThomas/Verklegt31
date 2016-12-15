@@ -7,21 +7,17 @@ editscigui::editscigui(QWidget *parent) :
     ui(new Ui::editscigui)
 {
     ui->setupUi(this);
-}
-
-editscigui::editscigui(Scientist sci, QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::editscigui)
-{
-    ui->setupUi(this);
-    _sci = sci;
-
-    //setText();
+    setText();
 }
 
 editscigui::~editscigui()
 {
     delete ui;
+}
+
+void editscigui::setId(int id)
+{
+    _ID = id;
 }
 
 void editscigui::setText()
@@ -87,6 +83,20 @@ string editscigui::chooseSex()
     return sex;
 }
 
+void editscigui::on_combobox_birthYears_currentIndexChanged(int index)
+{
+     QString qstrBirth = ui->comboBox->currentText() ;
+     string strBirth = qstrBirth.toStdString();
+     _sciBirth = atoi(strBirth.c_str());
+}
+
+void editscigui::on_combobox_deathYear_currentIndexChanged(int index)
+{
+    QString qstrDeath = ui->comboBox_2->currentText();
+    string strDeath = qstrDeath.toStdString();
+    _sciDeath = atoi(strDeath.c_str());
+}
+
 void editscigui::on_pushButton_editSci_clicked()
 {
     string oldName = _sci.getName();
@@ -101,32 +111,10 @@ void editscigui::on_pushButton_editSci_clicked()
     _sciService.editScientistString(oldName, "name", newName);
     _sciService.editScientistString(oldName, "sex", newSex);
     _sciService.editScientistInt(oldName, "birth", newBirth);
-
-    for (unsigned int i = 0; i < Scientist.size(); i++)
-    {
-        if (Scientist[i].getName() == oldName)
-        {
-            newBirth = Scientist[i].getBirth();
-            if (newDeath < newBirth)
-            {
-                QMessageBox::about(this, "Error!", "The death is invalid!");
-            }
-        }
-    }
-
     _sciService.editScientistInt(oldName,"death",newDeath);
 }
 
-void editscigui::on_combobox_birthYears_currentIndexChanged(int index)
+void editscigui::on_pushButton_back_clicked()
 {
-     QString qstrBirth = ui->comboBox->currentText() ;
-     string strBirth = qstrBirth.toStdString();
-     _sciBirth = atoi(strBirth.c_str());
-}
-
-void editscigui::on_combobox_deathYear_currentIndexChanged(int index)
-{
-    QString qstrDeath = ui->comboBox_2->currentText();
-    string strDeath = qstrDeath.toStdString();
-    _sciDeath = atoi(strDeath.c_str());
+    this->hide();
 }

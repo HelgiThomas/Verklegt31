@@ -6,19 +6,17 @@ editcompgui::editcompgui(QWidget *parent) :
     ui(new Ui::editcompgui)
 {
     ui->setupUi(this);
-}
-
-editcompgui::editcompgui(Computer comp, QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::editcompgui)
-{
-    ui->setupUi(this);
-    _comp = comp;
+    setText();
 }
 
 editcompgui::~editcompgui()
 {
     delete ui;
+}
+
+void editcompgui::setId(int id)
+{
+    _ID = id;
 }
 
 void editcompgui::setText()
@@ -92,5 +90,10 @@ void editcompgui::on_radioButton_4_clicked()
 
 void editcompgui::on_pushButton_editComp_clicked()
 {
+    this->hide();
+}
 
+void editcompgui::on_pushButton_back_clicked()
+{
+    this->hide();
 }

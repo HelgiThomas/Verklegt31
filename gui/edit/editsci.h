@@ -23,11 +23,10 @@ class editscigui : public QWidget
 
 public:
     explicit editscigui(QWidget *parent = 0);
-    explicit editscigui(Scientist sci, QWidget *parent = 0);
     ~editscigui();
 
+    void setId(int id);
     void setText();
-    void init();
     string chooseSex();
 
 private slots:
@@ -44,6 +43,8 @@ private slots:
     void on_combobox_birthYears_currentIndexChanged(int index);
 
     void on_combobox_deathYear_currentIndexChanged(int index);
+
+    void on_pushButton_back_clicked();
 
 private:
     Ui::editscigui *ui;
