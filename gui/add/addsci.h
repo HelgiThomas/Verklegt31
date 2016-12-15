@@ -39,6 +39,8 @@ private slots:
 
     void on_combobox_deathYear_currentIndexChanged(int index);
 
+    void on_button_browse_clicked();
+
 private:
     Ui::addsci *ui;
     ScientistService _serviceSci;

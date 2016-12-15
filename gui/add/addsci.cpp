@@ -1,6 +1,7 @@
 #include "addsci.h"
 #include "ui_addsci.h"
 #include "stdlib.h"
+#include "qfiledialog.h"
 
 using namespace std;
 
@@ -36,6 +37,8 @@ void addsci::on_button_addSci_clicked()
 
     int addId = 0;
     string addName = ui->line_sciName->text().toStdString();
+    string addImage = ui ->input_addsci -> text ().toStdString();
+    cout << addImage;
     string addSex = chooseSex();
     birthNum = _sciBirth;
     deathNum = _sciDeath;
@@ -109,4 +112,10 @@ void addsci::on_combobox_deathYear_currentIndexChanged(int index)
     QString qstrDeath = ui->combobox_deathYear->currentText();
     string strDeath = qstrDeath.toStdString();
     _sciDeath = atoi(strDeath.c_str());
+}
+
+void addsci::on_button_browse_clicked()
+{
+    QString filePath = QFileDialog::getOpenFileName(this,"Search for image", "", "Image files (*.png *jpg");
+    ui -> input_addsci -> setText (filePath);
 }

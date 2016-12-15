@@ -21,7 +21,7 @@ private slots:
     void on_button_removeSci_clicked();
 
 private:
-    void displayScientists();
+    //void displayScientists();
 
     Ui::removescigui *ui;
     ScientistService _serviceSci;
