@@ -78,3 +78,60 @@ void addrel::displayScientistandComputers()
     }
 }
 
+
+void addrel::on_button_confirmSel_clicked()
+{
+    vector <Scientist> scientists = _serviceSci.getScientists();
+    vector <Computer> computers = _serviceComp.getComputers();
+    int row = ui->table_sciAndComp->currentIndex().row();
+    int col = ui->table_sciAndComp->currentIndex().column();
+    int sciId, compId;
+
+    //cout << row << " " << col << " " << endl;
+    if(col == 0)
+    {
+        sciId = scientists.at(row).getId();
+        _sciID.push_back(sciId);
+
+    }
+    else if(col == 1)
+    {
+        compId = computers.at(row).getId();
+        _compID.push_back(compId);
+
+    }
+
+}
+
+void addrel::on_button_addRel_clicked()
+{
+    int compSize = _compID.size();
+    int sciSize = _sciID.size();
+    cout << "Sci size " << _sciID.size() << endl;
+    cout << "Comp size " << _compID.size() << endl;
+   /* for (unsigned int i = 0 ; i < _sciID.size();i++)
+    {
+        cout << i << endl;
+        cout << _sciID[i] << endl;
+    }
+    cout << "hello" << endl;
+
+    for (int i = 0 ; i < compSize;i++)
+    {
+        cout << _compID[i] << "  " << endl << endl;
+    }
+    cout << "goodbye" << endl; */
+
+    for (int i = 0 ; i < sciSize; i++)
+    {
+        int scientistID = _sciID.at(i);
+        for (int k = 0; k < compSize; k++)
+        {
+
+            int computerID = _compID.at(k);
+            cout << "These are the ID's going into the function - SciID: " << scientistID << " CompID: " << computerID << endl;
+            //_serviceGen.link(scientistID, computerID);
+        }
+    }
+
+}

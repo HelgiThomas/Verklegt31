@@ -4,7 +4,6 @@
 #include "service/scientistservice.h"
 #include "service/computerservice.h"
 #include "service/generalservice.h"
-#include "gui/list/listgui.h"
 
 #include <QDialog>
 #include <vector>
@@ -29,6 +28,9 @@ public:
 
 private slots:
 
+    void on_button_addRel_clicked();
+
+    void on_button_confirmSel_clicked();
 
 private:
     Ui::addrel *ui;
@@ -37,7 +39,7 @@ private:
 
     ScientistService _serviceSci;
     ComputerService _serviceComp;
-    listgui _list;
+    GeneralService _serviceGen;
 };
 
 #endif // ADDREL_H
