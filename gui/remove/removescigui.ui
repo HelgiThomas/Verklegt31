@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>492</width>
-    <height>376</height>
+    <height>392</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,14 +32,14 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>90</x>
      <y>20</y>
-     <width>351</width>
+     <width>291</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Are you sure you want to remove the following items?!</string>
+    <string>Are you sure you want to remove this scientist?!</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="table_all">

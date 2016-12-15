@@ -19,51 +19,50 @@ removescigui::removescigui(vector<Scientist> sci, QWidget *parent) :
     //displayScientists();
 }
 
+
 removescigui::~removescigui()
 {
     delete ui;
 }
 
-
-/*void removescigui::on_button_removeSci_clicked()
+void removescigui::setID(int id)
 {
-    vector<Scientist> scientists = _serviceSci.getScientists();
-    int selectedScientist = ui->table_all->currentIndex().row();
-    Scientist currentlySelected = scientists.at(selectedScientist);
-    int id = currentlySelected.getId();
-    _serviceSci.removeScientist(id);
+   _ID = id;
+}
 
-}*/
+void removescigui::on_button_removeSci_clicked()
+{
+
+    this->hide();
+}
 
 void removescigui::displayScientists()
 {
+    vector<Scientist> allScientists = _serviceSci.getScientists();
+    int tempID = 3;
+    cout << "the ID is: " << tempID;
     ui -> table_all -> clearContents();
-    ui -> table_all -> setRowCount(_sci.size());
+    ui -> table_all -> setRowCount(1);
 
-    for (unsigned int row = 0 ; row < _sci.size() ; row++)
+    for (unsigned int row = 0 ; row < 1; row++)
     {
-        Scientist currentScientist = _sci[row];
+        QString name = QString::fromStdString(allScientists[tempID].getName());
+        QString sex = QString::fromStdString (allScientists[tempID].getSex());
+        QString yearBorn = QString::number(allScientists[tempID].getBirth());
+        QString yearDeath = QString::number(allScientists[tempID].getDeath());
 
-        QString name = QString::fromStdString(currentScientist.getName());
-        QString sex = QString::fromStdString (currentScientist.getSex());
-        QString yearBorn = QString::number(currentScientist.getBirth());
-        QString yearDeath = QString::number(currentScientist.getDeath());
-
-
-        ui -> table_all -> setItem(row, 0, new QTableWidgetItem(name));
+        ui -> table_all-> setItem(row, 0, new QTableWidgetItem(name));
         ui -> table_all -> setItem(row, 1, new QTableWidgetItem(sex));
         ui -> table_all -> setItem(row, 2, new QTableWidgetItem(yearBorn));
         ui -> table_all -> setItem(row, 3, new QTableWidgetItem(yearDeath));
-
     }
 }
 
-
-void removescigui::on_button_removeSci_clicked()
+/*void removescigui::on_button_removeSci_clicked()
 {
     for (unsigned int i = 0 ; i < _sci.size() ; i++)
     {
         int id = _sci[i].getId();
         _serviceSci.removeScientist(id);
     }
-}
+}*/

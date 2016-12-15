@@ -193,16 +193,12 @@ void listgui::on_button_edit_computer_clicked()
 
 void listgui::on_button_remove_scientist_clicked()
 {
-    vector<Scientist> scientist;
+    vector<Scientist> scientists = _serviceSci.getScientists();
+    int selectedScientist = ui->table_scientists->currentIndex().row();
+    Scientist currentlySelected = scientists.at(selectedScientist);
+    int id = currentlySelected.getId();
 
-    QModelIndexList selection = ui->table_scientists->selectionModel()->selectedRows();
-
-    for(int i = 0; i < selection.count(); i++)
-    {
-    //    scientist[i] = selection.at(i);
-    }
-
-    //removecomp remove(scientist, this);
+    _removeSci.setID(id);
 
     _removeSci.show();
 }
