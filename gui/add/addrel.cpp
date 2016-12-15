@@ -90,14 +90,28 @@ void addrel::on_button_confirmSel_clicked()
     //cout << row << " " << col << " " << endl;
     if(col == 0)
     {
+        if(row > (scientists.size() - 1))
+        {
+            QMessageBox::about(this, "Error!", "This scientist item is empty, please choose a valid item!" );
+        }
+        else
+        {
         sciId = scientists.at(row).getId();
         _sciID.push_back(sciId);
+        }
 
     }
     else if(col == 1)
     {
+        if(row > (computers.size() - 1))
+        {
+            QMessageBox::about(this, "Error!", "This computer item is empty, please choose a valid item!");
+        }
+        else
+        {
         compId = computers.at(row).getId();
         _compID.push_back(compId);
+        }
 
     }
 
@@ -107,20 +121,6 @@ void addrel::on_button_addRel_clicked()
 {
     int compSize = _compID.size();
     int sciSize = _sciID.size();
-    cout << "Sci size " << _sciID.size() << endl;
-    cout << "Comp size " << _compID.size() << endl;
-   /* for (unsigned int i = 0 ; i < _sciID.size();i++)
-    {
-        cout << i << endl;
-        cout << _sciID[i] << endl;
-    }
-    cout << "hello" << endl;
-
-    for (int i = 0 ; i < compSize;i++)
-    {
-        cout << _compID[i] << "  " << endl << endl;
-    }
-    cout << "goodbye" << endl; */
 
     for (int i = 0 ; i < sciSize; i++)
     {
@@ -129,9 +129,9 @@ void addrel::on_button_addRel_clicked()
         {
 
             int computerID = _compID.at(k);
-            cout << "These are the ID's going into the function - SciID: " << scientistID << " CompID: " << computerID << endl;
-            //_serviceGen.link(scientistID, computerID);
+            _serviceGen.link(scientistID, computerID);
         }
     }
+    this->hide();
 
 }

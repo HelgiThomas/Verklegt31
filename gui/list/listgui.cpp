@@ -232,3 +232,8 @@ void listgui::on_button_info_comp_clicked()
     //infocomp::setText();
     _infoComp.show();
 }
+
+void listgui::on_button_add_relation_clicked()
+{
+    _addrel.show();
+}

@@ -10,6 +10,7 @@
 
 #include "gui/add/addsci.h"
 #include "gui/add/addcomp.h"
+#include "gui/add/addrel.h"
 #include "gui/edit/editcomp.h"
 #include "gui/edit/editsci.h"
 #include "gui/remove/removecomp.h"
@@ -62,6 +63,8 @@ private slots:
 
     void on_button_info_comp_clicked();
 
+    void on_button_add_relation_clicked();
+
 private:
     Ui::listgui *ui;
 
@@ -71,6 +74,7 @@ private:
 
     addsci _addsci;
     addcomp _addcomp;
+    addrel _addrel;
 
     editcompgui _editComp;
     editscigui _editSci;

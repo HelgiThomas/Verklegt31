@@ -7,6 +7,7 @@
 
 #include <QDialog>
 #include <vector>
+#include <QMessageBox>
 
 namespace Ui {
 class addrel;
