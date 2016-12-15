@@ -29,6 +29,7 @@ vector<Scientist> ScientistAccess::readFromDatabase()
     int idDeath = query.record().indexOf("death");
     int idCitation = query.record().indexOf("citation");
     int idStatus = query.record().indexOf("status");
+    int idImage = query.record().indexOf("image");
 
     while (query.next())
     {
@@ -41,6 +42,7 @@ vector<Scientist> ScientistAccess::readFromDatabase()
         QString qDeath = query.value(idDeath).toString();
         QString qCitation = query.value(idCitation).toString();
         QString qStatus = query.value(idStatus).toString();
+        QString qImage = query.value(idImage).toString();
 
         int id = qId.toInt();
         std::string name = qName.toStdString();
@@ -49,6 +51,7 @@ vector<Scientist> ScientistAccess::readFromDatabase()
         int death = qDeath.toInt();
         std::string citation = qCitation.toStdString();
         int status = qStatus.toInt();
+        string image = qImage.toStdString();
         if (status == 1)
         {
             pl.setId(id);
@@ -57,6 +60,7 @@ vector<Scientist> ScientistAccess::readFromDatabase()
             pl.setBirth(birth);
             pl.setDeath(death);
             pl.setCitation(citation);
+            pl.setImage(image);
 
             sci.push_back(pl);
         }
@@ -85,14 +89,16 @@ void ScientistAccess::readToDatabase(Scientist scientist)
         QString qDeath = QString::number(scientist.getDeath());
         QString qCitation = QString::fromStdString(scientist.getCitation());
         QString qStatus = QString::number(number);
+        QString qImage = QString::fromStdString(scientist.getImage());
 
-        query.prepare("INSERT INTO Scientists (name, sex, birth, death, citation, status) VALUES (:name, :sex, :birth, :death, :citation, :status)");
+        query.prepare("INSERT INTO Scientists (name, sex, birth, death, citation, status) VALUES (:name, :sex, :birth, :death, :citation, :status, :image)");
         query.bindValue(":name", qName);
         query.bindValue(":sex", qSex);
         query.bindValue(":birth", qBirth);
         query.bindValue(":death", qDeath);
         query.bindValue(":citation", qCitation);
         query.bindValue(":status", qStatus);
+        query.bindValue(":image", qImage);
 
         query.exec();
     }
@@ -258,6 +264,7 @@ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
     int idDeath = query.record().indexOf("death");
     int idCitation = query.record().indexOf("citation");
     int idStatus = query.record().indexOf("status");
+    int idImage = query.record().indexOf("image");
 
     while (query.next())
     {
@@ -270,6 +277,7 @@ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
         QString qDeath = query.value(idDeath).toString();
         QString qCitation = query.value(idCitation).toString();
         QString qStatus = query.value(idStatus).toString();
+        QString qImage = query.value(idImage).toString();
 
         int id = qId.toInt();
         std::string name = qName.toStdString();
@@ -278,6 +286,8 @@ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
         int death = qDeath.toInt();
         std::string citation = qCitation.toStdString();
         int status = qStatus.toInt();
+        string image = qImage.toStdString();
+
         if (status == 1)
         {
             pl.setId(id);
@@ -286,6 +296,7 @@ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
             pl.setBirth(birth);
             pl.setDeath(death);
             pl.setCitation(citation);
+            pl.setImage(image);
 
             sci.push_back(pl);
         }
@@ -328,6 +339,7 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
     int idDeath = query.record().indexOf("death");
     int idCitation = query.record().indexOf("citation");
     int idStatus = query.record().indexOf("status");
+    int idImage = query.record().indexOf("image");
 
     while (query.next())
     {
@@ -340,6 +352,7 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
         QString qDeath = query.value(idDeath).toString();
         QString qCitation = query.value(idCitation).toString();
         QString qStatus = query.value(idStatus).toString();
+        QString qImage = query.value(idImage).toString();
 
         int id = qId.toInt();
         std::string name = qName.toStdString();
@@ -348,6 +361,7 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
         int death = qDeath.toInt();
         std::string citation = qCitation.toStdString();
         int status = qStatus.toInt();
+        string image = qImage.toStdString();
         if (status == 1)
         {
             pl.setId(id);
@@ -356,6 +370,7 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
             pl.setBirth(birth);
             pl.setDeath(death);
             pl.setCitation(citation);
+            pl.setImage(image);
 
             sci.push_back(pl);
         }
@@ -427,6 +442,7 @@ vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operat
     int idDeath = query.record().indexOf("death");
     int idCitation = query.record().indexOf("citation");
     int idStatus = query.record().indexOf("status");
+    int idImage = query.record().indexOf("image");
 
     while (query.next())
     {
@@ -439,6 +455,7 @@ vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operat
         QString qDeath = query.value(idDeath).toString();
         QString qCitation = query.value(idCitation).toString();
         QString qStatus = query.value(idStatus).toString();
+        QString qImage = query.value(idImage).toString();
 
         int id = qId.toInt();
         std::string name = qName.toStdString();
@@ -447,6 +464,7 @@ vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operat
         int death = qDeath.toInt();
         std::string citation = qCitation.toStdString();
         int status = qStatus.toInt();
+        string image = qImage.toStdString();
         if (status == 1)
         {
             pl.setId(id);
@@ -455,6 +473,7 @@ vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operat
             pl.setBirth(birth);
             pl.setDeath(death);
             pl.setCitation(citation);
+            pl.setImage(image);
 
             sci.push_back(pl);
         }

@@ -15,7 +15,7 @@ public:
      * @brief Scientist, Default constructors for the class Scientist.
      */
     Scientist();
-    Scientist(int id, string name, string sex, int birth, int death, string citation);
+    Scientist(int id, string name, string sex, int birth, int death, string citation, string image);
 
     /**
      * @brief Get functions for the class to return the private variables of the class.
@@ -27,6 +27,7 @@ public:
     string getCitation () const;
     int getBirth () const;
     int getDeath () const;
+    string getImage() const;
 
     /**
      * @brief Set functions for the class to return the private variables of the class.
@@ -38,12 +39,14 @@ public:
     void setCitation(string citation);
     void setBirth (int birth);
     void setDeath (int death);
+    void setImage(string image);
 
 private:
     int _id;
     string _name;
     string _sex;
     string _citation;
+    string _image;
     int _birth;
     int _death;
 };

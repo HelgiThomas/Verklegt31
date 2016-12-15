@@ -13,6 +13,7 @@ Scientist::Scientist()
     _birth = 0;
     _death = 0;
     _citation = "";
+    _image = "";
 }
 
 /**
@@ -24,7 +25,7 @@ Scientist::Scientist()
  * @param int birth, sets the birth year.
  * @param int death, sets the death year.
  */
-Scientist::Scientist(int id, string name,string sex, int birth, int death , string citation)
+Scientist::Scientist(int id, string name,string sex, int birth, int death , string citation, string image)
 {
     _id = id;
     _name = name;
@@ -32,6 +33,7 @@ Scientist::Scientist(int id, string name,string sex, int birth, int death , stri
     _birth = birth;
     _death = death;
     _citation = citation;
+    _image = image;
 }
 
 /**
@@ -88,6 +90,11 @@ string Scientist:: getCitation() const
     return _citation;
 }
 
+string Scientist:: getImage() const
+{
+    return _image;
+}
+
 /**
  * @brief This function sets the scientists id.
  * @param int id.
@@ -140,4 +147,9 @@ void Scientist::setBirth (int birth)
 void Scientist::setDeath (int death)
 {
     _death = death;
+}
+
+void Scientist::setImage(string image)
+{
+    _image = image;
 }
