@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/add_icon.png</file>
+        <file>icons/computer_icon.png</file>
+        <file>icons/editshit.png</file>
+        <file>icons/relation.jpg</file>
+        <file>icons/remove.png</file>
+        <file>icons/scientist_icon.png</file>
+        <file>icons/info_icon.png</file>
+    </qresource>
+</RCC>

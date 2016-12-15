@@ -1,5 +1,7 @@
 #include "listgui.h"
 #include "ui_listgui.h"
+#include "infosci.h"
+#include "infocomp.h"
 
 listgui::listgui(QWidget *parent) :
     QDialog(parent),
@@ -193,16 +195,12 @@ void listgui::on_button_edit_computer_clicked()
 
 void listgui::on_button_remove_scientist_clicked()
 {
-    vector<Scientist> scientist;
+    vector<Scientist> scientists = _serviceSci.getScientists();
+    int selectedScientist = ui->table_scientists->currentIndex().row();
+    Scientist currentlySelected = scientists.at(selectedScientist);
+    int id = currentlySelected.getId();
 
-    QModelIndexList selection = ui->table_scientists->selectionModel()->selectedRows();
-
-    for(int i = 0; i < selection.count(); i++)
-    {
-    //    scientist[i] = selection.at(i);
-    }
-
-    //removecomp remove(scientist, this);
+    _removeSci.setID(id);
 
     _removeSci.show();
 }
@@ -221,4 +219,16 @@ void listgui::on_button_remove_computer_clicked()
     //removescigui remove(computer, this);
 
     _removeComp.show();
+}
+
+void listgui::on_button_info_scientist_clicked()
+{
+    //infosci::setText();
+    _infoSci.show();
+}
+
+void listgui::on_button_info_comp_clicked()
+{
+    //infocomp::setText();
+    _infoComp.show();
 }

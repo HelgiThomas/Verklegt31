@@ -16,7 +16,8 @@ public:
     explicit removescigui(QWidget *parent = 0);
     explicit removescigui(vector<Scientist> sci, QWidget *parent = 0);
     ~removescigui();
-
+    int setID();
+    void setID(int id);
 private slots:
     /*void on_button_removeSci_clicked();
 
@@ -24,12 +25,13 @@ private slots:
 
     void on_button_removeSci_clicked();
 
+
 private:
     void displayScientists();
+    int _ID;
 
     Ui::removescigui *ui;
     ScientistService _serviceSci;
-
     vector<Scientist> _sci;
 };
 

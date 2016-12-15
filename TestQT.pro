@@ -36,7 +36,9 @@ SOURCES += main.cpp \
     gui/edit/editcomp.cpp \
     gui/edit/editrelation.cpp \
     gui/edit/editsci.cpp \
-    gui/remove/removerelation.cpp
+    gui/remove/removerelation.cpp \
+    gui/list/infosci.cpp \
+    gui/list/infocomp.cpp
 
 
 HEADERS += \
@@ -63,7 +65,9 @@ HEADERS += \
     gui/edit/editcomp.h \
     gui/edit/editrelation.h \
     gui/edit/editsci.h \
-    gui/remove/removerelation.h
+    gui/remove/removerelation.h \
+    gui/list/infosci.h \
+    gui/list/infocomp.h
 
 FORMS += \
     gui/mainwindow.ui \
@@ -81,4 +85,9 @@ FORMS += \
     gui/edit/editcomp.ui \
     gui/edit/editrelation.ui \
     gui/edit/editsci.ui \
-    gui/remove/removerelation.ui
+    gui/remove/removerelation.ui \
+    gui/list/infosci.ui \
+    gui/list/infocomp.ui
+
+RESOURCES += \
+    gui/list/resource.qrc

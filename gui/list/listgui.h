@@ -14,6 +14,8 @@
 #include "gui/edit/editsci.h"
 #include "gui/remove/removecomp.h"
 #include "gui/remove/removescigui.h"
+#include "gui/list/infosci.h"
+#include "gui/list/infocomp.h"
 
 namespace Ui {
 class listgui;
@@ -56,6 +58,10 @@ private slots:
 
     void on_button_remove_computer_clicked();
 
+    void on_button_info_scientist_clicked();
+
+    void on_button_info_comp_clicked();
+
 private:
     Ui::listgui *ui;
 
@@ -71,6 +77,9 @@ private:
 
     removecomp _removeComp;
     removescigui _removeSci;
+
+    infosci _infoSci;
+    infocomp _infoComp;
 };
 
 #endif // LISTGUI_H
