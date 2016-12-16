@@ -91,10 +91,7 @@ vector<Computer> ComputerService::searchName(string command)
  * @param int command
  * @return vector computer.
  */
-vector<Computer> ComputerService::searchYear(string operatorOf, int command)
-{
-    return _ComAccess.searchQueryInt("year",operatorOf,command);
-}
+
 
 /**
  * @brief This function connects the search type in computeraccess to the concoleUI.

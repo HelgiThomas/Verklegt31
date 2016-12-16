@@ -274,20 +274,7 @@ vector<Computer> ComputerAccess::searchQueryString(string variable,string comman
 
     if (variable == "Name" || variable == "name")
     {
-        string query_string = "SELECT * FROM Computers WHERE Name LIKE '" + command + "%'";
-        QString qCommand (query_string.c_str());
-        query.exec(qCommand);
-    }
-    else if (variable == "Type" || variable == "type")
-    {
-        string query_string = "SELECT * FROM Computers WHERE Type LIKE '" + command + "%'";
-        QString qCommand (query_string.c_str());
-        query.exec(qCommand);
-    }
-    else if (variable == "wasbuilt" || variable == "wasBuilt" || variable == "WasBuilt" || variable == "Wasbuilt")
-    {
-        cout << variable << " " << command;
-        string query_string = "SELECT * FROM Computers WHERE wasBuilt LIKE '" + command + "%'";
+        string query_string = "SELECT * FROM Computers WHERE Name LIKE '" + command + "%' OR type LIKE '" + command + "%' OR  wasBuilt LIKE '" + command + "%' OR Year LIKE '" + command + "%' " ;
         QString qCommand (query_string.c_str());
         query.exec(qCommand);
     }
@@ -341,79 +328,6 @@ vector<Computer> ComputerAccess::searchQueryString(string variable,string comman
  * @param string variable, string operatorOf, string command
  * @return vector of Computers
  */
-vector<Computer> ComputerAccess::searchQueryInt(string variable, string operatorOf, int command)
-{
-    connect();
-    string commandStr;
-    commandStr = to_string(command);
-    QSqlQuery query;
-    vector <Computer> comp;
-
-    if (variable == "Year" || variable == "year")
-    {
-        if (operatorOf == "greater" || operatorOf == "Greater")
-        {
-            string query_string = "SELECT * FROM Computers WHERE Year > "+ commandStr;
-            QString qCommand (query_string.c_str());
-            query.exec(qCommand);
-        }
-        else if (operatorOf == "less" || operatorOf == "Less")
-        {
-            string query_string = "SELECT * FROM Computers WHERE Year < " + commandStr;
-            QString qCommand (query_string.c_str());
-            query.exec(qCommand);
-        }
-        else if (operatorOf == "equal" || operatorOf == "Equal")
-        {
-            string query_string = "SELECT * FROM Computers WHERE Year = " + commandStr;
-            QString qCommand (query_string.c_str());
-            query.exec(qCommand);
-        }
-    }
-
-    int idId = query.record().indexOf("id");
-    int idName = query.record().indexOf("name");
-    int idYear = query.record().indexOf("year");
-    int idType = query.record().indexOf("type");
-    int idBuilt = query.record().indexOf("wasbuilt");
-    int idDescription = query.record().indexOf("description");
-    int idStatus = query.record().indexOf("status");
-
-    while (query.next())
-    {
-        Computer pl;
-
-        QString qId = query.value(idId).toString();
-        QString qName = query.value(idName).toString();
-        QString qYear = query.value(idYear).toString();
-        QString qType = query.value(idType).toString();
-        QString qBuilt = query.value(idBuilt).toString();
-        QString qDescription = query.value(idDescription).toString();
-        QString qStatus = query.value(idStatus).toString();
-
-        int id = qId.toInt();
-        std::string name = qName.toStdString();
-        int year = qYear.toInt();
-        std::string type =  qType.toStdString();
-        std::string built = qBuilt.toStdString();
-        std::string description = qDescription.toStdString();
-        int status = qStatus.toInt();
-        if (status == 1)
-        {
-            pl.setId(id);
-            pl.setName(name);
-            pl.setBuildYear(year);
-            pl.setCompType(type);
-            pl.setWasBuilt(built);
-            pl.setDescription(description);
-
-            comp.push_back(pl);
-        }
-    }
-   closeConn();;
-
-    return comp;
-}
 
 /**
  * @brief This function checks if the new Computer is already in the list
