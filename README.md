@@ -61,51 +61,41 @@ This button is greyed out, until user chooses a relation from the presented list
 # The Program:
 The program is divided into four classes to do its purpose.</br>
 The classes are as follows:</br>
-  
-     Class:
-     Graphical user interface layer:
-          addrel: Handles functions related to adding new relations between computers and scientists.
-          addcomp: Handles functions related to adding new computers to the database.
-          addsci: Handles functions related to adding new scientists to the database.
+Class:
+**Graphical user interface layer**:</br></br>
+*addrel*: Handles functions related to adding new relations between computers and scientists.</br>
+*addcomp*: Handles functions related to adding new computers to the database.</br>
+*addsci*: Handles functions related to adding new scientists to the database.</br></br>
           
-          editcomp: Handles functions related to editing computers that are stored in the database.
-          editsci: Handles functions related to editing scientists that are stored in the database.
+*editcomp*: Handles functions related to editing computers that are stored in the database.</br>
+*editsci*: Handles functions related to editing scientists that are stored in the database.</br></br>
           
-          citationgame: Handles functions related to a game users can play, that uses scientist citations for a quiz.
-          gamegui: Handles logic for games that are in the program.
-          relationgame: Handles functions relate to a game users can play, that uses relations for a quiz.
+*citationgame*: Handles functions related to a game users can play, that uses scientist citations for a quiz.</br>
+*gamegui*: Handles logic for games that are in the program.</br>
+*relationgame*: Handles functions relate to a game users can play, that uses relations for a quiz.</br></br>
           
-          infocomp: Handles functions for displaying cleaner info about each computer.
-          infosci: Handles functions for displaying cleaner info about each scientist.
-          listgui: Handles functions for displaying tables the include computers, scientists and relations and their                              attributes.
+*infocomp*: Handles functions for displaying cleaner info about each computer.</br>
+*infosci*: Handles functions for displaying cleaner info about each scientist.</br>
+*listgui*: Handles functions for displaying tables the include computers, scientists and relations and their  </br>          attributes.</br></br>
           
-          removecomp: Handles functions related to removing computers from the database.
-          removerelation: Handles functions related to removing relations from the database.
-          removescigui: Handles functions related to removing scientists from the database.
-     Models:           
-          Computer: Stores different variables for all computer elements which the service layer uses to transfer between                         layers while the program is running.
-          Scientist: Stores different variables for all scientist elements which the service layer uses to transfer between                        layers while the program is running. 
-     Business logic layer:
-          computerservice: Handles data transfer between layers and logic for computer elements.
-          generalservice: Handles data transfer between layers and logic for relation elements.
-          scientistservice: Handles data transfer between layers and logic for scientist elements.
-     Data layer:
-          computeraccess: Handles the reading and writing of data to SQL database for computers.
-          linkaccess: Handles the reading and writing of data to SQL database for relations.
-          scientistaccess: Handles the reading and writing of data to SQL database for scientists.
+*removecomp*: Handles functions related to removing computers from the database.</br>
+*removerelation*: Handles functions related to removing relations from the database.</br>
+*removescigui*: Handles functions related to removing scientists from the database.</br>
+**Models**:</br></br>      
+*Computer*: Stores different variables for all computer elements which the service layer uses to transfer between                         layers while the program is running.</br>
+*Scientist*: Stores different variables for all scientist elements which the service layer uses to transfer between                        layers while the program is running.</br></br>
+**Business logic layer**:</br></br>
+*computerservice*: Handles data transfer between layers and logic for computer elements.</br>
+*generalservice*: Handles data transfer between layers and logic for relation elements.</br>
+*scientistservice*: Handles data transfer between layers and logic for scientist elements.</br></br>
+**Data layer**:</br></br>
+*computeraccess*: Handles the reading and writing of data to SQL database for computers.</br>
+*linkaccess*: Handles the reading and writing of data to SQL database for relations.</br>
+*scientistaccess*: Handles the reading and writing of data to SQL database for scientists.</br></br>
           
-          
-       ConsoleUI -> Handles the user interface and prints requested data onto the console.
-       Scientist -> Handles the different variables stored within the program for scientists, i.e. name, sex, year of birth                       etc.
-       ScientistService -> Handles the logic for the scientist class which the ConsoleUI class uses for its various                                      functions.
-       Computer -> Handles the different variables stored within the program for computers, i.e. name, build year, type etc.
-       ComputerService -> Handles the logic for the computer class which the ConsoleUI class uses for its various                                       functions.
-       GeneralService -> Handles logic which are both usable for the scientists class and the computer class. Mostly for                                relation related functions.
-       ScientistAccess -> Handles writing and reading of information to an sql database for the scientist class.
-       ComputerAccess -> Handles writing and reading of information to an sql database for the computer class.
-       LinkAccess -> Handles writing and reading of information to an sql database for the relation between computers and                          scientists.
+      
        
-       Main -> Runs the program
+*Main*:Runs the program
 
 # Work
 The authors divded themself into three teams and worked together on seperate classes to achieve maximum functionality in the program and to learn how to divide tasks into subtasks, divide them between the team and them link them alltogether.
