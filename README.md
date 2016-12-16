@@ -3,7 +3,7 @@
 Verklegt námskeið 1</br></br>
 
 
-Authors</br></br>
+**Authors**</br></br>
 
 Benedikt Þorri Þórarinsson </br>
 Emil Hjaltason </br>
