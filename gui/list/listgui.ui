@@ -37,6 +37,9 @@
        </item>
        <item>
         <widget class="QTableWidget" name="table_scientists">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="sortingEnabled">
           <bool>true</bool>
          </property>

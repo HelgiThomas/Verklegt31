@@ -32,9 +32,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>30</y>
+      <y>20</y>
       <width>321</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -43,6 +43,12 @@
     <property name="icon">
      <iconset resource="list/resource.qrc">
       <normaloff>:/icons/icons/list_icon.png</normaloff>:/icons/icons/list_icon.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -70,6 +76,10 @@
     <property name="text">
      <string>Citation</string>
     </property>
+    <property name="icon">
+     <iconset resource="list/resource.qrc">
+      <normaloff>:/icons/icons/game_icon.png</normaloff>:/icons/icons/game_icon.png</iconset>
+    </property>
    </widget>
    <widget class="QPushButton" name="button_list_3">
     <property name="geometry">
@@ -83,18 +93,32 @@
     <property name="text">
      <string>Relation</string>
     </property>
+    <property name="icon">
+     <iconset resource="list/resource.qrc">
+      <normaloff>:/icons/icons/quiz.png</normaloff>:/icons/icons/quiz.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
    </widget>
    <widget class="QPushButton" name="button_list_4">
     <property name="geometry">
      <rect>
       <x>120</x>
       <y>30</y>
-      <width>91</width>
+      <width>101</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>Description</string>
+    </property>
+    <property name="icon">
+     <iconset resource="list/resource.qrc">
+      <normaloff>:/icons/icons/dice.png</normaloff>:/icons/icons/dice.png</iconset>
     </property>
    </widget>
   </widget>
@@ -124,6 +148,10 @@
     </property>
     <property name="text">
      <string>Quit!</string>
+    </property>
+    <property name="icon">
+     <iconset resource="list/resource.qrc">
+      <normaloff>:/icons/icons/quit.jpg</normaloff>:/icons/icons/quit.jpg</iconset>
     </property>
    </widget>
   </widget>
