@@ -181,23 +181,33 @@ void ScientistAccess::removeAll()
  * @brief This function lets the User edit the string elements selected entry of Scientist in the SQL Datbase
  * @param int nameOf, string variable, string newElement
  */
-void ScientistAccess::editString(string nameOf, string variable, string newElement)
+void ScientistAccess::editString(int id, string variable, string newElement)
 {
     connect();
     QSqlQuery query;
 
-    QString qNameOf = QString::fromStdString(nameOf);
+    string newId;
+
+    newId = to_string(id);
+
+    QString qNameOf = QString::fromStdString(newId);
     QString qNewElement = QString::fromStdString(newElement);
 
     if (variable == "Name" || variable == "name" || variable == "1")
     {
-        query.prepare("UPDATE Scientists SET Name = :newElement WHERE Name = :name");
+        query.prepare("UPDATE Scientists SET Name = :newElement WHERE ID = :name");
         query.bindValue(":newElement", qNewElement);
         query.bindValue(":name", qNameOf);
     }
     else if (variable == "Sex" || variable == "sex" || variable == "2")
     {
-        query.prepare("UPDATE Scientists SET Sex = :newElement WHERE Name = :name");
+        query.prepare("UPDATE Scientists SET Sex = :newElement WHERE ID = :name");
+        query.bindValue(":newElement", qNewElement);
+        query.bindValue(":name", qNameOf);
+    }
+    else if (variable == "Citation" || variable == "citation" || variable == "2")
+    {
+        query.prepare("UPDATE Scientists SET Citation = :newElement WHERE ID = :name");
         query.bindValue(":newElement", qNewElement);
         query.bindValue(":name", qNameOf);
     }
@@ -210,28 +220,31 @@ void ScientistAccess::editString(string nameOf, string variable, string newEleme
  * @brief This function lets the User edit the int elements in the selected entry of Scientists in the SQL Datbase
  * @param int nameOf, string variable, int newElement
  */
-void ScientistAccess::editInt(string nameOf, string variable, int newElement)
+void ScientistAccess::editInt(int id, string variable, int newElement)
 {
     connect();
 
     QSqlQuery query;
     string newElementStr;
+    string newId;
+
+    newId = to_string(id);
     newElementStr = to_string(newElement);
 
-    QString qNameOf = QString::fromStdString(nameOf);
+    QString qNameOf = QString::fromStdString(newId);
     QString qNewElement = QString::number(newElement);
 
     if (variable == "Birth" || variable == "birth" || variable == "3")
     {
-        query.prepare("UPDATE Scientists SET Birth = :newElement WHERE Name = :name");
-        query.bindValue(":name", qNameOf);
+        query.prepare("UPDATE Scientists SET Birth = :newElement WHERE ID = :name");
         query.bindValue(":newElement", qNewElement);
+        query.bindValue(":name", qNameOf);
     }
     else if (variable == "Death" || variable == "death" || variable == "4")
     {
-        query.prepare("UPDATE Scientists SET Death = :newElement WHERE Name = :name");
-        query.bindValue(":name", qNameOf);
+        query.prepare("UPDATE Scientists SET Death = :newElement WHERE ID = :name");
         query.bindValue(":newElement", qNewElement);
+        query.bindValue(":name", qNameOf);
     }
 
     query.exec();
@@ -312,6 +325,7 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
 {
     connect();
 
+
     QSqlQuery query;
     vector<Scientist> sci;
 
@@ -371,9 +385,12 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
     return sci;
 }
 /**
- * @brief This function checks if the new Scientist is already in the list
- * @return true or false
+ * @brief This function searches the Scientists in the SQL Database after the selcted variable (Int) and the newCommand ("new year, new death...") and puts them in a vector
+ * @param string variable, string operatorOf, string command
+ * @return vector of Scientists
  */
+
+
 bool ScientistAccess::checkEntry(Scientist scientist)
 {
     QSqlQuery query("SELECT * FROM Scientists");
@@ -404,6 +421,8 @@ bool ScientistAccess::checkEntry(Scientist scientist)
     }
     return true;
 }
+
+
 /**
  * @brief ComputerAccess::closeConn, close the SQL database connection
  */

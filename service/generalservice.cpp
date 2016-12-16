@@ -68,3 +68,14 @@ vector <int> GeneralService::allRelationID()
 {
     return _link.RelationId();
 }
+
+/**
+ * @brief GeneralService::getLinkId, returns the Id of the relation
+ * @param sciName
+ * @param compName
+ * @return
+ */
+int GeneralService::getLinkId(int sciId, int compId)
+{
+    return _link.getLinkId(sciId, compId);
+}

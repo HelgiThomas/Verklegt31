@@ -54,9 +54,9 @@ void ScientistService::removeEveryscientist()
  * @param string variable
  * @param string newElement
  */
-void ScientistService::editScientistString(string nameOf, string variable, string newElement)
+void ScientistService::editScientistString(int id, string variable, string newElement)
 {
-    _SciAccess.editString (nameOf,variable,newElement);
+    _SciAccess.editString(id,variable,newElement);
 }
 
 /**
@@ -65,9 +65,9 @@ void ScientistService::editScientistString(string nameOf, string variable, strin
  * @param string variable
  * @param int newElement
  */
-void ScientistService::editScientistInt (string nameOf, string variable, int newElement)
+void ScientistService::editScientistInt(int id, string variable, int newElement)
 {
-    _SciAccess.editInt (nameOf,variable,newElement);
+    _SciAccess.editInt(id,variable,newElement);
 }
 
 /**
@@ -77,10 +77,26 @@ void ScientistService::editScientistInt (string nameOf, string variable, int new
  */
 vector<Scientist> ScientistService::searchName(string command)
 {
-
-    return _SciAccess.searchQueryString("Name",command);
-
+        return _SciAccess.searchQueryString("Name",command);
 }
+
+/**
+ * @brief This function connects the search sex in scientistaccess to the concoleUI.
+ * @param string command
+ * @return vector scientist.
+ */
+vector<Scientist> ScientistService::searchSex(string command)
+{
+    return _SciAccess.searchQueryString("Sex",command);
+}
+
+/**
+ * @brief This function connects the search birth in scientistaccess to the concoleUI.
+ * @param int command
+ * @return vector scientist.
+ */
+
+
 
 /**
  * @brief A function that validates if the name which the user asks to input is valid.
@@ -153,8 +169,6 @@ bool ScientistService::validYear(string strYear)
 
 bool ScientistService::validNumber(string strNum)
 {
-
-    unsigned int num = atoi(strNum.c_str());
     bool valid = false;
     for(unsigned int i = 0; i < strNum.size(); i++)
     {

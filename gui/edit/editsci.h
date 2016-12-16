@@ -2,7 +2,7 @@
 #define EDITSCIGUI_H
 
 #include <QDialog>
-#include <string>
+#include <QMessageBox>
 
 #include "model/scientist.h"
 #include "service/scientistservice.h"
@@ -25,36 +25,29 @@ public:
     void setSex(string sex);
     void setBirth(int birth);
     void setDeath(int death);
+    void setCitation(string citation);
 
-    void setText();
-    string chooseSex();
+    void displayScientists();
+    void displayCitation();
 
 private slots:
-    void on_checkBox_name_clicked();
-
-    void on_checkBox_sex_clicked();
-
-    void on_checkBox_birth_clicked();
-
-    void on_checkBox_death_clicked();
-
     void on_pushButton_editSci_clicked();
 
     void on_pushButton_back_clicked();
 
 private:
+    bool isMaleOrFemale();
+
     Ui::editscigui *ui;
 
     ScientistService _sciService;
-
-    int _sciBirth;
-    int _sciDeath;
 
     int _id;
     string _name;
     string _sex;
     int _birth;
     int _death;
+    string _citation;
 };
 
 #endif // EDITSCIGUI_H

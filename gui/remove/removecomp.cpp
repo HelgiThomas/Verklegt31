@@ -11,17 +11,18 @@ removecomp::removecomp(QWidget *parent) :
     ui->setupUi(this);
     displayComputers();
 }
-/**
- * @brief removecomp::~removecomp, deconstucter that deletes the ui
- */
+
 removecomp::~removecomp()
 {
+ /**
+  * @brief removecomp::~removecomp, deconstucter that deletes the ui
+  */
     delete ui;
 }
 /**
- * @brief removecomp::setId, function that sets the _id variable equal to the id param
- * @param id
- */
+  * @brief removecomp::setId, function that sets the _id variable equal to the id param
+  * @param id
+  */
 void removecomp::setId(int id)
 {
     _id = id;
@@ -46,6 +47,7 @@ void removecomp::setType(string type)
  * @brief removecomp::setWasBuilt, function that sets the _wasBuilt variable equal to the wasBuilt param
  * @param wasBuilt
  */
+
 void removecomp::setWasBuilt(string wasBuilt)
 {
     _wasBuilt = wasBuilt;
@@ -64,7 +66,7 @@ void removecomp::setYear(int year)
 void removecomp::on_button_removeComp_clicked()
 {
     _serviceComp.removeComputer(_id);
-    this->hide();
+    close();
 }
 /**
  * @brief removecomp::displayComputers, this function displays the computer that the user wants to remove
@@ -89,5 +91,5 @@ void removecomp::displayComputers()
  */
 void removecomp::on_pushButton_clicked()
 {
-    this->hide();
+    close();
 }

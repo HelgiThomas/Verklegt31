@@ -31,12 +31,17 @@ public:
      * @param Scientist newScientist.
      */
     void addScientist(Scientist newScientist);
+
     /**
-     * @brief searchName Functions to search for different things.
+    * @brief searchName Functions to search for different things.
      * @param string/int command.
      * @return vector <Scientist>.
      */
     vector<Scientist> searchName (string command);
+    vector<Scientist> searchSex (string command);
+    vector<Scientist> searchBirth (string operatorOf, int command);
+    vector<Scientist> searchDeath (string operatorOf, int command);
+
     /**
      * @brief removeScientist/Every, Function to remove a scientist from the list.
      * @param string name.
@@ -50,8 +55,8 @@ public:
      * @param string variable
      * @param string/int newElement
      */
-    void editScientistString(string nameOf, string variable, string newElement);
-    void editScientistInt (string nameOf, string variable, int newElement);
+    void editScientistString(int id, string variable, string newElement);
+    void editScientistInt (int id, string variable, int newElement);
 
     /**
      * @brief validName/Sex/Year/Number/Death/Command, Functions to validate if the entries when input by the user.

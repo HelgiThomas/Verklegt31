@@ -114,7 +114,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Description</string>
+     <string>Gamble</string>
     </property>
     <property name="icon">
      <iconset resource="list/resource.qrc">

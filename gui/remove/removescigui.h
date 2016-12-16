@@ -35,10 +35,12 @@ public:
 
 private slots:
     /**
-     * @brief on_button_removeSci_clicked, function that removes the science
+     * @brief on_button_removeSci_clicked, function that removes the scienctist
      */
     void on_button_removeSci_clicked();
+
     void on_button_removeSci_2_clicked();
+
 private:
 
     Ui::removescigui *ui;

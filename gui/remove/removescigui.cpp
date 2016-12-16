@@ -1,5 +1,6 @@
 #include "removescigui.h"
 #include "ui_removescigui.h"
+
 /**
  * @brief removescigui::removescigui, constructer that runs the displayScientists function
  * @param parent
@@ -43,9 +44,9 @@ void removescigui::setSex(string sex)
     _sex = sex;
 }
 /**
- * @brief removescigui::setBirth, function that sets the _birth variable equal to the birth param
- * @param birth
- */
+ + * @brief removescigui::setBirth, function that sets the _birth variable equal to the birth param
+ + * @param birth
+ + */
 void removescigui::setBirth(int birth)
 {
     _birth = birth;
@@ -82,12 +83,12 @@ void removescigui::displayScientists()
 void removescigui::on_button_removeSci_clicked()
 {
     _serviceSci.removeScientist(_id);
-    this->hide();
+    close();
 }
 /**
  * @brief removescigui::on_button_removeSci_2_clicked, hides the window
  */
 void removescigui::on_button_removeSci_2_clicked()
 {
-    this->hide();
+    close();
 }

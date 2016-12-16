@@ -39,6 +39,9 @@ private slots:
      * @brief on_button_removeComp_clicked
      */
     void on_button_removeComp_clicked();
+    /**
+     * @brief on_pushButton_clicked
+     */
     void on_pushButton_clicked();
 
 private:

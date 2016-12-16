@@ -48,8 +48,8 @@ public:
      * @param string variable
      * @param string/int newElement, two function - one for int and one for string.
      */
-    void editString(string nameOf, string variable, string newElement);
-    void editInt(string nameOf, string variable, int newElement);
+    void editString(int id, string variable, string newElement);
+    void editInt(int id, string variable, int newElement);
 
     /**
      * @brief updateRelation/all, updates the relation to computers/s.
@@ -59,7 +59,7 @@ public:
     void updateRelationall();
 
     /**
-     * @brief sortQuery/String, pulls out of the database the list of computers sorted by the appropriate variable.
+     * @brief sortQuery/String/Int, pulls out of the database the list of computers sorted by the appropriate variable.
      * @param string var
      * @param string command
      * @return vector of computers sorted

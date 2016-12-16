@@ -34,19 +34,15 @@ public:
     void addComputer(Computer newComputer);
 
     /**
-     * @brief searchName, search functions to search for all the specified inputs.
+     * @brief searchName/Year/Type/wasBuilt, search functions to search for all the specified inputs.
      * @param string command
      * @return
      */
     vector<Computer> searchName(string command);
-    /**
-     * @brief  sortByName/BuildYear/ComptType/wasBuilt, sort in reverse order by for all the specified fields.
-     * @return vector<Computer>.
-     */
-    vector<Computer> sortByNameReverse();
-    vector<Computer> sortByBuildYearReverse();
-    vector<Computer> sortByCompTypeReverse();
-    vector<Computer> sortBywasBuiltReverse ();
+    vector<Computer> searchYear(string operatorOf, int command);
+    vector<Computer> searchType(string command);
+    vector<Computer> searchwasBuilt(string builtOf, string operatorOf);
+
 
     /**
      * @brief removeComputer/EveryComputer, removes either a single computer or the whole list.
@@ -61,8 +57,8 @@ public:
      * @param string variable
      * @param string/int newElement
      */
-    void editComputerString(string nameOf, string variable, string newElement);
-    void editComputerInt(string nameOf, string variable, int newElement);
+    void editComputerString(int id, string variable, string newElement);
+    void editComputerInt(int id, string variable, int newElement);
 
     /**
      * @brief validName/CompType/WasBuilt/Year/Command, validate the entries input by the user.

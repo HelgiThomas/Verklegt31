@@ -15,10 +15,10 @@ CitationGame::~CitationGame()
 
 void CitationGame::on_pushButton_clicked()
 {
-
+    close();
 }
 
 void CitationGame::on_pushButton_2_clicked()
 {
-
+    close();
 }

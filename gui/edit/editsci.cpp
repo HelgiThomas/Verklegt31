@@ -5,10 +5,17 @@
 editscigui::editscigui(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::editscigui)
-{
+{   
     ui->setupUi(this);
 
-    setText();
+    ui->lineEdit->clear();
+    ui->lineEdit_2->clear();
+    ui->lineEdit_3->clear();
+    ui->lineEdit_4->clear();
+    ui->lineEdit_5->clear();
+
+    displayScientists();
+    displayCitation();
 }
 
 editscigui::~editscigui()
@@ -41,142 +48,88 @@ void editscigui::setDeath(int death)
     _death = death;
 }
 
-void editscigui::setText()
+void editscigui::setCitation(string citation)
 {
+    _citation = citation;
+}
 
-    cout << "loooool" << endl;
+void editscigui::displayScientists()
+{
+    ui -> tableWidget -> clearContents();
+    ui -> tableWidget -> setRowCount(1);
+
     QString name = QString::fromStdString(_name);
+    QString sex = QString::fromStdString (_sex);
+    QString yearBorn = QString::number(_birth);
+    QString yearDeath = QString::number(_death);
 
-    ui->eName->setText(name);
-
-    if (_sex == "Male")
-    {
-        ui->radioButton->setChecked(true);
-    }
-    else
-    {
-        ui->radioButton_2->setChecked(true);
-    }
-
-    QString birth = QString::number(_birth);
-    ui->eName_2->setText(birth);
-
-    if (_death != 0)
-    {
-        QString death = QString::number(_death);
-        ui->eName_3->setText(death);
-    }
+    ui -> tableWidget -> setItem(0, 0, new QTableWidgetItem(name));
+    ui -> tableWidget -> setItem(0, 1, new QTableWidgetItem(sex));
+    ui -> tableWidget -> setItem(0, 2, new QTableWidgetItem(yearBorn));
+    ui -> tableWidget -> setItem(0, 3, new QTableWidgetItem(yearDeath));
 }
 
-
-void editscigui::on_checkBox_name_clicked()
+void editscigui::displayCitation()
 {
-    if(ui->checkBox_name->isChecked())
-    {
-        ui->eName->setEnabled(true);
-    }
-    else
-    {
-        ui->eName->setEnabled(false);
-    }
+    ui -> tableWidget_2 -> clearContents();
+    ui -> tableWidget_2 -> setRowCount(1);
 
-}
+    QString citation = QString::fromStdString(_citation);
 
-void editscigui::on_checkBox_sex_clicked()
-{
-    if(ui->checkBox_sex->isChecked())
-    {
-        ui->radioButton->setEnabled(true);
-        ui->radioButton_2->setEnabled(true);
-    }
-    else
-    {
-        ui->radioButton->setEnabled(false);
-        ui->radioButton_2->setEnabled(false);
-    }
-}
-
-void editscigui::on_checkBox_birth_clicked()
-{
-    if(ui->checkBox_birth->isChecked())
-    {
-        ui->eName_2->setEnabled(true);
-    }
-    else
-    {
-         ui->eName_2->setEnabled(false);
-    }
-}
-
-void editscigui::on_checkBox_death_clicked()
-{
-    if(ui->checkBox_death->isChecked())
-    {
-        ui->eName_3->setEnabled(true);
-    }
-    else
-    {
-        ui->eName_3->setEnabled(false);
-    }
-
-}
-
-
-string editscigui::chooseSex()
-{
-    string sex;
-    if(ui->radioButton->isChecked())
-    {
-        sex = "Male";
-    }
-    else if(ui->radioButton_2->isChecked())
-    {
-        sex = "Female";
-    }
-
-    return sex;
+    ui -> tableWidget_2-> setItem(0, 0, new QTableWidgetItem(citation));
 }
 
 void editscigui::on_pushButton_editSci_clicked()
 {
-    string oldName = _name;
+    string name = ui->lineEdit->text().toStdString();
+    string sex = ui->lineEdit_2->text().toStdString();
+    int birth = ui->lineEdit_4->text().toInt();
+    int death = ui->lineEdit_3->text().toInt();
+    string citation = ui->lineEdit_5->text().toStdString();
 
-    vector<Scientist> Scientist = _sciService.getScientists();
-    if(ui->checkBox_name->isChecked())
+
+    if(birth > death && death != 0)
     {
-       string newName = ui->eName->text().toStdString();
-       _sciService.editScientistString(oldName, "name", newName);
+        QMessageBox::about(this, "Error!", "A person can not die before their birth!");
+        ui->lineEdit_3->clear();
+        ui->lineEdit_4->clear();
     }
-
-    if(ui->checkBox_sex->isChecked())
+    else if(!_sciService.validName(name))
     {
-       string newSex = chooseSex();
-        _sciService.editScientistString(oldName, "sex", newSex);
+        QMessageBox::about(this, "Error!", "The name is invalid!");
+        ui->lineEdit->clear();
     }
-
-    if(ui->checkBox_birth->isChecked())
+    else if(!isMaleOrFemale())
     {
-       int newBirth = ui->eName_2->text().toInt();
-        _sciService.editScientistInt(oldName, "birth", newBirth);
+        QMessageBox::about(this, "Error!", "Please choose sex!");
+        ui->lineEdit_2->clear();
     }
-
-    if(ui->checkBox_death->isChecked())
+    else
     {
-       int newDeath = ui->eName_3->text().toInt();
-        _sciService.editScientistInt(oldName,"death",newDeath);
-
+        _sciService.editScientistString(_id, "name", name);
+        _sciService.editScientistString(_id, "sex", sex);
+        _sciService.editScientistInt(_id, "birth", birth);
+        _sciService.editScientistInt(_id, "death", death);
+        _sciService.editScientistString(_id, "citation", citation);
+        accept();
     }
+}
 
+bool editscigui::isMaleOrFemale()
+{
+    string sex = ui->lineEdit_2->text().toStdString();
 
-
-
-
-
-
-    this->hide();
+    if(sex == "Male" || sex == "male" || sex == "Female" || sex == "female")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void editscigui::on_pushButton_back_clicked()
 {
-    this->hide();
+    close();
 }

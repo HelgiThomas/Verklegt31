@@ -139,29 +139,38 @@ void ComputerAccess::removeAll()
  * @brief This function lets the User edit the string elements in the selected entry of Computer in the SQL Datbase
  * @param int nameOf, string variable, string newElement
  */
-void ComputerAccess::editString(string nameOf, string variable, string newElement)
+void ComputerAccess::editString(int id, string variable, string newElement)
 {
     connect();
     QSqlQuery query;
 
-    QString qNameOf = QString::fromStdString(nameOf);
+    string newId;
+    newId = to_string(id);
+
+    QString qNameOf = QString::fromStdString(newId);
     QString qNewElement = QString::fromStdString(newElement);
 
     if (variable == "Name" || variable == "name")
     {
-        query.prepare("UPDATE Computers SET Name = :newElement WHERE Name = :name");
+        query.prepare("UPDATE Computers SET Name = :newElement WHERE ID = :name");
         query.bindValue(":newElement", qNewElement);
         query.bindValue(":name", qNameOf);
     }
     else if (variable == "Type" || variable == "type")
     {
-        query.prepare("UPDATE Computers SET type = :newElement WHERE Name = :name");
+        query.prepare("UPDATE Computers SET Type = :newElement WHERE ID = :name");
         query.bindValue(":newElement", qNewElement);
         query.bindValue(":name", qNameOf);
     }
-    else if (variable == "Built" || variable == "built")
+    else if (variable == "wasBuilt" || variable == "wasbuilt")
     {
-        query.prepare("UPDATE Computers SET wasBuilt = :newElement WHERE Name = :name");
+        query.prepare("UPDATE Computers SET wasBuilt = :newElement WHERE ID = :name");
+        query.bindValue(":newElement", qNewElement);
+        query.bindValue(":name", qNameOf);
+    }
+    else if (variable == "Description" || variable == "description")
+    {
+        query.prepare("UPDATE Computers SET Description = :newElement WHERE ID = :name");
         query.bindValue(":newElement", qNewElement);
         query.bindValue(":name", qNameOf);
     }
@@ -175,22 +184,24 @@ void ComputerAccess::editString(string nameOf, string variable, string newElemen
  * @brief This function lets the User edit the int elements in the selected entry of Computer in the SQL Datbase
  * @param int nameOf, string variable, int newElement
  */
-void ComputerAccess::editInt(string nameOf, string variable, int newElement)
+void ComputerAccess::editInt(int id, string variable, int newElement)
 {
     connect();
 
     QSqlQuery query;
     string newElementStr;
+    string newId;
+    newId = to_string(id);
     newElementStr = to_string(newElement);
 
-    QString qNameOf = QString::fromStdString(nameOf);
+    QString qNameOf = QString::fromStdString(newId);
     QString qNewElement = QString::number(newElement);
 
     if (variable == "Year" || variable == "year")
     {
-        query.prepare("UPDATE Computers SET year = :newElement WHERE Name = :name");
-        query.bindValue(":name", qNameOf);
+        query.prepare("UPDATE Computers SET Year = :newElement WHERE ID = :name");
         query.bindValue(":newElement", qNewElement);
+        query.bindValue(":name", qNameOf);
     }
     query.exec();
 
@@ -266,8 +277,10 @@ vector<Computer> ComputerAccess::searchQueryString(string variable,string comman
 {
     connect();
 
+
     QSqlQuery query;
     vector<Computer> comp;
+
 
     if (variable == "Name" || variable == "name")
     {
@@ -319,6 +332,7 @@ vector<Computer> ComputerAccess::searchQueryString(string variable,string comman
 
     return comp;
 }
+
 /**
  * @brief This function checks if the new Computer is already in the list
  * @return true or false

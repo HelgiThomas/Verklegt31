@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="Relations">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_1">
       <attribute name="icon">
@@ -85,6 +85,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="button_info_scientist">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>Information</string>
            </property>
@@ -189,6 +192,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="button_info_comp">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>Information</string>
            </property>
@@ -251,6 +257,9 @@
          <property name="sortingEnabled">
           <bool>true</bool>
          </property>
+         <attribute name="horizontalHeaderDefaultSectionSize">
+          <number>260</number>
+         </attribute>
          <column>
           <property name="text">
            <string>Scientist Name</string>
@@ -287,20 +296,6 @@
            <property name="icon">
             <iconset resource="resource.qrc">
              <normaloff>:/icons/icons/remove.png</normaloff>:/icons/icons/remove.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="button_edit_relation">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string>Edit</string>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icons/icons/editshit.png</normaloff>:/icons/icons/editshit.png</iconset>
            </property>
           </widget>
          </item>

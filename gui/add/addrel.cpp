@@ -17,7 +17,6 @@ addrel::~addrel()
 /**
  * @brief addrel::displayScientistandComputers, displays the names of the scientists and computers in a table.
  */
-
 void addrel::displayScientistandComputers()
 {
     vector<Scientist> allScientists = _serviceSci.getScientists();
@@ -85,13 +84,12 @@ void addrel::displayScientistandComputers()
  * @brief addrel::on_button_confirmSel_clicked, adds the selected scientist or computer to their designated vector
  * when the confirm button is clicked.
  */
-
 void addrel::on_button_confirmSel_clicked()
 {
     vector <Scientist> scientists = _serviceSci.getScientists();
     vector <Computer> computers = _serviceComp.getComputers();
-    int row = ui->table_sciAndComp->currentIndex().row();
-    int col = ui->table_sciAndComp->currentIndex().column();
+    unsigned int row = ui->table_sciAndComp->currentIndex().row();
+    unsigned int col = ui->table_sciAndComp->currentIndex().column();
     int sciId, compId;
 
     //cout << row << " " << col << " " << endl;
@@ -123,7 +121,6 @@ void addrel::on_button_confirmSel_clicked()
     }
 
 }
-
 /**
  * @brief addrel::on_button_addRel_clicked, adds the confirmed scientists and computers to the relation database.
  */
@@ -143,6 +140,6 @@ void addrel::on_button_addRel_clicked()
             _serviceGen.link(scientistID, computerID);
         }
     }
-    this->hide();
+    close();
 
 }

@@ -59,9 +59,9 @@ void ComputerService::removeEverycomputer ()
  * @param string variable
  * @param string newElement
  */
-void ComputerService::editComputerString(string nameOf, string variable, string newElement)
+void ComputerService::editComputerString(int id, string variable, string newElement)
 {
-    _ComAccess.editString (nameOf,variable,newElement);
+    _ComAccess.editString(id,variable,newElement);
 }
 
 /**
@@ -70,9 +70,9 @@ void ComputerService::editComputerString(string nameOf, string variable, string 
  * @param string variable
  * @param int newElement
  */
-void ComputerService::editComputerInt(string nameOf, string variable, int newElement)
+void ComputerService::editComputerInt(int id, string variable, int newElement)
 {
-    _ComAccess.editInt (nameOf,variable,newElement);
+    _ComAccess.editInt(id,variable,newElement);
 }
 
 /**
@@ -84,6 +84,30 @@ vector<Computer> ComputerService::searchName(string command)
 {
     return _ComAccess.searchQueryString("Name",command);
 }
+
+
+
+/**
+ * @brief This function connects the search type in computeraccess to the concoleUI.
+ * @param string command
+ * @return vector computer.
+ */
+vector<Computer> ComputerService::searchType(string command)
+{
+    return _ComAccess.searchQueryString("Type",command);
+}
+
+/**
+ * @brief This function connects the search was built in computeraccess to the concoleUI.
+ * @param string builtOf
+ * @param string operatorOf
+ * @return vector computer.
+ */
+vector<Computer> ComputerService::searchwasBuilt(string builtOf, string operatorOf)
+{
+    return _ComAccess.searchQueryString("wasBuilt",operatorOf);
+}
+
 /**
  * @brief A function that validates if the name which the user asks to input is valid.
  * @param string name of the computer.

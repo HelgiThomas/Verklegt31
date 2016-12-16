@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>407</width>
-    <height>300</height>
+    <width>409</width>
+    <height>375</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,8 +42,8 @@
   <widget class="QPushButton" name="button_addComp">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>260</y>
+     <x>140</x>
+     <y>320</y>
      <width>113</width>
      <height>32</height>
     </rect>
@@ -58,8 +58,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>170</y>
+     <x>270</x>
+     <y>200</y>
      <width>91</width>
      <height>26</height>
     </rect>
@@ -68,7 +68,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>280</x>
      <y>170</y>
      <width>81</width>
      <height>20</height>
@@ -147,7 +147,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>140</y>
+     <y>180</y>
      <width>191</width>
      <height>51</height>
     </rect>
@@ -199,16 +199,26 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>200</y>
-     <width>191</width>
-     <height>79</height>
+     <y>258</y>
+     <width>351</width>
+     <height>61</height>
     </rect>
    </property>
-   <property name="accessibleName">
-    <string/>
-   </property>
    <property name="placeholderText">
-    <string>Computer description...</string>
+    <string>Computer description..</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>240</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Description:</string>
    </property>
   </widget>
  </widget>

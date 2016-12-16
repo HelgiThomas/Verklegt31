@@ -15,10 +15,10 @@ gamegui::~gamegui()
 
 void gamegui::on_pushButton_clicked()
 {
-
+    close();
 }
 
 void gamegui::on_pushButton_2_clicked()
 {
-
+    close();
 }

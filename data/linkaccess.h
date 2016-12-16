@@ -52,12 +52,14 @@ public:
     void editRelation (int nrID, int sciID, int compID);
     void editSci(int changeID,int newSciID);
     void editComp(int changeID,int newCompID);
+
     /**
      * @brief getSciComps,
      * @param Sci
      */
     void getSciComps(string Sci);
     void getCompScis(string Comp);
+    int getLinkId(int sciId, int compId);
 
     /**
      * @brief removeRelation

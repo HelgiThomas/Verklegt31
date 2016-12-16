@@ -6,12 +6,15 @@ editcompgui::editcompgui(QWidget *parent) :
     ui(new Ui::editcompgui)
 {
     ui->setupUi(this);
-    for(int i = 2016; i > 0; i--)
-    {
-        ui->lineEdit_4->addItem(QString::number(i));
-    }
 
-    setText();
+    ui->lineEdit->clear();
+    ui->lineEdit_2->clear();
+    ui->lineEdit_3->clear();
+    ui->lineEdit_4->clear();
+    ui->lineEdit_5->clear();
+
+    displayComputers();
+    displayDescription();
 }
 
 editcompgui::~editcompgui()
@@ -44,204 +47,83 @@ void editcompgui::setYear(int year)
     _year = year;
 }
 
-void editcompgui::setText()
+void editcompgui::setDescription(string description)
 {
+    _description = description;
+}
+
+void editcompgui::displayComputers()
+{
+    ui -> tableWidget -> clearContents();
+    ui -> tableWidget -> setRowCount(1);
+
     QString name = QString::fromStdString(_name);
+    QString type = QString::fromStdString (_type);
+    QString wasBuilt = QString::fromStdString(_wasBuilt);
+    QString year = QString::number(_year);
 
-    ui->lineEdit_2->setText(name);
-
-    if (_type == "Mechanical")
-    {
-        ui->radioButton->setChecked(true);
-    }
-    else if (_type == "Transistor")
-    {
-        ui->radioButton_2->setChecked(true);
-    }
-    else if (_type == "Electronic")
-    {
-        ui->radioButton_3->setChecked(true);
-    }
-    else
-    {
-        ui->radioButton_4->setChecked(true);
-    }
-
-    if (_wasBuilt == "Yes")
-    {
-        ui->radioButton_5->setChecked(true);
-    }
-    else
-    {
-        ui->radioButton_6->setChecked(true);
-    }
-
-    if (_wasBuilt != "No")
-    {
-        QString year = QString::number(_year);
-        ui->lineEdit_4->setCurrentText(year);
-    }
+    ui -> tableWidget-> setItem(0, 0, new QTableWidgetItem(name));
+    ui -> tableWidget -> setItem(0, 1, new QTableWidgetItem(type));
+    ui -> tableWidget -> setItem(0, 2, new QTableWidgetItem(wasBuilt));
+    ui -> tableWidget -> setItem(0, 3, new QTableWidgetItem(year));
 }
 
-
-void editcompgui::on_radioButton_name_clicked()
+void editcompgui::displayDescription()
 {
-    if(ui->radioButton_name->isChecked())
-    {
-        ui->lineEdit_2->setEnabled(true);
-    }
-    else
-    {
-        ui->lineEdit_2->setEnabled(false);
-    }
+    ui -> tableWidget_2 -> clearContents();
+    ui -> tableWidget_2 -> setRowCount(1);
 
-}
+    QString desc = QString::fromStdString(_description);
 
-void editcompgui::on_radioButton_type_clicked()
-{
-    if(ui->radioButton_type->isChecked())
-    {
-
-        ui->radioButton->setEnabled(true);
-        ui->radioButton_2->setEnabled(true);
-        ui->radioButton_3->setEnabled(true);
-        ui->radioButton_4->setEnabled(true);
-
-        if(ui->radioButton_4->isChecked())
-        {
-            ui->lineEdit_3->setEnabled(true);
-        }
-        else
-        {
-            ui->lineEdit_3->setEnabled(false);
-        }
-
-    }
-    else
-    {
-        ui->radioButton->setEnabled(false);
-        ui->radioButton_2->setEnabled(false);
-        ui->radioButton_3->setEnabled(false);
-        ui->radioButton_4->setEnabled(false);
-        ui->lineEdit_3->setEnabled(false);
-    }
-
-}
-
-void editcompgui::on_radioButton_wasBuilt_clicked()
-{
-    if(ui->radioButton_wasBuilt->isChecked())
-    {
-        ui->radioButton_5->setEnabled(true);
-        ui->radioButton_6->setEnabled(true);
-    }
-    else
-    {
-        ui->radioButton_5->setEnabled(false);
-        ui->radioButton_6->setEnabled(false);
-    }
-}
-
-void editcompgui::on_radioButton_year_clicked()
-{
-    if(ui->radioButton_year->isChecked())
-    {
-        ui->lineEdit_4->setEnabled(true);
-    }
-    else
-    {
-        ui->lineEdit_4->setEnabled(false);
-    }
-}
-
-void editcompgui::on_radioButton_4_clicked()
-{
-    ui->lineEdit_3->setEnabled(true);
+    ui -> tableWidget_2 -> setItem(0, 0, new QTableWidgetItem(desc));
 }
 
 void editcompgui::on_pushButton_editComp_clicked()
 {
-    string oldName = _name;
+    string name = ui->lineEdit->text().toStdString();
+    string type = ui->lineEdit_2->text().toStdString();
+    string wasBuilt = ui->lineEdit_3->text().toStdString();
+    int year = ui->lineEdit_4->text().toInt();
+    string desc = ui->lineEdit_5->text().toStdString();
 
-    vector<Computer> computers = _serviceComp.getComputers();
-
-    string addName = ui->lineEdit_2->text().toStdString();
-    string addType = _type;
-    string addWasBuilt = _wasBuilt;
-
-
-    int addBuildYear = _year;
-
-    if(ui->radioButton_name->isChecked())
+    if(!isValidWasBuilt())
     {
-       _serviceComp.editComputerString(oldName, "name", addName);
+        QMessageBox::about(this, "Error!", "Please say whether the computer was built or not! (Either yes or no)");
+        ui->lineEdit_3->clear();
     }
-
-    if(ui->radioButton_type->isChecked())
+    else if(!_serviceComp.validName(type))
     {
-        if(ui->radioButton_4->isChecked())
-        {
-            addType = ui->lineEdit_3->text().toStdString();
-             _serviceComp.editComputerString(oldName, "type", addType);
-        }
-        else
-        {
-            _serviceComp.editComputerString(oldName, "type", addType);
-        }
-
+        QMessageBox::about(this, "Error!", "Please enter a valid other computer type!");
+        ui->lineEdit->clear();
     }
-
-    if(ui->radioButton_wasBuilt->isChecked())
+    else
     {
-        _serviceComp.editComputerString(oldName, "built", addWasBuilt);
+        _serviceComp.editComputerString(_id, "name", name);
+        _serviceComp.editComputerString(_id, "type", type);
+        _serviceComp.editComputerString(_id, "wasBuilt", wasBuilt);
+        _serviceComp.editComputerInt(_id, "year", year);
+        _serviceComp.editComputerString(_id, "description", desc);
+        accept();
     }
+}
 
-    if(ui->radioButton_year->isChecked())
+bool editcompgui::isValidWasBuilt()
+{
+    string wasBuilt = ui->lineEdit_3->text().toStdString();
+
+    if(wasBuilt == "yes" || wasBuilt == "yes" || wasBuilt == "No" || wasBuilt == "no")
     {
-        _serviceComp.editComputerInt(oldName, "year", addBuildYear);
+        return true;
     }
-
-    this->hide();
+    else
+    {
+        return false;
+    }
 }
 
 void editcompgui::on_pushButton_back_clicked()
 {
-    this->hide();
+    close();
 }
 
-void editcompgui::on_radioButton_clicked()
-{
-    ui->lineEdit_3->setEnabled(false);
-    _type = "Mechanical";
-}
-
-void editcompgui::on_radioButton_2_clicked()
-{
-    ui->lineEdit_3->setEnabled(false);
-    _type = "Transistor";
-}
-
-void editcompgui::on_radioButton_3_clicked()
-{
-    ui->lineEdit_3->setEnabled(false);
-    _type = "Electronic";
-}
-
-void editcompgui::on_radioButton_6_clicked()
-{
-    _wasBuilt = "Yes";
-}
-
-void editcompgui::on_radioButton_5_clicked()
-{
-    _wasBuilt = "No";
-    _year = 0;
-}
-
-void editcompgui::on_lineEdit_4_currentIndexChanged(int index)
-{
-    QString qstrBuildYear = ui->lineEdit_4->currentText();
-    string strBuildYear = qstrBuildYear.toStdString();
-    _year = atoi(strBuildYear.c_str());
-}
 

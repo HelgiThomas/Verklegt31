@@ -49,6 +49,7 @@ public:
      * @brief allRelationIDs
      */
     vector<int> allRelationID();
+    int getLinkId(int sciId, int compId);
 
 private:
     LinkAccess _link;

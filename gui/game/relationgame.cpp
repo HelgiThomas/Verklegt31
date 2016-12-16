@@ -15,10 +15,10 @@ RelationGame::~RelationGame()
 
 void RelationGame::on_pushButton_clicked()
 {
-
+    close();
 }
 
 void RelationGame::on_pushButton_2_clicked()
 {
-
+    close();
 }

@@ -15,6 +15,7 @@
 #include "gui/edit/editsci.h"
 #include "gui/remove/removecomp.h"
 #include "gui/remove/removescigui.h"
+#include "gui/remove/removerelation.h"
 #include "gui/list/infosci.h"
 #include "gui/list/infocomp.h"
 
@@ -41,46 +42,61 @@ public:
     void displayAllScientists();
     void displayAllComputers();
     void displayRelations ();
-
     /**
      * @brief displayScientists/displayComputers, functions that take a vector as a param and displays the vector
      * @param Scientist/Computers
      */
     void displayScientists  (vector<Scientist>Scientist);
     void displayComputers(vector <Computer> Computers);
+
 private slots:
+    /**
+     * @brief displayScientists/displayComputers, functions that take a vector as a param and displays the vector
+     * @param Scientist/Computers
+     */
+    void on_table_scientists_clicked();
+
+    void on_table_computers_clicked();
+
+    void on_table_relations_clicked();
+
     /**
      * @brief on_input_filter_scientists/computers_textChanged, functions that return a vector of the searched string
      * @param arg1
      */
-    void on_input_filter_scientists_textChanged(const QString &arg1);
-    void on_input_filter_computers_textChanged(const QString &arg1);
-    /**
-     * @brief on_table_scientists/computers_clicked, functions set the variables equal to the index that the user is on
-     * @param index
-     */
-    void on_table_scientists_clicked(const QModelIndex &index);
-    void on_table_computers_clicked(const QModelIndex &index);
+    void on_input_filter_scientists_textChanged();
+
+    void on_input_filter_computers_textChanged();
     /**
      * @brief on_button_add_scientist/computer/relation_clicked, functions that run the add classes
      */
+
     void on_button_add_scientist_clicked();
+
     void on_button_add_computer_clicked();
+
     void on_button_add_relation_clicked();
     /**
      * @brief on_button_edit_scientist_clicked, functiosn that run the edit classes
      */
     void on_button_edit_scientist_clicked();
+
     void on_button_edit_computer_clicked();
+
     /**
-     * @brief on_button_remove_scientist_clicked, functions that run the remove classes
-     */
+      * @brief on_button_remove_scientist_clicked, functions that run the remove classes
+      */
     void on_button_remove_scientist_clicked();
+
     void on_button_remove_computer_clicked();
+
+    void on_button_remove_relation_clicked();
     /**
-     * @brief on_button_info_scientist_clicked, functions that run the info classes
-     */
+      * @brief on_button_info_scientist_clicked, functions that run the info classes
+      */
+
     void on_button_info_scientist_clicked();
+
     void on_button_info_comp_clicked();
 
 private:
@@ -99,9 +115,10 @@ private:
 
     removecomp _removeComp;
     removescigui _removeSci;
+    removeRelation _removeRel;
 
-    infosci _infoSci;
     infocomp _infoComp;
+    infosci _infoSci;
 };
 
 #endif // LISTGUI_H

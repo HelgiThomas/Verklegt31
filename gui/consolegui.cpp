@@ -20,20 +20,20 @@ void consolegui::on_button_list_clicked()
 
 void consolegui::on_button_list_5_clicked()
 {
-    this->hide();
+    close();
 }
 
 void consolegui::on_button_list_2_clicked()
 {
-
+    _game1.exec();
 }
 
 void consolegui::on_button_list_4_clicked()
 {
-
+    _game2.exec();
 }
 
 void consolegui::on_button_list_3_clicked()
 {
-
+    _game3.exec();
 }

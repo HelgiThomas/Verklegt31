@@ -48,8 +48,8 @@ public:
      * @param string variable
      * @param string/int newElement, two function - one for int and one for string.
      */
-    void editString(string nameOf, string variable, string newElement);
-    void editInt(string nameOf, string variable, int newElement);
+    void editString(int id, string variable, string newElement);
+    void editInt(int id, string variable, int newElement);
 
     /**
      * @brief updateRelation/all, updates the relation to scientist/s.
@@ -66,7 +66,6 @@ public:
      */
     vector<Scientist> sortQuery(string var, string command);
     vector<Scientist> searchQueryString(string variable,string command);
-    vector<Scientist> searchQueryInt(string variable, string operatorOf, int command);
 
     /**
      * @brief connect, connects the SQL database.

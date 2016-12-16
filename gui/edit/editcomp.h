@@ -2,6 +2,7 @@
 #define EDITCOMPGUI_H
 
 #include <QDialog>
+#include <QMessageBox>
 
 #include "model/computer.h"
 #include "service/computerservice.h"
@@ -23,45 +24,29 @@ public:
     void setType(string type);
     void setWasBuilt(string wasBuilt);
     void setYear(int year);
+    void setDescription(string description);
 
-    void setText();
+    void displayComputers();
+    void displayDescription();
 
 private slots:
-    void on_radioButton_name_clicked();
-
-    void on_radioButton_type_clicked();
-
-    void on_radioButton_wasBuilt_clicked();
-
-    void on_radioButton_year_clicked();
-
-    void on_radioButton_4_clicked();
     void on_pushButton_editComp_clicked();
 
     void on_pushButton_back_clicked();
 
-    void on_radioButton_clicked();
-
-    void on_radioButton_2_clicked();
-
-    void on_radioButton_3_clicked();
-
-    void on_radioButton_6_clicked();
-
-    void on_radioButton_5_clicked();
-
-    void on_lineEdit_4_currentIndexChanged(int index);
-
-
 private:
+    bool isValidWasBuilt();
+
     Ui::editcompgui *ui;
+
+    ComputerService _serviceComp;
 
     int _id;
     string _name;
     string _type;
     string _wasBuilt;
     int _year;
-    ComputerService _serviceComp;
+    string _description;
 };
 
 #endif // EDITCOMPGUI_H

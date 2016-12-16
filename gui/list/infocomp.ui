@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>599</width>
-    <height>243</height>
+    <width>600</width>
+    <height>335</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,19 +47,17 @@
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>170</x>
      <y>50</y>
-     <width>411</width>
+     <width>401</width>
      <height>81</height>
     </rect>
    </property>
-   <column>
-    <property name="text">
-     <string>New Column</string>
-    </property>
-   </column>
    <column>
     <property name="text">
      <string>Name</string>
@@ -72,24 +70,48 @@
    </column>
    <column>
     <property name="text">
+     <string>wasBuilt</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
      <string>Year</string>
     </property>
    </column>
   </widget>
   <widget class="QTableWidget" name="tableWidget_2">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>140</y>
-     <width>411</width>
+     <y>170</y>
+     <width>401</width>
      <height>81</height>
     </rect>
    </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>400</number>
+   </attribute>
    <column>
     <property name="text">
      <string>Description</string>
     </property>
    </column>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>280</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
   </widget>
  </widget>
  <resources/>
