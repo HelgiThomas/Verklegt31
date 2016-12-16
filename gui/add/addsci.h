@@ -54,6 +54,8 @@ private:
     int _sciDeath;
     string _sex;
 
+    void resetAdd();
+
 };
 
 #endif // ADDGUI_H

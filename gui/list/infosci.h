@@ -16,7 +16,6 @@ class infosci : public QDialog
 public:
     explicit infosci(QWidget *parent = 0);
     ~infosci();
-    void setText();
 
 private:
     Ui::infosci *ui;

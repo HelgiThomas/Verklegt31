@@ -31,12 +31,18 @@ private slots:
 
     void on_combobox_buildYear_currentIndexChanged(int index);
 
+    void on_radio_yes_clicked();
+
+    void on_radio_no_clicked();
+
 private:
     Ui::addcomp *ui;
     ComputerService _serviceComp;
     string _type;
     string _wasBuilt;
     int _buildYear;
+
+    void resetComp();
 };
 
 #endif // ADDCOMP_H

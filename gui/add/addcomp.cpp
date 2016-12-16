@@ -57,7 +57,7 @@ void addcomp::on_button_addComp_clicked()
         this->hide();
     }
 
-
+    resetComp();
 }
 
 bool addcomp::isValidType()
@@ -113,4 +113,40 @@ void addcomp::on_combobox_buildYear_currentIndexChanged(int index)
     QString qstrBuildYear = ui->combobox_buildYear->currentText() ;
     string strBuildYear = qstrBuildYear.toStdString();
     _buildYear = atoi(strBuildYear.c_str());
+}
+
+void addcomp::on_radio_yes_clicked()
+{
+    ui->combobox_buildYear->setEnabled(true);
+}
+
+void addcomp::on_radio_no_clicked()
+{
+    ui->combobox_buildYear->setEnabled(false);
+    _buildYear = 0;
+}
+
+void addcomp::resetComp()
+{
+    ui->line_compName->setText("");
+    ui->radio_mech->setAutoExclusive(false);
+    ui->radio_mech->setChecked(false);
+    ui->radio_mech->setAutoExclusive(true);
+    ui->radio_elec->setAutoExclusive(false);
+    ui->radio_elec->setChecked(false);
+    ui->radio_elec->setAutoExclusive(true);
+    ui->radio_trans->setAutoExclusive(false);
+    ui->radio_trans->setChecked(false);
+    ui->radio_trans->setAutoExclusive(true);
+    ui->radio_oth->setAutoExclusive(false);
+    ui->radio_oth->setChecked(false);
+    ui->radio_oth->setAutoExclusive(true);
+    ui->radio_yes->setAutoExclusive(false);
+    ui->radio_yes->setChecked(false);
+    ui->radio_yes->setAutoExclusive(true);
+    ui->radio_no->setAutoExclusive(false);
+    ui->radio_no->setChecked(false);
+    ui->radio_no->setAutoExclusive(true);
+    ui->combobox_buildYear->setCurrentIndex(2016);
+    ui->line_otherType->setText("");
 }

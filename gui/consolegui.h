@@ -34,15 +34,16 @@ public:
     ~consolegui();
 
 private slots:
-    void on_button_addSci_clicked();
-    void on_button_addComp_clicked();
-
-    void on_button_sciRemove_clicked();
-    void on_button_removeComp_clicked();
 
     void on_button_list_clicked();
 
-    void on_button_addRel_clicked();
+    void on_button_list_5_clicked();
+
+    void on_button_list_2_clicked();
+
+    void on_button_list_4_clicked();
+
+    void on_button_list_3_clicked();
 
 private:
     Ui::consolegui *ui;
