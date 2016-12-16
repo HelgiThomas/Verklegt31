@@ -21,49 +21,67 @@
 namespace Ui {
 class listgui;
 }
-
+/**
+ * @brief The listgui class, the class of listgui
+ */
 class listgui : public QDialog
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief listgui, constructer of the listgui class
+     * @param parent
+     */
     explicit listgui(QWidget *parent = 0);
     ~listgui();
-
+    /**
+     * @brief displayAllScientists/displayAllComputers,displayRelations, functions that call on the display functions
+     */
     void displayAllScientists();
-    void displayScientists  (vector<Scientist>Scientist);
-
     void displayAllComputers();
-    void displayComputers(vector <Computer> Computers);
-
     void displayRelations ();
 
+    /**
+     * @brief displayScientists/displayComputers, functions that take a vector as a param and displays the vector
+     * @param Scientist/Computers
+     */
+    void displayScientists  (vector<Scientist>Scientist);
+    void displayComputers(vector <Computer> Computers);
 private slots:
-    void on_table_scientists_clicked(const QModelIndex &index);
-
-    void on_table_computers_clicked(const QModelIndex &index);
-
+    /**
+     * @brief on_input_filter_scientists/computers_textChanged, functions that return a vector of the searched string
+     * @param arg1
+     */
     void on_input_filter_scientists_textChanged(const QString &arg1);
-
     void on_input_filter_computers_textChanged(const QString &arg1);
-
+    /**
+     * @brief on_table_scientists/computers_clicked, functions set the variables equal to the index that the user is on
+     * @param index
+     */
+    void on_table_scientists_clicked(const QModelIndex &index);
+    void on_table_computers_clicked(const QModelIndex &index);
+    /**
+     * @brief on_button_add_scientist/computer/relation_clicked, functions that run the add classes
+     */
     void on_button_add_scientist_clicked();
-
     void on_button_add_computer_clicked();
-
-    void on_button_edit_scientist_clicked();
-
-    void on_button_edit_computer_clicked();
-
-    void on_button_remove_scientist_clicked();
-
-    void on_button_remove_computer_clicked();
-
-    void on_button_info_scientist_clicked();
-
-    void on_button_info_comp_clicked();
-
     void on_button_add_relation_clicked();
+    /**
+     * @brief on_button_edit_scientist_clicked, functiosn that run the edit classes
+     */
+    void on_button_edit_scientist_clicked();
+    void on_button_edit_computer_clicked();
+    /**
+     * @brief on_button_remove_scientist_clicked, functions that run the remove classes
+     */
+    void on_button_remove_scientist_clicked();
+    void on_button_remove_computer_clicked();
+    /**
+     * @brief on_button_info_scientist_clicked, functions that run the info classes
+     */
+    void on_button_info_scientist_clicked();
+    void on_button_info_comp_clicked();
 
 private:
     Ui::listgui *ui;

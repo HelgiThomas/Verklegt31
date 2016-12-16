@@ -31,35 +31,12 @@ public:
      * @param Scientist newScientist.
      */
     void addScientist(Scientist newScientist);
-
     /**
-     * @brief searchName/Sex/Birth/Death, Functions to search for different things.
+     * @brief searchName Functions to search for different things.
      * @param string/int command.
      * @return vector <Scientist>.
      */
     vector<Scientist> searchName (string command);
-    vector<Scientist> searchSex (string command);
-    vector<Scientist> searchBirth (string operatorOf, int command);
-    vector<Scientist> searchDeath (string operatorOf, int command);
-
-    /**
-     * @brief sortByName/Sex/Birth/Death, Functions to sort by different means.
-     * @return vector<Scientist>.
-     */
-    vector<Scientist> sortByName();
-    vector<Scientist> sortBySex();
-    vector<Scientist> sortByBirth();
-    vector<Scientist> sortByDeath();
-
-    /**
-     * @brief sortByName/Sex/Birth/Death in reverse, Functions to sort in reverse order by various different means.
-     * @return vector<Scientist>.
-     */
-    vector<Scientist> sortByNameReverse();
-    vector<Scientist> sortBySexReverse();
-    vector<Scientist> sortByBirthReverse();
-    vector<Scientist> sortByDeathReverse();
-
     /**
      * @brief removeScientist/Every, Function to remove a scientist from the list.
      * @param string name.

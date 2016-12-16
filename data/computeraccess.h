@@ -59,14 +59,13 @@ public:
     void updateRelationall();
 
     /**
-     * @brief sortQuery/String/Int, pulls out of the database the list of computers sorted by the appropriate variable.
+     * @brief sortQuery/String, pulls out of the database the list of computers sorted by the appropriate variable.
      * @param string var
      * @param string command
      * @return vector of computers sorted
      */
     vector<Computer> sortQuery(string var, string command);
     vector<Computer> searchQueryString(string variable,string command);
-    vector<Computer> searchQueryInt(string variable, string operatorOf, int command);
 
     /**
      * @brief connect, connects the SQL database.

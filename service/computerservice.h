@@ -34,24 +34,11 @@ public:
     void addComputer(Computer newComputer);
 
     /**
-     * @brief searchName/Year/Type/wasBuilt, search functions to search for all the specified inputs.
+     * @brief searchName, search functions to search for all the specified inputs.
      * @param string command
      * @return
      */
     vector<Computer> searchName(string command);
-    vector<Computer> searchYear(string operatorOf, int command);
-    vector<Computer> searchType(string command);
-    vector<Computer> searchwasBuilt(string builtOf, string operatorOf);
-
-    /**
-     * @brief SortByName/BuildYear/CompType/WasBuilt, sort by for all the specified fields.
-     * @return vector<Computer>.
-     */
-    vector<Computer> sortByName();
-    vector<Computer> sortByBuildYear();
-    vector<Computer> sortByCompType();
-    vector<Computer> sortBywasBuilt();
-
     /**
      * @brief  sortByName/BuildYear/ComptType/wasBuilt, sort in reverse order by for all the specified fields.
      * @return vector<Computer>.
