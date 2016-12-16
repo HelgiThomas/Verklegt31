@@ -20,42 +20,42 @@ The instructions for this program are quite simple. The user is presented with m
 
 When list is clicked the user is presented with a dialog window. The window has three tabs at the top which, when clicked, provide different options for what they include (Scientists, Computers and relations).</br></br>
 
-The Scientists tab:</br></br>
+**The Scientists tab**:</br></br>
 Below the tabs is a search box where user can search for anything in the table below which displays the scientists            currently active in the database. It's possible to sort the scientists, ascending or descending by clicking the name of        desired sorting column. Below the table are the commands explained below.</br></br>
      
-Add:</br>
+*Add*:</br>
 Available input: Name, sex, year of birth, year of death and citation. Citation is optional and user can enter                 whether the user is alive or not before entering death year is required. Names can not include numbers or special             characters, only alphabetical characters and whitespaces. Citations can include anything. If Name, Sex or Year of             birth are left empty the user is presented with an error and can not continue.</br></br>
           
-Information:</br>
+*Information*:</br>
 When this button is clicked the user is presented with information about the chosen scientist from the table                   (Already displayed information, plus citation) in a more clean way.</br></br>
-Remove:</br>
+*Remove*:</br>
 This button is greyed out, until user chooses a scientist from the list. Then the button becomes clickable and user           can click it to remove scientist from the list(it will remain in the database, but can not be displayed in the                 program)</br></br>
           
-Edit:</br>
+*Edit*:</br>
 This button is greyed out, until user chooses a scientist from the list. Then the button becomes clickable and user           can click it to edit a scientist from the list. User can choose which attribute(s) to edit, and edit them (theres a           checkbox for each attribute and input fields become available when checked).</br></br>
           
-The Computers tab:</br>
-Below the tabs is a search box where user can search for anything in the table below which displays the computers              currently active in the database. It's possible to sort the computers, ascending or descending by clicking the name of        desired sorting column. Below the table are the commands explained below.
+**The Computers tab**:</br></br>
+Below the tabs is a search box where user can search for anything in the table below which displays the computers              currently active in the database. It's possible to sort the computers, ascending or descending by clicking the name of        desired sorting column. Below the table are the commands explained below.</br></br>
      
-Add:</br>
+*Add*:</br>
 Available input: Name, type, whether it was built or not (Yes or No) and build year. The name can be any input                 (numbers, alphabetical characters and special characters). User can choose between three computer types, or choose             the "Other" option. When that is selected a line input will become available where user can input the computer type           which can only contain alphabetical characters.</br></br>
           
-Information:</br>
+*Information*:</br>
 When this button is clicked the user is presented with information about the chosen computer from the table                   (Already displayed information) in a more clean way.</br></br>
           
-Remove:</br>
+*Remove*:</br>
 This button is greyed out, until user chooses a computer from the list. Then the button becomes clickable and user             can click it to remove computer from the list(it will remain in the database, but can not be displayed in the                 program)</br></br>
           
-Edit:</br>
+*Edit*:</br>
 This button is greyed out, until user chooses a computer from the list. Then the button becomes clickable and user             can click it to edit a computer from the list. User can choose which attribute(s) to edit, and edit them (theres a             checkbox for each attribute and input fields become available when checked).</br></br>
           
-The Relations tab:</br>
+**The Relations tab**:</br></br>
 Below the tabs is a search box where user can search for anything in the table below which displays the relations              currently active in the database. It's possible to sort the relations, ascending or descending by clicking the name of        desired sorting column. Below the table are the commands explained below.</br></br>
      
-Add:</br>
+*Add*:</br>
 User is presented with a list of all computers and scientists currently stored in the database. User can then choose           scientists and computers to make a relation between(as many as desired, by selecting computer/scientist name and               clicking "Confirm selected scientist/computer" and when finished, clicking "Add relation to database"). A relation             will be made between all selected elements.</br></br>
           
-Remove:</br>
+*Remove*:</br>
 This button is greyed out, until user chooses a relation from the presented list of relations stored in the                   database. Then the button becomes clickable and user can select a relation and remove it.</br></br>
 
 # The Program:
