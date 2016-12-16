@@ -77,7 +77,15 @@ void ScientistService::editScientistInt (string nameOf, string variable, int new
  */
 vector<Scientist> ScientistService::searchName(string command)
 {
-    return _SciAccess.searchQueryString("Name",command);
+    // if (command = strengur)
+    //{
+        return _SciAccess.searchQueryString("Name",command);
+    //}
+    // elseif (command = int)
+   // {
+        //return _SciAccess.searchQueryInt("greater","birth",command)
+    //}
+
 }
 
 /**

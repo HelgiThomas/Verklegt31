@@ -91,7 +91,7 @@ void ScientistAccess::readToDatabase(Scientist scientist)
         QString qStatus = QString::number(number);
         QString qImage = QString::fromStdString(scientist.getImage());
 
-        query.prepare("INSERT INTO Scientists (name, sex, birth, death, citation, status) VALUES (:name, :sex, :birth, :death, :citation, :status, :image)");
+        query.prepare("INSERT INTO Scientists (name, sex, birth, death, citation, status, image) VALUES (:name, :sex, :birth, :death, :citation, :status, :image)");
         query.bindValue(":name", qName);
         query.bindValue(":sex", qSex);
         query.bindValue(":birth", qBirth);
@@ -113,9 +113,7 @@ void ScientistAccess::removelist(int nameOf)
     int number = 0;
 
     connect();
-    cout << "penis";
     updateRelation(nameOf);
-    cout << "cervix";
     QSqlQuery query;
 
     QString qStatus = QString::number(number);
@@ -321,13 +319,7 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
 
     if (variable == "Name" || variable == "name")
     {
-        string query_string = "SELECT * FROM Scientists WHERE Name LIKE '" + command + "%'";
-        QString qCommand (query_string.c_str());
-        query.exec(qCommand);
-    }
-    else if (variable == "Sex" || variable == "sex")
-    {
-        string query_string = "SELECT * FROM Scientists WHERE Sex LIKE '" + command + "%'";
+        string query_string = "SELECT * FROM Scientists WHERE Name LIKE '%" + command + "%' OR Sex LIKE '%" + command + "%' OR Birth LIKE '" + command + "%' OR Death LIKE '" + command + "%' " ;
         QString qCommand (query_string.c_str());
         query.exec(qCommand);
     }
@@ -394,46 +386,15 @@ vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operat
 
     if (variable == "Birth" || variable == "birth")
     {
-        if (operatorOf == "greater" || operatorOf == "Greater")
-        {
-            string query_string = "SELECT * FROM Scientists WHERE Birth > "+ commandStr;
+
+            string query_string = "SELECT * FROM Scientists WHERE Birth LIKE "+ commandStr;
             QString qCommand (query_string.c_str());
             query.exec(qCommand);
-        }
-        else if (operatorOf == "less" || operatorOf == "Less")
-        {
-            string query_string = "SELECT * FROM Scientists WHERE Birth < " + commandStr;
-            QString qCommand (query_string.c_str());
-            query.exec(qCommand);
-        }
-        else if (operatorOf == "equal" || operatorOf == "Equal")
-        {
-            string query_string = "SELECT * FROM Scientists WHERE Birth = " + commandStr;
-            QString qCommand (query_string.c_str());
-            query.exec(qCommand);
-        }
+
     }
-    else if (variable == "Death" || variable == "death")
-    {
-        if (operatorOf == "greater" || operatorOf == "Greater")
-        {
-            string query_string = "SELECT * FROM Scientists WHERE Death > "+ commandStr;
-            QString qCommand (query_string.c_str());
-            query.exec(qCommand);
-        }
-        else if (operatorOf == "less" || operatorOf == "Less")
-        {
-            string query_string = "SELECT * FROM Scientists WHERE Death < " + commandStr;
-            QString qCommand (query_string.c_str());
-            query.exec(qCommand);
-        }
-        else if (operatorOf == "equal" || operatorOf == "Equal")
-        {
-            string query_string = "SELECT * FROM Scientists WHERE Death = " + commandStr;
-            QString qCommand (query_string.c_str());
-            query.exec(qCommand);
-        }
-    }
+
+
+
 
     int idId = query.record().indexOf("id");
     int idName = query.record().indexOf("name");
@@ -513,7 +474,6 @@ bool ScientistAccess::checkEntry(Scientist scientist)
 
         if (Name == qName && Sex == qSex && Birth == qBirth && Death == qDeath)
         {
-            cout << "This person already exist! ";
             return false;
         }
     }

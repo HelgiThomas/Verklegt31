@@ -161,7 +161,6 @@ void LinkAccess::editSci (int changeID, int newSciID)
 {
     connect();
     QSqlQuery query;
-    cout << "This is sci number: " << newSciID <<  endl << endl;
 
     QString qID = QString::number(changeID+1);
     QString qSciID = QString::number(newSciID);
@@ -182,8 +181,6 @@ void LinkAccess::editSci (int changeID, int newSciID)
  */
 void LinkAccess::editComp (int changeID, int newCompID)
 {
-    cout << "This is comp number: " << newCompID <<  endl << endl;
-
     connect();
     QSqlQuery query;
 

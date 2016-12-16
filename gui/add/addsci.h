@@ -41,6 +41,10 @@ private slots:
 
     void on_button_browse_clicked();
 
+    void on_rbutton_dead_clicked();
+
+    void on_rbutton_alive_clicked();
+
 private:
     Ui::addsci *ui;
     ScientistService _serviceSci;
