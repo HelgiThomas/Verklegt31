@@ -97,11 +97,11 @@ The classes are as follows:</br></br>
 *Main*:Runs the program
 
 # Work
-The authors divded themself into three teams and worked together on seperate classes to achieve maximum functionality in the program and to learn how to divide tasks into subtasks, divide them between the team and them link them alltogether.
-The following authors worked on the following classes (atleast in the start, we changed it up when the project went along):</br>
+The authors divded themself into three teams and worked together on seperate classes to achieve maximum functionality in the program and to learn how to divide tasks into subtasks, divide them between the team and them link them alltogether.</br>
+The project was worked divided betweeen members as shown below: </br></br>
 
-       Every member of the group wrote some code in each of the classes.
-       ReadMe File (Benedikt Þorri Þórarinsson, Helgi Hallgrímsson)
+Every member of the group wrote code in each of the classes.</br>
+ReadMe File (Benedikt Þorri Þórarinsson)</br></br>
 
 The team succesfully worked together and members contributed equally.
 
