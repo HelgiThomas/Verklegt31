@@ -114,3 +114,14 @@ void addcomp::on_combobox_buildYear_currentIndexChanged(int index)
     string strBuildYear = qstrBuildYear.toStdString();
     _buildYear = atoi(strBuildYear.c_str());
 }
+
+void addcomp::on_radio_yes_clicked()
+{
+    ui->combobox_buildYear->setEnabled(true);
+}
+
+void addcomp::on_radio_no_clicked()
+{
+    ui->combobox_buildYear->setEnabled(false);
+    _buildYear = 0;
+}

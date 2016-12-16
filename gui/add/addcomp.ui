@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>407</width>
     <height>300</height>
    </rect>
   </property>
@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
+     <x>20</x>
+     <y>20</y>
      <width>201</width>
      <height>16</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QLineEdit" name="line_compName">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>30</y>
+     <x>20</x>
+     <y>50</y>
      <width>191</width>
      <height>21</height>
     </rect>
@@ -42,8 +42,8 @@
   <widget class="QPushButton" name="button_addComp">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>260</y>
+     <x>140</x>
+     <y>250</y>
      <width>113</width>
      <height>32</height>
     </rect>
@@ -53,10 +53,13 @@
    </property>
   </widget>
   <widget class="QComboBox" name="combobox_buildYear">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>190</y>
+     <x>270</x>
+     <y>200</y>
      <width>91</width>
      <height>26</height>
     </rect>
@@ -65,7 +68,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>280</x>
      <y>170</y>
      <width>81</width>
      <height>20</height>
@@ -78,8 +81,8 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>50</y>
+     <x>20</x>
+     <y>80</y>
      <width>371</width>
      <height>61</height>
     </rect>
@@ -143,8 +146,8 @@
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>110</y>
+     <x>20</x>
+     <y>180</y>
      <width>191</width>
      <height>51</height>
     </rect>
@@ -182,8 +185,8 @@
   <widget class="QLineEdit" name="line_otherType">
    <property name="geometry">
     <rect>
-     <x>232</x>
-     <y>110</y>
+     <x>240</x>
+     <y>140</y>
      <width>151</width>
      <height>21</height>
     </rect>
