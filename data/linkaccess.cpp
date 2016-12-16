@@ -16,17 +16,25 @@ void LinkAccess::link(int scientistId, int computerId)
 
     connect();
 
-    QSqlQuery query;
-    QString qSci = QString::number(scientistId);
-    QString qComp = QString::number(computerId);
-    QString qStatus = QString::number(number);
+    if (checkEntry(scientistId,computerId))
+    {
+        QSqlQuery query;
+        QString qSci = QString::number(scientistId);
+        QString qComp = QString::number(computerId);
+        QString qStatus = QString::number(number);
 
-    query.prepare("INSERT INTO SciComp (SciID, CompID, Status) VALUES (:sci, :comp , :status)");
-    query.bindValue(":sci", qSci);
-    query.bindValue(":comp", qComp);
-    query.bindValue(":status", number);
+        query.prepare("INSERT INTO SciComp (SciID, CompID, Status) VALUES (:sci, :comp , :status)");
+        query.bindValue(":sci", qSci);
+        query.bindValue(":comp", qComp);
+        query.bindValue(":status", number);
 
-    query.exec();
+        query.exec();
+    }
+    else
+    {
+
+    }
+
 
     closeConn();
 }
@@ -217,6 +225,34 @@ void LinkAccess::removeRelation (int nrID)
     query.exec();
 
     closeConn();
+}
+/**
+ * @brief checkEntry, checks the new added relation and returns not true if an entry already exist
+ * @param sciID
+ * @param compID
+ * @return true or false
+ */
+bool LinkAccess::checkEntry(int scientistId, int computerId)
+{
+    QSqlQuery query("SELECT * FROM SciComp");
+
+    QString sciId = QString::number(scientistId);
+    QString compId = QString::number(computerId);
+
+    while (query.next())
+    {
+        int idSci = query.record().indexOf("SciID");
+        int idComp = query.record().indexOf("CompID");
+
+        QString qSci = query.value(idSci).toString();
+        QString qComp = query.value(idComp).toString();
+
+        if (sciId == qSci && compId == qComp)
+        {
+            return false;
+        }
+    }
+    return true;
 }
 /**
  * @brief This function adds the selected scientist and the selected computer to the SQL database relation

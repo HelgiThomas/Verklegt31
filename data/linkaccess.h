@@ -52,7 +52,6 @@ public:
     void editRelation (int nrID, int sciID, int compID);
     void editSci(int changeID,int newSciID);
     void editComp(int changeID,int newCompID);
-
     /**
      * @brief getSciComps,
      * @param Sci
@@ -71,6 +70,13 @@ public:
      */
     void connect();
     void closeConn();
+    /**
+     * @brief checkEntry, checks entry of new relation
+     * @param sciID
+     * @param compID
+     * @return  true or false
+     */
+    bool checkEntry(int scientistId, int computerId);
 
 private:
     QSqlDatabase m_db;
