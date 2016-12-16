@@ -21,16 +21,22 @@ public:
     explicit addrel(QWidget *parent = 0);
     ~addrel();
 
-    void displaySciRel();
-
-    void displayRelations();
-
+    /**
+     * @brief displayScientistandComputers, displays the names of the scientists and computers in a table.
+     */
     void displayScientistandComputers();
 
 private slots:
 
+    /**
+     * @brief on_button_addRel_clicked, adds the confirmed scientists and computers to the relation database.
+     */
     void on_button_addRel_clicked();
 
+    /**
+     * @brief on_button_confirmSel_clicked, adds the selected scientist or computer to their designated vector
+ * when the confirm button is clicked.
+     */
     void on_button_confirmSel_clicked();
 
 private:

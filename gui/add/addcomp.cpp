@@ -18,6 +18,10 @@ addcomp::~addcomp()
     delete ui;
 }
 
+/**
+ * @brief addcomp::on_button_addComp_clicked, adds computer to the table when the button is clicked.
+ */
+
 void addcomp::on_button_addComp_clicked()
 {
     int addId = 0;
@@ -62,6 +66,11 @@ void addcomp::on_button_addComp_clicked()
     resetComp();
 }
 
+/**
+ * @brief addcomp::isValidType, checks if the type that the user put in is valid.
+ * @return true if the input is valid, false otherwise.
+ */
+
 bool addcomp::isValidType()
 {
     bool valid = true;
@@ -87,8 +96,11 @@ bool addcomp::isValidType()
         valid = false;
     }
     return valid;
-
 }
+/**
+ * @brief addcomp::isValidWasBuilt, checks if the user put in wether the computer was built or not.
+ * @return false if the user did not put in anything, true otherwise.
+ */
 
 bool addcomp::isValidWasBuilt()
 {
@@ -110,23 +122,41 @@ bool addcomp::isValidWasBuilt()
     return valid;
 }
 
-void addcomp::on_combobox_buildYear_currentIndexChanged(int index)
+/**
+ * @brief addcomp::on_combobox_buildYear_currentIndexChanged, sets the computers build year to the build year selected in the
+ * combo box.
+ */
+
+void addcomp::on_combobox_buildYear_currentIndexChanged()
 {
     QString qstrBuildYear = ui->combobox_buildYear->currentText() ;
     string strBuildYear = qstrBuildYear.toStdString();
     _buildYear = atoi(strBuildYear.c_str());
 }
 
+/**
+ * @brief addcomp::on_radio_yes_clicked, enables the build year combo box if the user clicks the yes radio button.
+ */
+
 void addcomp::on_radio_yes_clicked()
 {
     ui->combobox_buildYear->setEnabled(true);
 }
+
+/**
+ * @brief addcomp::on_radio_no_clicked, disables the build year combo box if the user clicks the no radio button.
+ */
 
 void addcomp::on_radio_no_clicked()
 {
     ui->combobox_buildYear->setEnabled(false);
     _buildYear = 0;
 }
+
+/**
+ * @brief addcomp::resetComp, when the user adds a computer and then wants to add another computer, the info about the
+ * previously added computer does not persist in the add window.
+ */
 
 void addcomp::resetComp()
 {

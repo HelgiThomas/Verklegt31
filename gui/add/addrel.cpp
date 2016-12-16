@@ -14,6 +14,9 @@ addrel::~addrel()
     delete ui;
 }
 
+/**
+ * @brief addrel::displayScientistandComputers, displays the names of the scientists and computers in a table.
+ */
 
 void addrel::displayScientistandComputers()
 {
@@ -78,6 +81,10 @@ void addrel::displayScientistandComputers()
     }
 }
 
+/**
+ * @brief addrel::on_button_confirmSel_clicked, adds the selected scientist or computer to their designated vector
+ * when the confirm button is clicked.
+ */
 
 void addrel::on_button_confirmSel_clicked()
 {
@@ -116,6 +123,10 @@ void addrel::on_button_confirmSel_clicked()
     }
 
 }
+
+/**
+ * @brief addrel::on_button_addRel_clicked, adds the confirmed scientists and computers to the relation database.
+ */
 
 void addrel::on_button_addRel_clicked()
 {

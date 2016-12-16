@@ -29,6 +29,10 @@ addsci::~addsci()
     delete ui;
 }
 
+/**
+ * @brief addsci::on_button_addSci_clicked, adds the scientist to the table when the button is clicked.
+ */
+
 void addsci::on_button_addSci_clicked()
 {
 
@@ -69,6 +73,11 @@ void addsci::on_button_addSci_clicked()
     resetAdd();
 }
 
+/**
+ * @brief addsci::chooseSex, sets the sex of the scientist to the sex selected by the user.
+ * @return returns the sex selected by the user.
+ */
+
 string addsci::chooseSex()
 {
     string sex;
@@ -83,6 +92,11 @@ string addsci::chooseSex()
 
     return sex;
 }
+
+/**
+ * @brief addsci::isMaleOrFemale, checks wether the user has chosen a sex for the scientist
+ * @return false if the user doesn't choose anyting, true otherwise.
+ */
 
 bool addsci::isMaleOrFemale()
 {
@@ -101,19 +115,33 @@ bool addsci::isMaleOrFemale()
     }
 }
 
-void addsci::on_combobox_birthYears_currentIndexChanged(int index)
+/**
+ * @brief addsci::on_combobox_birthYears_currentIndexChanged, sets the scientists birth year to the selected birth year in
+ * the combobox.
+ */
+
+void addsci::on_combobox_birthYears_currentIndexChanged()
 {
      QString qstrBirth = ui->combobox_birthYears->currentText() ;
      string strBirth = qstrBirth.toStdString();
      _sciBirth = atoi(strBirth.c_str());
 }
 
-void addsci::on_combobox_deathYear_currentIndexChanged(int index)
+/**
+ * @brief addsci::on_combobox_deathYear_currentIndexChanged, sets the scientists deat year to the selected deat year in
+ * the combobox.
+ */
+
+void addsci::on_combobox_deathYear_currentIndexChanged()
 {
     QString qstrDeath = ui->combobox_deathYear->currentText();
     string strDeath = qstrDeath.toStdString();
     _sciDeath = atoi(strDeath.c_str());
 }
+
+/**
+ * @brief addsci::on_button_browse_clicked, lets the user browse for a photo for the scientist.
+ */
 
 void addsci::on_button_browse_clicked()
 {
@@ -121,16 +149,29 @@ void addsci::on_button_browse_clicked()
     ui -> input_addsci -> setText (filePath);
 }
 
+/**
+ * @brief addsci::on_rbutton_dead_clicked, enables the death year combo box when the "no" radio button is clicked,
+ */
+
 void addsci::on_rbutton_dead_clicked()
 {
     ui->combobox_deathYear->setEnabled(true);
 }
+
+/**
+ * @brief addsci::on_rbutton_alive_clicked, disables the death year combo box when the "no" radio button is clicked,
+ */
 
 void addsci::on_rbutton_alive_clicked()
 {
     ui->combobox_deathYear->setEnabled(false);
     _sciDeath = 0;
 }
+
+/**
+ * @brief addsci::resetAdd, when the user adds a scientist and then wants to add another scientist, the info about the
+ * previously added scientist does not persist in the add window.
+ */
 
 void addsci::resetAdd()
 {
