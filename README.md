@@ -20,7 +20,7 @@ The instructions for this program are quite simple. The user is presented with m
 
 When list is clicked the user is presented with a dialog window. The window has three tabs at the top which, when clicked, provide different options for what they include (Scientists, Computers and relations).</br></br>
 
-The Scientists tab: </br>
+The Scientists tab:
      Below the tabs is a search box where user can search for anything in the table below which displays the scientists            currently active in the database. It's possible to sort the scientists, ascending or descending by clicking the name of        desired sorting column. Below the table are the commands explained below.</br></br>
      
      Add:
@@ -35,7 +35,7 @@ The Scientists tab: </br>
      Edit:
           This button is greyed out, until user chooses a scientist from the list. Then the button becomes clickable and user           can click it to edit a scientist from the list. User can choose which attribute(s) to edit, and edit them (theres a           checkbox for each attribute and input fields become available when checked).</br></br></br>
           
-The Computers tab:</br>
+The Computers tab:
      Below the tabs is a search box where user can search for anything in the table below which displays the computers              currently active in the database. It's possible to sort the computers, ascending or descending by clicking the name of        desired sorting column. Below the table are the commands explained below.
      
      Add:
@@ -50,7 +50,7 @@ The Computers tab:</br>
      Edit:
           This button is greyed out, until user chooses a computer from the list. Then the button becomes clickable and user             can click it to edit a computer from the list. User can choose which attribute(s) to edit, and edit them (theres a             checkbox for each attribute and input fields become available when checked).
           
-The Relations tab:</br>
+The Relations tab:
      Below the tabs is a search box where user can search for anything in the table below which displays the relations              currently active in the database. It's possible to sort the relations, ascending or descending by clicking the name of        desired sorting column. Below the table are the commands explained below.
      
      Add:
