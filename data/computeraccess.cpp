@@ -77,7 +77,6 @@ void ComputerAccess::readToDatabase(Computer computer)
 
     if (checkEntry(computer))
     {
-        cout << computer.getBuildYear();
         // you should check if args are ok first...
         QSqlQuery query;
         QString qName = QString::fromStdString(computer.getName());
@@ -259,7 +258,7 @@ vector<Computer> ComputerAccess::sortQuery(string var, string command)
 }
 
 /**
- * @brief This function searches the Computers in the SQL Database after the selcted variable (String) and the newCommand ("new name, new sex...") and puts them in a vector
+ * @brief This function searches the Computers in the SQL Database after the written command
  * @param string variable, string command
  * @return vector of Computers
  */
@@ -267,10 +266,8 @@ vector<Computer> ComputerAccess::searchQueryString(string variable,string comman
 {
     connect();
 
-
     QSqlQuery query;
     vector<Computer> comp;
-
 
     if (variable == "Name" || variable == "name")
     {
@@ -322,13 +319,6 @@ vector<Computer> ComputerAccess::searchQueryString(string variable,string comman
 
     return comp;
 }
-
-/**
- * @brief This function searches the Computers in the SQL Database after the selcted variable (Int) and the newCommand ("new year...") and puts them in a vector
- * @param string variable, string operatorOf, string command
- * @return vector of Computers
- */
-
 /**
  * @brief This function checks if the new Computer is already in the list
  * @return true or false

@@ -2,7 +2,10 @@
 #include "ui_listgui.h"
 #include "infosci.h"
 #include "infocomp.h"
-
+/**
+ * @brief listgui::listgui, constructer that runs the displayAllScientists, displayAllComputers and siplayRelations functions
+ * @param parent
+ */
 listgui::listgui(QWidget *parent) :
     QDialog(parent),
 
@@ -13,17 +16,24 @@ listgui::listgui(QWidget *parent) :
     displayAllComputers();
     displayRelations ();
 }
-
+/**
+ * @brief listgui::~listgui, deconstructer that deletes the ui
+ */
 listgui::~listgui()
 {
     delete ui;
 }
+/**
+ * @brief listgui:: displayAllScientists, gets all scientists and sends them to the displayScientists function
+ */
 void listgui::displayAllScientists()
 {
     vector<Scientist> Scientists = _serviceSci.getScientists();
     displayScientists(Scientists);
 }
-
+/**
+ * @brief listgui::displayScientists, displays all scientsits with status = 1
+ */
 void listgui::displayScientists(vector <Scientist> Scientists)
 {
     vector<Scientist> allScientists = Scientists;
@@ -47,13 +57,17 @@ void listgui::displayScientists(vector <Scientist> Scientists)
         ui -> table_scientists -> setItem(row, 4, new QTableWidgetItem(yearDeath));
     }
 }
-
+/**
+ * @brief listgui::displayAllComputers,  gets all computers and sends them to the displayComputers function
+ */
 void listgui::displayAllComputers()
 {
     vector<Computer> Computers = _serviceComp.getComputers();
     displayComputers(Computers);
 }
-
+/**
+ * @brief listgui::displayComputers, displays all computers with status = 1
+ */
 void listgui::displayComputers(vector <Computer> Computers)
 {
     vector<Computer> allComputers = Computers;
@@ -77,7 +91,9 @@ void listgui::displayComputers(vector <Computer> Computers)
         ui -> table_computers-> setItem(row, 4, new QTableWidgetItem(wasBuilt));
     }
 }
-
+/**
+ * @brief listgui::displayRelations, displays all relations between computers and scientists were status = 1
+ */
 void listgui::displayRelations()
 {
     vector<int>ScientistID = _serviceSci.allScientistID();
@@ -128,7 +144,10 @@ void listgui::displayRelations()
 
     }
 }
-
+/**
+ * @brief listgui::on_input_filter_scientists_textChanged, this is the search function, which returns a vector of all scientists were the string/number come in
+ * @param arg1
+ */
 void listgui::on_input_filter_scientists_textChanged(const QString &arg1)
 {
     string userInput = ui ->input_filter_scientists->text().toStdString();
@@ -138,7 +157,10 @@ void listgui::on_input_filter_scientists_textChanged(const QString &arg1)
     displayScientists(allScientists);
 
 }
-
+/**
+ * @brief listgui::on_input_filter_computers_textChanged, this is the search function, which returns a vector of all computers were the string/number come in
+ * @param arg1
+ */
 void listgui::on_input_filter_computers_textChanged(const QString &arg1)
 {
     string userInput = ui ->input_filter_computers->text().toStdString();
@@ -147,7 +169,10 @@ void listgui::on_input_filter_computers_textChanged(const QString &arg1)
 
     displayComputers(allComputers);
 }
-
+/**
+ * @brief listgui::on_table_computers_clicked, this function sets the variables in _removecomp and _editcomp classes when the user clicks on the index
+ * @param index
+ */
 void listgui::on_table_computers_clicked(const QModelIndex &index)
 {
     vector<Computer> computer = _serviceComp.getComputers();
@@ -188,7 +213,10 @@ void listgui::on_table_computers_clicked(const QModelIndex &index)
     ui->button_remove_computer->setEnabled(true);
     ui->button_edit_computer->setEnabled(true);
 }
-
+/**
+ * @brief listgui::this function sets the variables in _removeSci and _editSci classes when the user clicks on the index
+ * @param index
+ */
 void listgui::on_table_scientists_clicked(const QModelIndex &index)
 {
     vector<Scientist> scientist = _serviceSci.getScientists();
@@ -229,57 +257,70 @@ void listgui::on_table_scientists_clicked(const QModelIndex &index)
     ui->button_remove_scientist->setEnabled(true);
     ui->button_edit_scientist->setEnabled(true);
 }
-
+/**
+ * @brief listgui::on_button_add_scientist_clicked, this function executes the _addsci class
+ */
 void listgui::on_button_add_scientist_clicked()
 {
     _addsci.exec();
-    displayAllScientists();
 }
-
+/**
+ * @brief listgui::on_button_add_computer_clicked, this function executes the _addcomp class
+ */
 void listgui::on_button_add_computer_clicked()
 {
     _addcomp.exec();
-    displayAllComputers();
 }
-
+/**
+ * @brief listgui::on_button_edit_scientist_clicked, this function executes the _editSci class
+ */
 void listgui::on_button_edit_scientist_clicked()
 {
     _editSci.exec();
-    displayAllScientists();
+    //_editSci.setText();
 }
-
+/**
+ * @brief listgui::on_button_edit_computer_clicked, this function executes the _editComp class
+ */
 void listgui::on_button_edit_computer_clicked()
 {
     _editComp.exec();
-    displayAllComputers();
+    //_editSci.setText();
 }
-
+/**
+ * @brief listgui::on_button_remove_scientist_clicked, this function executes the displayScientists function and the _removeSci class
+ */
 void listgui::on_button_remove_scientist_clicked()
 {
     _removeSci.displayScientists();
     _removeSci.exec();
-    displayAllScientists();
 }
-
+/**
+ * @brief listgui::on_button_remove_computer_clicked, this function executes the displayComputers function and the _removeComputer class
+ */
 void listgui::on_button_remove_computer_clicked()
 {
     _removeComp.displayComputers();
     _removeComp.exec();
-    displayAllComputers();
 }
-
+/**
+ * @brief listgui::on_button_info_scientist_clicked, this function exexutes the _infoSci class
+ */
 void listgui::on_button_info_scientist_clicked()
 {
     _infoSci.exec();
 }
-
+/**
+ * @brief listgui::on_button_info_comp_clicked, this function exexutes the _infoComp class
+ */
 void listgui::on_button_info_comp_clicked()
 {
     _infoComp.exec();
 }
-
+/**
+ * @brief listgui::on_button_add_relation_clicked, this function executes the _addrel class
+ */
 void listgui::on_button_add_relation_clicked()
 {
     _addrel.exec();
-    displayRelations();
 }

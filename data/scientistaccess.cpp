@@ -304,14 +304,13 @@ vector<Scientist> ScientistAccess::sortQuery(string var, string command)
     return sci;
 }
 /**
- * @brief This function searches the Computers in the SQL Database after the selcted variable (String) and the newCommand ("new name, new type...") and puts them in a vector
+ * @brief This function searches the Computers in the SQL Database after the written command
  * @param string variable, string command
  * @return vector of Scientists
  */
 vector<Scientist> ScientistAccess::searchQueryString(string variable,string command)
 {
     connect();
-
 
     QSqlQuery query;
     vector<Scientist> sci;
@@ -372,80 +371,6 @@ vector<Scientist> ScientistAccess::searchQueryString(string variable,string comm
     return sci;
 }
 /**
- * @brief This function searches the Scientists in the SQL Database after the selcted variable (Int) and the newCommand ("new year, new death...") and puts them in a vector
- * @param string variable, string operatorOf, string command
- * @return vector of Scientists
- */
-vector<Scientist> ScientistAccess::searchQueryInt(string variable, string operatorOf, int command)
-{
-    connect();
-    string commandStr;
-    commandStr = to_string(command);
-    QSqlQuery query;
-    vector<Scientist> sci;
-
-    if (variable == "Birth" || variable == "birth")
-    {
-
-            string query_string = "SELECT * FROM Scientists WHERE Birth LIKE "+ commandStr;
-            QString qCommand (query_string.c_str());
-            query.exec(qCommand);
-
-    }
-
-
-
-
-    int idId = query.record().indexOf("id");
-    int idName = query.record().indexOf("name");
-    int idSex= query.record().indexOf("sex");
-    int idBirth = query.record().indexOf("birth");
-    int idDeath = query.record().indexOf("death");
-    int idCitation = query.record().indexOf("citation");
-    int idStatus = query.record().indexOf("status");
-    int idImage = query.record().indexOf("image");
-
-    while (query.next())
-    {
-        Scientist pl;
-
-        QString qId = query.value(idId).toString();
-        QString qName = query.value(idName).toString();
-        QString qSex = query.value(idSex).toString();
-        QString qBirth = query.value(idBirth).toString();
-        QString qDeath = query.value(idDeath).toString();
-        QString qCitation = query.value(idCitation).toString();
-        QString qStatus = query.value(idStatus).toString();
-        QString qImage = query.value(idImage).toString();
-
-        int id = qId.toInt();
-        std::string name = qName.toStdString();
-        std::string sex =  qSex.toStdString();
-        int birth = qBirth.toInt();
-        int death = qDeath.toInt();
-        std::string citation = qCitation.toStdString();
-        int status = qStatus.toInt();
-        string image = qImage.toStdString();
-        if (status == 1)
-        {
-            pl.setId(id);
-            pl.setName(name);
-            pl.setSex(sex);
-            pl.setBirth(birth);
-            pl.setDeath(death);
-            pl.setCitation(citation);
-            pl.setImage(image);
-
-            sci.push_back(pl);
-        }
-    }
-    closeConn();
-
-
-
-    return sci;
-}
-/**
  * @brief This function checks if the new Scientist is already in the list
  * @return true or false
  */
@@ -479,8 +404,6 @@ bool ScientistAccess::checkEntry(Scientist scientist)
     }
     return true;
 }
-
-
 /**
  * @brief ComputerAccess::closeConn, close the SQL database connection
  */
