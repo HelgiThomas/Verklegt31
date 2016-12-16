@@ -60,8 +60,7 @@ This button is greyed out, until user chooses a relation from the presented list
 
 # The Program:
 The program is divided into four classes to do its purpose.</br>
-The classes are as follows:</br>
-Class:
+The classes are as follows:</br></br>
 **Graphical user interface layer**:</br></br>
 *addrel*: Handles functions related to adding new relations between computers and scientists.</br>
 *addcomp*: Handles functions related to adding new computers to the database.</br>
@@ -80,7 +79,7 @@ Class:
           
 *removecomp*: Handles functions related to removing computers from the database.</br>
 *removerelation*: Handles functions related to removing relations from the database.</br>
-*removescigui*: Handles functions related to removing scientists from the database.</br>
+*removescigui*: Handles functions related to removing scientists from the database.</br></br>
 **Models**:</br></br>      
 *Computer*: Stores different variables for all computer elements which the service layer uses to transfer between                         layers while the program is running.</br>
 *Scientist*: Stores different variables for all scientist elements which the service layer uses to transfer between                        layers while the program is running.</br></br>
