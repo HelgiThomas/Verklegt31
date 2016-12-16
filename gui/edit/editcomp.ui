@@ -38,8 +38,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>150</y>
+     <x>30</x>
+     <y>220</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -90,22 +90,6 @@
     <string>Edit :</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_year">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>20</y>
-     <width>61</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Year</string>
-   </property>
-   <attribute name="buttonGroup">
-    <string notr="true">buttonGroup_5</string>
-   </attribute>
-  </widget>
   <widget class="QRadioButton" name="radioButton_2">
    <property name="enabled">
     <bool>false</bool>
@@ -123,38 +107,6 @@
    </property>
    <attribute name="buttonGroup">
     <string notr="true">buttonGroup</string>
-   </attribute>
-  </widget>
-  <widget class="QRadioButton" name="radioButton_wasBuilt">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>20</y>
-     <width>71</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>wasBuilt</string>
-   </property>
-   <attribute name="buttonGroup">
-    <string notr="true">buttonGroup_4</string>
-   </attribute>
-  </widget>
-  <widget class="QRadioButton" name="radioButton_name">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>20</y>
-     <width>61</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Name</string>
-   </property>
-   <attribute name="buttonGroup">
-    <string notr="true">buttonGroup_2</string>
    </attribute>
   </widget>
   <widget class="QPushButton" name="pushButton_back">
@@ -183,24 +135,11 @@
     </rect>
    </property>
    <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
     <string>Name</string>
    </property>
-  </widget>
-  <widget class="QRadioButton" name="radioButton_type">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>20</y>
-     <width>51</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Type</string>
-   </property>
-   <attribute name="buttonGroup">
-    <string notr="true">buttonGroup_3</string>
-   </attribute>
   </widget>
   <widget class="QRadioButton" name="radioButton_3">
    <property name="enabled">
@@ -249,11 +188,14 @@
      <x>250</x>
      <y>180</y>
      <width>111</width>
-     <height>41</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>other</string>
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Enter type</string>
    </property>
   </widget>
   <widget class="QRadioButton" name="radioButton_5">
@@ -262,8 +204,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>240</y>
+     <x>90</x>
+     <y>180</y>
      <width>100</width>
      <height>20</height>
     </rect>
@@ -282,8 +224,8 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>240</y>
-     <width>100</width>
+     <y>180</y>
+     <width>51</width>
      <height>20</height>
     </rect>
    </property>
@@ -300,8 +242,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>210</y>
+     <x>30</x>
+     <y>160</y>
      <width>171</width>
      <height>16</height>
     </rect>
@@ -310,31 +252,76 @@
     <string>Was the Computer Built?</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QCheckBox" name="radioButton_name">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>20</y>
+     <width>87</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Name</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="radioButton_type">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>20</y>
+     <width>87</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Type</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="radioButton_wasBuilt">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>20</y>
+     <width>87</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Built</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="radioButton_year">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>20</y>
+     <width>87</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Year</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="lineEdit_4">
    <property name="enabled">
     <bool>false</bool>
    </property>
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>170</y>
-     <width>101</width>
-     <height>21</height>
+     <x>30</x>
+     <y>240</y>
+     <width>104</width>
+     <height>26</height>
     </rect>
-   </property>
-   <property name="text">
-    <string>Build Year</string>
    </property>
   </widget>
  </widget>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup_2"/>
-  <buttongroup name="buttonGroup_3"/>
-  <buttongroup name="buttonGroup_4"/>
-  <buttongroup name="buttonGroup"/>
-  <buttongroup name="buttonGroup_5"/>
   <buttongroup name="buttonGroup_6"/>
+  <buttongroup name="buttonGroup"/>
  </buttongroups>
 </ui>

@@ -4,6 +4,7 @@
 #include <QDialog>
 
 #include "model/computer.h"
+#include "service/computerservice.h"
 
 namespace Ui {
 class editcompgui;
@@ -39,6 +40,19 @@ private slots:
 
     void on_pushButton_back_clicked();
 
+    void on_radioButton_clicked();
+
+    void on_radioButton_2_clicked();
+
+    void on_radioButton_3_clicked();
+
+    void on_radioButton_6_clicked();
+
+    void on_radioButton_5_clicked();
+
+    void on_lineEdit_4_currentIndexChanged(int index);
+
+
 private:
     Ui::editcompgui *ui;
 
@@ -47,6 +61,7 @@ private:
     string _type;
     string _wasBuilt;
     int _year;
+    ComputerService _serviceComp;
 };
 
 #endif // EDITCOMPGUI_H
