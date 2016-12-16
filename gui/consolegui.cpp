@@ -17,3 +17,23 @@ void consolegui::on_button_list_clicked()
 {
     _list.exec();
 }
+
+void consolegui::on_button_list_5_clicked()
+{
+    this->hide();
+}
+
+void consolegui::on_button_list_2_clicked()
+{
+
+}
+
+void consolegui::on_button_list_4_clicked()
+{
+
+}
+
+void consolegui::on_button_list_3_clicked()
+{
+
+}

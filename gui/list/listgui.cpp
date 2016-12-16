@@ -254,14 +254,14 @@ void listgui::on_button_edit_computer_clicked()
 
 void listgui::on_button_remove_scientist_clicked()
 {
-    _removeSci.exec();
     _removeSci.displayScientists();
+    _removeSci.exec();
 }
 
 void listgui::on_button_remove_computer_clicked()
 {
-    _removeComp.exec();
     _removeComp.displayComputers();
+    _removeComp.exec();
 }
 
 void listgui::on_button_info_scientist_clicked()
