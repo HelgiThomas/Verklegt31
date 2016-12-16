@@ -13,7 +13,6 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    gui/mainwindow.cpp \
     service/scientistservice.cpp \
     model/scientist.cpp \
     service/computerservice.cpp \
@@ -23,11 +22,8 @@ SOURCES += main.cpp \
     data/linkaccess.cpp \
     service/generalservice.cpp \
     gui/list/listgui.cpp \
-    gui/sort/sortgui.cpp \
-    gui/search/searchgui.cpp \
     gui/consolegui.cpp \
     gui/game/gamegui.cpp \
-    gui/utilitygui.cpp \
     gui/add/addsci.cpp \
     gui/add/addcomp.cpp \
     gui/add/addrel.cpp \
@@ -44,7 +40,6 @@ SOURCES += main.cpp \
 
 
 HEADERS += \
-    gui/mainwindow.h \
     service/scientistservice.h \
     model/scientist.h \
     service/computerservice.h \
@@ -54,11 +49,8 @@ HEADERS += \
     data/linkaccess.h \
     service/generalservice.h \
     gui/list/listgui.h \
-    gui/sort/sortgui.h \
-    gui/search/searchgui.h \
     gui/consolegui.h \
     gui/game/gamegui.h \
-    gui/utilitygui.h \
     gui/add/addcomp.h \
     gui/add/addsci.h \
     gui/add/addrel.h \
@@ -74,13 +66,9 @@ HEADERS += \
     gui/game/relationgame.h
 
 FORMS += \
-    gui/mainwindow.ui \
     gui/list/listgui.ui \
-    gui/sort/sortgui.ui \
-    gui/search/searchgui.ui \
     gui/consolegui.ui \
     gui/game/gamegui.ui \
-    gui/utilitygui.ui \
     gui/add/addsci.ui \
     gui/add/addcomp.ui \
     gui/add/addrel.ui \
