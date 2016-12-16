@@ -6,6 +6,7 @@ consolegui::consolegui(QWidget *parent) :
     ui(new Ui::consolegui)
 {
     ui->setupUi(this);
+    _totalScore = 0;
 }
 
 consolegui::~consolegui()
@@ -25,15 +26,9 @@ void consolegui::on_button_list_5_clicked()
 
 void consolegui::on_button_list_2_clicked()
 {
+    _game1.setScore(_totalScore);
+    _game1.displayCitation();
+    _game1.displayScore();
     _game1.exec();
-}
-
-void consolegui::on_button_list_4_clicked()
-{
-    _game2.exec();
-}
-
-void consolegui::on_button_list_3_clicked()
-{
-    _game3.exec();
+    _totalScore += _game1.getScore();
 }

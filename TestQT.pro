@@ -23,7 +23,6 @@ SOURCES += main.cpp \
     service/generalservice.cpp \
     gui/list/listgui.cpp \
     gui/consolegui.cpp \
-    gui/game/gamegui.cpp \
     gui/add/addsci.cpp \
     gui/add/addcomp.cpp \
     gui/add/addrel.cpp \
@@ -34,8 +33,7 @@ SOURCES += main.cpp \
     gui/remove/removerelation.cpp \
     gui/list/infosci.cpp \
     gui/list/infocomp.cpp \
-    gui/game/citationgame.cpp \
-    gui/game/relationgame.cpp
+    gui/game/citationgame.cpp
 
 
 HEADERS += \
@@ -49,7 +47,6 @@ HEADERS += \
     service/generalservice.h \
     gui/list/listgui.h \
     gui/consolegui.h \
-    gui/game/gamegui.h \
     gui/add/addcomp.h \
     gui/add/addsci.h \
     gui/add/addrel.h \
@@ -60,13 +57,11 @@ HEADERS += \
     gui/remove/removerelation.h \
     gui/list/infosci.h \
     gui/list/infocomp.h \
-    gui/game/citationgame.h \
-    gui/game/relationgame.h
+    gui/game/citationgame.h
 
 FORMS += \
     gui/list/listgui.ui \
     gui/consolegui.ui \
-    gui/game/gamegui.ui \
     gui/add/addsci.ui \
     gui/add/addcomp.ui \
     gui/add/addrel.ui \
@@ -77,8 +72,7 @@ FORMS += \
     gui/remove/removerelation.ui \
     gui/list/infosci.ui \
     gui/list/infocomp.ui \
-    gui/game/citationgame.ui \
-    gui/game/relationgame.ui
+    gui/game/citationgame.ui
 
 RESOURCES += \
     gui/list/resource.qrc

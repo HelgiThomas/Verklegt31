@@ -68,9 +68,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>30</y>
-      <width>81</width>
-      <height>21</height>
+      <y>20</y>
+      <width>321</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -79,46 +79,6 @@
     <property name="icon">
      <iconset resource="list/resource.qrc">
       <normaloff>:/icons/icons/game_icon.png</normaloff>:/icons/icons/game_icon.png</iconset>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="button_list_3">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>30</y>
-      <width>91</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Relation</string>
-    </property>
-    <property name="icon">
-     <iconset resource="list/resource.qrc">
-      <normaloff>:/icons/icons/quiz.png</normaloff>:/icons/icons/quiz.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>15</width>
-      <height>15</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="button_list_4">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>30</y>
-      <width>101</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gamble</string>
-    </property>
-    <property name="icon">
-     <iconset resource="list/resource.qrc">
-      <normaloff>:/icons/icons/dice.png</normaloff>:/icons/icons/dice.png</iconset>
     </property>
    </widget>
   </widget>
