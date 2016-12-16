@@ -40,6 +40,7 @@ private:
     ComputerService _serviceComp;
     string _type;
     string _wasBuilt;
+    string _description;
     int _buildYear;
 
     void resetComp();

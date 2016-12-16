@@ -25,7 +25,9 @@ void addcomp::on_button_addComp_clicked()
     string addCompType;
     string addWasBuilt;
     int addBuildYear;
-    string addDescription;
+    QString QaddDescription = ui->text_description->toPlainText();
+    ui->text_description->setText(QaddDescription);
+    string addDescription = QaddDescription.toStdString();
     if(ui->radio_yes->isChecked())
     {
         addBuildYear = _buildYear;
