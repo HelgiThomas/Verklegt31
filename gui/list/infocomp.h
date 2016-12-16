@@ -16,7 +16,6 @@ class infocomp : public QDialog
 public:
     explicit infocomp(QWidget *parent = 0);
     ~infocomp();
-    void setText();
 
 private:
     Ui::infocomp *ui;
