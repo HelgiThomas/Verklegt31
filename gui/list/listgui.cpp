@@ -236,56 +236,56 @@ void listgui::on_table_scientists_clicked(const QModelIndex &index)
 
 void listgui::on_button_add_scientist_clicked()
 {
-    _addsci.show();
+    _addsci.exec();
     displayAllScientists();
 }
 
 void listgui::on_button_add_computer_clicked()
 {
-    _addcomp.show();
+    _addcomp.exec();
     displayAllComputers();
 }
 
 void listgui::on_button_edit_scientist_clicked()
 {
-    _editSci.show();
+    _editSci.exec();
     displayAllScientists();
     //_editSci.setText();
 }
 
 void listgui::on_button_edit_computer_clicked()
 {
-    _editComp.show();
+    _editComp.exec();
     displayAllComputers();
     //_editSci.setText();
 }
 
 void listgui::on_button_remove_scientist_clicked()
 {
-    _removeSci.show();
+    _removeSci.exec();
     _removeSci.displayScientists();
     displayAllScientists();
 }
 
 void listgui::on_button_remove_computer_clicked()
 {
-    _removeComp.show();
+    _removeComp.exec();
     _removeComp.displayComputers();
     displayAllComputers();
 }
 
 void listgui::on_button_info_scientist_clicked()
 {
-    _infoSci.show();
+    _infoSci.exec();
 }
 
 void listgui::on_button_info_comp_clicked()
 {
-    _infoComp.show();
+    _infoComp.exec();
 }
 
 void listgui::on_button_add_relation_clicked()
 {
-    _addrel.show();
+    _addrel.exec();
     displayRelations();
 }
