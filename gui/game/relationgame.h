@@ -15,6 +15,11 @@ public:
     explicit RelationGame(QWidget *parent = 0);
     ~RelationGame();
 
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::RelationGame *ui;
 };

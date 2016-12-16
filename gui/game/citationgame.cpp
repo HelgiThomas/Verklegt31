@@ -12,3 +12,13 @@ CitationGame::~CitationGame()
 {
     delete ui;
 }
+
+void CitationGame::on_pushButton_clicked()
+{
+
+}
+
+void CitationGame::on_pushButton_2_clicked()
+{
+
+}

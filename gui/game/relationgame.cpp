@@ -12,3 +12,13 @@ RelationGame::~RelationGame()
 {
     delete ui;
 }
+
+void RelationGame::on_pushButton_clicked()
+{
+
+}
+
+void RelationGame::on_pushButton_2_clicked()
+{
+
+}

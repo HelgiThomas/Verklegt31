@@ -12,3 +12,13 @@ gamegui::~gamegui()
 {
     delete ui;
 }
+
+void gamegui::on_pushButton_clicked()
+{
+
+}
+
+void gamegui::on_pushButton_2_clicked()
+{
+
+}
