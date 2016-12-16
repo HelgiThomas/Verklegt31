@@ -187,8 +187,6 @@ void listgui::on_table_computers_clicked(const QModelIndex &index)
 
     ui->button_remove_computer->setEnabled(true);
     ui->button_edit_computer->setEnabled(true);
-
-    displayAllComputers();
 }
 
 void listgui::on_table_scientists_clicked(const QModelIndex &index)
@@ -230,33 +228,27 @@ void listgui::on_table_scientists_clicked(const QModelIndex &index)
 
     ui->button_remove_scientist->setEnabled(true);
     ui->button_edit_scientist->setEnabled(true);
-
-    displayAllScientists();
 }
 
 void listgui::on_button_add_scientist_clicked()
 {
     _addsci.exec();
-    displayAllScientists();
 }
 
 void listgui::on_button_add_computer_clicked()
 {
     _addcomp.exec();
-    displayAllComputers();
 }
 
 void listgui::on_button_edit_scientist_clicked()
 {
     _editSci.exec();
-    displayAllScientists();
     //_editSci.setText();
 }
 
 void listgui::on_button_edit_computer_clicked()
 {
     _editComp.exec();
-    displayAllComputers();
     //_editSci.setText();
 }
 
@@ -264,14 +256,12 @@ void listgui::on_button_remove_scientist_clicked()
 {
     _removeSci.exec();
     _removeSci.displayScientists();
-    displayAllScientists();
 }
 
 void listgui::on_button_remove_computer_clicked()
 {
     _removeComp.exec();
     _removeComp.displayComputers();
-    displayAllComputers();
 }
 
 void listgui::on_button_info_scientist_clicked()
@@ -287,5 +277,4 @@ void listgui::on_button_info_comp_clicked()
 void listgui::on_button_add_relation_clicked()
 {
     _addrel.exec();
-    displayRelations();
 }

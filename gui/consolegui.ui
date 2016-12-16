@@ -33,12 +33,16 @@
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>91</width>
+      <width>111</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>List</string>
+    </property>
+    <property name="icon">
+     <iconset resource="list/resource.qrc">
+      <normaloff>:/icons/icons/list_icon.png</normaloff>:/icons/icons/list_icon.png</iconset>
     </property>
    </widget>
   </widget>
@@ -95,6 +99,8 @@
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="list/resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
