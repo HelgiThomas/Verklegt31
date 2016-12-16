@@ -45,7 +45,7 @@ void addsci::on_button_addSci_clicked()
     QString QaddCitation = ui->line_sciCitation->toPlainText();
     ui->line_sciCitation->setText(QaddCitation);
     string addCitation = QaddCitation.toStdString();
-    if(birthNum > deathNum)
+    if(birthNum > deathNum && deathNum != 0)
     {
         //TODO: error message:
         QMessageBox::about(this, "Error!", "A person can not die before their birth!");
@@ -118,4 +118,15 @@ void addsci::on_button_browse_clicked()
 {
     QString filePath = QFileDialog::getOpenFileName(this,"Search for image", "", "Image files (*.png *jpg");
     ui -> input_addsci -> setText (filePath);
+}
+
+void addsci::on_rbutton_dead_clicked()
+{
+    ui->combobox_deathYear->setEnabled(true);
+}
+
+void addsci::on_rbutton_alive_clicked()
+{
+    ui->combobox_deathYear->setEnabled(false);
+    _sciDeath = 0;
 }
