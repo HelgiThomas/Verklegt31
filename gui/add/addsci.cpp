@@ -66,6 +66,7 @@ void addsci::on_button_addSci_clicked()
         this->hide();
     }
 
+    resetAdd();
 }
 
 string addsci::chooseSex()
@@ -129,4 +130,25 @@ void addsci::on_rbutton_alive_clicked()
 {
     ui->combobox_deathYear->setEnabled(false);
     _sciDeath = 0;
+}
+
+void addsci::resetAdd()
+{
+    ui->line_sciName->setText("");
+    ui->combobox_birthYears->setCurrentIndex(2016);
+    ui->combobox_deathYear->setCurrentIndex(2016);
+    ui->radio_female->setAutoExclusive(false);
+    ui->radio_female->setChecked(false);
+    ui->radio_female->setAutoExclusive(true);
+    ui->radio_male->setAutoExclusive(false);
+    ui->radio_male->setChecked(false);
+    ui->radio_male->setAutoExclusive(true);
+    ui->rbutton_alive->setAutoExclusive(false);
+    ui->rbutton_alive->setChecked(false);
+    ui->rbutton_alive->setAutoExclusive(true);
+    ui->rbutton_dead->setAutoExclusive(false);
+    ui->rbutton_dead->setChecked(false);
+    ui->rbutton_dead->setAutoExclusive(true);
+    ui->line_sciCitation->setText("");
+    ui->input_addsci->setText("");
 }

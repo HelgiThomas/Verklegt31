@@ -39,8 +39,6 @@ void consolegui::on_button_list_clicked()
     _list.exec();
 }
 
-
-
 void consolegui::on_button_addRel_clicked()
 {
     _addrel.exec();

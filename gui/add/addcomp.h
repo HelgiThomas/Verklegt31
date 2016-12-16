@@ -41,6 +41,8 @@ private:
     string _type;
     string _wasBuilt;
     int _buildYear;
+
+    void resetComp();
 };
 
 #endif // ADDCOMP_H
