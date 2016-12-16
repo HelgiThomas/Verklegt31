@@ -38,7 +38,9 @@ SOURCES += main.cpp \
     gui/edit/editsci.cpp \
     gui/remove/removerelation.cpp \
     gui/list/infosci.cpp \
-    gui/list/infocomp.cpp
+    gui/list/infocomp.cpp \
+    gui/game/citationgame.cpp \
+    gui/game/relationgame.cpp
 
 
 HEADERS += \
@@ -67,7 +69,9 @@ HEADERS += \
     gui/edit/editsci.h \
     gui/remove/removerelation.h \
     gui/list/infosci.h \
-    gui/list/infocomp.h
+    gui/list/infocomp.h \
+    gui/game/citationgame.h \
+    gui/game/relationgame.h
 
 FORMS += \
     gui/mainwindow.ui \
@@ -87,7 +91,9 @@ FORMS += \
     gui/edit/editsci.ui \
     gui/remove/removerelation.ui \
     gui/list/infosci.ui \
-    gui/list/infocomp.ui
+    gui/list/infocomp.ui \
+    gui/game/citationgame.ui \
+    gui/game/relationgame.ui
 
 RESOURCES += \
     gui/list/resource.qrc
