@@ -176,7 +176,7 @@
    <property name="title">
     <string>Edit:</string>
    </property>
-   <widget class="QCheckBox" name="radioButton_name">
+   <widget class="QCheckBox" name="checkBox_name">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -189,7 +189,7 @@
      <string>Name</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="radioButton_sex">
+   <widget class="QCheckBox" name="checkBox_sex">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -202,7 +202,7 @@
      <string>Sex</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="radioButton_birth">
+   <widget class="QCheckBox" name="checkBox_birth">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -215,7 +215,7 @@
      <string>Birth</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="radioButton_death">
+   <widget class="QCheckBox" name="checkBox_death">
     <property name="geometry">
      <rect>
       <x>180</x>

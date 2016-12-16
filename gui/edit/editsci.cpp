@@ -69,25 +69,56 @@ void editscigui::setText()
 }
 
 
-void editscigui::on_radioButton_name_clicked()
+void editscigui::on_checkBox_name_clicked()
 {
-    ui->eName->setEnabled(true);
+    if(ui->checkBox_name->isChecked())
+    {
+        ui->eName->setEnabled(true);
+    }
+    else
+    {
+        ui->eName->setEnabled(false);
+    }
+
 }
 
-void editscigui::on_radioButton_sex_clicked()
+void editscigui::on_checkBox_sex_clicked()
 {
-    ui->radioButton->setEnabled(true);
-    ui->radioButton_2->setEnabled(true);
+    if(ui->checkBox_sex->isChecked())
+    {
+        ui->radioButton->setEnabled(true);
+        ui->radioButton_2->setEnabled(true);
+    }
+    else
+    {
+        ui->radioButton->setEnabled(false);
+        ui->radioButton_2->setEnabled(false);
+    }
 }
 
-void editscigui::on_radioButton_birth_clicked()
+void editscigui::on_checkBox_birth_clicked()
 {
-    ui->eName_2->setEnabled(true);
+    if(ui->checkBox_birth->isChecked())
+    {
+        ui->eName_2->setEnabled(true);
+    }
+    else
+    {
+         ui->eName_2->setEnabled(false);
+    }
 }
 
-void editscigui::on_radioButton_death_clicked()
+void editscigui::on_checkBox_death_clicked()
 {
-    ui->eName_3->setEnabled(true);
+    if(ui->checkBox_death->isChecked())
+    {
+        ui->eName_3->setEnabled(true);
+    }
+    else
+    {
+        ui->eName_3->setEnabled(false);
+    }
+
 }
 
 
@@ -111,16 +142,36 @@ void editscigui::on_pushButton_editSci_clicked()
     string oldName = _name;
 
     vector<Scientist> Scientist = _sciService.getScientists();
+    if(ui->checkBox_name->isChecked())
+    {
+       string newName = ui->eName->text().toStdString();
+       _sciService.editScientistString(oldName, "name", newName);
+    }
 
-    string newName = ui->eName->text().toStdString();
-    string newSex = chooseSex();
-    int newBirth = ui->eName_2->text().toInt();
-    int newDeath = ui->eName_3->text().toInt();
+    if(ui->checkBox_sex->isChecked())
+    {
+       string newSex = chooseSex();
+        _sciService.editScientistString(oldName, "sex", newSex);
+    }
 
-    _sciService.editScientistString(oldName, "name", newName);
-    _sciService.editScientistString(oldName, "sex", newSex);
-    _sciService.editScientistInt(oldName, "birth", newBirth);
-    _sciService.editScientistInt(oldName,"death",newDeath);
+    if(ui->checkBox_birth->isChecked())
+    {
+       int newBirth = ui->eName_2->text().toInt();
+        _sciService.editScientistInt(oldName, "birth", newBirth);
+    }
+
+    if(ui->checkBox_death->isChecked())
+    {
+       int newDeath = ui->eName_3->text().toInt();
+        _sciService.editScientistInt(oldName,"death",newDeath);
+
+    }
+
+
+
+
+
+
 
     this->hide();
 }

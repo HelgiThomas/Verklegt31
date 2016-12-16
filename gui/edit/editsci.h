@@ -30,13 +30,13 @@ public:
     string chooseSex();
 
 private slots:
-    void on_radioButton_name_clicked();
+    void on_checkBox_name_clicked();
 
-    void on_radioButton_sex_clicked();
+    void on_checkBox_sex_clicked();
 
-    void on_radioButton_birth_clicked();
+    void on_checkBox_birth_clicked();
 
-    void on_radioButton_death_clicked();
+    void on_checkBox_death_clicked();
 
     void on_pushButton_editSci_clicked();
 
