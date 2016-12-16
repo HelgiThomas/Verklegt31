@@ -16,9 +16,9 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>170</x>
      <y>10</y>
-     <width>121</width>
+     <width>221</width>
      <height>31</height>
     </rect>
    </property>
@@ -39,11 +39,17 @@
      <x>20</x>
      <y>50</y>
      <width>121</width>
-     <height>151</height>
+     <height>121</height>
     </rect>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resource.qrc">:/icons/icons/programmer.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget">
@@ -114,6 +120,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

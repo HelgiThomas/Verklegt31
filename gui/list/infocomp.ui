@@ -18,7 +18,7 @@
     <rect>
      <x>160</x>
      <y>10</y>
-     <width>121</width>
+     <width>201</width>
      <height>31</height>
     </rect>
    </property>
@@ -39,11 +39,17 @@
      <x>30</x>
      <y>60</y>
      <width>121</width>
-     <height>131</height>
+     <height>121</height>
     </rect>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resource.qrc">:/icons/icons/computer.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget">
@@ -114,6 +120,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

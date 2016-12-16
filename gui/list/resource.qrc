@@ -12,5 +12,7 @@
         <file>icons/game_icon.png</file>
         <file>icons/quit.jpg</file>
         <file>icons/quiz.png</file>
+        <file>icons/computer.jpg</file>
+        <file>icons/programmer.jpg</file>
     </qresource>
 </RCC>
