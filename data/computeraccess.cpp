@@ -355,7 +355,6 @@ bool ComputerAccess::checkEntry(Computer computer)
 
         if (Name == qName && Type == qType && Built == qBuilt)
         {
-            cout << "This person already exist! ";
             return false;
         }
     }

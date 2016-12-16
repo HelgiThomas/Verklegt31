@@ -113,9 +113,7 @@ void ScientistAccess::removelist(int nameOf)
     int number = 0;
 
     connect();
-    cout << "penis";
     updateRelation(nameOf);
-    cout << "cervix";
     QSqlQuery query;
 
     QString qStatus = QString::number(number);
@@ -476,7 +474,6 @@ bool ScientistAccess::checkEntry(Scientist scientist)
 
         if (Name == qName && Sex == qSex && Birth == qBirth && Death == qDeath)
         {
-            cout << "This person already exist! ";
             return false;
         }
     }
