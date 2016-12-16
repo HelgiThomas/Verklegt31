@@ -8,5 +8,9 @@
         <file>icons/scientist_icon.png</file>
         <file>icons/info_icon.png</file>
         <file>icons/list_icon.png</file>
+        <file>icons/dice.png</file>
+        <file>icons/game_icon.png</file>
+        <file>icons/quit.jpg</file>
+        <file>icons/quiz.png</file>
     </qresource>
 </RCC>
